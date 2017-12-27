@@ -19,7 +19,7 @@ public class AppConfigDao {
 	private AppConfigRepository appRepo;
 
 	public List<AppConfig> getAll() {
-
+//Get All
 		return appRepo.findAll();
 
 	}
