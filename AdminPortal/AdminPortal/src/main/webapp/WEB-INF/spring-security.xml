@@ -1,0 +1,29 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+           
+    <http use-expressions="true" auto-config='true'>
+      <!-- <intercept-url pattern="/TradeIn/*" access="TRADEIN" />
+            <intercept-url pattern="/AdminPortal/Warehouse/*" access="WAREHOUSE" />
+         -->          <intercept-url requires-channel="any" access="hasRole('TR')" pattern="/TradeIn/**"/>
+            
+      <intercept-url requires-channel="any" access="hasRole('WR')" pattern="/Warehouse/**"/>
+            <intercept-url requires-channel="any" access="hasRole('CR')" pattern="/Care/**"/>
+      
+       <form-login login-page='/login.html'
+            authentication-failure-url="/login.html"
+            authentication-success-handler-ref="myAuthenticationSuccessHandler"/>
+<logout invalidate-session="true" logout-success-url="/login.html" logout-url="/logout"/> 
+    </http>
+       
+    <authentication-manager>
+      <authentication-provider ref="customAuthenticationProvider"/>
+    </authentication-manager>   
+            <beans:bean id="myAuthenticationSuccessHandler"
+        class="com.pervacio.adminportal.authentication.provider.UrlAuthenticationSuccessHandler" />
+ 
+</beans:beans>
