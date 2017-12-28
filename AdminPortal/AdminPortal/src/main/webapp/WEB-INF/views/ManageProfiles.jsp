@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 
 <head>
@@ -148,6 +148,7 @@
 
 <div data-ng-repeat="choice in choices" style="position: relative;">
 
+
 									<!-- <div style="border: 2px ridge rgb(63, 138, 176);">
 									<span1 id="span1" style="color:red ;display:none">
 									<b>Please insert mno and prefix</b></span1> -->
@@ -213,58 +214,112 @@
 					</form>
 							</div>
 				<div class="input-group input-group-lg">
-					<form>
+     <form>
 
 
-						<div class="modal fade" id="myModal" role="dialog">
-							<div class="modal-dialog">
+      <div class="modal fade" id="myModal" role="dialog">
+       <div class="modal-dialog">
 
-								<!-- Modal content-->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Device</h4>
-									</div>
-									<div class="modal-body">
-												Profile Code: <input class="form-control" type="text"
-											ng-model="devEdit.wsProfileId.profileCd" name="make" ng-pattern="/^[A-z]+$/"
-											required> <span style="color: Red"
-											ng-show="addform.make.$touched && addform.make.$invalid">
-											This field is required.</span> <span style="color: Red"
-											ng-show="addform.firstname.$dirty&&addform.firstname.$error.pattern">make
-											cannot have alphanumeric characters</span> <br> <br>
-										Company Name: <input class="form-control" type="text" name="model"
-											ng-model="devEdit.wsProfileId.companyName" required="required"> <span
-											style="color: Red"
-											ng-show="addform.model.$touched && addform.model.$invalid">
-											This field is required.</span> <br> <br> ProfileDesc: <input
-											class="form-control" type="text" name="color"
-											ng-model="devEdit.profileDesc" required="required"> <span
-											style="color: Red"
-											ng-show="addform.color.$touched && addform.color.$invalid">
-											This field is required.</span> <br> <br>
+        <!-- Modal content-->
+        <div class="modal-content">
+         <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Device</h4>
+         </div>
+         <div class="modal-body">
+            Profile Code: <input class="form-control" type="text"
+           ng-model="devEdit.wsProfileId.profileCd" name="make" ng-pattern="/^[A-z]+$/"
+           required> <span style="color: Red"
+           ng-show="addform.make.$touched && addform.make.$invalid">
+           This field is required.</span> <span style="color: Red"
+           ng-show="addform.firstname.$dirty&&addform.firstname.$error.pattern">make
+           cannot have alphanumeric characters</span> <br> <br>
+          Company Name: <input class="form-control" type="text" name="model"
+           ng-model="devEdit.wsProfileId.companyName" required="required"> <span
+           style="color: Red"
+           ng-show="addform.model.$touched && addform.model.$invalid">
+           This field is required.</span> <br> <br> ProfileDesc: <input
+           class="form-control" type="text" name="color"
+           ng-model="devEdit.profileDesc" required="required"> <span
+           style="color: Red"
+           ng-show="addform.color.$touched && addform.color.$invalid">
+           This field is required.</span> <br> <br>
+
+<div data-ng-repeat="p in devEdit.profileFeatures">
 
 
-<div data-ng-repeat="choice in choices" style="position: relative;">
+         <!-- <div style="border: 2px ridge rgb(63, 138, 176);">
+         <span1 id="span1" style="color:red ;display:none">
+         <b>Please insert mno and prefix</b></span1> -->
 
-									<!-- <div style="border: 2px ridge rgb(63, 138, 176);">
-									<span1 id="span1" style="color:red ;display:none">
-									<b>Please insert mno and prefix</b></span1> -->
+        <table>
+         <tr>
+         <!-- <td>
+          Feature Code:  <input   class="form-control" type="hidden"
+           ng-model="choice.wsProfiles" value="{{dev}}" name="choicevalue" > <br> <br>
+          </td> -->
+          <td>
+          feature code <input class="form-control" type="text" name="color" ng-model="p.feature.featureCd" ng-disabled="buttonCode" required ng-init="buttonCode=true"
+          >
+          <span
+           style="color: Red"
+           ng-show="addform.color.$touched && addform.color.$invalid">
+           This field is required.</span> <br> <br>
+          </td>
+          <!-- <td>
+          Feature Code: <select
+           class="form-control" ng-model="p.feature.featureCd"
+           ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,$index)" id="{{choice.id}}" ></select><br> <br>
+          </td> -->
+          <!-- <td>
+          Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
+           ng-model="choice.featureValue" name="choicevalue" ng-disabled="button" required ng-init="button=true" required>  id="ent1.id"
+          </td> -->
+          <td>
+          Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
+           ng-model="p.featureValue" name="choicevalue" ng-disabled="button" required ng-init="button=true" required>
+          </td>
+          <td>
+          <select id="selct{{choice.id}}" class="form-control"
+          ng-model="choice.featureValue" name="selct"
+          ng-options="x for x in arrChoice{{choice.id}}" style="display:none"></select>
+          </td>
+          <td><button ng-click="button=false" class="btn btn-default">Edit</button>
+          </td>
 
-								<table>
-									<tr>
-									<!-- <td>
-										Feature Code:  <input   class="form-control" type="hidden"
-											ng-model="choice.wsProfiles" value="{{dev}}" name="choicevalue" > <br> <br>
-										</td> -->
-										<td>
+          <td>
+           <button ng-click="addNewChoiceForEdit()"
+           class="btn btn-info">
+           <!-- style="position:relative;left:30%"> -->
+           <span class="glyphicon glyphicon-plus-sign"
+           style="vertical-align: middle"></span>
+         <!--   Add More -->
+           </button>
+          </td>
+          <!-- delete button -->
+          <th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
+            class="btn btn-default" >
+             <span class="glyphicon glyphicon-minus-sign"
+           style="vertical-align: middle"></span>
+            </button>
+          </th>
+
+         </tr>
+        </table>
+        </div>
+
+                 <div data-ng-repeat="choice in choicesEdit" style="position: relative;">
+
+               <table>
+               <tr>
+			<td>
 										Feature Code: <select
 											class="form-control" ng-model="choice.feature"
 											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,$index)" id="{{choice.id}}" ></select><br> <br>
 										</td>
 										<td>
 										Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
-											ng-model="choice.featureValue" name="choicevalue" required>  <!-- id="ent1.id" -->
+											ng-model="choice.featureValue" name="choicevalue" required>
 										</td>
 										<td>
 										<select id="selct{{choice.id}}" class="form-control"
@@ -272,47 +327,36 @@
 										ng-options="x for x in arrChoice{{choice.id}}" style="display:none"></select>
 										</td>
 										<td>
-											<button ng-click="addNewChoice()"
-											class="btn btn-info">
-											<!-- style="position:relative;left:30%"> -->
-											<span class="glyphicon glyphicon-plus-sign"
-											style="vertical-align: middle"></span>
-									<!-- 		Add More -->
-											</button>
+											<button ng-click="addNewChoiceForEdit()"
+											class="btn btn-info">+</button>
 										</td>
-										<!-- delete button -->
-										<th><button type="button" ng-click="deleteNewChoice()" style=""
+
+										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
 												class="btn btn-default" >-</button>
 										</th>
+</tr></table></div></div>       <!--
+<div ng-repeat="p in devEdit.profileFeatures">
+	<h1>{{p.feature.featureCd}}</h1>
 
-									</tr>
-								</table>
-								</div>
+</div> -->
 
-									</div>
-									<div class="modal-footer">
-										<button class="btn btn-default" data-dismiss="modal"
-											ng-click="update()">update</button>
+         </div>
+         <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal"
+           ng-click="update()">update</button>
 
-										<button type="button" class="btn btn-default"
-											data-dismiss="modal">Close</button>
-									</div>
-								</div>
+          <button type="button" class="btn btn-default"
+           data-dismiss="modal">Close</button>
+         </div>
+        </div>
 
-							</div>
-						</div>
-					</form>
+       </div>
+      </div>
+     </form>
 
-				</div>
-				`
+    </div>
 			</div>
 		</div>
-
-
-
-
-
-
 	<footer class="container-fluid">
 		<p>Footer Text</p>
 	</footer>
