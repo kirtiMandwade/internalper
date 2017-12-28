@@ -5,6 +5,7 @@ app.controller('empCtrl', [
 		'$http',
 		function($scope, $http) {
 			$scope.choices = [];
+			$scope.choicesEdit = [];
 $scope.choiceid;
 			$scope.editForm = false;
 			$scope.delDev={};
@@ -43,7 +44,33 @@ $scope.choiceid;
 
 			};
 
+/*new*/
+			$scope.addNewChoiceForEdit = function() {
+				$('#myModal').hide();
+				//alert("hello");
+				var newItemNo = $scope.choicesEdit.length + 1;
 
+				$scope.choicesEdit.push({
+
+						'id': 'choice' + newItemNo,
+					//'id' : 'choice' + newItemNo
+
+				});
+
+				$('#myModal').show();
+			};
+
+
+
+			$scope.deleteNewChoiceForEdit = function() {
+				$scope.choicesEdit.splice($scope.choicesEdit.length-1);
+				$('#myModal').show();
+
+
+			};
+
+
+/*end*/
 
 
 			$scope.getValue = function(calltype,entity,choiceid) {
@@ -146,14 +173,14 @@ $scope.choiceid;
 				$scope.devEdit = device;
 
 
-				angular.forEach($scope.arrFeatures, function(item, index) {
+				/*angular.forEach($scope.arrFeatures, function(item, index) {
 					if(item.featureCd==entity.feature.featureCd)
 					{
 						valueType=item.valueType;
 						featureDesc=item.choiceValues;
 	}
 					});
-
+*/
 			};
 			$scope.delWSProfile = function(device) {
 				console.log(device);
