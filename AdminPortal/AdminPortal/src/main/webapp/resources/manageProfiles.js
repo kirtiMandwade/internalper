@@ -46,7 +46,6 @@ $scope.choiceid;
 
 /*new*/
 			$scope.addNewChoiceForEdit = function() {
-				$('#myModal').hide();
 				//alert("hello");
 				var newItemNo = $scope.choicesEdit.length + 1;
 

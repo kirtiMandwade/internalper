@@ -286,7 +286,7 @@
           </td>
           <td><button ng-click="button=false" class="btn btn-default">Edit</button>
           </td>
- 
+
           <td>
            <button ng-click="addNewChoiceForEdit()"
            class="btn btn-info">
@@ -307,10 +307,11 @@
          </tr>
         </table>
         </div>
-               
+
+                 <div data-ng-repeat="choice in choicesEdit" style="position: relative;">
+
                <table>
                <tr>
-                 <div data-ng-repeat="choice in choicesEdit" style="position: relative;">
 			<td>
 										Feature Code: <select
 											class="form-control" ng-model="choice.feature"
@@ -318,7 +319,7 @@
 										</td>
 										<td>
 										Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
-											ng-model="choice.featureValue" name="choicevalue" required> 
+											ng-model="choice.featureValue" name="choicevalue" required>
 										</td>
 										<td>
 										<select id="selct{{choice.id}}" class="form-control"
@@ -329,19 +330,14 @@
 											<button ng-click="addNewChoiceForEdit()"
 											class="btn btn-info">+</button>
 										</td>
-									
+
 										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
 												class="btn btn-default" >-</button>
 										</th>
-			        
-        </div>
-                
-                </tr>
-                </table>
-<!-- 
+</tr></table></div></div>       <!--
 <div ng-repeat="p in devEdit.profileFeatures">
 	<h1>{{p.feature.featureCd}}</h1>
-	
+
 </div> -->
 
          </div>
@@ -358,7 +354,7 @@
       </div>
      </form>
 
-    </div>				
+    </div>
 			</div>
 		</div>
 	<footer class="container-fluid">
