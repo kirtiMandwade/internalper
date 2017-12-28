@@ -45,7 +45,7 @@ public class EModelBean implements Serializable {
 	private int availability;
 	private int batteryStatus;
 	private int cableStatus;
-	private Blob deviceImage;
+	private String deviceImage;
 	private int cost;
 	private String weburlLink;
 	private String modelName;
@@ -238,11 +238,11 @@ public class EModelBean implements Serializable {
 		this.cableStatus = cableStatus;
 	}
 
-	public Blob getDeviceImage() {
+	public String getDeviceImage() {
 		return deviceImage;
 	}
 
-	public void setDeviceImage(Blob deviceImage) {
+	public void setDeviceImage(String deviceImage) {
 		this.deviceImage = deviceImage;
 	}
 

@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.care.entities;
 
+
 import java.io.Serializable;
 import java.sql.Blob;
 import java.util.ArrayList;
@@ -12,10 +13,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.Table;import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.pervacio.adminportal.tradein.entities.DevicePrice;
+
 
 @Entity
 @Table(name = "emodel")

@@ -1,6 +1,12 @@
 package com.pervacio.adminportal.controller;
 
+import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.List;
+
+import javax.sql.rowset.serial.SerialBlob;
+import javax.sql.rowset.serial.SerialException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeanUtils;
@@ -465,9 +471,33 @@ public class CareController {
 	}
 
 	@RequestMapping(value = "/model/save", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody ResponseMessage saveeModel(@RequestBody EModelBean EModel) {
+	public @ResponseBody ResponseMessage saveeModel(@RequestBody EModelBean emodel)	//,@RequestParam("deviceImage") MultipartFile deviceImage
+	{
+//		byte[] decodedByte = Base64.decode("");
+		 byte[] buf = new byte[] { 0x12, 0x23 };
+		 Blob b = null;
+		    try {
+				buf = new sun.misc.BASE64Decoder().decodeBuffer(emodel.getDeviceImage());
+//				emodel.setDeviceImage(deviceImage);
+			
+
+		    b = new SerialBlob(buf);
+		    } catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SerialException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		EModel entity = new EModel();
-		BeanUtils.copyProperties(EModel, entity);
+		BeanUtils.copyProperties(emodel, entity);
+		entity.setDeviceImage(b);		
+		
+		
+		
 		ResponseMessage message;
 		try {
 			eModelManager.add(entity);

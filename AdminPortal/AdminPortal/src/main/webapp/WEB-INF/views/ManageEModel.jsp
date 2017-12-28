@@ -21,7 +21,7 @@
 <link href="/adminportal/resources/css/angular-datepicker.css"
 	rel="stylesheet" type="text/css" />
 <script src="/adminportal/resources/js/angular-datepicker.js"></script>
-
+<script src="/adminportal/resources/js/angular-base64-upload.js"></script>
 </head>
 
 <body ng-app="AdminPortal" ng-controller="empCtrl">
@@ -170,7 +170,7 @@
 
 						</div>
 					</div>
-					<form name="addform" ><!-- enctype="multipart/form-data" -->
+					<form name="addform" enctype="multipart/form-data" ><!-- enctype="multipart/form-data" -->
 						<div class="modal fade" id="addModal" role="dialog">
 							<div class="modal-dialog">
 
@@ -257,7 +257,7 @@ releaseDate<datepicker style="width: 228px;">
 	</datepicker>
 	<br> <br>
 
-isAutoCreated<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked=true">
+isAutoCreated<input	type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked="true">
 <br> <br>
 
 createdAt<datepicker style="width: 228px;">
@@ -272,7 +272,7 @@ updatedAt<datepicker style="width: 228px;">
 	</datepicker>
 	<br> <br>
 
-isValid<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isValid" ng-model="ent.isValid"  ng-checked=true">
+isValid<input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isValid" ng-model="ent.isValid"  ng-checked="true">
 <br> <br>
 
 initialFirmwareId<input	class="form-control" type="number" name="initialFirmwareId"
@@ -299,11 +299,18 @@ ng-model="ent.cableStatus" required="required">
 This field is required.</span>
 <br> <br>
 
-<!-- deviceImage<input	class="form-control" type="file" name="deviceImage"
-ng-model="ent.deviceImage">
+
+
+
+deviceImage<input class="form-control" type="file" accept="image/*" name="deviceImage" 
+ng-model="ent.deviceImage" base-sixty-four-input	onchange="openFile(event)">
+<br>
+<img id="output">
 
 <br> <br>
- -->
+
+ 
+ 
 
 cost<input	class="form-control" type="number" name="cost"
 ng-model="ent.cost" required="required">
@@ -476,7 +483,7 @@ releaseDate<datepicker style="width: 228px;">
 	</datepicker>
 	<br> <br>
 
-isAutoCreated<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isAutoCreated" ng-model="entEdit.isAutoCreated"  ng-checked=true">
+isAutoCreated<input	type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isAutoCreated" ng-model="entEdit.isAutoCreated"  ng-checked="true">
 <br> <br>
 
 createdAt<datepicker style="width: 228px;">
@@ -491,7 +498,7 @@ updatedAt<datepicker style="width: 228px;">
 	</datepicker>
 	<br> <br>
 
-isValid<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isValid" ng-model="entEdit.isValid"  ng-checked=true">
+isValid<input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isValid" ng-model="entEdit.isValid"  ng-checked="true">
 <br> <br>
 
 initialFirmwareId<input	class="form-control" type="number" name="initialFirmwareId"

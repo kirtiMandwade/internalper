@@ -53,6 +53,15 @@
 			</props>
 		</property>
 	</bean>
+	
+	
+	<!-- to upload files -->
+	
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+	
+	
 
 	<!-- Simple implementation of the standard JDBC DataSource interface, configuring
 		the plain old JDBC DriverManager via bean properties -->
