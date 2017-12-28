@@ -67,6 +67,7 @@ public class CareController {
 	private EDeviceTradeInBasePriceManager eDeviceTradeInBasePriceManager;
 	@RequestMapping(value = "/appConfig/getall", method = RequestMethod.GET)
 	public @ResponseBody List<AppConfig> getAllAppConfigs() {
+		//fetching app config details
 		List<AppConfig> arrAppConfigs = null;
 		try {
 			arrAppConfigs = appConfigManager.getAll();
