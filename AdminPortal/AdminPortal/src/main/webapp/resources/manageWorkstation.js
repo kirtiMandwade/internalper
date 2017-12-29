@@ -8,6 +8,7 @@ app.controller('empCtrl', [
 			$scope.choices = [];
 			$scope.arrDevices=[];
 			$scope.arrChoice;
+			$scope.choicesEdit = [];
 
 			$scope.entEdit={};
 			$scope.entEdit1={};
@@ -54,6 +55,32 @@ app.controller('empCtrl', [
 
 			};
 
+			/*new*/
+			$scope.addNewChoiceForEdit = function() {
+				//alert("hello");
+				var newItemNo = $scope.choicesEdit.length + 1;
+
+				$scope.choicesEdit.push({
+
+						'id': 'choice' + newItemNo,
+					//'id' : 'choice' + newItemNo
+
+				});
+
+				$('#editmodal').show();
+			};
+
+
+
+			$scope.deleteNewChoiceForEdit = function() {
+				$scope.choicesEdit.splice($scope.choicesEdit.length-1);
+				$('#editmodal').show();
+
+
+			};
+
+
+/*end*/
 
 
 
@@ -156,6 +183,19 @@ app.controller('empCtrl', [
 				$scope.delent1=entity1;
 
 			};
+			
+			$scope.splitChoices = function(device) {
+				$scope.splitVariable = device;
+				/*$scope.entity.featureValue=device;*/
+				
+			 /*$scope["arrChoicechoice"]=$scope.entity.featureValue.split(",");*/
+			return $scope["arrChoicechoice"]=$scope.splitVariable.split(",");
+			/*alert($scope.arrChoicechoice);*/
+			/*console.log(entity.featureValue.split(","));
+				alert(arrChoicechoice);
+*/
+			};
+
 
 
 			$scope.edit = function(entity) {
@@ -163,7 +203,9 @@ app.controller('empCtrl', [
 				$scope.editForm = true;
 				$scope.entEdit = entity;
 
-				$scope.entEdit1=entity1;
+/*				$scope.entEdit1=entity1;*/
+				
+				$scope.addNewChoiceForEdit();
 			};
 
 
@@ -237,6 +279,8 @@ app.controller('empCtrl', [
 			};
 
 			$scope.update = function() {
+				
+				 $scope.ent.workStationFeatures=$scope.choicesEdit;
 				$http.post("/adminportal/warehouse/workstation/update",
 						$scope.entEdit).then(function(response) {
 					console.log(response);

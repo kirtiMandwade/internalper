@@ -242,6 +242,9 @@
 						</div>
 					</form>
 				</div>
+				
+				
+				
 				<div class="input-group input-group-lg">
 					<form name="editform">
 						<div class="modal fade" id="editmodal" role="dialog">
@@ -286,16 +289,103 @@ Workstation Id: <input class="form-control" type="text"
 
 
 
-						Feature Code: <select class="form-control" ng-model="entEdit1.feature"
-											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('edit')"></select><br> <br>
+<div data-ng-repeat="w in entEdit.workStationFeatures" ng-init='arrlist=splitChoices(w.feature.choiceValues)'">
+<table>
 
-						Feature Value: <input id="choicevalues" class="form-control" type="text" name="choicevalues"
+	<tr>
+				<!-- <td>		Feature Code: <select class="form-control" ng-model="entEdit1.feature"
+											ng-options="x.featureCd for x in arrFeatures"></select></td>
+ -->
+ <td>
+          feature code <input class="form-control" type="text" name="color" ng-model="w.feature.featureCd" ng-disabled="buttonCode" required ng-init="buttonCode=true">
+          <span
+           style="color: Red"
+           ng-show="addform.color.$touched && addform.color.$invalid">
+           This field is required.</span> <br> <br>
+          </td>
+				<!-- <td>		Feature Value: <input id="choicevalues" class="form-control" type="text" name="choicevalues"
 											ng-model="entEdit1.featureValue" required>
 
 									 <select id="selctedit" class="form-control" name="selctedit"
 											ng-model="entEdit1.featureValue"
-											ng-options="x for x in arrChoice" style="display:none"></select><br>
+											ng-options="x for x in arrChoice" style="display:none"></select>
+				</td>
+ -->
+ 
+ <td>      
+          <div ng-switch="w.feature.valueType">
+  <div ng-switch-when="BOOLEAN">
+     
+    Feature Value: <input type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name="charger" ng-model="w.featureValue" ng-disabled="button" required ng-init="button=true">
+  </div>
+  <div ng-switch-when="DATE">
+     Feature Value:
+										<datepicker style="width: 228px;"> <input class="form-control"
+											ng-model="w.featureValue" format="DD-MM-YYYY"
+											type="text" ng-disabled="button" required ng-init="button=true"/> </datepicker>
+										
 
+  </div>
+  <div ng-switch-when="CHOICE">
+ 
+     <select class="form-control"
+										ng-model="w.featureValue" name="selct"
+										ng-options="x for x in arrlist" ng-disabled="button" required ng-init="button=true"></select>
+										
+  </div>
+  <div ng-switch-default>
+     		Feature Value: <input class="form-control" type="text"
+           ng-model="w.featureValue" ng-disabled="button" required ng-init="button=true" required>
+  </div>
+</div>
+     </td>     
+      <td><button ng-click="button=false" class="btn btn-default">Edit</button>    
+ 
+ 
+ 
+ 				<td>
+											<button ng-click="addNewChoiceForEdit()"
+											class="btn btn-info">+</button>
+										</td>
+
+										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
+												class="btn btn-default" >-</button>
+										</th>
+				
+	</tr>
+	
+</table>
+</div>
+
+
+<div data-ng-repeat="choice in choicesEdit" style="position: relative;">
+<table>
+
+	<tr>
+				<td>		Feature Code: <select class="form-control" ng-model="entEdit1.feature"
+											ng-options="x.featureCd for x in arrFeatures"></select></td>
+
+				<td>		Feature Value: <input id="choicevalues" class="form-control" type="text" name="choicevalues"
+											ng-model="entEdit1.featureValue" required>
+
+									 <select id="selctedit" class="form-control" name="selctedit"
+											ng-model="entEdit1.featureValue"
+											ng-options="x for x in arrChoice" style="display:none"></select>
+				</td>
+				<td>
+											<button ng-click="addNewChoiceForEdit()"
+											class="btn btn-info">+</button>
+										</td>
+
+										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
+												class="btn btn-default" >-</button>
+										</th>
+				
+	</tr>
+	
+</table>
+</div>
+<!-- End -->
 									<br> <br>
 
 

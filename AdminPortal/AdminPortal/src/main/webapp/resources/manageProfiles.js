@@ -1,5 +1,4 @@
-var app = angular.module('AdminPortal', []);
-
+var app = angular.module('AdminPortal', ['720kb.datepicker']);
 app.controller('empCtrl', [
 		'$scope',
 		'$http',
@@ -13,6 +12,8 @@ $scope.choiceid;
 			$scope.dev={}
 			$scope.entity={};
 			$scope.calltype;
+			$scope.splitVariable;
+			$scope.arrChoicechoice=[];
 			$scope.myVar = false;
 			$scope.toggle = function() {
 				$scope.myVar = !$scope.myVar;
@@ -164,7 +165,15 @@ $scope.choiceid;
 				};
 
 
-
+				$scope.splitChoices = function(device) {
+					if(device != null && device.includes(","))
+						{
+							$scope.splitVariable = device;
+							return $scope["arrChoicechoice"]=$scope.splitVariable.split(",");
+						}
+					
+					
+				};
 
 			 	$scope.edit = function(device) {
 				console.log(device);

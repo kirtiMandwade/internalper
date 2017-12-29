@@ -15,6 +15,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="/adminportal/resources/manageProfiles.js"></script>
 <script src="/adminportal/resources/css/style.css"></script>
+<link href="/adminportal/resources/css/angular-datepicker.css"
+	rel="stylesheet" type="text/css" />
+<script src="/adminportal/resources/js/angular-datepicker.js"></script>
 
 
 </head>
@@ -245,19 +248,9 @@
            ng-show="addform.color.$touched && addform.color.$invalid">
            This field is required.</span> <br> <br>
 
-<div data-ng-repeat="p in devEdit.profileFeatures">
-
-
-         <!-- <div style="border: 2px ridge rgb(63, 138, 176);">
-         <span1 id="span1" style="color:red ;display:none">
-         <b>Please insert mno and prefix</b></span1> -->
-
+<div data-ng-repeat="p in devEdit.profileFeatures" ng-init='arrlist=splitChoices(p.feature.choiceValues)'>
         <table>
          <tr>
-         <!-- <td>
-          Feature Code:  <input   class="form-control" type="hidden"
-           ng-model="choice.wsProfiles" value="{{dev}}" name="choicevalue" > <br> <br>
-          </td> -->
           <td>
           feature code <input class="form-control" type="text" name="color" ng-model="p.feature.featureCd" ng-disabled="buttonCode" required ng-init="buttonCode=true"
           >
@@ -266,25 +259,37 @@
            ng-show="addform.color.$touched && addform.color.$invalid">
            This field is required.</span> <br> <br>
           </td>
-          <!-- <td>
-          Feature Code: <select
-           class="form-control" ng-model="p.feature.featureCd"
-           ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,$index)" id="{{choice.id}}" ></select><br> <br>
-          </td> -->
-          <!-- <td>
-          Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
-           ng-model="choice.featureValue" name="choicevalue" ng-disabled="button" required ng-init="button=true" required>  id="ent1.id"
-          </td> -->
-          <td>
-          Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
-           ng-model="p.featureValue" name="choicevalue" ng-disabled="button" required ng-init="button=true" required>
-          </td>
-          <td>
-          <select id="selct{{choice.id}}" class="form-control"
-          ng-model="choice.featureValue" name="selct"
-          ng-options="x for x in arrChoice{{choice.id}}" style="display:none"></select>
-          </td>
-          <td><button ng-click="button=false" class="btn btn-default">Edit</button>
+          
+    <td>      
+          <div ng-switch="p.feature.valueType">
+  <div ng-switch-when="BOOLEAN">
+     
+    Feature Value: <input type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name="charger" ng-model="p.featureValue" ng-disabled="button" required ng-init="button=true">
+  </div>
+  <div ng-switch-when="DATE">
+     Feature Value:
+										<datepicker style="width: 228px;"> <input class="form-control"
+											ng-model="p.featureValue" format="DD-MM-YYYY"
+											type="text" ng-disabled="button" required ng-init="button=true"/> </datepicker>
+										
+
+  </div>
+  <div ng-switch-when="CHOICE">
+ 
+     <select class="form-control"
+										ng-model="p.featureValue" name="selct"
+										ng-options="x for x in arrlist" ></select>
+										
+  </div>
+  <div ng-switch-default>
+     		Feature Value: <input class="form-control" type="text"
+           ng-model="p.featureValue" ng-disabled="button" required ng-init="button=true" required>
+  </div>
+</div>
+     </td>     
+          
+         
+         <td><button ng-click="button=false" class="btn btn-default">Edit</button>
           </td>
 
           <td>
@@ -313,6 +318,7 @@
                <table>
                <tr>
 			<td>
+							
 										Feature Code: <select
 											class="form-control" ng-model="choice.feature"
 											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,$index)" id="{{choice.id}}" ></select><br> <br>
@@ -334,12 +340,7 @@
 										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
 												class="btn btn-default" >-</button>
 										</th>
-</tr></table></div></div>       <!--
-<div ng-repeat="p in devEdit.profileFeatures">
-	<h1>{{p.feature.featureCd}}</h1>
-
-</div> -->
-
+</tr></table></div></div> 
          </div>
          <div class="modal-footer">
           <button class="btn btn-default" data-dismiss="modal"
