@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.pervacio.adminportal.care.entities.AppConfig;
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
 import com.pervacio.adminportal.care.entities.DiagTest;
@@ -427,8 +429,8 @@ public class CareController {
 
 /*----*/
 
-	@RequestMapping(value = "/model/getall", method = RequestMethod.GET)
-	public @ResponseBody List<EModel> getAllEModels() {
+	@RequestMapping(value = "/model/getall", method = RequestMethod.GET,produces = "application/json")
+	public @ResponseBody String getAllEModels() {
 		List<EModel> arrEModels = null;
 		try {
 			arrEModels = eModelManager.getAll();
@@ -439,7 +441,9 @@ public class CareController {
 			logger.error("error in returning model "+e.getMessage());
 		}
 
-		return arrEModels;
+		String json = new Gson().toJson(arrEModels);
+
+		return json;
 
 	}
 
@@ -479,7 +483,7 @@ public class CareController {
 		    try {
 				buf = new sun.misc.BASE64Decoder().decodeBuffer(emodel.getDeviceImage());
 //				emodel.setDeviceImage(deviceImage);
-			
+
 
 		    b = new SerialBlob(buf);
 		    } catch (IOException e1) {
@@ -494,10 +498,10 @@ public class CareController {
 			}
 		EModel entity = new EModel();
 		BeanUtils.copyProperties(emodel, entity);
-		entity.setDeviceImage(b);		
-		
-		
-		
+		entity.setDeviceImage(b);
+
+
+
 		ResponseMessage message;
 		try {
 			eModelManager.add(entity);

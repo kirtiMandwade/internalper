@@ -1,7 +1,6 @@
 package com.pervacio.adminportal.care.entities;
 
 
-import java.io.Serializable;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,18 +9,22 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+import com.google.gson.annotations.Expose;
 
 
 @Entity
 @Table(name = "emodel")
-public class EModel  extends AuditBase implements Serializable {
+public class EModel  extends AuditBase  {
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue
 	@Column
@@ -61,12 +64,12 @@ public class EModel  extends AuditBase implements Serializable {
 	private String defaultProfileFileName;
 	private int defaultProfileLastUpdate;
 
-	@OneToMany(mappedBy = "eModel",cascade=CascadeType.REMOVE)
-	@JsonIgnore
+	@Transient
+	@OneToMany(mappedBy = "eModel",cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
 	private List<EDeviceTradeInBasePrice> eDeviceTradeInBasePrices = new ArrayList<EDeviceTradeInBasePrice>();
 
-	@OneToMany(mappedBy = "eMod",cascade=CascadeType.REMOVE)
-	@JsonIgnore
+	@Transient
+	@OneToMany(mappedBy = "eMod",cascade=CascadeType.REMOVE,fetch=FetchType.LAZY)
 	private List<EDeviceAttribute> eDeviceAttributes = new ArrayList<EDeviceAttribute>();
 
 	public int getDeviceModelId() {
@@ -347,14 +350,6 @@ public class EModel  extends AuditBase implements Serializable {
 
 	public void seteDeviceTradeInBasePrices(List<EDeviceTradeInBasePrice> eDeviceTradeInBasePrices) {
 		this.eDeviceTradeInBasePrices = eDeviceTradeInBasePrices;
-	}
-
-	public List<EDeviceAttribute> geteDeviceAttributes() {
-		return eDeviceAttributes;
-	}
-
-	public void seteDeviceAttributes(List<EDeviceAttribute> eDeviceAttributes) {
-		this.eDeviceAttributes = eDeviceAttributes;
 	}
 
 
