@@ -79,7 +79,7 @@
 
 				<br>
 				<button class="btn btn-info" data-toggle="modal"
-					data-target="#addModal">Add Feature</button>
+					data-target="#addModal">Add </button>
 
 				<div class="input-group input-group-lg">
 					<div class="modal fade" id="delModal" role="dialog">
