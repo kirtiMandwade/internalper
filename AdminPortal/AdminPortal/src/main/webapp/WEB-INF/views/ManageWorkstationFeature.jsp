@@ -55,19 +55,19 @@
 					<tr>
 						<td>WorkStationId</td>
 						<td>Feature Code</td>
-						
+
 						<td>Feature Value</td>
-					
+
 
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
 					<tr ng-repeat="entity in arrEntity">
 						<td>{{entity.workStationId}}</td>
-						
+
 						<td>{{entity.feature.featureCd}}</td>
 						<td>{{entity.featureValue}}</td>
-						
+
 
 						<!-- <td ng-click="edit(grade)">edit</td>
 			<td ng-click="delete(grade)">delete</td> -->
@@ -81,7 +81,7 @@
 				</table>
 
 				<br>
-			
+
 
 				<div class="input-group input-group-lg">
 					<div class="modal fade" id="delModal" role="dialog">
@@ -117,7 +117,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add Device</h4>
+										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body">
 
@@ -131,9 +131,9 @@
 												 <select id="selct" class="form-control"
 				ng-model="ent.featureValue"
 				ng-options="x for x in arrChoice" style="display:none"></select><br>
-											
+
 									<br> <br>
-									
+
 										<!-- <select ng-model="empl.department">
 <option ng-repeat="x in departments" value="{{x}}">{{x.name}}</option>
 
@@ -162,13 +162,13 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Feature</h4>
+										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
 
-							
-					
-										
+
+
+
 									Feature Code: <select
 											class="form-control" ng-model="ent.feature"
 											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('edit')"></select><br> <br>
@@ -177,9 +177,9 @@
 												 <select id="selctedit" class="form-control"
 				ng-model="ent.featureValue"
 				ng-options="x for x in arrChoice" style="display:none"></select><br>
-											
+
 									<br> <br>
-								
+
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"
 												ng-disabled="editform.$invalid" data-dismiss="modal"

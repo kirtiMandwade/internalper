@@ -6,6 +6,8 @@ app.controller('empCtrl', [
 			$scope.choices = [];
 			$scope.choicesEdit = [];
 $scope.choiceid;
+$scope.wsProfileId;
+
 			$scope.editForm = false;
 			$scope.delDev={};
 			$scope.basePrice =[];
@@ -20,7 +22,7 @@ $scope.choiceid;
 			};
 
 
-
+$scope.buttondis=true;
 			$scope.addNewChoice = function() {
 
 				//alert("hello");
@@ -46,13 +48,14 @@ $scope.choiceid;
 			};
 
 /*new*/
-			$scope.addNewChoiceForEdit = function() {
+			$scope.addNewChoiceForEdit = function(wsProfileId) {
 				//alert("hello");
 				var newItemNo = $scope.choicesEdit.length + 1;
 
 				$scope.choicesEdit.push({
 
 						'id': 'choice' + newItemNo,
+'profileFeatureId':{ 'wsProfileId':wsProfileId}
 					//'id' : 'choice' + newItemNo
 
 				});
@@ -77,7 +80,7 @@ $scope.choiceid;
 
 				var valueType;
 				var featureDesc;
- choiceid=choiceid+1;
+// choiceid=choiceid+1;
 			/*	var cvalue;
 				var slct;
 				$scope.cvalue=document.getElementsByName("choicevalue");
@@ -108,11 +111,17 @@ $scope.choiceid;
 				console.log("change called");
 				if(calltype=="edit"){
 				//el = angular.element(document.querySelector("input.form-control input[name='choicevalues']"));	//"div.user-panel.main input[name='login']"
-				el = angular.element(document.querySelector('#choicevalueschoice'+choiceid));
+					el = angular.element(document.querySelector('#choiceedit'+choiceid));
 
-				//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
-				selEl = angular.element(document.querySelector('#selcteditchoice'+choiceid));
-				}
+					//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
+					selEl = angular.element(document.querySelector('#selctedit'+choiceid));
+					}if(calltype=="editadd"){
+						//el = angular.element(document.querySelector("input.form-control input[name='choicevalues']"));	//"div.user-panel.main input[name='login']"
+						el = angular.element(document.querySelector('#editadd'+choiceid));
+
+						//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
+						selEl = angular.element(document.querySelector('#selcteditadd'+choiceid));
+						}
 				if(calltype=="add")
 				{
 				//el = angular.element(document.querySelector("input.form-control input[name='choicevalue']"));
@@ -171,8 +180,8 @@ $scope.choiceid;
 							$scope.splitVariable = device;
 							return $scope["arrChoicechoice"]=$scope.splitVariable.split(",");
 						}
-					
-					
+
+
 				};
 
 			 	$scope.edit = function(device) {
@@ -240,6 +249,9 @@ $scope.choiceid;
 			};
 
 			$scope.update = function() {
+
+				 $scope.devEdit.profileFeatures=$scope.devEdit.profileFeatures.concat($scope.choicesEdit);
+
 				$http.post("/adminportal/warehouse/profile/update",
 						$scope.devEdit).then(function(response) {
 					console.log(response);

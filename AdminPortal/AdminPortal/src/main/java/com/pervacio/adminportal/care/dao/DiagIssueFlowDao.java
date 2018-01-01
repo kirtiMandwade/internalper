@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
-import com.pervacio.adminportal.repository.care.DiagIssueFlowRepository;
+import com.pervacio.adminportal.care.repository.DiagIssueFlowRepository;
 
 @Repository
 @Transactional

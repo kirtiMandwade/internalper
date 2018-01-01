@@ -248,99 +248,124 @@
            ng-show="addform.color.$touched && addform.color.$invalid">
            This field is required.</span> <br> <br>
 
-<div data-ng-repeat="p in devEdit.profileFeatures" ng-init='arrlist=splitChoices(p.feature.choiceValues)'>
-        <table>
-         <tr>
-          <td>
-          feature code <input class="form-control" type="text" name="color" ng-model="p.feature.featureCd" ng-disabled="buttonCode" required ng-init="buttonCode=true"
-          >
+<div data-ng-repeat="w in devEdit.profileFeatures" ng-init='arrlist=splitChoices(w.feature.choiceValues)'">
+<table>
+
+	<tr>
+				<!-- <td>		Feature Code: <select class="form-control" ng-model="devEdit1.feature"
+											ng-options="x.featureCd for x in arrFeatures"></select></td>
+ -->
+ <td>
+          feature code <input class="form-control" type="text" name="color" ng-model="w.feature.featureCd" ng-disabled="buttonCode" required ng-init="buttonCode=true">
           <span
            style="color: Red"
            ng-show="addform.color.$touched && addform.color.$invalid">
            This field is required.</span> <br> <br>
           </td>
-          
-    <td>      
-          <div ng-switch="p.feature.valueType">
+
+          <td>
+										Feature Value: <input id="choiceedit{{w.profileFeatureId.featureCd}}"  class="form-control" type="text"
+											ng-model="w.featureValue" name="choicevalue"  disabled="disabled" required>  <!-- id="ent1.id" -->
+										</td>
+										<td>
+										<select id="selctedit{{w.profileFeatureId.featureCd}}" class="form-control"
+										ng-model="w.featureValue" name="selct"
+										ng-options="x for x in arrChoicechoice{{w.profileFeatureId.featureCd}}" style="display:none"></select>
+										</td>
+
+				<!-- <td>		Feature Value: <input id="choicevalues" class="form-control" type="text" name="choicevalues"
+											ng-model="devEdit1.featureValue" required>
+
+									 <select id="selctedit" class="form-control" name="selctedit"
+											ng-model="devEdit1.featureValue"
+											ng-options="x for x in arrChoice" style="display:none"></select>
+				</td>.
+ -->
+
+ <td>
+          <!-- <div ng-switch="w.feature.valueType">
   <div ng-switch-when="BOOLEAN">
-     
-    Feature Value: <input type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name="charger" ng-model="p.featureValue" ng-disabled="button" required ng-init="button=true">
+
+    Feature Value: <input type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name="charger" ng-model="w.featureValue" ng-disabled="button" required ng-init="button=true">
   </div>
   <div ng-switch-when="DATE">
      Feature Value:
 										<datepicker style="width: 228px;"> <input class="form-control"
-											ng-model="p.featureValue" format="DD-MM-YYYY"
+											ng-model="w.featureValue" format="DD-MM-YYYY"
 											type="text" ng-disabled="button" required ng-init="button=true"/> </datepicker>
-										
+
 
   </div>
   <div ng-switch-when="CHOICE">
- 
+
      <select class="form-control"
-										ng-model="p.featureValue" name="selct"
-										ng-options="x for x in arrlist" ></select>
-										
+										ng-model="w.featureValue" name="selct"
+										ng-options="x for x in arrlist" ng-disabled="button" required ng-init="button=true"></select>
+
   </div>
   <div ng-switch-default>
      		Feature Value: <input class="form-control" type="text"
-           ng-model="p.featureValue" ng-disabled="button" required ng-init="button=true" required>
+           ng-model="w.featureValue" ng-disabled="button" required ng-init="button=true" required>
   </div>
 </div>
-     </td>     
-          
-         
-         <td><button ng-click="button=false" class="btn btn-default">Edit</button>
-          </td>
+ -->
 
-          <td>
-           <button ng-click="addNewChoiceForEdit()"
-           class="btn btn-info">
-           <!-- style="position:relative;left:30%"> -->
-           <span class="glyphicon glyphicon-plus-sign"
-           style="vertical-align: middle"></span>
-         <!--   Add More -->
-           </button>
-          </td>
-          <!-- delete button -->
-          <th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
-            class="btn btn-default" >
-             <span class="glyphicon glyphicon-minus-sign"
-           style="vertical-align: middle"></span>
-            </button>
-          </th>
 
-         </tr>
-        </table>
-        </div>
+      </td>
+      <td><button ng-click="getValue('edit',w,w.profileFeatureId.featureCd)" class="btn btn-default">Edit</button>
 
-                 <div data-ng-repeat="choice in choicesEdit" style="position: relative;">
 
-               <table>
-               <tr>
-			<td>
-							
-										Feature Code: <select
-											class="form-control" ng-model="choice.feature"
-											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,$index)" id="{{choice.id}}" ></select><br> <br>
-										</td>
-										<td>
-										Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
-											ng-model="choice.featureValue" name="choicevalue" required>
-										</td>
-										<td>
-										<select id="selct{{choice.id}}" class="form-control"
-										ng-model="choice.featureValue" name="selct"
-										ng-options="x for x in arrChoice{{choice.id}}" style="display:none"></select>
-										</td>
-										<td>
-											<button ng-click="addNewChoiceForEdit()"
+
+ 				<td>
+											<button ng-click="addNewChoiceForEdit(w.profileFeatureId.workStationId)"
 											class="btn btn-info">+</button>
 										</td>
 
 										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
 												class="btn btn-default" >-</button>
 										</th>
-</tr></table></div></div> 
+
+	</tr>
+
+</table>
+</div>
+
+
+
+                 <div data-ng-repeat="choice in choicesEdit" style="position: relative;">
+
+              <table>
+
+	<tr>
+				<td>		Feature Code: <select class="form-control" ng-model="choice.feature"
+											ng-options="x.featureCd for x in arrFeatures"  ng-change="getValue('editadd',choice,choice.id)" ></select></td>
+
+				<td>		Feature Value: <input id="editadd{{choice.id}}" class="form-control" type="text" name="choicevalues"
+											ng-model="choice.featureValue" >
+
+
+
+
+<td>
+		<select id="selcteditadd{{choice.id}}" class="form-control"
+										ng-model="choice.featureValue" name="selct"
+										ng-options="x for x in arrChoicechoice{{choice.id}}" style="display:none"></select>
+										</td>
+
+				<td>
+
+											<button ng-click="addNewChoiceForEdit(w.profileFeatureId.wsProfileId)"
+											class="btn btn-info">+</button>
+										</td>
+
+										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
+												class="btn btn-default" >-</button>
+										</th>
+
+	</tr>
+
+</table>
+</div></div>
          </div>
          <div class="modal-footer">
           <button class="btn btn-default" data-dismiss="modal"

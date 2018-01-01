@@ -81,10 +81,10 @@ private	WSProfileManager wsProfileManager;
 	}
 
 	@RequestMapping(value = "/profile/update", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody ResponseMessage updatewsProfiles(@RequestBody WSProfileBean WSProfile) {
+	public @ResponseBody ResponseMessage updatewsProfiles(@RequestBody WSProfileBean wsProfile) {
 		ResponseMessage message = null;
 		WSProfile entity = new WSProfile();
-		BeanUtils.copyProperties(WSProfile, entity);
+		BeanUtils.copyProperties(wsProfile, entity);
 		try {
 
 			wsProfileManager.update(entity);

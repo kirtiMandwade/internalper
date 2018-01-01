@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pervacio.adminportal.care.entities.DiagTestCompanyMap;
-import com.pervacio.adminportal.repository.care.DiagTestCompanyMapRepository;
+import com.pervacio.adminportal.care.repository.DiagTestCompanyMapRepository;
 
 @Repository
 @Transactional

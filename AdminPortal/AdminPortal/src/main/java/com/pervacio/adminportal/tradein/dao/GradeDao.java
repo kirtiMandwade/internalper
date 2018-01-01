@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pervacio.adminportal.repository.tradein.GradeRepository;
 import com.pervacio.adminportal.tradein.entities.Grade;
+import com.pervacio.adminportal.tradein.repository.GradeRepository;
 
 @Repository
 @Transactional

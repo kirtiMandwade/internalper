@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pervacio.adminportal.repository.tradein.DeviceRepository;
 import com.pervacio.adminportal.tradein.entities.Device;
+import com.pervacio.adminportal.tradein.repository.DeviceRepository;
 
 @Repository
 @Transactional

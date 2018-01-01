@@ -27,7 +27,6 @@
 			<div class="col-sm-3 sidenav">
 				<h4>Menu</h4>
 				<ul class="nav nav-pills nav-stacked">
-				<li ><a href="../Warehouse/ManageWSProfile">Profiles</a></li>
 				<li ><a href="../warehouse/profile">Profiles</a></li>
 					<li class="active"><a href="../warehouse/feature">Feature</a></li>
 					<li><a href="../warehouse/productfeature">Product Feature</a></li>
@@ -116,7 +115,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add Device</h4>
+										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body">
 
@@ -184,7 +183,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Feature</h4>
+										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
 

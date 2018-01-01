@@ -118,7 +118,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add Device</h4>
+										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body">
 
@@ -180,7 +180,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Device</h4>
+										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
 										companyName: <input class="form-control" type="text"

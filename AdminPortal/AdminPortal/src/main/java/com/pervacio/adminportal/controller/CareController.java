@@ -679,9 +679,9 @@ public class CareController {
 	}
 
 	@RequestMapping(value = "/company/save", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody ResponseMessage saveeCompany(@RequestBody ECompanyBean ECompany) {
+	public @ResponseBody ResponseMessage saveeCompany(@RequestBody ECompanyBean eCompany) {
 		ECompany entity = new ECompany();
-		BeanUtils.copyProperties(ECompany, entity);
+		BeanUtils.copyProperties(eCompany, entity);
 		ResponseMessage message;
 		try {
 			eCompanyManager.add(entity);

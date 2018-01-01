@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pervacio.adminportal.care.entities.AppConfig;
-import com.pervacio.adminportal.repository.care.AppConfigRepository;
+import com.pervacio.adminportal.care.repository.AppConfigRepository;
 
 @Repository
 @Transactional

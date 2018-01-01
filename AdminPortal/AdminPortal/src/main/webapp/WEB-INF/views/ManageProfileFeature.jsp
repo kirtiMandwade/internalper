@@ -46,7 +46,7 @@
 					<h1>ProfileFeature</h1>
 											<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
 				</div></br>
-					
+
 				<!--   <div>
     <h3>Id : Name : Age : Web</h3></div>
  -->
@@ -115,7 +115,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add Device</h4>
+										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body">
 
@@ -130,7 +130,7 @@ Feature
 											ng-model="ent.fea"
 											ng-options="x.featureCd for x in arrFeatures"></select><br> <br>
 											Feature Value: <input class="form-control" type="text"
-											ng-model="ent.featureValue" name="gradeCode" 
+											ng-model="ent.featureValue" name="gradeCode"
 											required> <span style="color: Red"
 											ng-show="addform.gradeCode.$touched && addform.gradeCode.$invalid">
 											Grade Code length exceeded</span> <br> <br>
@@ -163,7 +163,7 @@ Feature
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Feature</h4>
+										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
 
@@ -176,7 +176,7 @@ Feature
 											ng-model="entEdit.fea"
 											ng-options="x.featureCd for x in arrFeatures"></select><br> <br>
 											Feature Value: <input class="form-control" type="text"
-											ng-model="entEdit.featureValue" name="gradeCode" 
+											ng-model="entEdit.featureValue" name="gradeCode"
 											required> <span style="color: Red"
 											ng-show="addform.gradeCode.$touched && addform.gradeCode.$invalid">
 											Grade Code length exceeded</span> <br> <br>

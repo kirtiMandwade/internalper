@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pervacio.adminportal.care.entities.EManufacturer;
-import com.pervacio.adminportal.repository.care.EManufacturerRepository;
+import com.pervacio.adminportal.care.repository.EManufacturerRepository;
 
 @Repository
 @Transactional

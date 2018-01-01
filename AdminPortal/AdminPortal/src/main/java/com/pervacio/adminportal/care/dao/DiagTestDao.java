@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pervacio.adminportal.care.entities.DiagTest;
+import com.pervacio.adminportal.care.repository.DiagTestRepository;
 import com.pervacio.adminportal.care.entities.DiagTest;
-import com.pervacio.adminportal.repository.care.DiagTestRepository;
 
 @Repository
 @Transactional

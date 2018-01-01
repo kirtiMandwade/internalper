@@ -65,12 +65,12 @@
 						<td>Provisioned Date</td>
 						<td>EndDate</td>
 						<td>Active</td>
-						<td>WSProfile Code</td>
+	<!-- 					<td>WSProfile Code</td>
 
 
-						<!-- <td>WorkStationId</td> -->
+						<td>WorkStationId</td>
 						<td>Feature Code</td>
-						<td>Feature Value</td>
+						<td>Feature Value</td> -->
 
 
 
@@ -82,13 +82,13 @@
 						<td>{{entity.provisionedDate|date : "MM-dd-yyyy HH:mm:ss"}}</td>
 						<td>{{entity.endDate|date : "MM-dd-yyyy HH:mm:ss"}}</td>
 						<td>{{entity.active}}</td>
-						<td>{{entity.wsProfile.wsProfileId.profileCd}}</td>
-
+<!-- 						<td>{{entity.wsProfile.wsProfileId.profileCd}}</td>
+ -->
 
 						<!-- <td>{{entity.workStationId}}</td> -->
-						<td>{{entity.feature.featureCd}}</td>
+					<!-- 	<td>{{entity.feature.featureCd}}</td>
 						<td>{{entity.featureValue}}</td>
-
+ -->
 
 						<!-- <td ng-click="edit(grade)">edit</td>
 			<td ng-click="delete(grade)">delete</td> -->
@@ -242,9 +242,9 @@
 						</div>
 					</form>
 				</div>
-				
-				
-				
+
+
+
 				<div class="input-group input-group-lg">
 					<form name="editform">
 						<div class="modal fade" id="editmodal" role="dialog">
@@ -303,19 +303,30 @@ Workstation Id: <input class="form-control" type="text"
            ng-show="addform.color.$touched && addform.color.$invalid">
            This field is required.</span> <br> <br>
           </td>
+
+          <td>
+										Feature Value: <input id="choiceedit{{w.workStationFeatureId.featureCd}}"  class="form-control" type="text"
+											ng-model="w.featureValue" name="choicevalue"  disabled="disabled" required>  <!-- id="ent1.id" -->
+										</td>
+										<td>
+										<select id="selctedit{{w.workStationFeatureId.featureCd}}" class="form-control"
+										ng-model="w.featureValue" name="selct"
+										ng-options="x for x in arrChoice{{w.workStationFeatureId.featureCd}}" style="display:none"></select>
+										</td>
+
 				<!-- <td>		Feature Value: <input id="choicevalues" class="form-control" type="text" name="choicevalues"
 											ng-model="entEdit1.featureValue" required>
 
 									 <select id="selctedit" class="form-control" name="selctedit"
 											ng-model="entEdit1.featureValue"
 											ng-options="x for x in arrChoice" style="display:none"></select>
-				</td>
+				</td>.
  -->
- 
- <td>      
-          <div ng-switch="w.feature.valueType">
+
+ <td>
+          <!-- <div ng-switch="w.feature.valueType">
   <div ng-switch-when="BOOLEAN">
-     
+
     Feature Value: <input type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name="charger" ng-model="w.featureValue" ng-disabled="button" required ng-init="button=true">
   </div>
   <div ng-switch-when="DATE">
@@ -323,37 +334,40 @@ Workstation Id: <input class="form-control" type="text"
 										<datepicker style="width: 228px;"> <input class="form-control"
 											ng-model="w.featureValue" format="DD-MM-YYYY"
 											type="text" ng-disabled="button" required ng-init="button=true"/> </datepicker>
-										
+
 
   </div>
   <div ng-switch-when="CHOICE">
- 
+
      <select class="form-control"
 										ng-model="w.featureValue" name="selct"
 										ng-options="x for x in arrlist" ng-disabled="button" required ng-init="button=true"></select>
-										
+
   </div>
   <div ng-switch-default>
      		Feature Value: <input class="form-control" type="text"
            ng-model="w.featureValue" ng-disabled="button" required ng-init="button=true" required>
   </div>
 </div>
-     </td>     
-      <td><button ng-click="button=false" class="btn btn-default">Edit</button>    
- 
- 
- 
+ -->
+
+
+      </td>
+      <td><button ng-click="getValue('edit',w,w.workStationFeatureId.featureCd)" class="btn btn-default">Edit</button>
+
+
+
  				<td>
-											<button ng-click="addNewChoiceForEdit()"
+											<button ng-click="addNewChoiceForEdit(w.workStationFeatureId.workStationId)"
 											class="btn btn-info">+</button>
 										</td>
 
 										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
 												class="btn btn-default" >-</button>
 										</th>
-				
+
 	</tr>
-	
+
 </table>
 </div>
 
@@ -362,27 +376,33 @@ Workstation Id: <input class="form-control" type="text"
 <table>
 
 	<tr>
-				<td>		Feature Code: <select class="form-control" ng-model="entEdit1.feature"
-											ng-options="x.featureCd for x in arrFeatures"></select></td>
+				<td>		Feature Code: <select class="form-control" ng-model="choice.feature"
+											ng-options="x.featureCd for x in arrFeatures"  ng-change="getValue('editadd',choice,choice.id)" ></select></td>
 
-				<td>		Feature Value: <input id="choicevalues" class="form-control" type="text" name="choicevalues"
-											ng-model="entEdit1.featureValue" required>
+				<td>		Feature Value: <input id="editadd{{choice.id}}" class="form-control" type="text" name="choicevalues"
+											ng-model="choice.featureValue" >
 
-									 <select id="selctedit" class="form-control" name="selctedit"
-											ng-model="entEdit1.featureValue"
-											ng-options="x for x in arrChoice" style="display:none"></select>
-				</td>
+
+
+
+<td>
+		<select id="selcteditadd{{choice.id}}" class="form-control"
+										ng-model="choice.featureValue" name="selct"
+										ng-options="x for x in arrChoice{{choice.id}}" style="display:none"></select>
+										</td>
+
 				<td>
-											<button ng-click="addNewChoiceForEdit()"
+
+											<button ng-click="addNewChoiceForEdit(w.workStationFeatureId.workStationId)"
 											class="btn btn-info">+</button>
 										</td>
 
 										<th><button type="button" ng-click="deleteNewChoiceForEdit()" style=""
 												class="btn btn-default" >-</button>
 										</th>
-				
+
 	</tr>
-	
+
 </table>
 </div>
 <!-- End -->

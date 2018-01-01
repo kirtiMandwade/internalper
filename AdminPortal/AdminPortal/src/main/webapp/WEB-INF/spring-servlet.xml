@@ -53,15 +53,15 @@
 			</props>
 		</property>
 	</bean>
-	
-	
+
+
 	<!-- to upload files -->
-	
+
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</bean>
-	
-	
+
+
 
 	<!-- Simple implementation of the standard JDBC DataSource interface, configuring
 		the plain old JDBC DriverManager via bean properties -->
@@ -70,7 +70,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/adminconsole"/>
 		<property name="username" value="root" />
-		<property name="password" value="ac3r" />
+		<property name="password" value="root" />
 	</bean>
 
 	<!-- This transaction manager is appropriate for applications that use a

@@ -44,9 +44,18 @@ public class WorkstationManagerImpl implements WorkstationManager {
 		dao.remove(wsProfile);
 	}
 
-	public void update(WorkStation WorkStation) throws Exception {
-		// TODO Auto-generated method stub
-		dao.update(WorkStation);
+	public void update(WorkStation workStation) throws Exception {
+
+
+		for(WorkStationFeature work : workStation.getWorkStationFeatures())
+		{
+			WorkStationFeatureId  workId= new WorkStationFeatureId();
+
+			workId.setFeatureCd(work.getFeature().getFeatureCd());
+			workId.setWorkStationId(workStation.getWorkStationId());
+			work.setWorkStationFeatureId(workId);
+		}
+		dao.update(workStation);
 	};
 	public ArrayList<WorkStation> getWorkStationByWorkStationId(int workstationId) throws Exception{
 		return dao.getWorkStationByWorkStationId(workstationId);

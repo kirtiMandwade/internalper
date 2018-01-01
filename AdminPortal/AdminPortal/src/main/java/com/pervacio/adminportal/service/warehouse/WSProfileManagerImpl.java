@@ -24,6 +24,7 @@ public class WSProfileManagerImpl implements WSProfileManager {
 
 	public void add(WSProfile wsProfile) throws Exception {
 
+
 		for (ProfileFeature feat : wsProfile.getProfileFeatures()) {
 			ProfileFeatureId featureId = new ProfileFeatureId();
 			featureId.setFeatureCd(feat.getFeature().getFeatureCd());
@@ -41,7 +42,14 @@ public class WSProfileManagerImpl implements WSProfileManager {
 	}
 
 	public void update(WSProfile wsProfile) throws Exception {
-		// TODO Auto-generated method stub
+
+		for (ProfileFeature feat : wsProfile.getProfileFeatures()) {
+			ProfileFeatureId featureId = new ProfileFeatureId();
+			featureId.setFeatureCd(feat.getFeature().getFeatureCd());
+			featureId.setWsProfileId(wsProfile.getWsProfileId());
+			feat.setProfileFeatureId(featureId);
+
+		}
 		dao.update(wsProfile);
 	};
 

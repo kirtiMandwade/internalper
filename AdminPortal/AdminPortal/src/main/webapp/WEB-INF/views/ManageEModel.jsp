@@ -178,7 +178,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add Device</h4>
+										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 
@@ -302,15 +302,15 @@ This field is required.</span>
 
 
 
-deviceImage<input class="form-control" type="file" accept="image/*" name="deviceImage" 
+deviceImage<input class="form-control" type="file" accept="image/*" name="deviceImage"
 ng-model="ent.deviceImage" base-sixty-four-input	onchange="openFile(event)">
 <br>
 <img id="output">
 
 <br> <br>
 
- 
- 
+
+
 
 cost<input	class="form-control" type="number" name="cost"
 ng-model="ent.cost" required="required">
@@ -407,7 +407,7 @@ This field is required.</span>
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Feature</h4>
+										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 										PlatformId<input class="form-control" type="number" name="platformId"

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pervacio.adminportal.care.entities.EDeviceAttribute;
-import com.pervacio.adminportal.repository.care.EDeviceAttributeRepository;
+import com.pervacio.adminportal.care.repository.EDeviceAttributeRepository;
 
 @Repository
 @Transactional

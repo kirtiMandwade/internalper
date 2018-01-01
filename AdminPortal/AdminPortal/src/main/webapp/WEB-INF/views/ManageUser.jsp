@@ -46,14 +46,14 @@
 				<!--   <div>
     <h3>Id : Name : Age : Web</h3></div>
  -->
- 
- 	<button 
+
+ 	<button
 					class="btn btn-info" ng-click="search()">Search Device</button></br>
  Model: <input class="form-control" type="text"
 											ng-model="model" name="model"
 											required> <span style="color: Red"
 											ng-show="addform.make.$touched && addform.make.$invalid"></span></br>
-											
+
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
 						<td>TradeinDeviceId</td>
@@ -92,7 +92,7 @@
 
 				<br>
 				<button data-toggle="modal" data-target="#addModal"
-					class="btn btn-info">Add Device</button>
+					class="btn btn-info">Add </button>
 
 				<div class="input-group input-group-lg">
 
@@ -159,7 +159,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add Device</h4>
+										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body">
 
@@ -186,12 +186,12 @@
 											style="color: Red"
 											ng-show="addform.storage.$touched && addform.storage.$invalid">
 											This field is required.</span> <br> <br> charger: <input
-											type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name=" charger" ng-model="dev.charger"  ng-checked = "true" 
+											type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name=" charger" ng-model="dev.charger"  ng-checked = "true"
 											><!-- Yes <input type="radio" value="N"
 											name=" charger" ng-model="dev.charger" required="required">No -->
-										
 
-																					
+
+
 									</div>
 									<div class="modal-footer">
 										<button type="button" ng-disabled="addform.$invalid"
@@ -219,7 +219,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit Device</h4>
+										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
 										Make: <input class="form-control" type="text"
@@ -243,7 +243,7 @@
 											ng-model="devEdit.storage" required="required"> <span
 											style="color: Red"
 											ng-show="addform.storage.$touched && addform.storage.$invalid">
-											This field is required.</span> <br> 
+											This field is required.</span> <br>
  <br> charger: <input
 											type="checkbox" ng-true-value="'Y'" ng-false-value="'N'" name=" charger" ng-model="devEdit.charger">
  <br> <br> <br>

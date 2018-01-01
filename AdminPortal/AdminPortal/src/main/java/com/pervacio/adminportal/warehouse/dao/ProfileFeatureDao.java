@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.pervacio.adminportal.repository.warehouse.ProfileFeatureRepository;
 import com.pervacio.adminportal.warehouse.entities.ProfileFeature;
+import com.pervacio.adminportal.warehouse.repository.ProfileFeatureRepository;
 
 @Repository
 @Transactional

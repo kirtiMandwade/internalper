@@ -9,7 +9,7 @@ app.controller('empCtrl', [
 			$scope.arrDevices=[];
 			$scope.arrChoice;
 			$scope.choicesEdit = [];
-
+$scope.workStationId;
 			$scope.entEdit={};
 			$scope.entEdit1={};
 			$scope.entity={};
@@ -56,13 +56,14 @@ app.controller('empCtrl', [
 			};
 
 			/*new*/
-			$scope.addNewChoiceForEdit = function() {
+			$scope.addNewChoiceForEdit = function(workStationId) {
 				//alert("hello");
 				var newItemNo = $scope.choicesEdit.length + 1;
 
 				$scope.choicesEdit.push({
 
 						'id': 'choice' + newItemNo,
+						'workStationId':workStationId
 					//'id' : 'choice' + newItemNo
 
 				});
@@ -117,11 +118,19 @@ app.controller('empCtrl', [
 				console.log("change called");
 				if(calltype=="edit"){
 				//el = angular.element(document.querySelector("input.form-control input[name='choicevalues']"));	//"div.user-panel.main input[name='login']"
-				el = angular.element(document.querySelector('#choicevalues'+choiceid));
+				el = angular.element(document.querySelector('#choiceedit'+choiceid));
 
 				//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
 				selEl = angular.element(document.querySelector('#selctedit'+choiceid));
 				}
+				if(calltype=="editadd"){
+					//el = angular.element(document.querySelector("input.form-control input[name='choicevalues']"));	//"div.user-panel.main input[name='login']"
+					el = angular.element(document.querySelector('#editadd'+choiceid));
+
+					//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
+					selEl = angular.element(document.querySelector('#selcteditadd'+choiceid));
+					}
+
 				if(calltype=="add")
 				{
 				//el = angular.element(document.querySelector("input.form-control input[name='choicevalue']"));
@@ -183,13 +192,16 @@ app.controller('empCtrl', [
 				$scope.delent1=entity1;
 
 			};
-			
+
 			$scope.splitChoices = function(device) {
 				$scope.splitVariable = device;
 				/*$scope.entity.featureValue=device;*/
-				
+
 			 /*$scope["arrChoicechoice"]=$scope.entity.featureValue.split(",");*/
+				if(device != null && device.includes(",")){
 			return $scope["arrChoicechoice"]=$scope.splitVariable.split(",");
+			}
+
 			/*alert($scope.arrChoicechoice);*/
 			/*console.log(entity.featureValue.split(","));
 				alert(arrChoicechoice);
@@ -204,8 +216,8 @@ app.controller('empCtrl', [
 				$scope.entEdit = entity;
 
 /*				$scope.entEdit1=entity1;*/
-				
-				$scope.addNewChoiceForEdit();
+
+//				$scope.addNewChoiceForEdit();
 			};
 
 
@@ -279,8 +291,8 @@ app.controller('empCtrl', [
 			};
 
 			$scope.update = function() {
-				
-				 $scope.ent.workStationFeatures=$scope.choicesEdit;
+
+				 $scope.entEdit.workStationFeatures=$scope.entEdit.workStationFeatures.concat($scope.choicesEdit);
 				$http.post("/adminportal/warehouse/workstation/update",
 						$scope.entEdit).then(function(response) {
 					console.log(response);
