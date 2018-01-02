@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.tradein.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,12 @@ public class GradeManagerImpl implements GradeManager {
 	public void update(Grade grade)  throws Exception{
 		// TODO Auto-generated method stub
 		dao.update(grade);
+	}
+
+	@Override
+	public ArrayList<Grade> getGradeByGradeCode(String gradeCode) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getGradeByGradeCode(gradeCode);
 	};
 
 }

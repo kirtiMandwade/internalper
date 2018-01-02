@@ -81,7 +81,7 @@ app.controller('empCtrl', [
 							$scope.arrGrades = response.data;
 						});
 
-			}
+			};
 
 			$http.get("/adminportal/tradein/GetDeductionType").then(
 					function(response) {
@@ -89,7 +89,18 @@ app.controller('empCtrl', [
 						$scope.deductionType = response.data;
 						$scope.grd.deductionType = $scope.deductionType[0];
 
-					});
+			});
+			
+			$scope.search = function() {
+				console.log("searcg called")
+				$http.post("/adminportal/tradein/grade/search",$scope.gradeCode).then(
+						function(response) {
+							console.log(response);
+							$scope.arrGrades = response.data;
+						});
+
+			};			
+			
 			$scope.delete = function() {
 				$http.post("/adminportal/tradein/grade/remove",
 						$scope.delgrade).then(function(response) {

@@ -145,6 +145,26 @@ public class TradeInController {
 		return arrDev;
 
 	}
+	
+	
+	
+	@RequestMapping(value = "/grade/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<Grade> searchGrades(@RequestBody String gradeCode) {
+
+		List<Grade> arrGra = null;
+		try {
+			arrGra = gradeManager.getGradeByGradeCode(gradeCode);		//.getDeviceByModel(gradeCode);
+			logger.info("search Grade  "+arrGra.size());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error while searching Grade "+e.getMessage());
+
+		}
+
+		return arrGra;
+
+	}
 
 	@RequestMapping(value = "/grade/getall", method = RequestMethod.GET)
 	public @ResponseBody List<Grade> getAllGrades() {

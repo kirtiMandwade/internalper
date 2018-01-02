@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.tradein.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.pervacio.adminportal.tradein.entities.Device;
 import com.pervacio.adminportal.tradein.entities.Grade;
 import com.pervacio.adminportal.tradein.repository.GradeRepository;
 
@@ -41,6 +43,11 @@ public class GradeDao
 	public void update(Grade grade) throws Exception {
 		// TODO Auto-generated method stub
 		gradeRepository.saveAndFlush(grade);
+	}
+	
+	public ArrayList<Grade> getGradeByGradeCode(String gradeCode) throws Exception {
+		// TODO Auto-generated method stub
+		return (ArrayList<Grade>) gradeRepository.findByGradeCode(gradeCode);
 	}
 
 
