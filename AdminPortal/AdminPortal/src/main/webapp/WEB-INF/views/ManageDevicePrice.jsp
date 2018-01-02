@@ -14,7 +14,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="/adminportal/resources/manageDevicePrice.js"></script>
-<script src="/adminportal/resources/css/style.css"></script>
+<link rel="stylesheet"
+href="/adminportal/resources/css/style.css">
+
 
 </head>
 
@@ -56,6 +58,7 @@
 						<td>Company Name</td>
 						<td>Base Price</td>
 						<td>Currency</td>
+						
 						<td>DeviceId</td>
 
 
@@ -69,10 +72,26 @@
 						<td>{{device.basePrice}}</td>
 						<td>{{device.currency}}</td>
 
-						<td>{{device.productPK.tradeinDeviceId}}</td>
-
-						<!-- <td ng-click="edit(device)">edit</td>
-			<td ng-click="delete(device)">delete</td> -->
+						<!-- <td>{{device.productPK.tradeinDeviceId}}</td> 
+						
+						TradeInDeviceId-{{device.deviceEntity.tradeinDeviceId}},Make-{{device.deviceEntity.make}},Model-{{device.deviceEntity.model}},
+						 title="Storage-{{device.deviceEntity.storage}},Color-{{device.deviceEntity.color}},Charger-{{device.deviceEntity.charger}}"
+						-->
+						
+						<td>
+						<a href="#" data-toggle="tooltip" data-html="true"  title="Storage-{{device.deviceEntity.storage}},Color-{{device.deviceEntity.color}},Charger-{{device.deviceEntity.charger}}">
+						<!-- <button class="btn btn-success btn-md"> -->
+						{{device.deviceEntity.make}} - {{device.deviceEntity.model}}
+						<!-- </button> -->
+						</a>
+						
+						
+						
+						
+						
+						
+						</td>
+						
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#myModal" ng-click="edit(device)">edit</a></td>
 						<td><a style="cursor: pointer;" data-toggle="modal"
