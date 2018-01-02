@@ -1,4 +1,18 @@
+$("[data-toggle='tooltip']").tooltip();
+
 var app = angular.module('AdminPortal', []);
+/*
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    $('.btn').tooltip({title: "<table><tr><td>Storage-{{device.deviceEntity.storage}}</td>" +
+		"<td>Color-{{device.deviceEntity.color}}</td>" +
+		"<td>Charger-{{device.deviceEntity.charger}}</td>", html: true, placement: "top"});
+    
+});*/
+
+
+
 
 app.controller('empCtrl', [
 		'$scope',
