@@ -6,12 +6,12 @@ app.controller('empCtrl', [
 		function($scope, $http) {
 			$scope.ent={};
 			$scope.ent.androidSupported="1";
-			$scope.ent.iOSSupported="1";
+			$scope.ent.iosSupported="1";
 			$scope.delent={};
 			
 			$scope.entEdit={};
 			$scope.entEdit.androidSupported="1";
-			$scope.entEdit.iOSSupported="1";
+			$scope.entEdit.iosSupported="1";
 			
 			$scope.editForm = false;
 			$scope.myVar = false;

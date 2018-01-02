@@ -28,7 +28,7 @@ public class DiagTest  extends AuditBase implements Serializable {
 	@Id
 	private String testCd;
 	private int androidSupported;
-	private int iOSSupported;
+	private int iosSupported;
 	private String testType;
 	private int orderNum;
 	private String categoryCd;
@@ -55,12 +55,14 @@ public class DiagTest  extends AuditBase implements Serializable {
 		this.androidSupported = androidSupported;
 	}
 
-	public int getiOSSupported() {
-		return iOSSupported;
+	
+
+	public int getIosSupported() {
+		return iosSupported;
 	}
 
-	public void setiOSSupported(int iOSSupported) {
-		this.iOSSupported = iOSSupported;
+	public void setIosSupported(int iosSupported) {
+		this.iosSupported = iosSupported;
 	}
 
 	public String getTestType() {

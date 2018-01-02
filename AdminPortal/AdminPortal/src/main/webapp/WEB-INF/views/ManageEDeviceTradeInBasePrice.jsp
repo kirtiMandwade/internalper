@@ -55,8 +55,8 @@
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
 						<td>BasePrice</td>
-						<td>CompanyName</td>
-						<td>DeviceModelelId</td>
+						<td>Company Name</td>
+						<td>Device Model Id</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
@@ -113,7 +113,7 @@
 									</div>
 									<div class="modal-body">
 
-										Base Price<input class="form-control" type="text" name="basePrice"
+										Base Price:<input class="form-control" type="text" name="basePrice"
 											ng-model="ent.basePrice" required="required"> <span
 											style="color: Red"
 											ng-show="addform.basePrice.$touched && addform.basePrice.$invalid">
@@ -158,7 +158,7 @@
 									</div>
 									<div class="modal-body">
 									
-										Base Price<input class="form-control" type="text" name="basePrice"
+										Base Price:<input class="form-control" type="text" name="basePrice"
 											ng-model="ent.basePrice" required="required"> <span
 											style="color: Red"
 											ng-show="editform.basePrice.$touched && editform.basePrice.$invalid">

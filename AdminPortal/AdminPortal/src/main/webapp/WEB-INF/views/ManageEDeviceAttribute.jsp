@@ -52,8 +52,8 @@
 
 			<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>AttributeName</td>
-						<td>AttributeValue</td>
+						<td>Attribute Name</td>
+						<td>Attribute Value</td>
 						<td>Device Model Id</td>
 					
 						<td>Edit</td>
@@ -111,13 +111,13 @@
 									</div>
 									<div class="modal-body">
 
-									 AttributeName<input
+									 Attribute Name:<input
 										class="form-control" type="text" name="attributeName"
 										ng-model="ent.attributeName" required="required"> <span
 										style="color: Red"
 										ng-show="addform.attributeName.$touched && addform.attributeName.$invalid">
 										This field is required.</span> <br> <br>
-									AttributeValue: <input
+									Attribute Value: <input
 										class="form-control" type="text" name="attributeValue"
 										ng-model="ent.attributeValue" required="required"> <span
 										style="color: Red"
@@ -159,13 +159,13 @@
 									</div>
 									<div class="modal-body">
 
-									 AttributeName<input
+									 Attribute Name:<input
 										class="form-control" type="text" name="attributeName"
 										ng-model="ent.attributeName" required="required"> <span
 										style="color: Red"
 										ng-show="editform.attributeName.$touched && editform.attributeName.$invalid">
 										This field is required.</span> <br> <br>
-									AttributeValue: <input
+									Attribute Value: <input
 										class="form-control" type="text" name="attributeValue"
 										ng-model="ent.attributeValue" required="required"> <span
 										style="color: Red"

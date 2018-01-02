@@ -50,12 +50,12 @@
 				
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>testCd</td>
-						<td>androidSupported</td>
-						<td>iOSSupported</td>
-						<td>testType</td>
-						<td>orderNum</td>
-						<td>categoryCd</td>
+						<td>Test Code</td>
+						<td>Android Supported</td>
+						<td>IOS Supported</td>
+						<td>Test Type</td>
+						<td>Order Number</td>
+						<td>Category Code</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
@@ -64,7 +64,7 @@
 					<tr ng-repeat="entity in arrEntity">
 						<td>{{entity.testCd}}</td>
 						<td>{{entity.androidSupported}}</td>
-						<td>{{entity.iOSSupported}}</td>
+						<td>{{entity.iosSupported}}</td>
 						<td>{{entity.testType}}</td>
 						<td>{{entity.orderNum}}</td>
 						<td>{{entity.categoryCd}}</td>
@@ -111,29 +111,29 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add </h4>
+										<h4 class="modal-title">Add</h4>
 									</div>
 									<div class="modal-body">
 
 
-									testCd:<input class="form-control" type="text" name="testCd" ng-model="ent.testCd" required="required">
+									Test Code:<input class="form-control" type="text" name="testCd" ng-model="ent.testCd" required="required">
 										<span style="color: Red" ng-show="addform.testCd.$touched && addform.testCd.$invalid">
 										This field is required.</span> <br> <br>
-									Android Supported:<input type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="androidsupported"
+									Android Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="androidsupported"
 										ng-model="ent.androidSupported"  ng-checked = "true">
 										<br> <br> 
-									IosSupported:<input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="iossupported"
-										ng-model="ent.iOSSupported"  ng-checked = "true">
+									IOS Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="iossupported"
+										ng-model="ent.iosSupported"  ng-checked = "true">
 										<br> <br>
-									testType:<input	class="form-control" type="text" name="testType" ng-model="ent.testType" required="required">
+									Test Type:<input	class="form-control" type="text" name="testType" ng-model="ent.testType" required="required">
 										<span style="color: Red" ng-show="addform.testType.$touched && addform.testType.$invalid">
 										This field is required.</span>
 										<br> <br>
-									orderNum: <input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
+									Order Number: <input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
 										<span style="color: Red" ng-show="addform.orderNum.$touched && addform.orderNum.$invalid">
 										This field is required.</span>
 										<br> <br>
-									categoryCd: <input class="form-control" type="text" name="categoryCd" ng-model="ent.categoryCd" required="required">
+									Category Code: <input class="form-control" type="text" name="categoryCd" ng-model="ent.categoryCd" required="required">
 										<span style="color: Red" ng-show="addform.categoryCd.$touched && addform.categoryCd.$invalid">
 										This field is required.</span>
 										<br> <br>
@@ -168,24 +168,24 @@
 									</div>
 									<div class="modal-body">
 
-									testCd:<input class="form-control" type="text" name="testCd" ng-model="entEdit.testCd" readonly="readonly">
+									Test Code:<input class="form-control" type="text" name="testCd" ng-model="entEdit.testCd" readonly="readonly">
 										<span style="color: Red" ng-show="editform.testCd.$touched && editform.testCd.$invalid">
 										This field is required.</span> <br> <br>
-									Android Supported:<input type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="androidsupported"
+									Android Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="androidsupported"
 										ng-model="entEdit.androidSupported"  ng-checked = "true">
 										<br> <br> 
-									IosSupported:<input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="iossupported"
-										ng-model="entEdit.iOSSupported"  ng-checked = "true">
+									IOS Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="iossupported"
+										ng-model="entEdit.iosSupported"  ng-checked = "true">
 										<br> <br>
-									testType:<input	class="form-control" type="text" name="testType" ng-model="entEdit.testType" required="required">
+									Test Type:<input class="form-control" type="text" name="testType" ng-model="entEdit.testType" required="required">
 										<span style="color: Red" ng-show="editform.testType.$touched && editform.testType.$invalid">
 										This field is required.</span>
 										<br> <br>
-									orderNum: <input class="form-control" type="number" name="orderNum" ng-model="entEdit.orderNum" required="required">
+									Order Number: <input class="form-control" type="number" name="orderNum" ng-model="entEdit.orderNum" required="required">
 										<span style="color: Red" ng-show="editform.orderNum.$touched && editform.orderNum.$invalid">
 										This field is required.</span>
 										<br> <br>
-									categoryCd: <input class="form-control" type="text" name="categoryCd" ng-model="entEdit.categoryCd" required="required">
+									Category Code: <input class="form-control" type="text" name="categoryCd" ng-model="entEdit.categoryCd" required="required">
 										<span style="color: Red" ng-show="editform.categoryCd.$touched && editform.categoryCd.$invalid">
 										This field is required.</span>
 										<br> <br>

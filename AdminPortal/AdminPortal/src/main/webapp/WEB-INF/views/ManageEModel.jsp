@@ -56,42 +56,44 @@
 
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>PlatformId</td>
+						<td>Platform Id</td>
 
-						<td>ManufacturerId</td>
-						<td>ModelNumber</td>
-						<td>CountryId</td>
-						<td>NetworkTechnologyId</td>
-						<td>CableId</td>
+						<td>Manufacturer Id</td>
+						<td>Model Number</td>
+						<td>Country Id</td>
+						<td>Network Technology Id</td>
+						<td>Cable Id</td>
 
 
-						<td>batteryId</td>
-						<td>chargerId</td>
-						<td>locationId</td>
-						<td>sourceId</td>
-						<td>shipmentId</td>
-						<td>modelCondition</td>
-						<td>releaseDate</td>
-						<td>isAutoCreated</td>
-						<td>createdAt</td>
-						<td>updatedAt</td>
-						<td>isValid</td>
-						<td>initialFirmwareId</td>
-						<td>availability</td>
-						<td>batteryStatus</td>
-						<td>cableStatus</td>
-						<!-- <td>deviceImage</td> -->
-						<td>cost</td>
-						<td>weburlLink</td>
-						<td>modelName</td>
-						<td>defaultProfilePresent</td>
-						<td>deviceImageLocation</td>
-						<td>sourceProductCode</td>
-						<td>poNumber</td>
-						<td>manualInstructionDesc</td>
-						<td>description</td>
-						<td>defaultProfileFileName</td>
-						<td>defaultProfileLastUpdate</td>
+						<td>Battery Id</td>
+						<td>Charger Id</td>
+						<td>Location Id</td>
+						<td>Source Id</td>
+						<td>Shipment Id</td>
+						<td>Model Condition</td>
+						<td>Release Date</td>
+						<td>Is AutoCreated</td>
+						<td>Created At</td>
+						<td>Updated At</td>
+						<td>Is Valid</td>
+						<td>Initial Firmware Id</td>
+						<td>Availability</td>
+						<td>Battery Status</td>
+						<td>Cable Status</td>
+						
+						<td>Device Image</td>
+						
+						<td>Cost</td>
+						<td>Web URL Link</td>
+						<td>Model Name</td>
+						<td>Default Profile Present</td>
+						<td>Device Image Location</td>
+						<td>Source Product Code</td>
+						<td>P O Number</td>
+						<td>Manual Instruction Description</td>
+						<td>Description</td>
+						<td>Default Profile File Name</td>
+						<td>Default Profile Last Update</td>
 
 
 						<td>Edit</td>
@@ -123,7 +125,22 @@
 						<td>{{entity.availability}}</td>
 						<td>{{entity.batteryStatus}}</td>
 						<td>{{entity.cableStatus}}</td>
-						<!-- <td>{{entity.deviceImage}}</td> -->
+						
+						
+						<!-- <td>
+      <img data-ng-src="data:image/png;base64,{{entity.deviceImage}}"/>
+      </td>
+						<td>{{entity.deviceImage}}</td> -->
+						
+						<td>
+						<input type="hidden" class="form-control" accept="image/*" name="deviceImage" ng-model="entity.deviceImage" ng-bind="{{entity.deviceImage}}" onchange="openFile(event)">
+						<img id="output">
+						</td>
+						
+						
+						
+						
+						
 						<td>{{entity.cost}}</td>
 						<td>{{entity.weburlLink}}</td>
 						<td>{{entity.modelName}}</td>
@@ -183,7 +200,7 @@
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 
 
-										PlatformId<input class="form-control" type="number" name="platformId"
+										Platform Id:<input class="form-control" type="number" name="platformId"
 											ng-model="ent.platformId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.platformId.$touched && addform.platformId.$invalid">
@@ -192,18 +209,20 @@
 											ng-model="ent.manufacturerId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.manufacturerId.$touched && addform.manufacturerId.$invalid">
-											This field is required.</span> <br> <br> ModelNumber: <input
+											This field is required.</span> <br> <br>
+										Model Number: <input
 											class="form-control" type="text" name="modelNumber"
 											ng-model="ent.modelNumber" required="required"> <span
 											style="color: Red"
 											ng-show="addform.modelNumber.$touched && addform.modelNumber.$invalid">
-											This field is required.</span> <br> <br> CountryId: <input
+											This field is required.</span> <br> <br>
+										Country Id: <input
 											class="form-control" type="number" name="countryId"
 											ng-model="ent.countryId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.countryId.$touched && addform.countryId.$invalid">
 											This field is required.</span> <br> <br>
-										NetworkTechnologyId: <input class="form-control" type="number"
+										Network Technology Id: <input class="form-control" type="number"
 											name="networkTechnologyId" ng-model="ent.networkTechnologyId"
 											required="required"> <span style="color: Red"
 											ng-show="addform.networkTechnologyId.$touched && addform.networkTechnologyId.$invalid">
@@ -215,85 +234,85 @@
 											This field is required.</span> <br> <br>
 
 
-batteryId<input	class="form-control" type="number" name="batteryId"
+Battery Id:<input	class="form-control" type="number" name="batteryId"
 ng-model="ent.batteryId" required="required">
 <span style="color: Red" ng-show="addform.batteryId.$touched && addform.batteryId.$invalid">
 This field is required.</span>
 <br> <br>
 
-chargerId<input	class="form-control" type="number" name="chargerId"
+Charger Id:<input	class="form-control" type="number" name="chargerId"
 ng-model="ent.chargerId" required="required">
 <span style="color: Red" ng-show="addform.chargerId.$touched && addform.chargerId.$invalid">
 This field is required.</span>
 <br> <br>
 
-locationId<input	class="form-control" type="number" name="locationId"
+Location Id:<input	class="form-control" type="number" name="locationId"
 ng-model="ent.locationId" required="required">
 <span style="color: Red" ng-show="addform.locationId.$touched && addform.locationId.$invalid">
 This field is required.</span>
 <br> <br>
 
-sourceId<input	class="form-control" type="number" name="sourceId"
+Source Id:<input	class="form-control" type="number" name="sourceId"
 ng-model="ent.sourceId" required="required">
 <span style="color: Red" ng-show="addform.sourceId.$touched && addform.sourceId.$invalid">
 This field is required.</span>
 <br> <br>
 
-shipmentId<input	class="form-control" type="number" name="shipmentId"
+Shipment Id:<input	class="form-control" type="number" name="shipmentId"
 ng-model="ent.shipmentId" required="required">
 <span style="color: Red" ng-show="addform.shipmentId.$touched && addform.shipmentId.$invalid">
 This field is required.</span>
 <br> <br>
 
-modelCondition<input	class="form-control" type="text" name="modelCondition"
+Model Condition:<input	class="form-control" type="text" name="modelCondition"
 ng-model="ent.modelCondition" required="required">
 <span style="color: Red" ng-show="addform.modelCondition.$touched && addform.modelCondition.$invalid">
 This field is required.</span>
 <br> <br>
 
-releaseDate<datepicker style="width: 228px;">
+Release Date:<datepicker style="width: 228px;">
 	<input ng-model="ent.releaseDate" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-isAutoCreated<input	type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked="true">
+Is AutoCreated:<input	type="checkbox" ng-true-value="1" ng-false-value="0" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked="true">
 <br> <br>
 
-createdAt<datepicker style="width: 228px;">
+Created At:<datepicker style="width: 228px;">
 	<input ng-model="ent.createdAt" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-updatedAt<datepicker style="width: 228px;">
+Updated At:<datepicker style="width: 228px;">
 	<input ng-model="ent.updatedAt" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-isValid<input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isValid" ng-model="ent.isValid"  ng-checked="true">
+Is Valid:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="isValid" ng-model="ent.isValid"  ng-checked="true">
 <br> <br>
 
-initialFirmwareId<input	class="form-control" type="number" name="initialFirmwareId"
+Initial Firmware Id:<input	class="form-control" type="number" name="initialFirmwareId"
 ng-model="ent.initialFirmwareId" required="required">
 <span style="color: Red" ng-show="addform.initialFirmwareId.$touched && addform.initialFirmwareId.$invalid">
 This field is required.</span>
 <br> <br>
 
-availability<input	class="form-control" type="number" name="availability"
+Availability:<input	class="form-control" type="number" name="availability"
 ng-model="ent.availability" required="required">
 <span style="color: Red" ng-show="addform.availability.$touched && addform.availability.$invalid">
 This field is required.</span>
 <br> <br>
 
-batteryStatus<input	class="form-control" type="number" name="batteryStatus"
+Battery Status:<input	class="form-control" type="number" name="batteryStatus"
 ng-model="ent.batteryStatus" required="required">
 <span style="color: Red" ng-show="addform.batteryStatus.$touched && addform.batteryStatus.$invalid">
 This field is required.</span>
 <br> <br>
 
-cableStatus<input	class="form-control" type="number" name="cableStatus"
+Cable Status:<input	class="form-control" type="number" name="cableStatus"
 ng-model="ent.cableStatus" required="required">
 <span style="color: Red" ng-show="addform.cableStatus.$touched && addform.cableStatus.$invalid">
 This field is required.</span>
@@ -302,77 +321,77 @@ This field is required.</span>
 
 
 
-deviceImage<input class="form-control" type="file" accept="image/*" name="deviceImage"
+Device Image:<input class="form-control" type="file" accept="image/*" name="deviceImage" 
 ng-model="ent.deviceImage" base-sixty-four-input	onchange="openFile(event)">
 <br>
 <img id="output">
 
 <br> <br>
 
+ 
+ 
 
-
-
-cost<input	class="form-control" type="number" name="cost"
+Cost:<input	class="form-control" type="number" name="cost"
 ng-model="ent.cost" required="required">
 <span style="color: Red" ng-show="addform.cost.$touched && addform.cost.$invalid">
 This field is required.</span>
 <br> <br>
 
-weburlLink<input	class="form-control" type="text" name="weburlLink"
+Web URL Link:<input	class="form-control" type="text" name="weburlLink"
 ng-model="ent.weburlLink" required="required">
 <span style="color: Red" ng-show="addform.weburlLink.$touched && addform.weburlLink.$invalid">
 This field is required.</span>
 <br> <br>
 
-modelName<input	class="form-control" type="text" name="modelName"
+Model Name:<input	class="form-control" type="text" name="modelName"
 ng-model="ent.modelName" required="required">
 <span style="color: Red" ng-show="addform.modelName.$touched && addform.modelName.$invalid">
 This field is required.</span>
 <br> <br>
 
-defaultProfilePresent<input	class="form-control" type="number" name="defaultProfilePresent"
+Default Profile Present:<input	class="form-control" type="number" name="defaultProfilePresent"
 ng-model="ent.defaultProfilePresent" required="required">
 <span style="color: Red" ng-show="addform.defaultProfilePresent.$touched && addform.defaultProfilePresent.$invalid">
 This field is required.</span>
 <br> <br>
 
-deviceImageLocation<input	class="form-control" type="text" name="deviceImageLocation"
+Device Image Location:<input	class="form-control" type="text" name="deviceImageLocation"
 ng-model="ent.deviceImageLocation" required="required">
 <span style="color: Red" ng-show="addform.deviceImageLocation.$touched && addform.deviceImageLocation.$invalid">
 This field is required.</span>
 <br> <br>
 
-sourceProductCode<input	class="form-control" type="text" name="sourceProductCode"
+Source Product Code:<input	class="form-control" type="text" name="sourceProductCode"
 ng-model="ent.sourceProductCode" required="required">
 <span style="color: Red" ng-show="addform.sourceProductCode.$touched && addform.sourceProductCode.$invalid">
 This field is required.</span>
 <br> <br>
 
-poNumber<input	class="form-control" type="text" name="poNumber"
+P O Number:<input	class="form-control" type="text" name="poNumber"
 ng-model="ent.poNumber" required="required">
 <span style="color: Red" ng-show="addform.poNumber.$touched && addform.poNumber.$invalid">
 This field is required.</span>
 <br> <br>
 
-manualInstructionDesc<input	class="form-control" type="text" name="manualInstructionDesc"
+Manual Instruction Description:<input	class="form-control" type="text" name="manualInstructionDesc"
 ng-model="ent.manualInstructionDesc" required="required">
 <span style="color: Red" ng-show="addform.manualInstructionDesc.$touched && addform.manualInstructionDesc.$invalid">
 This field is required.</span>
 <br> <br>
 
-description<input	class="form-control" type="text" name="description"
+Description:<input	class="form-control" type="text" name="description"
 ng-model="ent.description" required="required">
 <span style="color: Red" ng-show="addform.description.$touched && addform.description.$invalid">
 This field is required.</span>
 <br> <br>
 
-defaultProfileFileName<input	class="form-control" type="text" name="defaultProfileFileName"
+Default Profile File Name:<input	class="form-control" type="text" name="defaultProfileFileName"
 ng-model="ent.defaultProfileFileName" required="required">
 <span style="color: Red" ng-show="addform.defaultProfileFileName.$touched && addform.defaultProfileFileName.$invalid">
 This field is required.</span>
 <br> <br>
 
-defaultProfileLastUpdate<input	class="form-control" type="number" name="defaultProfileLastUpdate"
+Default Profile Last Update:<input	class="form-control" type="number" name="defaultProfileLastUpdate"
 ng-model="ent.defaultProfileLastUpdate" required="required">
 <span style="color: Red" ng-show="addform.defaultProfileLastUpdate.$touched && addform.defaultProfileLastUpdate.$invalid">
 This field is required.</span>
@@ -410,187 +429,200 @@ This field is required.</span>
 										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
-										PlatformId<input class="form-control" type="number" name="platformId"
+										Platform Id:<input class="form-control" type="number" name="platformId"
 											ng-model="entEdit.platformId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.platformId.$touched && addform.platformId.$invalid">
-											This field is required.</span> <br> <br> ManufacturerId<input
+											This field is required.</span> <br> <br>
+										Manufacturer Id:<input
 											class="form-control" type="number" name="manufacturerId"
 											ng-model="entEdit.manufacturerId" required="required">
 										<span style="color: Red"
 											ng-show="addform.manufacturerId.$touched && addform.manufacturerId.$invalid">
-											This field is required.</span> <br> <br> ModelNumber: <input
+											This field is required.</span> <br> <br>
+										Model Number: <input
 											class="form-control" type="text" name="modelNumber"
 											ng-model="entEdit.modelNumber" required="required"> <span
 											style="color: Red"
 											ng-show="addform.modelNumber.$touched && addform.modelNumber.$invalid">
-											This field is required.</span> <br> <br> CountryId: <input
+											This field is required.</span> <br> <br>
+										Country Id: <input
 											class="form-control" type="number" name="countryId"
 											ng-model="entEdit.countryId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.countryId.$touched && addform.countryId.$invalid">
 											This field is required.</span> <br> <br>
-										NetworkTechnologyId: <input class="form-control" type="number"
+										Network Technology Id: <input class="form-control" type="number"
 											name="networkTechnologyId" ng-model="entEdit.networkTechnologyId"
 											required="required"> <span style="color: Red"
 											ng-show="addform.networkTechnologyId.$touched && addform.networkTechnologyId.$invalid">
-											This field is required.</span> <br> <br> CableId: <input
+											This field is required.</span> <br> <br>
+										Cable Id: <input
 											class="form-control" type="number" name="cableId"
 											ng-model="entEdit.cableId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.cableId.$touched && addform.cableId.$invalid">
 											This field is required.</span> <br> <br>
 
-batteryId<input	class="form-control" type="number" name="batteryId"
+Battery Id:<input	class="form-control" type="number" name="batteryId"
 ng-model="entEdit.batteryId" required="required">
 <span style="color: Red" ng-show="addform.batteryId.$touched && addform.batteryId.$invalid">
 This field is required.</span>
 <br> <br>
 
-chargerId<input	class="form-control" type="number" name="chargerId"
+Charger Id:<input	class="form-control" type="number" name="chargerId"
 ng-model="entEdit.chargerId" required="required">
 <span style="color: Red" ng-show="addform.chargerId.$touched && addform.chargerId.$invalid">
 This field is required.</span>
 <br> <br>
 
-locationId<input	class="form-control" type="number" name="locationId"
+Location Id:<input	class="form-control" type="number" name="locationId"
 ng-model="entEdit.locationId" required="required">
 <span style="color: Red" ng-show="addform.locationId.$touched && addform.locationId.$invalid">
 This field is required.</span>
 <br> <br>
 
-sourceId<input	class="form-control" type="number" name="sourceId"
+Source Id:<input	class="form-control" type="number" name="sourceId"
 ng-model="entEdit.sourceId" required="required">
 <span style="color: Red" ng-show="addform.sourceId.$touched && addform.sourceId.$invalid">
 This field is required.</span>
 <br> <br>
 
-shipmentId<input	class="form-control" type="number" name="shipmentId"
+Shipment Id:<input	class="form-control" type="number" name="shipmentId"
 ng-model="entEdit.shipmentId" required="required">
 <span style="color: Red" ng-show="addform.shipmentId.$touched && addform.shipmentId.$invalid">
 This field is required.</span>
 <br> <br>
 
-modelCondition<input	class="form-control" type="text" name="modelCondition"
+Model Condition:<input	class="form-control" type="text" name="modelCondition"
 ng-model="entEdit.modelCondition" required="required">
 <span style="color: Red" ng-show="addform.modelCondition.$touched && addform.modelCondition.$invalid">
 This field is required.</span>
 <br> <br>
 
-releaseDate<datepicker style="width: 228px;">
+Release Date:<datepicker style="width: 228px;">
 	<input ng-model="entEdit.releaseDate" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-isAutoCreated<input	type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isAutoCreated" ng-model="entEdit.isAutoCreated"  ng-checked="true">
+Is AutoCreated:<input	type="checkbox" ng-true-value="1" ng-false-value="0" name="isAutoCreated" ng-model="entEdit.isAutoCreated"  ng-checked="true">
 <br> <br>
 
-createdAt<datepicker style="width: 228px;">
+Created At:<datepicker style="width: 228px;">
 	<input ng-model="entEdit.createdAt" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-updatedAt<datepicker style="width: 228px;">
+Updated At:<datepicker style="width: 228px;">
 	<input ng-model="entEdit.updatedAt" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-isValid<input type="checkbox" ng-true-value="'1'" ng-false-value="'0'" name="isValid" ng-model="entEdit.isValid"  ng-checked="true">
+Is Valid:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="isValid" ng-model="entEdit.isValid"  ng-checked="true">
 <br> <br>
 
-initialFirmwareId<input	class="form-control" type="number" name="initialFirmwareId"
+Initial Firmware Id:<input	class="form-control" type="number" name="initialFirmwareId"
 ng-model="entEdit.initialFirmwareId" required="required">
 <span style="color: Red" ng-show="addform.initialFirmwareId.$touched && addform.initialFirmwareId.$invalid">
 This field is required.</span>
 <br> <br>
 
-availability<input	class="form-control" type="number" name="availability"
+Availability:<input	class="form-control" type="number" name="availability"
 ng-model="entEdit.availability" required="required">
 <span style="color: Red" ng-show="addform.availability.$touched && addform.availability.$invalid">
 This field is required.</span>
 <br> <br>
 
-batteryStatus<input	class="form-control" type="number" name="batteryStatus"
+Battery Status:<input	class="form-control" type="number" name="batteryStatus"
 ng-model="entEdit.batteryStatus" required="required">
 <span style="color: Red" ng-show="addform.batteryStatus.$touched && addform.batteryStatus.$invalid">
 This field is required.</span>
 <br> <br>
 
-cableStatus<input	class="form-control" type="number" name="cableStatus"
+Cable Status:<input	class="form-control" type="number" name="cableStatus"
 ng-model="entEdit.cableStatus" required="required">
 <span style="color: Red" ng-show="addform.cableStatus.$touched && addform.cableStatus.$invalid">
 This field is required.</span>
 <br> <br>
 
-<!-- deviceImage<input	class="form-control" type="file" name="deviceImage"
-ng-model="entEdit.deviceImage">
 
-<br> <br> -->
 
-cost<input	class="form-control" type="number" name="cost"
+
+Device Image:<input class="form-control" type="file" accept="image/*" name="deviceImage" 
+ng-model="entEdit.deviceImage" base-sixty-four-input onfocus="openFile(event)"><!-- 	onchange="openFile(event)"> -->
+<br>
+<img id="output">
+
+<br> <br>
+
+
+
+
+
+Cost<input	class="form-control" type="number" name="cost"
 ng-model="entEdit.cost" required="required">
 <span style="color: Red" ng-show="addform.cost.$touched && addform.cost.$invalid">
 This field is required.</span>
 <br> <br>
 
-weburlLink<input	class="form-control" type="text" name="weburlLink"
+Web URL Link:<input	class="form-control" type="text" name="weburlLink"
 ng-model="entEdit.weburlLink" required="required">
 <span style="color: Red" ng-show="addform.weburlLink.$touched && addform.weburlLink.$invalid">
 This field is required.</span>
 <br> <br>
 
-modelName<input	class="form-control" type="text" name="modelName"
+Model Name:<input	class="form-control" type="text" name="modelName"
 ng-model="entEdit.modelName" required="required">
 <span style="color: Red" ng-show="addform.modelName.$touched && addform.modelName.$invalid">
 This field is required.</span>
 <br> <br>
 
-defaultProfilePresent<input	class="form-control" type="number" name="defaultProfilePresent"
+Default Profile Present:<input	class="form-control" type="number" name="defaultProfilePresent"
 ng-model="entEdit.defaultProfilePresent" required="required">
 <span style="color: Red" ng-show="addform.defaultProfilePresent.$touched && addform.defaultProfilePresent.$invalid">
 This field is required.</span>
 <br> <br>
 
-deviceImageLocation<input	class="form-control" type="text" name="deviceImageLocation"
+Device Image Location:<input	class="form-control" type="text" name="deviceImageLocation"
 ng-model="entEdit.deviceImageLocation" required="required">
 <span style="color: Red" ng-show="addform.deviceImageLocation.$touched && addform.deviceImageLocation.$invalid">
 This field is required.</span>
 <br> <br>
 
-sourceProductCode<input	class="form-control" type="text" name="sourceProductCode"
+Source Product Code:<input	class="form-control" type="text" name="sourceProductCode"
 ng-model="entEdit.sourceProductCode" required="required">
 <span style="color: Red" ng-show="addform.sourceProductCode.$touched && addform.sourceProductCode.$invalid">
 This field is required.</span>
 <br> <br>
 
-poNumber<input	class="form-control" type="text" name="poNumber"
+P O Number:<input	class="form-control" type="text" name="poNumber"
 ng-model="entEdit.poNumber" required="required">
 <span style="color: Red" ng-show="addform.poNumber.$touched && addform.poNumber.$invalid">
 This field is required.</span>
 <br> <br>
 
-manualInstructionDesc<input	class="form-control" type="text" name="manualInstructionDesc"
+Manual Instruction Description:<input	class="form-control" type="text" name="manualInstructionDesc"
 ng-model="entEdit.manualInstructionDesc" required="required">
 <span style="color: Red" ng-show="addform.manualInstructionDesc.$touched && addform.manualInstructionDesc.$invalid">
 This field is required.</span>
 <br> <br>
 
-description<input	class="form-control" type="text" name="description"
+Description<input	class="form-control" type="text" name="description"
 ng-model="ent.description" required="required">
 <span style="color: Red" ng-show="addform.description.$touched && addform.description.$invalid">
 This field is required.</span>
 <br> <br>
 
-defaultProfileFileName<input	class="form-control" type="text" name="defaultProfileFileName"
+Default Profile FileName:<input	class="form-control" type="text" name="defaultProfileFileName"
 ng-model="ent.defaultProfileFileName" required="required">
 <span style="color: Red" ng-show="addform.defaultProfileFileName.$touched && addform.defaultProfileFileName.$invalid">
 This field is required.</span>
 <br> <br>
 
-defaultProfileLastUpdate<input	class="form-control" type="number" name="defaultProfileLastUpdate"
+Default Profile Last Update:<input	class="form-control" type="number" name="defaultProfileLastUpdate"
 ng-model="ent.defaultProfileLastUpdate" required="required">
 <span style="color: Red" ng-show="addform.defaultProfileLastUpdate.$touched && addform.defaultProfileLastUpdate.$invalid">
 This field is required.</span>

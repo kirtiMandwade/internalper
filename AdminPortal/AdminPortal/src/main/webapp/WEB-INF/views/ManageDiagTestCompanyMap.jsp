@@ -54,12 +54,12 @@
 
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>companyId</td>
+						<td>Company Id</td>
 
-						<td>productCd</td>
-						<td>severityCd</td>
-						<td>diagIissuesFlow</td>
-						<td>diagTest</td>
+						<td>Product Code</td>
+						<td>Severity Code</td>
+						<td>Diag Issues Flow</td>
+						<td>Diag Test</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
@@ -123,29 +123,29 @@
 									<div class="modal-body">
 
 
-										companyId:<input class="form-control" type="number" name="companyId"
+										Company Id:<input class="form-control" type="number" name="companyId"
 											ng-model="ent.companyId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.companyId.$touched && addform.companyId.$invalid">
 											This field is required.</span> <br> <br>
-										product Cd:<input
+										Product Code:<input
 											class="form-control" type="text" name="productCd"
 											ng-model="ent.productCd" required="required"> <span
 											style="color: Red"
 											ng-show="addform.productCd.$touched && addform.productCd.$invalid">
 											This field is required.</span> <br> <br>
-										Serverity Cd: <input
+										Serverity Code: <input
 											class="form-control" type="text" name="severityCd"
 											ng-model="ent.severityCd" required="required"> <span
 											style="color: Red"
 											ng-show="addform.severityCd.$touched && addform.severityCd.$invalid">
 											This field is required.</span> <br> <br>
 
-										diagIissuesFlow: <select
+										Diag Issues Flow: <select
 											class="form-control" ng-model="ent.diagIissuesFlow"
 											ng-options="x.issueCd for x in arrdiagIissuesFlow"></select><br>
 
-										diagTest: <select class="form-control" ng-model="ent.diagTest"
+										Diag Test: <select class="form-control" ng-model="ent.diagTest"
 											ng-options="x.testCd for x in arrDiagTest"></select>
 											<br><br>
 											

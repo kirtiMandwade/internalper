@@ -57,24 +57,24 @@
 
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>ManufacturerType</td>
-						<td>ManufacturerName</td>
-						<td>ContactName</td>
-						<td>ContactTitle</td>
+						<td>Manufacturer Type</td>
+						<td>Manufacturer Name</td>
+						<td>Contact Name</td>
+						<td>Contact Title</td>
 
-						<td>isSupported</td>
-						<td>isAutoCreated</td>
-						<td>createdAt</td>
-						<td>address1</td>
-						<td>address2</td>
-						<td>city</td>
-						<td>state</td>
-						<td>country</td>
-						<td>zipcode</td>
-						<td>countryId</td>
-						<td>phoneNumber</td>
-						<td>emailAddress</td>
-						<td>description</td>
+						<td>Is Supported</td>
+						<td>Is AutoCreated</td>
+						<td>Created At</td>
+						<td>Address1</td>
+						<td>Address2</td>
+						<td>City</td>
+						<td>State</td>
+						<td>Country</td>
+						<td>Zip Code</td>
+						<td>Country Id</td>
+						<td>Phone Number</td>
+						<td>Email Address</td>
+						<td>Description</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
@@ -147,97 +147,97 @@
 									</div>
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 
-										ManufacturerType<input
+										Manufacturer Type:<input
 											class="form-control" type="number" name="manufacturerType"
 											ng-model="ent.manufacturerType" required="required"> <span
 											style="color: Red"
 											ng-show="addform.manufacturerType.$touched && addform.manufacturerType.$invalid">
 											This field is required.</span> <br> <br>
-										ManufacturerName: <input
+										Manufacturer Name: <input
 											class="form-control" type="text" name="manufacturerName"
 											ng-model="ent.manufacturerName" required="required"> <span
 											style="color: Red"
 											ng-show="addform.manufacturerName.$touched && addform.manufacturerName.$invalid">
 											This field is required.</span> <br> <br>
-										ContactName: <input
+										Contact Name: <input
 											class="form-control" type="text" name="contactName"
 											ng-model="ent.contactName" required="required"> <span
 											style="color: Red"
 											ng-show="addform.contactName.$touched && addform.contactName.$invalid">
 											This field is required.</span> <br> <br>
-										Contact Title<input class="form-control" type="text" name="contactTitle"
+										Contact Title:<input class="form-control" type="text" name="contactTitle"
 											ng-model="ent.contactTitle" required="required"> <span
 											style="color: Red"
 											ng-show="addform.contactTitle.$touched && addform.contactTitle.$invalid">
 											This field is required.</span> <br> <br>
 
-isSupported<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isSupported" ng-model="ent.isSupported"  ng-checked=true">
+Is Supported:<input	type="checkbox" ng-true-value="1" ng-false-value="0" name="isSupported" ng-model="ent.isSupported"  ng-checked="true">
 <br> <br>
 
-isAutoCreated<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked=true">
+Is AutoCreated:<input	type="checkbox" ng-true-value="1" ng-false-value="'0'" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked="true">
 <br> <br>
 
-createdAt:<datepicker style="width: 228px;">
+Created At:<datepicker style="width: 228px;">
 	<input ng-model="ent.createdAt" format="DD-MM-YYYY" type="text" />
 	</datepicker>
 	<br><br>
 
 
-address1<input	class="form-control" type="text" name="address1"
+Address1:<input	class="form-control" type="text" name="address1"
 ng-model="ent.address1" required="required">
 <span style="color: Red" ng-show="addform.address1.$touched && addform.address1.$invalid">
 This field is required.</span>
 <br> <br>
 
-address2<input	class="form-control" type="text" name="address2"
+Address2:<input	class="form-control" type="text" name="address2"
 ng-model="ent.address2" required="required">
 <span style="color: Red" ng-show="addform.address2.$touched && addform.address2.$invalid">
 This field is required.</span>
 <br> <br>
 
-city<input	class="form-control" type="text" name="city"
+City:<input	class="form-control" type="text" name="city"
 ng-model="ent.city" required="required">
 <span style="color: Red" ng-show="addform.city.$touched && addform.city.$invalid">
 This field is required.</span>
 <br> <br>
 
-state<input	class="form-control" type="text" name="state"
+State:<input	class="form-control" type="text" name="state"
 ng-model="ent.state" required="required">
 <span style="color: Red" ng-show="addform.state.$touched && addform.state.$invalid">
 This field is required.</span>
 <br> <br>
 
-country<input	class="form-control" type="text" name="country"
+Country:<input	class="form-control" type="text" name="country"
 ng-model="ent.country" required="required">
 <span style="color: Red" ng-show="addform.country.$touched && addform.country.$invalid">
 This field is required.</span>
 <br> <br>
 
-zipcode<input	class="form-control" type="text" name="zipcode"
+Zip Code:<input	class="form-control" type="text" name="zipcode"
 ng-model="ent.zipcode" required="required">
 <span style="color: Red" ng-show="addform.zipcode.$touched && addform.zipcode.$invalid">
 This field is required.</span>
 <br> <br>
 
-countryId<input	class="form-control" type="number" name="countryId"
+Country Id:<input	class="form-control" type="number" name="countryId"
 ng-model="ent.countryId" required="required">
 <span style="color: Red" ng-show="addform.countryId.$touched && addform.countryId.$invalid">
 This field is required.</span>
 <br> <br>
 
-phoneNumber<input	class="form-control" type="text" name="phoneNumber"
+Phone Number:<input	class="form-control" type="text" name="phoneNumber"
 ng-model="ent.phoneNumber" required="required">
 <span style="color: Red" ng-show="addform.phoneNumber.$touched && addform.phoneNumber.$invalid">
 This field is required.</span>
 <br> <br>
 
-emailAddress<input	class="form-control" type="text" name="emailAddress"
+Email Address:<input	class="form-control" type="text" name="emailAddress"
 ng-model="ent.emailAddress" required="required">
 <span style="color: Red" ng-show="addform.emailAddress.$touched && addform.emailAddress.$invalid">
 This field is required.</span>
 <br> <br>
 
-description<input	class="form-control" type="text" name="description"
+Description:<input	class="form-control" type="text" name="description"
 ng-model="ent.description" required="required">
 <span style="color: Red" ng-show="addform.description.$touched && addform.description.$invalid">
 This field is required.</span>
@@ -273,97 +273,97 @@ This field is required.</span>
 									</div>
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 
-										ManufacturerType<input
+										Manufacturer Type:<input
 											class="form-control" type="number" name="manufacturerType"
 											ng-model="ent.manufacturerType" required="required"> <span
 											style="color: Red"
 											ng-show="editform.manufacturerType.$touched && editform.manufacturerType.$invalid">
 											This field is required.</span> <br> <br>
-										ManufacturerName: <input
+										Manufacturer Name: <input
 											class="form-control" type="text" name="manufacturerName"
 											ng-model="ent.manufacturerName" required="required"> <span
 											style="color: Red"
 											ng-show="editform.manufacturerName.$touched && editform.manufacturerName.$invalid">
 											This field is required.</span> <br> <br>
-										ContactName: <input
+										Contact Name: <input
 											class="form-control" type="text" name="contactName"
 											ng-model="ent.contactName" required="required"> <span
 											style="color: Red"
 											ng-show="editform.contactName.$touched && editform.contactName.$invalid">
 											This field is required.</span> <br> <br>
-										Contact Title<input class="form-control" type="text" name="contactTitle"
+										Contact Title:<input class="form-control" type="text" name="contactTitle"
 											ng-model="ent.contactTitle" required="required"> <span
 											style="color: Red"
 											ng-show="editform.contactTitle.$touched && editform.contactTitle.$invalid">
 											This field is required.</span> <br> <br>
 
-isSupported<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isSupported" ng-model="ent.isSupported"  ng-checked=true">
+Is Supported:<input	type="checkbox" ng-true-value="1" ng-false-value="0" name="isSupported" ng-model="ent.isSupported">
 <br> <br>
 
-isAutoCreated<input	type="checkbox" ng-true-value="'1" ng-false-value="'0'" name="isAutoCreated" ng-model="ent.isAutoCreated"  ng-checked=true">
+Is AutoCreated:<input	type="checkbox" ng-true-value="1" ng-false-value="0" name="isAutoCreated" ng-model="ent.isAutoCreated">
 <br> <br>
 
-createdAt:<datepicker style="width: 228px;">
+Created At:<datepicker style="width: 228px;">
 	<input ng-model="ent.createdAt" format="DD-MM-YYYY"
 	type="text" />
 	</datepicker>
 	<br> <br>
 
-address1<input	class="form-control" type="text" name="address1"
+Address1:<input	class="form-control" type="text" name="address1"
 ng-model="ent.address1" required="required">
 <span style="color: Red" ng-show="editform.address1.$touched && editform.address1.$invalid">
 This field is required.</span>
 <br> <br>
 
-address2<input	class="form-control" type="text" name="address2"
+Address2:<input	class="form-control" type="text" name="address2"
 ng-model="ent.address2" required="required">
 <span style="color: Red" ng-show="editform.address2.$touched && editform.address2.$invalid">
 This field is required.</span>
 <br> <br>
 
-city<input	class="form-control" type="text" name="city"
+City:<input	class="form-control" type="text" name="city"
 ng-model="ent.city" required="required">
 <span style="color: Red" ng-show="editform.city.$touched && editform.city.$invalid">
 This field is required.</span>
 <br> <br>
 
-state<input	class="form-control" type="text" name="state"
+State:<input	class="form-control" type="text" name="state"
 ng-model="ent.state" required="required">
 <span style="color: Red" ng-show="editform.state.$touched && editform.state.$invalid">
 This field is required.</span>
 <br> <br>
 
-country<input	class="form-control" type="text" name="country"
+Country:<input	class="form-control" type="text" name="country"
 ng-model="ent.country" required="required">
 <span style="color: Red" ng-show="editform.country.$touched && editform.country.$invalid">
 This field is required.</span>
 <br> <br>
 
-zipcode<input	class="form-control" type="text" name="zipcode"
+Zip Code:<input	class="form-control" type="text" name="zipcode"
 ng-model="ent.zipcode" required="required">
 <span style="color: Red" ng-show="editform.zipcode.$touched && editform.zipcode.$invalid">
 This field is required.</span>
 <br> <br>
 
-countryId<input	class="form-control" type="number" name="countryId"
+Country Id:<input	class="form-control" type="number" name="countryId"
 ng-model="ent.countryId" required="required">
 <span style="color: Red" ng-show="editform.countryId.$touched && editform.countryId.$invalid">
 This field is required.</span>
 <br> <br>
 
-phoneNumber<input	class="form-control" type="text" name="phoneNumber"
+Phone Number:<input	class="form-control" type="text" name="phoneNumber"
 ng-model="ent.phoneNumber" required="required">
 <span style="color: Red" ng-show="editform.phoneNumber.$touched && editform.phoneNumber.$invalid">
 This field is required.</span>
 <br> <br>
 
-emailAddress<input	class="form-control" type="text" name="emailAddress"
+Email Address:<input	class="form-control" type="text" name="emailAddress"
 ng-model="ent.emailAddress" required="required">
 <span style="color: Red" ng-show="editform.emailAddress.$touched && editform.emailAddress.$invalid">
 This field is required.</span>
 <br> <br>
 
-description<input	class="form-control" type="text" name="description"
+Description:<input	class="form-control" type="text" name="description"
 ng-model="ent.description" required="required">
 <span style="color: Red" ng-show="editform.description.$touched && editform.description.$invalid">
 This field is required.</span>

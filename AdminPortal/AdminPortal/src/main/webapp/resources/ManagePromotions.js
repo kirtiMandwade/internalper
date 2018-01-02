@@ -67,6 +67,7 @@ app.controller('empCtrl', [
 			$scope.save = function() {
 			console.log(new Date($scope.dev.startDateTime));
 			$scope.dev.startDateTime=	new Date($scope.dev.startDateTime);
+			$scope.devEdit.endDateTime=new Date($scope.dev.endDateTime);
 
 			$scope.dev.endDateTime=	new Date($scope.dev.endDateTime);
 				$http.post("/adminportal/tradein/promotion/save",

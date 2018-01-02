@@ -24,7 +24,7 @@ app.controller('empCtrl', [
 				$scope.editForm = true;
 				$scope.ent = entity;
 
-
+				  $scope.ent.createdAt= new Date(entity.createdAt);
 			};
 
 
@@ -46,6 +46,7 @@ app.controller('empCtrl', [
 			};
 
 			$scope.update = function() {
+				
 				$http.post("/adminportal/care/manufacturer/update",
 						$scope.ent).then(function(response) {
 					console.log(response);

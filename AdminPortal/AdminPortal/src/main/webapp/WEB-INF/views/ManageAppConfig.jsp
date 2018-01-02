@@ -52,9 +52,9 @@
 
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>CompanyId</td>
-						<td>configKey</td>
-						<td>configValue</td>
+						<td>Company Id</td>
+						<td>Config Key</td>
+						<td>Config Value</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
@@ -111,14 +111,14 @@
 									</div>
 									<div class="modal-body">
 
-									Company Id: <input class="form-control" type="number"
+									Company Id:<input class="form-control" type="number"
 											ng-model="ent.companyId" name="companyId" required  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
 											<span style="color: Red" ng-show="addform.companyId.$dirty&&addform.companyId.$error.pattern">
 											Company ID can not have alphabets</span>
              								<span style="color: Red" ng-show="addform.companyId.$touched && addform.companyId.$invalid">
 											Company ID Code length exceeded</span>
 											<br> <br>
-									Config Key<input class="form-control" type="text" name="configKey" ng-model="ent.configKey" required="required">
+									Config Key:<input class="form-control" type="text" name="configKey" ng-model="ent.configKey" required="required">
 											<span style="color: Red" ng-show="addform.configKey.$touched && addform.configKey.$invalid">
 											This field is required.</span>
 											<br> <br>
@@ -161,7 +161,7 @@
              								<span style="color: Red" ng-show="editform.companyId.$touched && editform.companyId.$invalid">
 											Company ID Code length exceeded</span>
 											<br> <br>
-									Config Key<input class="form-control" type="text" name="configKey" ng-model="ent.configKey" required="required">
+									Config Key:<input class="form-control" type="text" name="configKey" ng-model="ent.configKey" required="required">
 											<span style="color: Red" ng-show="editform.configKey.$touched && editform.configKey.$invalid">
 											This field is required.</span>
 											<br> <br>

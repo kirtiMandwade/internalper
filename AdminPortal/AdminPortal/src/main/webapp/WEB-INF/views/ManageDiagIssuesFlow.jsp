@@ -51,9 +51,9 @@
 				
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
-						<td>issueCd</td>
-						<td>orderNum</td>
-						<td>status</td>
+						<td>Issue Code</td>
+						<td>Order Number</td>
+						<td>Status</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
@@ -111,11 +111,11 @@
 									</div>
 									<div class="modal-body">
 
-									issueCd:<input class="form-control" type="text" name="issueCd" ng-model="ent.issueCd" required="required">
+									Issue Code:<input class="form-control" type="text" name="issueCd" ng-model="ent.issueCd" required="required">
 										<span style="color: Red" ng-show="addform.issueCd.$touched && addform.issueCd.$invalid">
 										This field is required.</span>
 										<br> <br>
-									Order Num:<input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
+									Order Number:<input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
 										<span style="color: Red" ng-show="addform.orderNum.$touched && addform.orderNum.$invalid">
 										This field is required.</span>
 										<br> <br>
@@ -154,11 +154,11 @@
 									</div>
 									<div class="modal-body">
 					
-									issueCd:<input class="form-control" type="text" name="issueCd" ng-model="ent.issueCd" required="required">
+									Issue Code:<input class="form-control" type="text" name="issueCd" ng-model="ent.issueCd" required="required">
 										<span style="color: Red" ng-show="editform.issueCd.$touched && editform.issueCd.$invalid">
 										This field is required.</span>
 										<br> <br>
-									Order Num:<input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
+									Order Number:<input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
 										<span style="color: Red" ng-show="editform.orderNum.$touched && editform.orderNum.$invalid">
 										This field is required.</span>
 										<br> <br>
