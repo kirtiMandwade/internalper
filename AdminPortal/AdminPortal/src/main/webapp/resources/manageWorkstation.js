@@ -260,6 +260,10 @@ app.controller('empCtrl', [
 	}
 					});
 
+				   $scope.entEdit.provisionedDate= new Date($scope.ent.provisionedDate);
+				    $scope.entEdit.endDate=new Date($scope.ent.endDate);
+
+
 /* $scope.entEdit1=entity1; */
 
 // $scope.addNewChoiceForEdit();

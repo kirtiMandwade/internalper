@@ -58,8 +58,8 @@
 						<td>Delete</td>
 					</tr>
 					<tr ng-repeat="entity in arrEntity">
-						<td>{{entity.featureCd}}</td>
-						<td>{{entity.productCd}}</td>
+						<td>{{entity.productFeatureId.featureCd}}</td>
+						<td>{{entity.productFeatureId.productCd}}</td>
 						<td>{{entity.introducedVersion}}</td>
 
 						<!-- <td ng-click="edit(grade)">edit</td>
@@ -115,12 +115,12 @@
 
 
 										Feature Code: <input class="form-control" type="text"
-											ng-model="ent.featureCd" name="gradeCode"
+											ng-model="ent.productFeatureId.featureCd" name="gradeCode"
 											required> <span style="color: Red"
 											ng-show="addform.gradeCode.$touched && addform.gradeCode.$invalid">
 											Grade Code length exceeded</span> <br> <br>Product
 										Code<input class="form-control" type="text"
-											name="model" ng-model="ent.productCd" required="required">
+											name="model" ng-model="ent.productFeatureId.productCd" required="required">
 										<span style="color: Red"
 											ng-show="addform.gradeDesc.$touched && addform.gradeDesc.$invalid">
 											This field is required.</span> <br> <br> Introduction Version: <input class="form-control" type="text" name="color"
@@ -163,12 +163,12 @@
 									<div class="modal-body">
 
 						Feature Code: <input class="form-control" type="text"
-											ng-model="entEdit.featureCd" name="gradeCode"
+											ng-model="entEdit.productFeatureId.featureCd" name="gradeCode"
 											required> <span style="color: Red"
 											ng-show="addform.gradeCode.$touched && addform.gradeCode.$invalid">
 											Grade Code length exceeded</span> <br> <br>Product
 										Code<input class="form-control" type="text"
-											name="model" ng-model="entEdit.productCd" required="required">
+											name="model" ng-model="entEdit.productFeatureId.productCd" required="required">
 										<span style="color: Red"
 											ng-show="addform.gradeDesc.$touched && addform.gradeDesc.$invalid">
 											This field is required.</span> <br> <br> Introduction Version: <input class="form-control" type="text" name="color"

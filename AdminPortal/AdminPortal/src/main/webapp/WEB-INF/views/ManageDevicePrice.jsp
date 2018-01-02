@@ -58,8 +58,8 @@ href="/adminportal/resources/css/style.css">
 						<td>Company Name</td>
 						<td>Base Price</td>
 						<td>Currency</td>
-						
-						<td>DeviceId</td>
+
+						<td>Device</td>
 
 
 						<td>Edit</td>
@@ -72,26 +72,26 @@ href="/adminportal/resources/css/style.css">
 						<td>{{device.basePrice}}</td>
 						<td>{{device.currency}}</td>
 
-						<!-- <td>{{device.productPK.tradeinDeviceId}}</td> 
-						
+						<!-- <td>{{device.productPK.tradeinDeviceId}}</td>
+
 						TradeInDeviceId-{{device.deviceEntity.tradeinDeviceId}},Make-{{device.deviceEntity.make}},Model-{{device.deviceEntity.model}},
 						 title="Storage-{{device.deviceEntity.storage}},Color-{{device.deviceEntity.color}},Charger-{{device.deviceEntity.charger}}"
 						-->
-						
+
 						<td>
 						<a href="#" data-toggle="tooltip" data-html="true"  title="Storage-{{device.deviceEntity.storage}},Color-{{device.deviceEntity.color}},Charger-{{device.deviceEntity.charger}}">
 						<!-- <button class="btn btn-success btn-md"> -->
 						{{device.deviceEntity.make}} - {{device.deviceEntity.model}}
 						<!-- </button> -->
 						</a>
-						
-						
-						
-						
-						
-						
+
+
+
+
+
+
 						</td>
-						
+
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#myModal" ng-click="edit(device)">edit</a></td>
 						<td><a style="cursor: pointer;" data-toggle="modal"
@@ -167,9 +167,9 @@ href="/adminportal/resources/css/style.css">
 										<span style="color: Red"
 											ng-show="addform.currency.$touched && addform.currency.$invalid">
 											This field is required and cannot have more then 3chars</span> <br>
-										<br> Device Id: <select class="form-control"
+										<br> Device: <select class="form-control"
 											ng-model="dev.deviceEntity"
-											ng-options="x.tradeinDeviceId for x in arrDevices"></select><br>
+											ng-options="x.model+'-'+x.make for x in arrDevices"></select><br>
 
 
 
@@ -225,9 +225,9 @@ href="/adminportal/resources/css/style.css">
 											required="required"> <span style="color: Red"
 											ng-show="editform.currency.$touched && editform.currency.$invalid">
 											This field is required and cannot have more then 3chars</span> <br>
-										<br> Device Id: <select class="form-control"
+										<br> Device : <select class="form-control"
 											ng-model="devEdit.deviceEntity"
-											ng-options="x.tradeinDeviceId for x in arrDevices"
+											ng-options="x.model +'-'+x.make for x in arrDevices"
 											disabled="isDisabled"></select><br> <br> <br>
 
 									</div>

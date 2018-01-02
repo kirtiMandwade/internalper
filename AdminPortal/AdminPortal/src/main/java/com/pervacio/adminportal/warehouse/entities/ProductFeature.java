@@ -40,7 +40,6 @@ public class ProductFeature implements Serializable {
 	@EmbeddedId
 	@AttributeOverrides({ @AttributeOverride(name = "featureCd", column = @Column(name = "featureCd")),
 		@AttributeOverride(name = "productCd", column = @Column(name = "productCd")) })
-
 	private ProductFeatureId productFeatureId;
 
 	@Column(length=50)
@@ -51,8 +50,14 @@ public class ProductFeature implements Serializable {
 	private Timestamp creationDttm;
 	@Column(columnDefinition="TIMESTAMP")
 	private Timestamp lastUpdatedDttm;
-	
-	
+
+
+	public ProductFeatureId getProductFeatureId() {
+		return productFeatureId;
+	}
+	public void setProductFeatureId(ProductFeatureId productFeatureId) {
+		this.productFeatureId = productFeatureId;
+	}
 	/*public String getFeatureCd() {
 		return featureCd;
 	}

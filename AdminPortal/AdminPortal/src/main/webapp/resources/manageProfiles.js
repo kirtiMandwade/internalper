@@ -167,7 +167,7 @@ $scope.buttondis=true;
 				{
 				entity.featureValue=featureDesc;
 				el[0].type="date";
-				el[0].className="form-control";
+//				el[0].className="form-control";
 				el[0].disabled=false;
 
 				}
