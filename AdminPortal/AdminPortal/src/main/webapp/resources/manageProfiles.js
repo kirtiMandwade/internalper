@@ -125,10 +125,10 @@ $scope.buttondis=true;
 				if(calltype=="add")
 				{
 				//el = angular.element(document.querySelector("input.form-control input[name='choicevalue']"));
-				el = angular.element(document.querySelector('#choicevaluechoice'+choiceid));
+				el = angular.element(document.querySelector('#choicevalue'+choiceid));
 
 				//selEl = angular.element(document.querySelector("input.form-control input[name='selct']"));
-				selEl = angular.element(document.querySelector('#selctchoice'+choiceid));
+				selEl = angular.element(document.querySelector('#selct'+choiceid));
 				}
 				selEl.hide();
 
@@ -137,8 +137,13 @@ $scope.buttondis=true;
 
 						 el[0].type="checkbox";
 				           el[0].className="";
-				           el[0].checked=true;
-				           entity.featureValue="Y";
+//				           el[0].checked=true;
+
+//				           if(entity.featureValue=="Y")
+				        	   entity.featureValue=featureDesc;
+//				        	   else
+//				        		   entity.featureValue=="Y";
+							el[0].disabled=false;
 
 
 				}else if(valueType=='DATE')
@@ -146,6 +151,7 @@ $scope.buttondis=true;
 				entity.featureValue=featureDesc;
 				el[0].type="date";
 				el[0].className="form-control";
+				el[0].disabled=false;
 
 				}
 				else if(valueType=='CHOICE'){
@@ -165,6 +171,7 @@ $scope.buttondis=true;
 				else{
 				entity.choiceValues="";
 				entity.featureValue=featureDesc;
+				el[0].disabled=false;
 
 				el[0].type="text";
 				el[0].className="form-control";

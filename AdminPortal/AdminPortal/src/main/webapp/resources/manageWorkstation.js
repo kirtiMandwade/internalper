@@ -148,6 +148,7 @@ $scope.workStationId;
 				           el[0].className="";
 				           el[0].checked=true;
 				           entity.featureValue="Y";
+							el[0].disabled=false;
 
 
 				}else if(valueType=='DATE')
@@ -155,6 +156,7 @@ $scope.workStationId;
 				entity.featureValue=featureDesc;
 				el[0].type="date";
 				el[0].className="form-control";
+				el[0].disabled=false;
 
 				}
 				else if(valueType=='CHOICE'){
@@ -177,6 +179,7 @@ $scope.workStationId;
 
 				el[0].type="text";
 				el[0].className="form-control";
+				el[0].disabled=false;
 
 
 				}

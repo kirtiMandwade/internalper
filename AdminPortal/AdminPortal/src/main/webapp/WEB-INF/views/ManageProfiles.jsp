@@ -165,7 +165,7 @@
 										<td>
 										Feature Code: <select
 											class="form-control" ng-model="choice.feature"
-											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,$index)" id="{{choice.id}}" ></select><br> <br>
+											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,choice.id)" id="{{choice.id}}" ></select><br> <br>
 										</td>
 										<td>
 										Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
@@ -174,7 +174,7 @@
 										<td>
 										<select id="selct{{choice.id}}" class="form-control"
 										ng-model="choice.featureValue" name="selct"
-										ng-options="x for x in arrChoice{{choice.id}}" style="display:none"></select>
+										ng-options="x for x in arrChoicechoice{{choice.id}}" style="display:none"></select>
 										</td>
 										<td>
 											<button ng-click="addNewChoice()"
@@ -227,7 +227,7 @@
         <div class="modal-content">
          <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit Device</h4>
+          <h4 class="modal-title">Edit</h4>
          </div>
          <div class="modal-body">
             Profile Code: <input class="form-control" type="text"
@@ -265,7 +265,7 @@
 
           <td>
 										Feature Value: <input id="choiceedit{{w.profileFeatureId.featureCd}}"  class="form-control" type="text"
-											ng-model="w.featureValue" name="choicevalue"  disabled="disabled" required>  <!-- id="ent1.id" -->
+											ng-model="w.featureValue" name="choicevalue"  disabled="disabled" required ng-true-value="'Y'" ng-false-value="'N'">  <!-- id="ent1.id" -->
 										</td>
 										<td>
 										<select id="selctedit{{w.profileFeatureId.featureCd}}" class="form-control"
@@ -366,7 +366,6 @@
 
 </table>
 </div></div>
-         </div>
          <div class="modal-footer">
           <button class="btn btn-default" data-dismiss="modal"
            ng-click="update()">update</button>
@@ -375,14 +374,8 @@
            data-dismiss="modal">Close</button>
          </div>
         </div>
-
-       </div>
-      </div>
-     </form>
-
-    </div>
-			</div>
-		</div>
+</div></div>
+  </div></form></div></div></div></div>
 	<footer class="container-fluid">
 		<p>Footer Text</p>
 	</footer>
