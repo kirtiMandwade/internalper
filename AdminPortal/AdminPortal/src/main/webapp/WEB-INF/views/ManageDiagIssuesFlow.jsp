@@ -26,7 +26,7 @@
 		<div class="row content">
 			<div class="col-sm-3 sidenav">
 				<h4>Menu</h4>
-				
+
 				<ul class="nav nav-pills nav-stacked">
 					<li><a href="../care/appConfig">AppConfig</a></li>
 					<li  class="active"><a href="../care/diagissue">DiagIssuesFlow</a></li>
@@ -45,10 +45,14 @@
 			<div class="col-sm-9">
 
 				<div>
-					<h1>DiagIssues</h1>	<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
+					<h1>DiagIssues</h1>
+
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
 				</div>
 				<br>
-				
+
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
 						<td>Issue Code</td>
@@ -123,7 +127,7 @@
 										<span style="color: Red" ng-show="addform.status.$touched && addform.status.$invalid">
 										This field is required.</span>
 										<br> <br>
-										
+
 									</div>
 
 									<div class="modal-footer">
@@ -140,7 +144,7 @@
 					</form>
 				</div>
 			</div>
-	
+
 			<div class="input-group input-group-lg">
 					<form name="editform">
 						<div class="modal fade" id="editmodal" role="dialog">
@@ -153,7 +157,7 @@
 										<h4 class="modal-title">Edit</h4>
 									</div>
 									<div class="modal-body">
-					
+
 									Issue Code:<input class="form-control" type="text" name="issueCd" ng-model="ent.issueCd" required="required">
 										<span style="color: Red" ng-show="editform.issueCd.$touched && editform.issueCd.$invalid">
 										This field is required.</span>
@@ -166,9 +170,9 @@
 										<span style="color: Red" ng-show="editform.status.$touched && editform.status.$invalid">
 										This field is required.</span>
 										<br> <br>
-																		
+
 									</div>
-									
+
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
 											ng-disabled="editform.$invalid" data-dismiss="modal"

@@ -51,8 +51,9 @@
 
 				<div>
 					<h1>Model</h1>
-					<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
-				</div></br>
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>				</div></br>
 
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
@@ -80,9 +81,9 @@
 						<td>Availability</td>
 						<td>Battery Status</td>
 						<td>Cable Status</td>
-						
+
 						<td>Device Image</td>
-						
+
 						<td>Cost</td>
 						<td>Web URL Link</td>
 						<td>Model Name</td>
@@ -125,22 +126,22 @@
 						<td>{{entity.availability}}</td>
 						<td>{{entity.batteryStatus}}</td>
 						<td>{{entity.cableStatus}}</td>
-						
-						
+
+
 						<!-- <td>
       <img data-ng-src="data:image/png;base64,{{entity.deviceImage}}"/>
       </td>
 						<td>{{entity.deviceImage}}</td> -->
-						
+
 						<td>
 						<input type="hidden" class="form-control" accept="image/*" name="deviceImage" ng-model="entity.deviceImage" ng-bind="{{entity.deviceImage}}" onchange="openFile(event)">
 						<img id="output">
 						</td>
-						
-						
-						
-						
-						
+
+
+
+
+
 						<td>{{entity.cost}}</td>
 						<td>{{entity.weburlLink}}</td>
 						<td>{{entity.modelName}}</td>
@@ -321,15 +322,15 @@ This field is required.</span>
 
 
 
-Device Image:<input class="form-control" type="file" accept="image/*" name="deviceImage" 
+Device Image:<input class="form-control" type="file" accept="image/*" name="deviceImage"
 ng-model="ent.deviceImage" base-sixty-four-input	onchange="openFile(event)">
 <br>
 <img id="output">
 
 <br> <br>
 
- 
- 
+
+
 
 Cost:<input	class="form-control" type="number" name="cost"
 ng-model="ent.cost" required="required">
@@ -551,7 +552,7 @@ This field is required.</span>
 
 
 
-Device Image:<input class="form-control" type="file" accept="image/*" name="deviceImage" 
+Device Image:<input class="form-control" type="file" accept="image/*" name="deviceImage"
 ng-model="entEdit.deviceImage" base-sixty-four-input onfocus="openFile(event)"><!-- 	onchange="openFile(event)"> -->
 <br>
 <img id="output">

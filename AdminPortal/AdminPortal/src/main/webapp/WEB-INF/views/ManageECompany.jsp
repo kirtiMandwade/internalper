@@ -46,8 +46,9 @@
 
 				<div>
 					<h1>Company</h1>
-					<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
-				</div>
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>				</div>
 				<br>
 
 				<table id="listOfDevices" class="table table-striped" border="1">

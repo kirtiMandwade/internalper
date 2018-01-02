@@ -40,11 +40,23 @@
 				<br>
 			</div>
 
-			<div class="col-sm-9">
+			<div class="col-xs-6 col-md-4">
 
 				<div>
-					<h1>Grades</h1>
-											<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
+					<h1>Grades</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
+      <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="GradeCode" id="txtSearch" ng-model="gradeCode" style="height:27px"/>
+   <div class="input-group-btn">
+        <button class="btn btn-primary" ng-click="search()" >
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="add()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+
+   </div></div>
 				</div></br>
 
 				<!--   <div>
@@ -56,7 +68,7 @@
 						<td>GradeDesc</td>
 						<td>GradeDisplayName</td>
 						<td>Deduction Value</td>
-						<td>DeductinType</td>
+						<td>Deduction Type</td>
 						<td>Active</td>
 
 						<td>Edit</td>
@@ -153,8 +165,8 @@
 											ng-options="x for x in deductionType"></select><br> <br>
 
 
-										<br> Active: <input type="checkbox" ng-true-value="'Y'"
-											ng-false-value="'N'" name="active" ng-model="grd.active"
+										<br> Active: <input type="checkbox" ng-true-value="Y"
+											ng-false-value="N" name="active" ng-model="grd.active"
 											ng-checked="true"></br>
 
 

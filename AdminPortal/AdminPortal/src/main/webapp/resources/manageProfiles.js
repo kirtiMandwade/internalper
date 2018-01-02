@@ -71,6 +71,10 @@ $scope.buttondis=true;
 
 			};
 
+			$scope.setDefaultValueForEditChoices = function() {
+			       $scope.choicesEdit.length = 0;
+
+			       };
 
 /*end*/
 

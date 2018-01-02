@@ -27,8 +27,8 @@
 		<div class="row content">
 			<div class="col-sm-3 sidenav">
 				<h4>Menu</h4>
-				
-				
+
+
 				<ul class="nav nav-pills nav-stacked">
 					<li><a href="../care/appConfig">AppConfig</a></li>
 					<li><a href="../care/diagissue">DiagIssuesFlow</a></li>
@@ -48,7 +48,9 @@
 
 				<div>
 					<h1>DeviceTradeInBasePrice</h1>
-					<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
+				    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
 				</div>
 				<br>
 
@@ -74,7 +76,7 @@
 					</tr>
 				</table>
 				<br>
-			
+
 				<div class="input-group input-group-lg">
 					<div class="modal fade" id="delModal" role="dialog">
 						<div class="modal-dialog">
@@ -127,9 +129,9 @@
 										Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
 											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
-										
-									</div>	
-										
+
+									</div>
+
 										<div class="modal-footer">
 											<button type="button" ng-disabled="addform.$invalid"
 												class="btn btn-default" data-dismiss="modal"
@@ -144,7 +146,7 @@
 						</form>
 					</div>
 				</div>
-	
+
 				<div class="input-group input-group-lg">
 					<form name="editform">
 						<div class="modal fade" id="editmodal" role="dialog">
@@ -157,7 +159,7 @@
 										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
-									
+
 										Base Price:<input class="form-control" type="text" name="basePrice"
 											ng-model="ent.basePrice" required="required"> <span
 											style="color: Red"
@@ -172,7 +174,7 @@
 										Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
 											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
-																			
+
 										</div>
 
 										<div class="modal-footer">

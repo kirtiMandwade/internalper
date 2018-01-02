@@ -27,8 +27,8 @@
 		<div class="row content">
 			<div class="col-sm-3 sidenav">
 				<h4>Menu</h4>
-				
-				
+
+
 				<ul class="nav nav-pills nav-stacked">
 					<li><a href="../care/appConfig">AppConfig</a></li>
 					<li><a href="../care/diagissue">DiagIssuesFlow</a></li>
@@ -48,8 +48,9 @@
 
 				<div>
 					<h1>DiagTestCompanyMap</h1>
-					<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
-				</div>
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>				</div>
 				<br>
 
 				<table id="listOfDevices" class="table table-striped" border="1">
@@ -83,7 +84,7 @@
 				</table>
 
 				<br>
-		
+
 				<div class="input-group input-group-lg">
 					<div class="modal fade" id="delModal" role="dialog">
 						<div class="modal-dialog">
@@ -148,7 +149,7 @@
 										Diag Test: <select class="form-control" ng-model="ent.diagTest"
 											ng-options="x.testCd for x in arrDiagTest"></select>
 											<br><br>
-											
+
 										<div class="modal-footer">
 											<button type="button" ng-disabled="addform.$invalid"
 												class="btn btn-default" data-dismiss="modal"
@@ -201,7 +202,7 @@
 											ng-options="x.testCd for x in arrDiagTest"></select>
 										<br> <br>
 									</div>
-										
+
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
 											ng-disabled="editform.$invalid" data-dismiss="modal"

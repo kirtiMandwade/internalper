@@ -19,7 +19,9 @@
 	rel="stylesheet" type="text/css" />
 <script src="/adminportal/resources/js/angular-datepicker.js"></script>
 
-
+<style>.columnSizefornew{width:200px;}
+.columnSizefornewcss{width:50px;}
+</style>
 </head>
 
 <body ng-app="AdminPortal" ng-controller="empCtrl">
@@ -47,9 +49,9 @@
 			<div class="col-sm-9">
 				<div>
 					<h1>Profile</h1>
-					<button class="btn btn-info" ng-click="addNewChoice();setDefaultValueForChoices()"
-						data-toggle="modal" data-target="#addModal"
-						style="position: relative; left: 90%">Add</button>
+					 <button class="btn btn-primary"  data-toggle="modal"   ng-click="addNewChoice();setDefaultValueForChoices()" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+
 				</div>
 				</br>
 
@@ -81,7 +83,7 @@
 						<td>{{device.profileDesc}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
-							data-target="#myModal" ng-click="edit(device)">edit</a></td>
+							data-target="#myModal" ng-click="edit(device);setDefaultValueForEditChoices()">edit</a></td>
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#delModal" ng-click="delWSProfile(device)">delete</a></td>
 
@@ -168,37 +170,35 @@
 										Feature Code:  <input   class="form-control" type="hidden"
 											ng-model="choice.wsProfiles" value="{{dev}}" name="choicevalue" > <br> <br>
 										</td> -->
-													<td>Feature Code: <select class="form-control"
+													<td class="columnSizefornew">Feature Code: <select class="form-control"
 														ng-model="choice.feature"
 														ng-options="x.featureCd for x in arrFeatures"
 														ng-change="getValue('add',choice,choice.id)"
 														id="{{choice.id}}"></select><br> <br>
 													</td>
 
-<td> Feature Value: <input id="addcheck{{choice.id}}" type="checkbox"
+<td class="columnSizefornew"> Feature Value: <input id="addcheck{{choice.id}}" type="checkbox"
 											ng-true-value="'Y'" ng-false-value="'N'" name="check"
-											ng-model="choice.featureValue"  style="display: none" > <br></td>
-													<td> <input
+											ng-model="choice.featureValue"  style="display: none" >
+													 <input
 														id="choicevalue{{choice.id}}" class="form-control"
 														type="text" ng-model="choice.featureValue"
 														name="choicevalue" required> <!-- id="ent1.id" -->
-													</td>
-													<td><select id="selct{{choice.id}}"
+												<select id="selct{{choice.id}}"
 														class="form-control" ng-model="choice.featureValue"
 														name="selct"
 														ng-options="x for x in arrChoicechoice{{choice.id}}"
 														style="display: none"></select></td>
-													<td>
+														<td class="columnSizefornewcss"></td>
+													<td class="columnSizefornew">
 														<button ng-click="addNewChoice()" class="btn btn-info">
 															<!-- style="position:relative;left:30%"> -->
 															<span class="glyphicon glyphicon-plus-sign"
 																style="vertical-align: middle"></span>
 															<!-- 		Add More -->
 														</button>
-													</td>
-													<!-- delete button -->
-													<th><button type="button" ng-click="deleteNewChoice()"
-															style="" class="btn btn-default">-</button></th>
+													<button type="button" ng-click="deleteNewChoice()"
+															style="" class="btn btn-default">-</button></td>
 
 												</tr>
 											</table>

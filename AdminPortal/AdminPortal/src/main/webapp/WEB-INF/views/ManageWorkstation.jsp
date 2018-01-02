@@ -50,8 +50,9 @@
 
 				<div>
 					<h1>Workstation</h1>
-					<button class="btn btn-info"  ng-click="addNewChoice();setDefaultValueForChoices()" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
-
+ <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal"  ng-click="addNewChoice();setDefaultValueForChoices()" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
 					<!--  data-target="#addModal" -->
 				</div></br>
 
@@ -93,7 +94,7 @@
 						<!-- <td ng-click="edit(grade)">edit</td>
 			<td ng-click="delete(grade)">delete</td> -->
 						<td><a style="cursor: pointer;" data-toggle="modal"
-							data-target="#editmodal" ng-click="edit(entity)">edit</a></td>
+							data-target="#editmodal" ng-click="edit(entity);setDefaultValueForEditChoices()">edit</a></td>
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#delModal" ng-click="delDevice(entity)">delete</a></td>
 
@@ -153,22 +154,22 @@
 											ng-show="addform.gradeCode.$touched && addform.gradeCode.$invalid">
 											Grade Code length exceeded</span> <br> <br>
 
-								Provisioned	Date:
+								Provisioned	Date:<br>
 										<datepicker style="width: 228px;"> <input
 											ng-model="ent.provisionedDate" format="DD-MM-YYYY"
 											type="text" /> </datepicker>
 										<br> <br>
 
-								End Date:
+								End Date:<br>
 										<datepicker style="width: 228px;"> <input
 											ng-model="ent.endDate" format="DD-MM-YYYY" type="text" /> </datepicker>
 										<br> <br>
 
-								Active: <input type="checkbox"
+								Active: <br><input type="checkbox"
 											ng-true-value="'Y'" ng-false-value="'N'" name="entActive"
 											ng-model="ent.active" ng-checked="true"> <br>
 
-								WSProfile: <select class="form-control"
+								WSProfile:<br> <select class="form-control"
 											ng-model="ent.wsProfile"
 											ng-options="x.wsProfileId.profileCd for x in arrDevices"></select><br>
 
@@ -271,17 +272,17 @@ Workstation Id: <input class="form-control" type="text"
 											ng-show="addform.gradeCode.$touched && addform.gradeCode.$invalid">
 											Grade Code length exceeded</span> <br> <br>
 
-						Provisioned	Date:
+						Provisioned	Date:<br>
 										<datepicker style="width: 228px;"> <input
 											ng-model="entEdit.provisionedDate" format="DD-MM-YYYY"
 											type="text" /> </datepicker>
 										<br> <br>
 
-						End Date:	<datepicker style="width: 228px;"> <input
+						End Date:	<br><datepicker style="width: 228px;"> <input
 											ng-model="entEdit.endDate" format="DD-MM-YYYY" type="text" /> </datepicker>
 										<br> <br>
 
-						Active: <input type="checkbox"
+						Active:<br>	 <input type="checkbox"
 											ng-true-value="'Y'" ng-false-value="'N'" name="entEditActive"
 											ng-model="entEdit.active" ng-checked="true">
 							 <br> <br>

@@ -44,25 +44,37 @@
 
 			</div>
 
-			<div class="col-sm-9">
+				<div class="col-xs-6 col-md-4">
+
 				<div>
-					<h1>Promotions</h1>
-					<button class="btn btn-info" data-toggle="modal"
-						data-target="#addModal" style="position: relative; left: 90%">Add</button>
+					<h1>Promotions</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
+      <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="PromoCode" id="txtSearch" ng-model="PromoCode" style="height:27px"/>
+   <div class="input-group-btn">
+        <button class="btn btn-primary" ng-click="search()" >
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+
+   </div></div>
 				</div>
 				</br>
 
 				<!--   <div>
     <h3>Id : Name : Age : Web</h3></div>
  -->
-
+<!--
 				<button class="btn btn-info" ng-click="search()">Search
 					Promotions</button>
 				</br> PromoCode: <input class="form-control" type="text"
 					ng-model="PromoCode" name="model" required> <span
 					style="color: Red"
 					ng-show="addform.make.$touched && addform.make.$invalid"></span></br>
-
+ -->
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
 						<td>PromoCode</td>
@@ -70,7 +82,7 @@
 						<td>PromoPriority</td>
 						<td>DeviceSpecific</td>
 						<td>GradeSpecific</td>
-						<td>deductionType</td>
+						<td>DeductionType</td>
 						<td>Value</td>
 						<td>Company Name</td>
 						<td>Start Date</td>

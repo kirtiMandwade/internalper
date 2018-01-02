@@ -41,8 +41,11 @@
 			<div class="col-sm-9">
 				<div>
 					<h1>Device Price</h1>
-					<button class="btn btn-info" data-toggle="modal"
+					<!-- <button class="btn btn-info" data-toggle="modal"
 						data-target="#addModal" style="position: relative; left: 90%">Add</button>
+				 -->		        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
 				</div>
 				</br>
 				<!--   <div>

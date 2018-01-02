@@ -19,6 +19,11 @@ app.controller('empCtrl', [
 
 			};
 
+			$scope.add = function() {
+				$scope.grd=null;
+
+			};
+
 			$scope.edit = function(grade) {
 				console.log(grade);
 				$scope.editForm = true;

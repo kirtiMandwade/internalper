@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 
 <html>
 
@@ -41,22 +42,53 @@
 
 			</div>
 
-			<div class="col-sm-9">
+
+
+
+
+    <div class="col-xs-6 col-md-4">
+
 				<div>
-					<h1>Devices</h1>	<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
+					<h1>Devices</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
+      <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="Model" id="txtSearch" ng-model="model" style="height:27px"/>
+   <div class="input-group-btn">
+        <button class="btn btn-primary" ng-click="search()" >
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+
+   </div></div>
 				</div></br>
 
 				<!--   <div>
     <h3>Id : Name : Age : Web</h3></div>
  -->
+<!--
 
- 	<button
+<div class="container">
+	<div class="row">
+        <div class="span12">
+            <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                <div class="input-append span12">
+                    <input type="text" class="search-query" placeholder="Search">
+                    <button type="submit" class="btn"><i class="icon-search"></i></button>
+                </div>
+            </form>
+        </div>
+	</div>
+</div>
+ --> 	<!-- <button
 					class="btn btn-info" ng-click="search()">Search Device</button></br>
  Model: <input class="form-control" type="text"
 											ng-model="model" name="model"
 											required> <span style="color: Red"
 											ng-show="addform.make.$touched && addform.make.$invalid"></span></br>
-
+ -->
 				<table id="listOfDevices" class="table table-striped" border="1">
 					<tr>
 						<td>TradeinDeviceId</td>
@@ -108,13 +140,31 @@
 								</div>
 								<div class="modal-body">
 
-									<ul>
+								<%-- 	<ul>
 										<li ng-repeat=" base in basePrice"
 											ng-if="basePrice.length >0">{{ base.productPK.companyName }} : {{
 											base.basePrice }}</li>
 										<li ng-if="basePrice.length < 1">Base Price Not Assigned
 										</li>
-									</ul>
+									</ul> --%>
+
+									<table id="listOfDevices" class="table table-striped" border="1" align="center">
+
+          <tr>
+
+           <th>Company Name</th>
+           <th>Base Price</th>
+           <th>Currency</th>
+
+          </tr>
+
+          <tr ng-repeat=" base in basePrice">
+           <td>{{base.productPK.companyName}}</td>
+           <td>{{base.basePrice}}</td>
+           <td>{{base.currency}}</td>
+          </tr>
+          </div>
+         </table>
 								</div>
 								<div class="modal-footer">
 

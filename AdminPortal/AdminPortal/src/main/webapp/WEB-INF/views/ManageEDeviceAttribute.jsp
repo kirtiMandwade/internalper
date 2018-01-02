@@ -25,8 +25,8 @@
 		<div class="row content">
 			<div class="col-sm-3 sidenav">
 				<h4>Menu</h4>
-				
-				
+
+
 				<ul class="nav nav-pills nav-stacked">
 					<li><a href="../care/appConfig">AppConfig</a></li>
 					<li><a href="../care/diagissue">DiagIssuesFlow</a></li>
@@ -46,7 +46,9 @@
 
 				<div>
 					<h1>DeviceAttributes</h1>
-					<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
+		    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
 				</div>
 				<br>
 
@@ -55,7 +57,7 @@
 						<td>Attribute Name</td>
 						<td>Attribute Value</td>
 						<td>Device Model Id</td>
-					
+
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
@@ -72,7 +74,7 @@
 					</tr>
 				</table>
 				<br>
-			
+
 				<div class="input-group input-group-lg">
 					<div class="modal fade" id="delModal" role="dialog">
 						<div class="modal-dialog">
@@ -123,14 +125,14 @@
 										style="color: Red"
 										ng-show="addform.attributeValue.$touched && addform.attributeValue.$invalid">
 										This field is required.</span> <br> <br>
-											
+
 									Model Device Id:
 					 					<select class="form-control"
 										ng-model="ent.eMod"
 										ng-options="x.deviceModelId for x in arrModel"></select><br>
-										
+
 									</div>
-		
+
 									<div class="modal-footer">
 										<button type="button" ng-disabled="addform.$invalid"
 											class="btn btn-default" data-dismiss="modal"
@@ -171,14 +173,14 @@
 										style="color: Red"
 										ng-show="editform.attributeValue.$touched && editform.attributeValue.$invalid">
 										This field is required.</span> <br> <br>
-											
+
 									Model Device Id:
 					 					<select class="form-control"
 										ng-model="ent.eMod"
 										ng-options="x.deviceModelId for x in arrModel"></select><br>
 
 									</div>
-										
+
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"
 												ng-disabled="editform.$invalid" data-dismiss="modal"

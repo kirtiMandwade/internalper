@@ -42,8 +42,9 @@
 
 				<div>
 					<h1>Features</h1>
-											<button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
-				</div></br>
+ <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>				</div></br>
 
 				<!--   <div>
     <h3>Id : Name : Age : Web</h3></div>
@@ -143,7 +144,7 @@
 											ng-model="ent.choiceValues"  >
 
 									</div>
-										<br> <br>
+										<br>
 
 									Default Value:
 										<input class="form-control" type="text" name="deductionValue"
@@ -205,7 +206,7 @@
 												 <div id="choicevalues" style="display:none" >
 
 						Choice Values: <input  class="form-control" type="text" name="color"
-											ng-model="ent.choiceValues"  ></div> <br> <br>
+											ng-model="ent.choiceValues"  ></div> <br>
 
 						Default Value:
 										<input class="form-control" type="text" name="deductionValue"
