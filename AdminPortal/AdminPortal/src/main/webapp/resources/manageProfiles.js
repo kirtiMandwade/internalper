@@ -7,7 +7,6 @@ app.controller('empCtrl', [
 			$scope.choicesEdit = [];
 $scope.choiceid;
 $scope.wsProfileId;
-
 			$scope.editForm = false;
 			$scope.delDev={};
 			$scope.basePrice =[];
@@ -75,6 +74,11 @@ $scope.buttondis=true;
 
 /*end*/
 
+			$scope.setDefaultValueForChoices = function() {
+			    $scope.choices.length = 1;
+
+			   };
+
 
 			$scope.getValue = function(calltype,entity,choiceid) {
 
@@ -115,12 +119,15 @@ $scope.buttondis=true;
 
 					//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
 					selEl = angular.element(document.querySelector('#selctedit'+choiceid));
+					checkE1=angular.element(document.querySelector('#choicecheck'+choiceid));
 					}if(calltype=="editadd"){
 						//el = angular.element(document.querySelector("input.form-control input[name='choicevalues']"));	//"div.user-panel.main input[name='login']"
 						el = angular.element(document.querySelector('#editadd'+choiceid));
 
 						//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
 						selEl = angular.element(document.querySelector('#selcteditadd'+choiceid));
+						checkE1=angular.element(document.querySelector('#editaddcheck'+choiceid));
+
 						}
 				if(calltype=="add")
 				{
@@ -129,21 +136,27 @@ $scope.buttondis=true;
 
 				//selEl = angular.element(document.querySelector("input.form-control input[name='selct']"));
 				selEl = angular.element(document.querySelector('#selct'+choiceid));
+				checkE1=angular.element(document.querySelector('#addcheck'+choiceid));
+
 				}
 				selEl.hide();
-
+				checkE1.hide();
 					if(valueType=='BOOLEAN')
 					{
+						el.hide();
 
-						 el[0].type="checkbox";
+						checkE1.show();
+//						  entity.featureValue=featureDesc;
+						/* el[0].type="checkbox";
+							el[0].disabled=false;
+
 				           el[0].className="";
 //				           el[0].checked=true;
 
-//				           if(entity.featureValue=="Y")
-				        	   entity.featureValue=featureDesc;
-//				        	   else
-//				        		   entity.featureValue=="Y";
-							el[0].disabled=false;
+				           if(entity.featureValue=="on")
+				        	   entity.featureValue="Y";
+				        	   else
+				        		   entity.featureValue=="N";*/
 
 
 				}else if(valueType=='DATE')
@@ -169,14 +182,14 @@ $scope.buttondis=true;
 				console.log(entity.featureValue.split(","));
 					}
 				else{
-				entity.choiceValues="";
-				entity.featureValue=featureDesc;
-				el[0].disabled=false;
+el.show();
 
 				el[0].type="text";
 				el[0].className="form-control";
 
-
+				entity.choiceValues="";
+				entity.featureValue=featureDesc;
+				el[0].disabled=false;
 				}
 				};
 

@@ -50,7 +50,7 @@
 
 				<div>
 					<h1>Workstation</h1>
-					<button class="btn btn-info" ng-click="addNewChoice()" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
+					<button class="btn btn-info"  ng-click="addNewChoice();setDefaultValueForChoices()" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button>
 
 					<!--  data-target="#addModal" -->
 				</div></br>
@@ -185,8 +185,11 @@
 											class="form-control" ng-model="choice.feature"
 											ng-options="x.featureCd for x in arrFeatures" ng-change="getValue('add',choice,choice.id)" id="{{choice.id}}" ></select><br> <br>
 										</td>
+										 <td> Feature Value: <input id="addcheck{{choice.id}}" type="checkbox"
+											ng-true-value="'Y'" ng-false-value="'N'" name="check"
+											ng-model="choice.featureValue"  style="display: none" > <br></td>
 										<td>
-										Feature Value: <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
+										 <input id="choicevalue{{choice.id}}"  class="form-control" type="text"
 											ng-model="choice.featureValue" name="choicevalue" required>  <!-- id="ent1.id" -->
 										</td>
 										<td>
@@ -296,6 +299,8 @@ Workstation Id: <input class="form-control" type="text"
 				<!-- <td>		Feature Code: <select class="form-control" ng-model="entEdit1.feature"
 											ng-options="x.featureCd for x in arrFeatures"></select></td>
  -->
+
+
  <td>
           feature code <input class="form-control" type="text" name="color" ng-model="w.feature.featureCd" ng-disabled="buttonCode" required ng-init="buttonCode=true">
           <span
@@ -304,8 +309,13 @@ Workstation Id: <input class="form-control" type="text"
            This field is required.</span> <br> <br>
           </td>
 
+
+<td> Feature Value <input id="choicecheck{{w.workStationFeatureId.featureCd}}" type="checkbox"
+											ng-true-value="'Y'" ng-false-value="'N'" name="check"
+											ng-model="w.featureValue"  style="display: none" > <br></td>
+											<!-- ng-change="checkbox(w) -->
           <td>
-										Feature Value: <input id="choiceedit{{w.workStationFeatureId.featureCd}}"  class="form-control" type="text"
+										 <input id="choiceedit{{w.workStationFeatureId.featureCd}}"  class="form-control" type="text"
 											ng-model="w.featureValue" name="choicevalue"  disabled="disabled" required>  <!-- id="ent1.id" -->
 										</td>
 										<td>
@@ -376,10 +386,18 @@ Workstation Id: <input class="form-control" type="text"
 <table>
 
 	<tr>
+
+
+
 				<td>		Feature Code: <select class="form-control" ng-model="choice.feature"
 											ng-options="x.featureCd for x in arrFeatures"  ng-change="getValue('editadd',choice,choice.id)" ></select></td>
 
-				<td>		Feature Value: <input id="editadd{{choice.id}}" class="form-control" type="text" name="choicevalues"
+
+<td> Feature Value: <input id="editaddcheck{{choice.id}}" type="checkbox"
+											ng-true-value="'Y'" ng-false-value="'N'" name="check"
+											ng-model="choice.featureValue"  style="display: none" > <br></td>
+
+				<td>		 <input id="editadd{{choice.id}}" class="form-control" type="text" name="choicevalues"
 											ng-model="choice.featureValue" >
 
 

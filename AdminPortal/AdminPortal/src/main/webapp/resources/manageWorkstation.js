@@ -30,6 +30,10 @@ $scope.workStationId;
 				$scope.myVar = !$scope.myVar;
 			};
 
+			$scope.setDefaultValueForChoices = function() {
+			    $scope.choices.length = 1;
+
+			   };
 
 
 
@@ -122,6 +126,8 @@ $scope.workStationId;
 
 				//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
 				selEl = angular.element(document.querySelector('#selctedit'+choiceid));
+				checkE1=angular.element(document.querySelector('#choicecheck'+choiceid));
+
 				}
 				if(calltype=="editadd"){
 					//el = angular.element(document.querySelector("input.form-control input[name='choicevalues']"));	//"div.user-panel.main input[name='login']"
@@ -129,7 +135,9 @@ $scope.workStationId;
 
 					//selEl = angular.element(document.querySelector("input.form-control input[name='selctedit']"));
 					selEl = angular.element(document.querySelector('#selcteditadd'+choiceid));
-					}
+					checkE1=angular.element(document.querySelector('#editaddcheck'+choiceid));
+
+				}
 
 				if(calltype=="add")
 				{
@@ -138,19 +146,27 @@ $scope.workStationId;
 
 				//selEl = angular.element(document.querySelector("input.form-control input[name='selct']"));
 				selEl = angular.element(document.querySelector('#selct'+choiceid));
+				checkE1=angular.element(document.querySelector('#addcheck'+choiceid));
+
 				}
 				selEl.hide();
+				checkE1.hide();
+
 
 					if(valueType=='BOOLEAN')
 					{
 
-						 el[0].type="checkbox";
+			/*			 el[0].type="checkbox";
 				           el[0].className="";
 				           el[0].checked=true;
 				           entity.featureValue="Y";
 							el[0].disabled=false;
 
+*/
 
+						el.hide();
+
+						checkE1.show();
 				}else if(valueType=='DATE')
 				{
 				entity.featureValue=featureDesc;
@@ -174,12 +190,13 @@ $scope.workStationId;
 				console.log(entity.featureValue.split(","));
 					}
 				else{
+					el[0].type="text";
+					el[0].className="form-control";
+					el[0].disabled=false;
 				entity.choiceValues="";
 				entity.featureValue=featureDesc;
 
-				el[0].type="text";
-				el[0].className="form-control";
-				el[0].disabled=false;
+
 
 
 				}
