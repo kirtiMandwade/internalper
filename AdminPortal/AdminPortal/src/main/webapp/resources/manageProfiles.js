@@ -293,19 +293,20 @@ el.show();
 							$scope.arrWSProfiles = response.data;
 						});
 
-			}
-
+			};
+			
+			
+			
 			$scope.search = function() {
 				console.log("searcg called")
-				$http.post("/adminportal/warehouse/profile/search",$scope.model).then(
+				$http.post("/adminportal/warehouse/profile/search",$scope.profileCd).then(
 						function(response) {
 							console.log(response);
 							$scope.arrWSProfiles = response.data;
 						});
 
-			}
-
-
+			};	
+			
 			$scope.getBasePrice = function(device) {
 				$http.post("/adminportal/warehouse/GetBasePrice",device).then(
 						function(response) {
@@ -313,7 +314,7 @@ el.show();
 							$scope.basePrice = response.data;
 						});
 
-			}
+			};
 
 			$scope.delete = function() {
 				$http.post("/adminportal/warehouse/profile/remove",

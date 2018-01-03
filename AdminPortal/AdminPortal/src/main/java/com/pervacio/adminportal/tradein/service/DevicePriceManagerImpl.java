@@ -45,6 +45,12 @@ public class DevicePriceManagerImpl implements DevicePriceManager {
 		// TODO Auto-generated method stub
 		return dao.getDevicePriceByDevice(device);
 		
+	}
+
+	@Override
+	public List<DevicePrice> findByCompanyName(String companyName) {
+		// TODO Auto-generated method stub
+		return dao.findByCompanyName(companyName);
 	};
 
 }

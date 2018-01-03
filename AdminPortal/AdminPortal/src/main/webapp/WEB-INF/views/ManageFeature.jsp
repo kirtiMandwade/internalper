@@ -38,7 +38,7 @@
 				<br>
 			</div>
 
-			<div class="col-sm-9">
+	<!-- 		<div class="col-sm-9">
 
 				<div>
 					<h1>Features</h1>
@@ -46,10 +46,31 @@
         <span class="glyphicon glyphicon-plus"></span>
         </button>				</div></br>
 
-				<!--   <div>
-    <h3>Id : Name : Age : Web</h3></div>
- -->
-				<table id="listOfDevices" class="table table-striped" border="1">
+ -->				
+				
+				<div class="col-xs-6 col-md-4">
+				<div>
+					<h1>Features</h1>
+  	    <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="FeatureCd" id="txtSearch" ng-model="featureCd" style="height:27px"/>
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal">
+     	   <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+</div>
+</div>
+</div>
+<br>
+				
+				
+				
+				
+				<table id="listOfFeatures" class="table table-striped" border="1">
 					<tr>
 						<td>Feature Cd</td>
 						<td>Feature Desc</td>

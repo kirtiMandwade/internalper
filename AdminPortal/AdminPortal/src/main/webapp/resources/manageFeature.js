@@ -106,6 +106,19 @@ app.controller('empCtrl', [
 				});
 
 			};
+			
+			
+			$scope.search = function() {
+				console.log("searcg called")
+				$http.post("/adminportal/warehouse/feature/search",$scope.featureCd).then(
+						function(response) {
+							console.log(response);
+							$scope.arrEntity = response.data;
+						});
+
+			};	
+			
+			
 
 			$scope.update = function() {
 				console.log($scope.ent);
@@ -126,7 +139,7 @@ app.controller('empCtrl', [
 							$scope.arrEntity = response.data;
 						});
 
-			}
+			};
 
 			$http.get("/adminportal/warehouse/GetValueType").then(
 					function(response) {

@@ -13,6 +13,8 @@ public interface DevicePriceManager
 	public  void remove(DevicePrice devicePrice)throws Exception;
 	public void update(DevicePrice devicePrice)throws Exception ;
 	public ArrayList<DevicePrice> getDevicePriceByDevice(Device device);
+	
+	public List<DevicePrice> findByCompanyName(String companyName);
 
 
 }

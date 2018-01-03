@@ -49,5 +49,9 @@ public class WorkstationDao
 		// TODO Auto-generated method stub
 		return workStationRepository.findByWorkStationId(workStationId);
 	}
+	
+	public ArrayList<WorkStation> getWorkStationByWorkStationName(String workStationName) throws Exception{	
+		return workStationRepository.findByWorkStationName(workStationName);
+	}
 
 }

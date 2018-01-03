@@ -60,4 +60,10 @@ public class WorkstationManagerImpl implements WorkstationManager {
 	public ArrayList<WorkStation> getWorkStationByWorkStationId(int workstationId) throws Exception{
 		return dao.getWorkStationByWorkStationId(workstationId);
 	}
+
+	@Override
+	public ArrayList<WorkStation> getWorkStationByWorkStationName(String workStationName) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getWorkStationByWorkStationName(workStationName);
+	}
 }

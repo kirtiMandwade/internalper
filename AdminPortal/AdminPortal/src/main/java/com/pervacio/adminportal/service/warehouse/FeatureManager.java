@@ -12,6 +12,7 @@ public interface FeatureManager
 	public void add(Feature feature) throws Exception;
 	public  void remove(Feature feature) throws Exception;
 	public void update(Feature feature) throws Exception ;
-//	public ArrayList<Feature> getFeatureByModel(String model) throws Exception;
+	
+	public ArrayList<Feature> getFeatureByFeatureCd(String featureCd) throws Exception;
 
 }
