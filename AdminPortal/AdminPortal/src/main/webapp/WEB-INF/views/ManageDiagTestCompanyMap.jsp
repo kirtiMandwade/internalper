@@ -124,12 +124,18 @@
 									<div class="modal-body">
 
 
-										Company Id:<input class="form-control" type="number" name="companyId"
+										<!-- Company Id:<input class="form-control" type="number" name="companyId"
 											ng-model="ent.companyId" required="required"> <span
 											style="color: Red"
 											ng-show="addform.companyId.$touched && addform.companyId.$invalid">
 											This field is required.</span> <br> <br>
-										Product Code:<input
+										 -->
+										 Company Name:<select 
+              class="form-control" ng-model="ent.companyId"
+              name="selct"
+              ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+              ></select><br><br >
+										 Product Code:<input
 											class="form-control" type="text" name="productCd"
 											ng-model="ent.productCd" required="required"> <span
 											style="color: Red"
@@ -176,11 +182,16 @@
 										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
-										companyId:<input class="form-control" type="number" name="companyId"
+										<!-- companyId:<input class="form-control" type="number" name="companyId"
 											ng-model="entEdit.companyId" required="required" di>
 											<span style="color: Red"
 											ng-show="editform.companyId.$touched && editform.companyId.$invalid">
-											This field is required.</span> <br> <br>
+											This field is required.</span> <br> <br> -->
+							Company Name:<select 
+              class="form-control" ng-model="entEdit.companyId"
+              name="selct"
+              ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+              ></select><br><br>
 										Product Cd:<input
 											class="form-control" type="text" name="productCd"
 											ng-model="entEdit.productCd" required="required"> <span
