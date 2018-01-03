@@ -46,28 +46,44 @@
 
 			</div>
 
-			<div class="col-sm-9">
+			<!-- <div class="col-sm-9">
 				<div>
 					<h1>Profile</h1>
 					 <button class="btn btn-primary"  data-toggle="modal"   ng-click="addNewChoice();setDefaultValueForChoices()" data-target="#addModal" style="position: relative; left: 90%">
         <span class="glyphicon glyphicon-plus"></span>
 
 				</div>
-				</br>
+				</br> -->
 
 
-				<!--   <div>
-    <h3>Id : Name : Age : Web</h3></div>
- -->
+				<div class="col-xs-6 col-md-4">
 
-				<!-- <button
-					class="btn btn-info" ng-click="search()">Search Device</button></br> -->
-				<!--  Model: <input class="form-control" type="text"
-											ng-model="model" name="model"
-											required> <span style="color: Red"
-											ng-show="addform.make.$touched && addform.make.$invalid"></span></br>
-					 -->
-				<table id="listOfDevices" class="table table-striped" border="1">
+				<div>
+					<h1>Profile</h1>
+  	    <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="ProfileCd" id="txtSearch" ng-model="profileCd" style="height:27px"/>
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()">
+     	   <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+</div>
+</div>
+</div>
+<br>
+			
+			
+
+
+
+
+
+
+				<table id="listOfProfiles" class="table table-striped" border="1">
 					<tr>
 						<td>ProfileCd</td>
 						<td>CompanyName</td>

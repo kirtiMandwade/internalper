@@ -35,7 +35,7 @@ public class DevicePrice extends AuditBase implements Serializable {
 	@EmbeddedId
 	@AttributeOverrides({ @AttributeOverride(name = "companyName", column = @Column(name = "companyName")),
 			@AttributeOverride(name = "tradeinDeviceId", column = @Column(name = "TradeinDeviceId")) })
-	private DevPriceKey productPK;
+	private DevPriceKey devPriceKey;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "TradeinDeviceId", referencedColumnName = "TradeinDeviceId", insertable = false, updatable = false)
@@ -46,12 +46,13 @@ public class DevicePrice extends AuditBase implements Serializable {
 	@Column(name = "Currency", length = 3, columnDefinition = "CHAR(3)")
 	private String currency;
 
-	public DevPriceKey getProductPK() {
-		return productPK;
+	
+	public DevPriceKey getDevPriceKey() {
+		return devPriceKey;
 	}
 
-	public void setProductPK(DevPriceKey productPK) {
-		this.productPK = productPK;
+	public void setDevPriceKey(DevPriceKey devPriceKey) {
+		this.devPriceKey = devPriceKey;
 	}
 
 	public Device getDeviceEntity() {

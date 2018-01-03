@@ -14,7 +14,11 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="/adminportal/resources/ManagePromotions.js"></script>
-<script src="/adminportal/resources/css/style.css"></script>
+
+<link rel="stylesheet"
+	href="/adminportal/resources/css/style.css">
+
+
 <link href="/adminportal/resources/css/angular-datepicker.css"
 	rel="stylesheet" type="text/css" />
 <script src="/adminportal/resources/js/angular-datepicker.js"></script>
@@ -62,20 +66,10 @@
 
    </div></div>
 				</div>
-				</br>
+				<br>
 
-				<!--   <div>
-    <h3>Id : Name : Age : Web</h3></div>
- -->
-<!--
-				<button class="btn btn-info" ng-click="search()">Search
-					Promotions</button>
-				</br> PromoCode: <input class="form-control" type="text"
-					ng-model="PromoCode" name="model" required> <span
-					style="color: Red"
-					ng-show="addform.make.$touched && addform.make.$invalid"></span></br>
- -->
-				<table id="listOfDevices" class="table table-striped" border="1">
+				<table id="listOfPromotions" class="table table-striped" border="1">
+				<!-- <tbody  style="overflow-x: scroll; max-height:55%;  margin-top: 30px; margin-bottom:300px;"> -->
 					<tr>
 						<td>PromoCode</td>
 						<td>PromoDesc</td>
@@ -114,6 +108,7 @@
 
 
 					</tr>
+					<!-- </tbody> -->
 				</table>
 
 				<br>
@@ -172,7 +167,7 @@
 											This field is required.</span> <span style="color: Red"
 											ng-show="addform.firstname.$dirty&&addform.firstname.$error.pattern">promoDesc
 											cannot have alphanumeric characters</span> <br> <br>
-										promoPriority: <input class="form-control" type="text"
+										promoPriority: <input class="form-control" type="number"
 											name="promoPriority" ng-model="dev.promoPriority"
 											required="required"> <span style="color: Red"
 											ng-show="addform.promoPriority.$touched && addform.promoPriority.$invalid">
@@ -251,7 +246,7 @@
 											This field is required.</span> <span style="color: Red"
 											ng-show="editform.firstname.$dirty&&editform.firstname.$error.pattern">promoDesc
 											cannot have alphanumeric characters</span> <br> <br>
-										promoPriority: <input class="form-control" type="text"
+										promoPriority: <input class="form-control" type="number"
 											name="promoPriority" ng-model="devEdit.promoPriority"
 											required="required"> <span style="color: Red"
 											ng-show="editform.promoPriority.$touched && editform.promoPriority.$invalid">

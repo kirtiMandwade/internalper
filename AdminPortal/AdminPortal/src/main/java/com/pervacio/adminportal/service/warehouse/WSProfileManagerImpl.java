@@ -56,4 +56,11 @@ public class WSProfileManagerImpl implements WSProfileManager {
 	public ArrayList<WSProfile> getWSProfileByprofile(String profile) throws Exception {
 		return dao.getWSProfileByprofile(profile);
 	}
+
+	
+	@Override
+	public ArrayList<WSProfile> getWSProfileByProfileCd(String profileCd) throws Exception {
+		
+		return dao.getWSProfileByProfileCd(profileCd);
+	}
 }

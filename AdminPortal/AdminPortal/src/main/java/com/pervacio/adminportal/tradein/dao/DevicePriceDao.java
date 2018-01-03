@@ -38,10 +38,6 @@ public class DevicePriceDao  {
 		devicePriceRepository.delete(devicePrice);
 	}
 
-
-
-
-
 	public void update(DevicePrice devicePrice) throws Exception {
 		// TODO Auto-generated method stub
 		devicePriceRepository.saveAndFlush(devicePrice);
@@ -50,4 +46,10 @@ public class DevicePriceDao  {
 	{
 		return devicePriceRepository.findByDeviceEntity(device);
 	}
+	
+	public List<DevicePrice> findByCompanyName(String companyName)
+	{
+		return devicePriceRepository.findAllByDevPriceKeyCompanyName(companyName);
+	}
+	
 }

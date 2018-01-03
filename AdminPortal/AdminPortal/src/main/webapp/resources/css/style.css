@@ -25,3 +25,23 @@
   .hover  {
     cursor: pointer;
   }
+  
+  
+  /* style="overflow-x: scroll; max-height:55%;  margin-top: 30px; margin-bottom:300px;" */
+#listOfPromotions {
+    display: block;
+    overflow-x: scroll;
+    width: 700px;
+    max-width: 994px;
+    table-layout: fixed;
+    
+}
+
+#listOfDevicePrices {
+    display: block;
+   /*  overflow-x: scroll; */
+    width: 540px;
+    max-width: 994px;
+    table-layout: fixed;
+    
+}

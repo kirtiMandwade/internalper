@@ -64,9 +64,20 @@ app.controller('empCtrl', [
 				$scope.editForm =false;
 
 			};
+			
+			$scope.search = function() {
+				console.log("searcg called")
+				$http.post("/adminportal/tradein/deviceprice/search",$scope.companyName).then(
+						function(response) {
+							console.log(response);
+							$scope.arrDevicePrice = response.data;
+						});
+
+			};			
+			
 
 			$scope.save = function() {
-$scope.dev.productPK.tradeinDeviceId=$scope.dev.deviceEntity.tradeinDeviceId;
+				$scope.dev.productPK.tradeinDeviceId=$scope.dev.deviceEntity.tradeinDeviceId;
 				$http.post("/adminportal/tradein/deviceprice/save",
 						$scope.dev).then(function(response) {
 					console.log(response);

@@ -63,7 +63,7 @@ app.controller('empCtrl', [
 							$scope.arrDevices = response.data;
 						});
 
-			}
+			};
 
 			$scope.search = function() {
 				console.log("searcg called")
@@ -73,7 +73,7 @@ app.controller('empCtrl', [
 							$scope.arrDevices = response.data;
 						});
 
-			}
+			};
 
 
 			$scope.getBasePrice = function(device) {
@@ -83,7 +83,7 @@ app.controller('empCtrl', [
 							$scope.basePrice = response.data;
 						});
 
-			}
+			};
 
 			$scope.delete = function() {
 				$http.post("/adminportal/tradein/device/remove",

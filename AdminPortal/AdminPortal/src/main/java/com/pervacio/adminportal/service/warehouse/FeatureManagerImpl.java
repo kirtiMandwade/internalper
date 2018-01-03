@@ -34,8 +34,12 @@ public class FeatureManagerImpl implements FeatureManager {
 	public void update(Feature Feature) throws Exception {
 		// TODO Auto-generated method stub
 		dao.update(Feature);
+	}
+
+	@Override
+	public ArrayList<Feature> getFeatureByFeatureCd(String featureCd) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.getFeatureByFeatureCd(featureCd);
 	};
-	/*public ArrayList<Feature> getFeatureByModel(String model) throws Exception{
-		return null;
-	}*/
+	
 }

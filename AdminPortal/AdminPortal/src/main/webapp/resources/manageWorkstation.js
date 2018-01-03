@@ -298,7 +298,7 @@ app.controller('empCtrl', [
 			     console.log(response);
 			     // $scope.workstation=response.data;
 			     $scope.refresh();
-			    });
+			   });
 
 
 
@@ -336,6 +336,19 @@ app.controller('empCtrl', [
 			 *
 			 */
 			};
+			
+			
+			
+			
+			$scope.search = function() {
+				console.log("searcg called")
+				$http.post("/adminportal/warehouse/workstation/search",$scope.workStationName).then(
+						function(response) {
+							console.log(response);
+							$scope.arrEntity = response.data;
+						});
+
+			};	
 
 			$scope.update = function() {
 

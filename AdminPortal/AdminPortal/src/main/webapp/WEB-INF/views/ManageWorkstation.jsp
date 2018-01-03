@@ -50,21 +50,41 @@
 				<br>
 			</div>
 
-			<div class="col-sm-9">
+<!-- 			<div class="col-sm-9">
 
 				<div>
 					<h1>Workstation</h1>
  <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal"  ng-click="addNewChoice();setDefaultValueForChoices()" style="position: relative; left: 90%">
         <span class="glyphicon glyphicon-plus"></span>
         </button>
-					<!--  data-target="#addModal" -->
+					 data-target="#addModal"
 				</div></br>
 
-
-				<!--   <div>
-    <h3>Id : Name : Age : Web</h3></div>
  -->
-				<table id="listOfDevices" class="table table-striped" border="1">
+				
+				<div class="col-xs-6 col-md-4">
+				<div>
+					<h1>Workstation</h1>
+  	    <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="WorkStationName" id="txtSearch" ng-model="workStationName" style="height:27px"/>
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" >
+     	   <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+</div>
+</div>
+</div>
+<br>
+				
+
+
+
+				<table id="listOfWorkStations" class="table table-striped" border="1">
 					<tr>
 						<td>WorkStationName</td>
 						<td>Provisioned Date</td>
@@ -146,7 +166,7 @@
 									</div>
 									<div class="modal-body">
 
-								Workstation Id: <input class="form-control" type="text"
+								Workstation Id: <input class="form-control" type="number"
 											ng-model="ent.workStationId" name="workStationId" required>
 
 <br> <br>
@@ -294,7 +314,7 @@
 										<h4 class="modal-title">Edit Workstation</h4>
 									</div>
 									<div class="modal-body">
-Workstation Id: <input class="form-control" type="text"
+Workstation Id: <input class="form-control" type="number"
 											ng-model="entEdit.workStationId" name="workStationId" required>
 
 <br> <br>

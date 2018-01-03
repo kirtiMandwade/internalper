@@ -310,6 +310,27 @@ public class TradeInController {
 		return message;
 
 	}
+	
+	
+	@RequestMapping(value = "/deviceprice/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<DevicePrice> searchDevicePrices(@RequestBody String companyName) {
+
+		List<DevicePrice> arrdeviceprice = null;
+		try {
+			arrdeviceprice = devicePriceManager.findByCompanyName(companyName);
+			logger.info("search Grade  "+arrdeviceprice.size());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error while searching Grade "+e.getMessage());
+
+		}
+
+		return arrdeviceprice;
+
+	}
+	
+	
 
 	@RequestMapping(value = "/deviceprice/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveDevPrice(@RequestBody DevicePriceBean devicePrice) {

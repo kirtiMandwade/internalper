@@ -40,11 +40,9 @@ public class FeatureDao
 		// TODO Auto-generated method stub
 		featureRepository.saveAndFlush(feature);
 	}
-
-
-/*	public ArrayList<Feature> getFeatureByModel(String model) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public ArrayList<Feature> getFeatureByFeatureCd(String featureCd) throws Exception{
+		return featureRepository.findByFeatureCd(featureCd);
 	}
-*/
+
 }

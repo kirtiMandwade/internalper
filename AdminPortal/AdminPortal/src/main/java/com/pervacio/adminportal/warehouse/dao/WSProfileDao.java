@@ -51,4 +51,8 @@ public class WSProfileDao
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public ArrayList<WSProfile> getWSProfileByProfileCd(String profileCd) throws Exception{
+		return wSProfileRepository.findAllByWsProfileIdProfileCd(profileCd);
+	}
 }

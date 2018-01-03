@@ -120,13 +120,19 @@
 											style="color: Red"
 											ng-show="addform.basePrice.$touched && addform.basePrice.$invalid">
 											This field is required.</span> <br> <br>
-										Company Name: <input
+										<!-- Company Name: <input
 											class="form-control" type="text" name="companyName"
 											ng-model="ent.companyName" required="required"> <span
 											style="color: Red"
 											ng-show="addform.companyName.$touched && addform.companyName.$invalid">
 											This field is required.</span> <br> <br>
-										Model Device Id:
+										 -->
+										  Company Name:<select 
+              class="form-control" ng-model="ent.companyId"
+              name="selct"
+              ng-options="x.companyName as x.companyName for x in arrEntityForCompany"
+              ></select><br><br >
+										 Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
 											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
 
@@ -165,12 +171,17 @@
 											style="color: Red"
 											ng-show="editform.basePrice.$touched && editform.basePrice.$invalid">
 											This field is required.</span> <br> <br>
-										Company Name: <input
+										<!-- Company Name: <input
 											class="form-control" type="text" name="companyName"
 											ng-model="ent.companyName" required="required"> <span
 											style="color: Red"
 											ng-show="editform.companyName.$touched && editform.companyName.$invalid">
-											This field is required.</span> <br> <br>
+											This field is required.</span> <br> <br> -->
+											Company Name:<select 
+              class="form-control" ng-model="ent.companyName"
+              name="selct"
+              ng-options="x.companyName as x.companyName for x in arrEntityForCompany"
+              ></select><br><br>
 										Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
 											ng-options="x.deviceModelId for x in arrModel"></select><br><br>

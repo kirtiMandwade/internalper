@@ -21,6 +21,7 @@ import com.pervacio.adminportal.service.warehouse.ProfileFeatureManager;
 import com.pervacio.adminportal.service.warehouse.WSProfileManager;
 import com.pervacio.adminportal.service.warehouse.WorkstationFeatureManager;
 import com.pervacio.adminportal.service.warehouse.WorkstationManager;
+import com.pervacio.adminportal.tradein.entities.Device;
 import com.pervacio.adminportal.warehouse.entities.Feature;
 import com.pervacio.adminportal.warehouse.entities.ProductFeature;
 import com.pervacio.adminportal.warehouse.entities.ProfileFeature;
@@ -151,7 +152,7 @@ private	WSProfileManager wsProfileManager;
 
 	}
 
-	@RequestMapping(value = "/profile/search", method = RequestMethod.POST, consumes = "application/json")
+/*	@RequestMapping(value = "/profile/search", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody List<WSProfile> searchwsProfiles(@RequestBody String model) {
 
 		List<WSProfile> arrDev = null;
@@ -167,7 +168,60 @@ private	WSProfileManager wsProfileManager;
 
 		return arrDev;
 
+	}*/
+	
+
+	
+	
+	@RequestMapping(value = "/workstation/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<WorkStation> searchWorkstations(@RequestBody String workStationName) {
+
+		List<WorkStation> arrWrk = null;
+		try {
+			arrWrk =workstationManager.getWorkStationByWorkStationName(workStationName);
+			logger.info("search workstation  "+arrWrk.size());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error while searching workstation "+e.getMessage());
+
+		}
+		return arrWrk;
 	}
+	
+	@RequestMapping(value = "/profile/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<WSProfile> searchProfiles(@RequestBody String profileCd) {
+
+		List<WSProfile> arrPro = null;
+		try {
+			arrPro =wsProfileManager.getWSProfileByProfileCd(profileCd);
+			logger.info("search profile  "+arrPro.size());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error while searching profile "+e.getMessage());
+
+		}
+		return arrPro;
+	}	
+		
+	@RequestMapping(value = "/feature/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<Feature> searchFeatures(@RequestBody String featureCd) {
+
+		List<Feature> arrFea = null;
+		try {
+			arrFea = featureManager.getFeatureByFeatureCd(featureCd);
+			logger.info("search feature  "+arrFea.size());
+
+		} catch (Exception e) {
+			logger.error("error while searching feature "+e.getMessage());
+
+		}
+		return arrFea;
+	}
+	
+	
+	
 
 	@RequestMapping(value = "/feature/getall", method = RequestMethod.GET)
 	public @ResponseBody List<Feature> getAllFeatures() {

@@ -40,20 +40,59 @@ href="/adminportal/resources/css/style.css">
 
 			</div>
 
-			<div class="col-sm-9">
+
+
+	<div class="col-xs-6 col-md-4">
+
+				<div>
+					<h1>Device Price</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
+      <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px"/>
+   <div class="input-group-btn">
+        <button class="btn btn-primary" ng-click="search()" >
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="add()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+
+   </div></div>
+				</div>
+			<!-- <div class="col-sm-9">
 				<div>
 					<h1>Device Price</h1>
-					<!-- <button class="btn btn-info" data-toggle="modal"
+					<button class="btn btn-info" data-toggle="modal"
 						data-target="#addModal" style="position: relative; left: 90%">Add</button>
-				 -->		        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+						       
+				 
+				 
+				  <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px"/>
+   <div class="input-group-btn">
+        <button class="btn btn-primary" ng-click="search()" >
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="add()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+
+   </div></div>
+				 
+				 
+				 
+				 
+				 
+				 <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
         <span class="glyphicon glyphicon-plus"></span>
         </button>
 				</div>
-				</br>
-				<!--   <div>
-    <h3>Id : Name : Age : Web</h3></div>
- -->
-				<table id="listOfDevices" class="table table-striped" border="1">
+ -->				<br>
+				
+				<table id="listOfDevicePrices" class="table table-striped" border="1">
 					<tr>
 						<td>Company Name</td>
 						<td>Base Price</td>
@@ -68,11 +107,11 @@ href="/adminportal/resources/css/style.css">
 
 					</tr>
 					<tr ng-repeat="device in arrDevicePrice">
-						<td>{{device.productPK.companyName}}</td>
+						<td>{{device.devPriceKey.companyName}}</td>
 						<td>{{device.basePrice}}</td>
 						<td>{{device.currency}}</td>
 
-						<!-- <td>{{device.productPK.tradeinDeviceId}}</td>
+						<!-- <td>{{device.devPriceKey.tradeinDeviceId}}</td>
 
 						TradeInDeviceId-{{device.deviceEntity.tradeinDeviceId}},Make-{{device.deviceEntity.make}},Model-{{device.deviceEntity.model}},
 						 title="Storage-{{device.deviceEntity.storage}},Color-{{device.deviceEntity.color}},Charger-{{device.deviceEntity.charger}}"
@@ -147,7 +186,7 @@ href="/adminportal/resources/css/style.css">
 
 
 										Company Name: <input class="form-control" type="text"
-											ng-model="dev.productPK.companyName" name="companyName"
+											ng-model="dev.devPriceKey.companyName" name="companyName"
 											ng-pattern="/^[A-z]+$/" required> <span
 											style="color: Red"
 											ng-show="addform.companyName.$touched && addform.companyName.$invalid">
@@ -206,7 +245,7 @@ href="/adminportal/resources/css/style.css">
 									</div>
 									<div class="modal-body">
 										companyName: <input class="form-control" type="text"
-											ng-model="devEdit.productPK.companyName" name="companyName"
+											ng-model="devEdit.devPriceKey.companyName" name="companyName"
 											required> <span style="currency: Red"
 											ng-show="editform.companyName.$touched && editform.companyName.$invalid">
 											This field is required.</span> <span style="color: Red"
