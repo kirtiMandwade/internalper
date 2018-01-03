@@ -84,6 +84,11 @@ app.controller('empCtrl', [
 						console.log(response);
 						$scope.arrEntity = response.data;
 					});
+			$http.get("/adminportal/care/company/getall").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrEntityForCompany = response.data;
+				     });
 
 
 		} ]);
