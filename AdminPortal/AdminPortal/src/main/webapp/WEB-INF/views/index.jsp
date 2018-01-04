@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" >
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
+<script type="text/javascript">
+function validate() {
+    if (document.f.j_username.value == "" && document.f.j_password.value == "") {
+        alert("Username and password are required");
+        document.f.j_username.focus();
+        return false;
+    }
+    if (document.f.j_username.value == "") {
+        alert("Username is required");
+        document.f.j_username.focus();
+        return false;
+    }
+    if (document.f.j_password.value == "") {
+    alert("Password is required");
+    document.f.j_password.focus();
+        return false;
+    }
+}
+</script>
   <meta charset="UTF-8">
   <title>Admin Portal</title>
   
@@ -14,12 +33,12 @@
 
   <link rel="stylesheet"
 	href="/adminportal/resources/css/styleforlogin.css">
-  
+
 </head>
 
 <body onload='document.f.j_username.focus();'>
 
-  
+
 <!-- Form Mixin-->
 <!-- Input Mixin-->
 <!-- Button Mixin-->
@@ -33,12 +52,16 @@
     <div class="tooltip">Click Me</div>
   </div>
   <div class="form">
+ 		<c:if test="${param.error == 'true'}">
+    <h1><span>Bad Credentials</span></h1>
+</c:if><br><br>
+ 	 
     <h2>Login to your account</h2>
     <form name='f' action='/adminportal/j_spring_security_check'
 		method='POST'>
       <input type="text" placeholder="Username" name='j_username' value=''/>
       <input type="password" placeholder="Password" name='j_password'/>
-      <button>Login</button>
+      <button onclick="return validate();">Login</button>
     </form>
   </div>
   <div class="form">
