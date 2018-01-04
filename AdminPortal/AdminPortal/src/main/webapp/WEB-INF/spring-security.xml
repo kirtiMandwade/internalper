@@ -15,7 +15,7 @@
             <intercept-url requires-channel="any" access="hasRole('CR')" pattern="/Care/**"/>
       
        <form-login login-page='/login.html'
-            authentication-failure-url="/login.html"
+            authentication-failure-url="/login.html?error=true"
             authentication-success-handler-ref="myAuthenticationSuccessHandler"/>
 <logout invalidate-session="true" logout-success-url="/login.html" logout-url="/logout"/> 
     </http>
