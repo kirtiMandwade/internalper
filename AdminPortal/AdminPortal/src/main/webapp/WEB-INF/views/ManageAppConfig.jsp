@@ -53,8 +53,9 @@
 				</div>
 				<br>
 
-				<table id="listOfDevices" class="table table-striped" border="1">
+				<table  id="listOfOverflows" class="table table-striped" border="1">
 					<tr>
+					
 						<td>Company Id</td>
 						<td>Config Key</td>
 						<td>Config Value</td>
@@ -62,8 +63,8 @@
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
-
 					<tr ng-repeat="entity in arrEntity">
+					
 						<td>{{entity.companyId}}</td>
 						<td>{{entity.configKey}}</td>
 						<td>{{entity.configValue}}</td>
@@ -73,6 +74,7 @@
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#delModal" ng-click="delDevice(entity)">delete</a></td>
 					</tr>
+					
 				</table>
 				<br>
 

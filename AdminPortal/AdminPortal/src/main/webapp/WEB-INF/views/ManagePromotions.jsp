@@ -68,7 +68,7 @@
 				</div>
 				<br>
 
-				<table id="listOfPromotions" class="table table-striped" border="1">
+				<table id="listOfOverflows" class="table table-striped" border="1">
 				<!-- <tbody  style="overflow-x: scroll; max-height:55%;  margin-top: 30px; margin-bottom:300px;"> -->
 					<tr>
 						<td>PromoCode</td>

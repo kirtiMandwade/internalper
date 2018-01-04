@@ -49,7 +49,7 @@
         </button>				</div>
 				<br>
 
-				<table id="listOfDevices" class="table table-striped" border="1">
+				<table id="listOfNormal" class="table table-striped" border="1">
 					<tr>
 						<td>Test Code</td>
 						<td>Android Supported</td>
