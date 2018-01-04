@@ -21,19 +21,19 @@ public class FeatureManagerImpl implements FeatureManager {
 		return dao.getAll();
 	}
 
-	public void add(Feature Feature) throws Exception {
+	public void add(Feature feature) throws Exception {
 		// TODO Auto-generated method stub
-		dao.add(Feature);
+		dao.add(feature);
 	}
 
-	public void remove(Feature wsProfile) throws Exception{
+	public void remove(Feature feature) throws Exception{
 		// TODO Auto-generated method stub
-		dao.remove(wsProfile);
+		dao.remove(feature);
 	}
 
-	public void update(Feature Feature) throws Exception {
+	public void update(Feature feature) throws Exception {
 		// TODO Auto-generated method stub
-		dao.update(Feature);
+		dao.update(feature);
 	}
 
 	@Override
@@ -41,5 +41,5 @@ public class FeatureManagerImpl implements FeatureManager {
 		// TODO Auto-generated method stub
 		return dao.getFeatureByFeatureCd(featureCd);
 	};
-	
+
 }

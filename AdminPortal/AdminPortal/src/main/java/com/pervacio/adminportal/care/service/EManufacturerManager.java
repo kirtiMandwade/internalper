@@ -9,9 +9,9 @@ import com.pervacio.adminportal.care.entities.EManufacturer;
 public interface EManufacturerManager
 {
 	public List<EManufacturer> getAll();
-	public void add(EManufacturer EManufacturer) throws Exception;
-	public  void remove(EManufacturer wsProfile) throws Exception;
-	public void update(EManufacturer EManufacturer) throws Exception ;
+	public void add(EManufacturer eManufacturer) throws Exception;
+	public  void remove(EManufacturer eManufacturer) throws Exception;
+	public void update(EManufacturer eManufacturer) throws Exception ;
 	public ArrayList<EManufacturer> getEManufacturerByManufacturerName(String manufacturerName) throws Exception;
 
 }

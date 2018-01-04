@@ -21,9 +21,9 @@ public class EUserManagerImpl implements EUserManager {
 		return dao.getAll();
 	}
 
-	public void add(EUser EUser) throws Exception {
+	public void add(EUser euser) throws Exception {
 		// TODO Auto-generated method stub
-		dao.add(EUser);
+		dao.add(euser);
 	}
 
 	public void remove(int id) throws Exception{
@@ -31,9 +31,9 @@ public class EUserManagerImpl implements EUserManager {
 //		dao.remove(id);
 	}
 
-	public void update(EUser EUser) throws Exception {
+	public void update(EUser euser) throws Exception {
 		// TODO Auto-generated method stub
-		dao.update(EUser);
+		dao.update(euser);
 	};
 
 	public Boolean getUserByUsernameAndPassword(String userid,String password) throws Exception{

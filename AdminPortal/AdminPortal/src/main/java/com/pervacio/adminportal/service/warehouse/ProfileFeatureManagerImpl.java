@@ -21,21 +21,21 @@ public class ProfileFeatureManagerImpl implements ProfileFeatureManager {
 		return dao.getAll();
 	}
 
-	public void add(ProfileFeature ProfileFeature) throws Exception {
+	public void add(ProfileFeature profileFeature) throws Exception {
 		// TODO Auto-generated method stub
-		dao.add(ProfileFeature);
+		dao.add(profileFeature);
 	}
 
-	public void remove(ProfileFeature wsProfile) throws Exception{
+	public void remove(ProfileFeature profileFeature) throws Exception{
 		// TODO Auto-generated method stub
-		dao.remove(wsProfile);
+		dao.remove(profileFeature);
 	}
 
-	public void update(ProfileFeature ProfileFeature) throws Exception {
+	public void update(ProfileFeature profileFeature) throws Exception {
 		// TODO Auto-generated method stub
-		dao.update(ProfileFeature);
+		dao.update(profileFeature);
 	};
-	public ArrayList<ProfileFeature> findByFeatureValue(String model) throws Exception{
-		return dao.findByFeatureValue(model);
+	public ArrayList<ProfileFeature> findByFeatureValue(String featureValue) throws Exception{
+		return dao.findByFeatureValue(featureValue);
 	}
 }

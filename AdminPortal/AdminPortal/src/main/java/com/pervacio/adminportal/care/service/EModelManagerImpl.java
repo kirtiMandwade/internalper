@@ -21,19 +21,19 @@ public class EModelManagerImpl implements EModelManager {
 		return dao.getAll();
 	}
 
-	public void add(EModel EModel) throws Exception {
+	public void add(EModel eModel) throws Exception {
 		// TODO Auto-generated method stub
-		dao.add(EModel);
+		dao.add(eModel);
 	}
 
-	public void remove(EModel wsProfile) throws Exception{
+	public void remove(EModel eModel) throws Exception{
 		// TODO Auto-generated method stub
-		dao.remove(wsProfile);
+		dao.remove(eModel);
 	}
 
-	public void update(EModel EModel) throws Exception {
+	public void update(EModel eModel) throws Exception {
 		// TODO Auto-generated method stub
-		dao.update(EModel);
+		dao.update(eModel);
 	};
 	public ArrayList<EModel> getEModelByModel(String model) throws Exception{
 		return dao.getEModelByModel(model);

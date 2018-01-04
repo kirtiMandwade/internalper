@@ -51,44 +51,4 @@ public class EModelDao
 		return null;
 	}
 
-	/*@PersistenceContext
-	private EntityManager manager;
-
-	public List<EModel> getAll() {
-		List<EModel> EModelEntities = manager.createQuery("Select a From EModel a", EModel.class).getResultList();
-		return EModelEntities;
-	}
-
-	public void add(EModel EModel) throws  Exception {
-		manager.persist(EModel);
-
-	}
-
-	public void remove(EModel feature) throws Exception {
-		Query query = manager.createQuery(
-				"delete From EModel a where a.deviceModelId =:deviceModelId ");
-		query.setParameter("deviceModelId", feature.getDeviceModelId());
-
-		query.executeUpdate();
-
-
-	}
-
-	public void update(EModel EModel) throws Exception {
-		manager.merge(EModel);
-
-	}
-
-	public ArrayList<EModel> getEModelByModel(String ModelNumber) throws Exception{
-		Query query = manager.createQuery(
-				"select a From EModel a where a.ModelNumber =:ModelNumber");
-		query.setParameter("ModelNumber", ModelNumber);
-		ArrayList<EModel> arrEModels = null;
-		if(query.getResultList().size()>0) {
-			arrEModels=(ArrayList<EModel>) query.getResultList();
-		}
-		return arrEModels;
-
-	}
-*/
 }
