@@ -52,7 +52,7 @@
 				</div>
 				<br>
 
-			<table id="listOfDevices" class="table table-striped" border="1">
+			<table id="listOfOverflows" class="table table-striped" border="1">
 					<tr>
 						<td>Attribute Name</td>
 						<td>Attribute Value</td>

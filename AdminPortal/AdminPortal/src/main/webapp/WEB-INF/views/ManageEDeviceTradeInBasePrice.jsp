@@ -54,7 +54,7 @@
 				</div>
 				<br>
 
-				<table id="listOfDevices" class="table table-striped" border="1">
+				<table class="table table-striped" border="1">
 					<tr>
 						<td>BasePrice</td>
 						<td>Company Name</td>

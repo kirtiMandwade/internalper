@@ -28,20 +28,39 @@
   
   
   /* style="overflow-x: scroll; max-height:55%;  margin-top: 30px; margin-bottom:300px;" */
-#listOfPromotions {
+#listOfOverflows {
     display: block;
     overflow-x: scroll;
-    width: 700px;
+    width: 750px;
     max-width: 994px;
     table-layout: fixed;
     
+   /*  overflow-y: scroll;
+    max-height:400px;
+    margin-top: 30px;
+    margin-bottom:300px; */
 }
 
-#listOfDevicePrices {
+#verticalScroll{
+	overflow-y: scroll;
+    max-height:400px;
+    margin-top: 30px;
+    margin-bottom:300px;
+}
+
+
+#listOfNormal {
     display: block;
-   /*  overflow-x: scroll; */
-    width: 540px;
-    max-width: 994px;
+    width: 750px;
+ /*     width: 540px; */
+    
+   max-width: 994px;
     table-layout: fixed;
     
+    
+    overflow-y: scroll;
+    max-height:400px;
+    margin-top: 30px;
+    margin-bottom:300px;
 }
+
