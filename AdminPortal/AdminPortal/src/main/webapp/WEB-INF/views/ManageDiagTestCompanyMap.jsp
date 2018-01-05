@@ -48,7 +48,7 @@
 
 				<div>
 					<h1>DiagTestCompanyMap</h1>
-    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%" ng-click="addNewChoice();setDefaultValueForChoices()">
         <span class="glyphicon glyphicon-plus"></span>
         </button>				</div>
 				<br>
@@ -131,22 +131,58 @@
 											This field is required.</span> <br> <br>
 										 -->
 										 Company Name:<select 
-              class="form-control" ng-model="ent.companyId"
-              name="selct"
-              ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
-              ></select><br><br >
+        								      	class="form-control" ng-model="ent.companyId"
+              									name="selct"
+              									ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+              									></select><br><br >
 										 Product Code:<input
-											class="form-control" type="text" name="productCd"
-											ng-model="ent.productCd" required="required"> <span
-											style="color: Red"
-											ng-show="addform.productCd.$touched && addform.productCd.$invalid">
-											This field is required.</span> <br> <br>
-										Serverity Code: <input
+												class="form-control" type="text" name="productCd"
+												ng-model="ent.productCd" required="required"> <span
+												style="color: Red"
+												ng-show="addform.productCd.$touched && addform.productCd.$invalid">
+												This field is required.</span> <br> <br>
+									
+									
+<div data-ng-repeat="choice in choices" style="position: relative;">
+<table>
+<tr>
+
+<div class="row">
+
+<div class="col-sm-4" style="background-color:lavender;">
+Serverity Code:<input class="form-control" type="text" name="severityCd" ng-model="choice.severityCd" required="required"
+				ng-change="getValue('add',choice,choice.id)" id="{{choice.id}}">
+			<span style="color: Red" ng-show="addform.severityCd.$touched && addform.severityCd.$invalid"> This field is required.</span>
+
+</div>
+
+<div class="col-sm-4" style="background-color:lavenderblush;">
+Diag Issues Flow:<select id="{{choice.id}}" class="form-control" ng-model="choice.diagIissuesFlow"
+					ng-options="x.issueCd for x in arrdiagIissuesFlow"></select>
+					
+</div>
+
+<div  class="col-sm-4" style="background-color:lavender;">
+Diag Test:<select id="{{choice.id}}"  class="form-control" ng-model="choice.diagTest" ng-options="x.testCd for x in arrDiagTest"></select>
+
+</div>
+
+<div class="col-sm-4" style="background-color:lavenderblush;">
+Action Value <br>
+<button ng-click="addNewChoice()"  class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
+<button type="button" ng-click="deleteNewChoice()" class="btn btn-info"><span class="glyphicon glyphicon-minus"></span></button>
+</div>
+</div>							
+</tr>
+</table>
+</div>								
+			</div><br>
+										<!-- Serverity Code: <input
 											class="form-control" type="text" name="severityCd"
 											ng-model="ent.severityCd" required="required"> <span
 											style="color: Red"
 											ng-show="addform.severityCd.$touched && addform.severityCd.$invalid">
-											This field is required.</span> <br> <br>
+											This field is required.</span> <br> <br> 
 
 										Diag Issues Flow: <select
 											class="form-control" ng-model="ent.diagIissuesFlow"
@@ -154,8 +190,9 @@
 
 										Diag Test: <select class="form-control" ng-model="ent.diagTest"
 											ng-options="x.testCd for x in arrDiagTest"></select>
-											<br><br>
-
+											<br><br>	-->
+											
+									
 										<div class="modal-footer">
 											<button type="button" ng-disabled="addform.$invalid"
 												class="btn btn-default" data-dismiss="modal"
@@ -167,8 +204,9 @@
 									</div>
 								</div>
 							</div>
+							</form>
 						</div>
-					</form>
+					
 				</div>
 				<div class="input-group input-group-lg">
 					<form name="editform">

@@ -7,6 +7,7 @@ app.controller('empCtrl', [
 			
 			$scope.entEdit={};
 			$scope.delent={};
+			$scope.choices=[];
 			$scope.editForm = false;
 			$scope.myVar = false;
 
@@ -18,6 +19,59 @@ app.controller('empCtrl', [
 				$scope.delent = entity;
 
 			};
+
+			
+			
+			
+			
+			$scope.addNewChoice = function() {
+				
+				/*alert("in add new choices");*/
+				var newItemNo = $scope.choices.length + 1;
+
+				$scope.choices.push({
+						'id': 'choice' + newItemNo,
+				});
+
+				$('#addModal').show();
+			};
+			
+			$scope.deleteNewChoice = function() {
+				$scope.choices.splice($scope.choices.length-1);
+				$('#addModal').show();
+			};
+			
+			$scope.setDefaultValueForChoices = function() {
+			    $scope.choices.length = 1;
+			};
+			
+			
+			$scope.addNewChoiceForEdit = function(wsProfileId) {
+				var newItemNo = $scope.choicesEdit.length + 1;
+
+				$scope.choicesEdit.push({
+						'id': 'choice' + newItemNo,
+						'profileFeatureId':{ 'wsProfileId':wsProfileId}
+				});
+
+				$('#myModal').show();
+			};
+
+			$scope.deleteNewChoiceForEdit = function() {
+				$scope.choicesEdit.splice($scope.choicesEdit.length-1);
+				$('#myModal').show();
+			};
+			
+			$scope.setDefaultValueForEditChoices = function() {
+			       $scope.choicesEdit.length = 0;
+			};
+			
+			
+			
+			
+			
+			
+			
 
 			$scope.edit = function(entity) {
 				console.log(entity);
@@ -111,5 +165,11 @@ app.controller('empCtrl', [
 				      console.log(response);
 				      $scope.arrEntityForCompany = response.data;
 				     });
+			
+			/*$http.get("/adminportal/care/company/getall").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrEntityForCompany = response.data;
+				     });*/
 
 		} ]);
