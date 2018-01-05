@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.care.entities.DiagTestCompanyMap;
 import com.pervacio.adminportal.care.entities.EUser;
 
 @Entity
@@ -30,7 +31,31 @@ public class LookUp implements Serializable{
 	private String lookupDisplayName;
 	@Column(columnDefinition = "varchar(512)")
 	private String lookupDescription;
+	
+	@OneToMany(mappedBy = "productCd",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
+	
 
+
+	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
+		return diagTestCompanyMaps;
+	}
+	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
+		this.diagTestCompanyMaps = diagTestCompanyMaps;
+	}
+	public List<EUser> geteUserDepartment() {
+		return eUserDepartment;
+	}
+	public void seteUserDepartment(List<EUser> eUserDepartment) {
+		this.eUserDepartment = eUserDepartment;
+	}
+	public List<EUser> geteUserDepartmentUnit() {
+		return eUserDepartmentUnit;
+	}
+	public void seteUserDepartmentUnit(List<EUser> eUserDepartmentUnit) {
+		this.eUserDepartmentUnit = eUserDepartmentUnit;
+	}
 	@OneToMany(mappedBy = "department",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUserDepartment = new ArrayList<EUser>();

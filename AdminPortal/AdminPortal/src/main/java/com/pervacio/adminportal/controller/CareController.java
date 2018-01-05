@@ -3,6 +3,7 @@ package com.pervacio.adminportal.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.rowset.serial.SerialBlob;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -51,6 +53,8 @@ import com.pervacio.adminportal.care.service.EModelManager;
 import com.pervacio.adminportal.care.service.EUserManager;
 import com.pervacio.adminportal.constants.DeductionType;
 import com.pervacio.adminportal.constants.ValueType;
+import com.pervacio.adminportal.lookup.entities.LookUp;
+import com.pervacio.adminportal.lookup.service.LookUpManager;
 import com.pervacio.adminportal.model.ResponseMessage;
 
 @Controller
@@ -77,7 +81,33 @@ public class CareController {
 	@Autowired
 	private EDeviceTradeInBasePriceManager eDeviceTradeInBasePriceManager;
 	@Autowired
+
 	private EUserManager eUserManager;
+
+	LookUpManager lookUpManager;
+	
+	
+	@RequestMapping(value="/lookup/getall",method=RequestMethod.GET)
+	public @ResponseBody List<LookUp> getAllLookUp(@RequestParam String lookUpType)
+	{
+		//String lookUpType="PRODUCTCD";
+		
+	//	System.out.println("\n\nlookUpType is : \t\t"+lookUpType+"\n\n");
+		
+		List<LookUp> arrLookUp=null;
+		
+		try {
+			arrLookUp=lookUpManager.findAllByLookUpKeyLookUpType(lookUpType);
+			logger.debug("get all LookUp by Lookuptype");
+			
+		} catch (Exception e) {
+			logger.debug("error while getting all LookUp by Lookuptype "+e.getMessage());
+			//e.printStackTrace();
+		}
+		
+		return arrLookUp;
+		
+	}
 	
 	
 	@RequestMapping(value = "/appConfig/getall", method = RequestMethod.GET)
@@ -396,14 +426,38 @@ public class CareController {
 		return message;
 
 	}
-
-	@RequestMapping(value = "/diagtestcompany/save", method = RequestMethod.POST, consumes = "application/json")
+	
+	
+	/*@RequestMapping(value = "/diagtestcompany/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveDiagTestCompanyMap(@RequestBody DiagTestCompanyMapBean diagTestCompanyMapBean) {
 		DiagTestCompanyMap entity = new DiagTestCompanyMap();
 		BeanUtils.copyProperties(diagTestCompanyMapBean, entity);
 		ResponseMessage message;
 		try {
 			diagTestCompanyMapManager.add(entity);
+			
+			message = new ResponseMessage("success: ", "200");
+			logger.info("diagtestcompany added");
+
+		} catch (Exception e) {
+			logger.error("error in saving diagtestcompany "+e.getMessage());
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+		return message;
+
+	}*/
+
+	@RequestMapping(value = "/diagtestcompany/save", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage saveDiagTestCompanyMap(@RequestBody List<DiagTestCompanyMapBean> diagTestCompanyMapBean) {
+		List<DiagTestCompanyMap> entity = new ArrayList<DiagTestCompanyMap>();
+		BeanUtils.copyProperties(diagTestCompanyMapBean, entity);
+		ResponseMessage message;
+		try {
+			for (DiagTestCompanyMap diagTestCompanyMap : entity) {
+				diagTestCompanyMapManager.add(diagTestCompanyMap);
+			}
+			//diagTestCompanyMapManager.add(entity);
+			
 			message = new ResponseMessage("success: ", "200");
 			logger.info("diagtestcompany added");
 
