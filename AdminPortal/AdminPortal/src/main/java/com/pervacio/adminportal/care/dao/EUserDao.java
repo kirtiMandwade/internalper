@@ -34,7 +34,7 @@ public class EUserDao
 	}
 
 
-	public void removeEUserEntity(EUser eUser) throws Exception {
+	public void remove(EUser eUser) throws Exception {
 		// TODO Auto-generated method stub
 		eUserRepository.delete(eUser);
 	}
