@@ -81,15 +81,16 @@ public class CareController {
 	@Autowired
 	private EDeviceTradeInBasePriceManager eDeviceTradeInBasePriceManager;
 	@Autowired
-
 	private EUserManager eUserManager;
 
+	@Autowired
 	LookUpManager lookUpManager;
 	
 	
 	@RequestMapping(value="/lookup/getall",method=RequestMethod.GET)
 	public @ResponseBody List<LookUp> getAllLookUp(@RequestParam String lookUpType)
 	{
+		System.out.println("Method is called---------------------------------------------------------------------------------------------");
 		//String lookUpType="PRODUCTCD";
 		
 	//	System.out.println("\n\nlookUpType is : \t\t"+lookUpType+"\n\n");
@@ -98,11 +99,12 @@ public class CareController {
 		
 		try {
 			arrLookUp=lookUpManager.findAllByLookUpKeyLookUpType(lookUpType);
+			System.out.println("ALLLLLLLLLLLLLLLLlllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+" " +arrLookUp.size());
 			logger.debug("get all LookUp by Lookuptype");
 			
 		} catch (Exception e) {
 			logger.debug("error while getting all LookUp by Lookuptype "+e.getMessage());
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 		
 		return arrLookUp;
