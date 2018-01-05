@@ -46,7 +46,7 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
 	}
 	protected String determineTargetUrl(Authentication authentication, EUser eUser) {
 		if (authentication.isAuthenticated()) {
-			switch (eUser.getDepartment()) {
+			switch (eUser.getLookUp().getLookUpKey().getLookUpValue()) {
 			case "TR":
 
 				return "/tradein/device";
