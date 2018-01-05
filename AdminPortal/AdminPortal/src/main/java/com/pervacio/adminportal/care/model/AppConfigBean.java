@@ -24,7 +24,7 @@ public class AppConfigBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int configId;
-	private List<ECompany> arrEcompany;
+	private ECompany company;
 
 	private String configKey;
 	private String configValue;
@@ -39,14 +39,15 @@ public class AppConfigBean implements Serializable {
 
 
 
-	public List<ECompany> getArrEcompany() {
-		return arrEcompany;
+
+
+	public ECompany getCompany() {
+		return company;
 	}
 
-	public void setArrEcompany(List<ECompany> arrEcompany) {
-		this.arrEcompany = arrEcompany;
+	public void setCompany(ECompany company) {
+		this.company = company;
 	}
-
 
 	public String getConfigKey() {
 		return configKey;

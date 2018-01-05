@@ -50,7 +50,7 @@ public class ECompany extends AuditBase implements Serializable {
 		this.diagTestCompanyMaps = diagTestCompanyMaps;
 	}
 
-	@ManyToMany(mappedBy = "arrEcompany")
+	@OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<AppConfig> arrAppConfig = new ArrayList<>();
 
