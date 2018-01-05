@@ -17,13 +17,14 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.care.entities.ECompany;
 
 
 public class AppConfigBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int configId;
-	private int companyId;
+	private List<ECompany> arrEcompany;
 
 	private String configKey;
 	private String configValue;
@@ -36,13 +37,16 @@ public class AppConfigBean implements Serializable {
 		this.configId = configId;
 	}
 
-	public int getCompanyId() {
-		return companyId;
+
+
+	public List<ECompany> getArrEcompany() {
+		return arrEcompany;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setArrEcompany(List<ECompany> arrEcompany) {
+		this.arrEcompany = arrEcompany;
 	}
+
 
 	public String getConfigKey() {
 		return configKey;

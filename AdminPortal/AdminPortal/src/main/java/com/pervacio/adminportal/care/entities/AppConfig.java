@@ -1,22 +1,17 @@
 package com.pervacio.adminportal.care.entities;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "app_config")
@@ -26,7 +21,14 @@ public class AppConfig extends AuditBase implements Serializable {
 	@Id
 	@GeneratedValue
 	private int configId;
-	private int companyId;
+
+	 @ManyToMany(cascade = { CascadeType.REMOVE },fetch=FetchType.EAGER)
+	    @JoinTable(
+	        name = "ecompanyConfig",
+	        joinColumns = { @JoinColumn(name = "companyId") },
+	        inverseJoinColumns = { @JoinColumn(name = "configId") }
+	    )
+	private List<ECompany> arrEcompany;
 
 	private String configKey;
 	private String configValue;
@@ -40,12 +42,12 @@ public class AppConfig extends AuditBase implements Serializable {
 	}
 
 
-	public int getCompanyId() {
-		return companyId;
+	public List<ECompany> getArrEcompany() {
+		return arrEcompany;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setArrEcompany(List<ECompany> arrEcompany) {
+		this.arrEcompany = arrEcompany;
 	}
 
 	public String getConfigKey() {

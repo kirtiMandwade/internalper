@@ -55,17 +55,17 @@
 
 				<table  id="listOfOverflows" class="table table-striped" border="1">
 					<tr>
-					
-						<td>Company Id</td>
+
+						<td>Company Name</td>
 						<td>Config Key</td>
 						<td>Config Value</td>
 
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
-					<tr ng-repeat="entity in arrEntity">
-					
-						<td>{{entity.companyId}}</td>
+					<tbody ng-repeat="entity in arrEntity">
+<tr ng-repeat="comp in entity.arrEcompany">
+						<td>{{comp.companyName}}</td>
 						<td>{{entity.configKey}}</td>
 						<td>{{entity.configValue}}</td>
 
@@ -74,7 +74,7 @@
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#delModal" ng-click="delDevice(entity)">delete</a></td>
 					</tr>
-					
+</tbody>
 				</table>
 				<br>
 
@@ -124,8 +124,8 @@
 											Company ID Code length exceeded</span>
 											<br> <br>
 									 -->
-									 Company Name:<select 
-              							class="form-control" ng-model="ent.companyId" name="selct" ng-options="x.companyId as x.companyName for x in arrEntityForCompany"></select><br><br >
+									 Company Name:<select
+              							class="form-control" ng-model="company" name="selct" ng-options="x as x.companyName for x in arrEntityForCompany"></select><br><br >
 									 Config Key:<input class="form-control" type="text" name="configKey" ng-model="ent.configKey" required="required">
 											<span style="color: Red" ng-show="addform.configKey.$touched && addform.configKey.$invalid">
 											This field is required.</span>
@@ -169,7 +169,7 @@
              								<span style="color: Red" ng-show="editform.companyId.$touched && editform.companyId.$invalid">
 											Company ID Code length exceeded</span>
 											<br> <br> -->
-											 Company Name:<select 
+											 Company Name:<select
               class="form-control" ng-model="ent.companyId"
               name="selct"
               ng-options="x.companyId as x.companyName for x in arrEntityForCompany"

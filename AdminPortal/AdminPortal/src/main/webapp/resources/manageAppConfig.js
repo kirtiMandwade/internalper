@@ -6,6 +6,7 @@ app.controller('empCtrl', [
 		function($scope, $http) {
 			$scope.ent={};
 			$scope.delent={};
+//			$scope.company;
 			$scope.editForm = false;
 			$scope.myVar = false;
 			$scope.toggle = function() {
@@ -39,7 +40,8 @@ app.controller('empCtrl', [
 			};
 
 			$scope.save = function() {
-
+				$scope.ent.arrEcompany=[];
+				$scope.ent.arrEcompany.push($scope.company);
 				$http.post("/adminportal/care/appConfig/save",
 						$scope.ent).then(function(response) {
 					console.log(response);
