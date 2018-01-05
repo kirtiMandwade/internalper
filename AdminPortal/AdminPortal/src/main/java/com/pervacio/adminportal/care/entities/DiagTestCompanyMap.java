@@ -9,9 +9,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -19,6 +21,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.lookup.entities.LookUp;
 import com.pervacio.adminportal.tradein.entities.Device;
 
 @Entity
@@ -30,10 +33,18 @@ public class DiagTestCompanyMap  extends AuditBase implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
-	private int companyId;
-	private String productCd;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="companyId",referencedColumnName="companyId")
+	private ECompany company;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumns({
+		@JoinColumn(name = "productCdType", referencedColumnName = "lookUpType"),
+		@JoinColumn(name = "productCd", referencedColumnName = "lookUpValue")})
+	private LookUp productCd;
+		
 	private String severityCd;
-
 
 	@ManyToOne
 	@JoinColumn(name = "issueCd", referencedColumnName = "issueCd")
@@ -51,24 +62,25 @@ public class DiagTestCompanyMap  extends AuditBase implements Serializable {
 		this.id = id;
 	}
 
-	public int getCompanyId() {
-		return companyId;
+	
+	public ECompany getCompany() {
+		return company;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
-	}
-
-	public String getProductCd() {
-		return productCd;
-	}
-
-	public void setProductCd(String productCd) {
-		this.productCd = productCd;
+	public void setCompany(ECompany company) {
+		this.company = company;
 	}
 
 	public String getSeverityCd() {
 		return severityCd;
+	}
+	
+	public LookUp getProductCd() {
+		return productCd;
+	}
+
+	public void setProductCd(LookUp productCd) {
+		this.productCd = productCd;
 	}
 
 	public void setSeverityCd(String severityCd) {

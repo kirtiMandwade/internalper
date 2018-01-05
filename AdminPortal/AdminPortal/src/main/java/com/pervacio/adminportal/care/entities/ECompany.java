@@ -37,6 +37,18 @@ public class ECompany extends AuditBase implements Serializable {
 	private String companyImageFilename;
 	private String loginId;
 	private String password;
+	
+	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
+	
+	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
+		return diagTestCompanyMaps;
+	}
+
+	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
+		this.diagTestCompanyMaps = diagTestCompanyMaps;
+	}
 
 	@OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
 	@JsonIgnore

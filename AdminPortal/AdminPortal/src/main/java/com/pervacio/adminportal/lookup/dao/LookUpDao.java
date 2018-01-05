@@ -17,7 +17,7 @@ public class LookUpDao {
 	@Autowired
 	LookUpRepository lookUpRepository;
 	
-	public List<LookUp> findByLookUpKey(LookUpKey lookUpKey)throws Exception{
-		return lookUpRepository.findByLookUpKey(lookUpKey);
+	public List<LookUp> findAllByLookUpKeyLookUpType(String lookUpType)throws Exception{
+		return lookUpRepository.findAllByLookUpKeyLookUpType(lookUpType);
 	}
 }

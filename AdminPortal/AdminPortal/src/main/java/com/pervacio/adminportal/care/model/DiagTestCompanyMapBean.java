@@ -21,6 +21,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
 import com.pervacio.adminportal.care.entities.DiagTest;
+import com.pervacio.adminportal.care.entities.ECompany;
+import com.pervacio.adminportal.lookup.entities.LookUp;
 import com.pervacio.adminportal.tradein.entities.Device;
 
 public class DiagTestCompanyMapBean implements Serializable {
@@ -29,11 +31,13 @@ public class DiagTestCompanyMapBean implements Serializable {
 
 
 	private int id;
-	private int companyId;
-	private String productCd;
+	
+	private ECompany company;
+	
+	private LookUp productCd;
 	private String severityCd;
 	
-private DiagIssuesFlow diagIissuesFlow;
+	private DiagIssuesFlow diagIissuesFlow;
 
 	private DiagTest diagTest;
 
@@ -44,20 +48,20 @@ private DiagIssuesFlow diagIissuesFlow;
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public int getCompanyId() {
-		return companyId;
+	
+	public ECompany getCompany() {
+		return company;
 	}
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void setCompany(ECompany company) {
+		this.company = company;
 	}
 
-	public String getProductCd() {
+	public LookUp getProductCd() {
 		return productCd;
 	}
 
-	public void setProductCd(String productCd) {
+	public void setProductCd(LookUp productCd) {
 		this.productCd = productCd;
 	}
 

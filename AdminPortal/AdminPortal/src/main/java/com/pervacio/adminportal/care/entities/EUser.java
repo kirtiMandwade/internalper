@@ -52,29 +52,7 @@ public class EUser implements UserDetails,Serializable {
 	@Column(columnDefinition="int(11)")
 	private int userSource;
 
-	public LookUp getDepartment() {
-		return department;
-	}
-
-
-
-	public void setDepartment(LookUp department) {
-		this.department = department;
-	}
-
-
-
-	public LookUp getUnit() {
-		return unit;
-	}
-
-
-
-	public void setUnit(LookUp unit) {
-		this.unit = unit;
-	}
-
-
+	
 	private Date lastConnectedDate;
 	private Date createDate;
 
@@ -413,6 +391,28 @@ public class EUser implements UserDetails,Serializable {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public LookUp getDepartment() {
+		return department;
+	}
+
+
+
+	public void setDepartment(LookUp department) {
+		this.department = department;
+	}
+
+
+
+	public LookUp getUnit() {
+		return unit;
+	}
+
+
+
+	public void setUnit(LookUp unit) {
+		this.unit = unit;
 	}
 
 

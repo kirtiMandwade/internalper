@@ -26,9 +26,9 @@ public class EUserManagerImpl implements EUserManager {
 		dao.add(euser);
 	}
 
-	public void remove(int id) throws Exception{
+	public void remove(EUser eUser) throws Exception{
 		// TODO Auto-generated method stub
-//		dao.remove(id);
+		dao.remove(eUser);
 	}
 
 	public void update(EUser euser) throws Exception {
