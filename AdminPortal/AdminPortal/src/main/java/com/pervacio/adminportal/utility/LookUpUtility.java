@@ -15,7 +15,7 @@ public class LookUpUtility {
 	@Autowired
 	LookUpManager lookUpManager;
 
-	public List<LookUp> getLookUpByLookUpType(LookUpKey lookUpKey) {
+/*	public List<LookUp> getLookUpByLookUpType(LookUpKey lookUpKey) {
 		List<LookUp> arrLookUp = null;
 
 		try {
@@ -29,5 +29,5 @@ public class LookUpUtility {
 
 		return arrLookUp;
 	}
-
+*/
 }
