@@ -10,8 +10,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,17 +20,17 @@ import com.pervacio.adminportal.care.entities.EUser;
 @Table(name="lookup")
 public class LookUp implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+
 	@EmbeddedId
 	@AttributeOverrides({ @AttributeOverride(name = "lookUpType", column = @Column(name = "lookUpType")),
 		@AttributeOverride(name = "lookUpValue", column = @Column(name = "lookUpValue")) })
 	private LookUpKey lookUpKey;
-	
+
 	@Column(columnDefinition = "varchar(255)")
 	private String lookupDisplayName;
 	@Column(columnDefinition = "varchar(512)")
 	private String lookupDescription;
-	
+
 	@OneToMany(mappedBy = "lookUp",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUserDepartment = new ArrayList<EUser>();
@@ -41,8 +39,8 @@ public class LookUp implements Serializable{
 	@JsonIgnore
 	private List<EUser> eUserDepartmentUnit = new ArrayList<EUser>();
 
-	
-	
+
+
 	/*@OneToMany(mappedBy = "lookUpUnit",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUserUnit = new ArrayList<EUser>();
@@ -65,9 +63,9 @@ public class LookUp implements Serializable{
 	public void setLookupDescription(String lookupDescription) {
 		this.lookupDescription = lookupDescription;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

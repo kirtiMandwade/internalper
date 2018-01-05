@@ -48,7 +48,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 //		Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
-		return new UsernamePasswordAuthenticationToken(user, password, getAuthorities(user.getLookUp().getLookUpKey().getLookUpValue()));
+		return new UsernamePasswordAuthenticationToken(user, password, getAuthorities(user.getDepartment().getLookUpKey().getLookUpValue()));
 	}
 
 	public boolean supports(Class<?> arg0) {
