@@ -39,6 +39,7 @@ public class ECompany extends AuditBase implements Serializable {
 	private String password;
 
 	@ManyToMany(mappedBy = "arrEcompany")
+	@JsonIgnore
 	private List<AppConfig> arrAppConfig = new ArrayList<>();
 
 	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
