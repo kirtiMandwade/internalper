@@ -45,18 +45,35 @@
 			<br>
 			</div>
 
-			<div class="col-sm-9">
-
+			<div class="col-xs-6 col-md-4">
 				<div>
+					<h1>DiagTestCompanyMap</h1>
+  	    <div class="input-group" style="position:relation;left:50%">
+
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="company.companyName" style="height:27px"/>
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" >
+     	   <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
+</div>
+</div>
+</div>
+<br>
+
+				<!-- <div>
 					<h1>DiagTestCompanyMap</h1>
     <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%" ng-click="addNewChoice();setDefaultValueForChoices()">
         <span class="glyphicon glyphicon-plus"></span>
         </button>				</div>
-				<br>
+				<br> -->
 
 				<table class="table table-striped" border="1">
 					<tr>
-						<td>Company Id</td>
+						<td>Company Name</td>
 
 						<td>Product Code</td>
 						<td>Severity Code</td>
@@ -69,9 +86,9 @@
 
 					</tr>
 					<tr ng-repeat="entity in arrEntity">
-						<td>{{entity.companyId}}</td>
+						<td>{{entity.company.companyName}}</td>
 
-						<td>{{entity.productCd}}</td>
+						<td>{{entity.productCd.lookUpKey.lookUpValue}}</td>
 						<td>{{entity.severityCd}}</td>
 						<td>{{entity.diagIissuesFlow.issueCd}}</td>
 						<td>{{entity.diagTest.testCd}}</td>
@@ -132,14 +149,14 @@
 											This field is required.</span> <br> <br>
 										 -->
 										 Company Name:<select 
-        								      	class="form-control" ng-model="choice.company"
+        								      	class="form-control" ng-model="ent.company"
               									name="company"
-              									ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+              									ng-options="x as x.companyName for x in arrEntityForCompany"
               									></select><br><br >
 										 Product Code:<select 
-        								      	class="form-control" ng-model="choice.productCd"
+        								      	class="form-control" ng-model="ent.productCd"
               									name="productCd"
-              									ng-options="x.productCd as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
               									></select><br><br >
 										 
 										 
@@ -236,16 +253,32 @@ Action Value <br>
 											ng-show="editform.companyId.$touched && editform.companyId.$invalid">
 											This field is required.</span> <br> <br> -->
 							Company Name:<select 
-              class="form-control" ng-model="entEdit.companyId"
-              name="selct"
-              ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
-              ></select><br><br>
-										Product Cd:<input
+        								      	class="form-control" ng-model="entEdit.company"
+              									name="company"
+              									ng-options="x as x.companyName for x in arrEntityForCompany"
+              									></select><br><br >
+							
+							
+							<!-- <select 
+            							  class="form-control" ng-model="entEdit.company"
+     							         name="company"
+     							         ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+    							          ></select><br><br> -->
+								
+								Product Cd:<select 
+        								      	class="form-control" ng-model="entEdit.productCd"
+              									name="productCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									></select><br><br >
+								
+							<!-- 	
+								<input
 											class="form-control" type="text" name="productCd"
 											ng-model="entEdit.productCd" required="required"> <span
 											style="color: Red"
 											ng-show="editform.productCd.$touched && editform.productCd.$invalid">
 											This field is required.</span> <br> <br>
+									 -->
 										Severity Cd: <input
 											class="form-control" type="text" name="severityCd"
 											ng-model="entEdit.severityCd" required="required"> <span
