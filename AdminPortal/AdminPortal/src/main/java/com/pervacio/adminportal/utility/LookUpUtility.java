@@ -15,7 +15,9 @@ public class LookUpUtility {
 	@Autowired
 	LookUpManager lookUpManager;
 
-	public List<LookUp> getLookUpByLookUpType(String lookUpType) {
+
+/*	public List<LookUp> getLookUpByLookUpType(LookUpKey lookUpKey) {
+>>>>>>> branch 'master' of https://github.com/kirtiMandwade/internalper
 		List<LookUp> arrLookUp = null;
 
 		try {
@@ -29,5 +31,5 @@ public class LookUpUtility {
 
 		return arrLookUp;
 	}
-
+*/
 }
