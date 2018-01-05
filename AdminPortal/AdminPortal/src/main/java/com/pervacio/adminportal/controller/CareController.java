@@ -378,6 +378,11 @@ public class CareController {
 
 	}
 
+	
+	//   /diagtestcompany/search
+	
+	
+	
 	@RequestMapping(value = "/diagtestcompany/getall", method = RequestMethod.GET)
 	public @ResponseBody List<DiagTestCompanyMap> getAllDiagTestCompanyMap() {
 		List<DiagTestCompanyMap> arrdiagcomp = null;

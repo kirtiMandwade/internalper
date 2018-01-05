@@ -67,6 +67,21 @@ app.controller('empCtrl', [
 				console.log(entity);
 				$scope.editForm = true;
 				$scope.entEdit = entity;
+				
+				angular.forEach($scope.arrEntityForCompany,function(item,index){
+					if(item.companyName==$scope.entEdit.company.companyName)
+					{
+						$scope.entEdit.company=$scope.arrEntityForCompany[index];
+					}
+				});
+				
+				angular.forEach($scope.arrLookUp,function(item,index){
+					if(item.lookUpKey.lookUpValue==$scope.entEdit.productCd.lookUpKey.lookUpValue)
+					{
+						$scope.entEdit.productCd=$scope.arrLookUp[index];
+					}
+				});
+				
 				angular.forEach($scope.arrdiagIissuesFlow, function(item, index) {
 					if(item.issueCd==$scope.entEdit.diagIissuesFlow.issueCd)
 					{
@@ -174,5 +189,14 @@ app.controller('empCtrl', [
 				      console.log(response);
 				      $scope.arrLookUp = response.data;
 		     });
+			
+			$scope.search = function() {
+				console.log("searcg called")
+				$http.post("/adminportal/care/diagtestcompany/search",$scope.company.companyName).then(
+						function(response) {
+							console.log(response);
+							$scope.arrEntity = response.data;
+						});
+			};	
 
 } ]);
