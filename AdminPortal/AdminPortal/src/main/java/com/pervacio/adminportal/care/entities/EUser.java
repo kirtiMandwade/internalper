@@ -6,13 +6,19 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.pervacio.adminportal.lookup.entities.LookUp;
 
 @Entity
 @Table(name = "euser")
@@ -23,9 +29,47 @@ public class EUser implements UserDetails,Serializable {
 	@GeneratedValue
 	@Column(columnDefinition="BIGINT(20)")
 	private int userInternalId;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "companyId", referencedColumnName = "companyId")
+	private ECompany eCompany;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumns({@JoinColumn(name = "DepartmentType", referencedColumnName = "lookUpType"),
+		@JoinColumn(name = "Department", referencedColumnName = "lookUpValue")})
+	private LookUp lookUp;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumns({@JoinColumn(name = "UnitType", referencedColumnName = "lookUpType"),
+		@JoinColumn(name = "Unit", referencedColumnName = "lookUpValue")})
+	private LookUp lookUpUnit;
+	
+/*	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "Unit", referencedColumnName = "lookUpValue")
+	private LookUp lookUpUnit;*/
+	
+	public LookUp getLookUp() {
+		return lookUp;
+	}
 
-	@Column(columnDefinition="BIGINT(20)")
-	private int companyId;
+
+
+	public LookUp getLookUpUnit() {
+		return lookUpUnit;
+	}
+
+
+
+	public void setLookUpUnit(LookUp lookUpUnit) {
+		this.lookUpUnit = lookUpUnit;
+	}
+
+
+
+	public void setLookUp(LookUp lookUp) {
+		this.lookUp = lookUp;
+	}
+
 
 	@Column(columnDefinition="int(11)")
 	private int userSource;
@@ -69,9 +113,9 @@ public class EUser implements UserDetails,Serializable {
 	@Column(name = "AlternateEmail",length=255)
 	private String alternateEmail;
 
-	@Column(name = "Department",length=50)
+/*	@Column(name = "Department",length=50)
 	private String department;
-
+*/
 	@Column(name = "Division",length=50)
 	private String division;
 
@@ -82,27 +126,40 @@ public class EUser implements UserDetails,Serializable {
 	private String address;
 
 
-	@Column(name = "Unit",length=50)
+	/*@Column(name = "Unit",length=50)
 	private String unit;
-
+*/
 
 	public int getUserInternalId() {
 		return userInternalId;
 	}
 
 
+
+	/*public LookUp getLookUpUnit() {
+		return lookUpUnit;
+	}
+
+
+	public void setLookUpUnit(LookUp lookUpUnit) {
+		this.lookUpUnit = lookUpUnit;
+	}
+*/
+
 	public void setUserInternalId(int userInternalId) {
 		this.userInternalId = userInternalId;
 	}
 
 
-	public int getCompanyId() {
-		return companyId;
+	
+
+	public ECompany geteCompany() {
+		return eCompany;
 	}
 
 
-	public void setCompanyId(int companyId) {
-		this.companyId = companyId;
+	public void seteCompany(ECompany eCompany) {
+		this.eCompany = eCompany;
 	}
 
 
@@ -266,14 +323,14 @@ public class EUser implements UserDetails,Serializable {
 	}
 
 
-	public String getDepartment() {
+	/*public String getDepartment() {
 		return department;
 	}
 
 
 	public void setDepartment(String department) {
 		this.department = department;
-	}
+	}*/
 
 
 	public String getDivision() {
@@ -306,7 +363,7 @@ public class EUser implements UserDetails,Serializable {
 	}
 
 
-	public String getUnit() {
+/*	public String getUnit() {
 		return unit;
 	}
 
@@ -314,7 +371,7 @@ public class EUser implements UserDetails,Serializable {
 	public void setUnit(String unit) {
 		this.unit = unit;
 	}
-
+*/
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
