@@ -15,11 +15,11 @@ public class LookUpUtility {
 	@Autowired
 	LookUpManager lookUpManager;
 
-	public List<LookUp> getLookUpByLookUpType(LookUpKey lookUpKey) {
+	public List<LookUp> getLookUpByLookUpType(String lookUpType) {
 		List<LookUp> arrLookUp = null;
 
 		try {
-			arrLookUp = lookUpManager.findByLookUpKey(lookUpKey);
+			arrLookUp = lookUpManager.findAllByLookUpKeyLookUpType(lookUpType);
 
 			logger.info("search LookUp " + arrLookUp.size());
 		} catch (Exception e) {
