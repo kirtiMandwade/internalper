@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.pervacio.adminportal.lookup.entities.LookUp;
+import com.pervacio.adminportal.lookup.entities.LookUpKey;
 import com.pervacio.adminportal.lookup.service.LookUpManager;
 
 public class LookUpUtility {
@@ -14,11 +15,11 @@ public class LookUpUtility {
 	@Autowired
 	LookUpManager lookUpManager;
 
-	public List<LookUp> getLookUpByLookUpType(String lookUpType) {
+	public List<LookUp> getLookUpByLookUpType(LookUpKey lookUpKey) {
 		List<LookUp> arrLookUp = null;
 
 		try {
-			arrLookUp = lookUpManager.getLookUpByLookUpType(lookUpType);
+			arrLookUp = lookUpManager.findByLookUpKey(lookUpKey);
 
 			logger.info("search LookUp " + arrLookUp.size());
 		} catch (Exception e) {

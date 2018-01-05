@@ -35,7 +35,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 			Boolean isUserExists = eUserManager.getUserByUsernameAndPassword(username, password);
 
 			if (!isUserExists) {
-				// throw new BadCredentialsException("Username not found.");
+				 //throw new BadCredentialsException("Username not found.");
 				return null;
 			}
 
@@ -48,7 +48,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 //		Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
-		return new UsernamePasswordAuthenticationToken(user, password, getAuthorities(user.getDepartment()));
+		return new UsernamePasswordAuthenticationToken(user, password, getAuthorities(user.getLookUp().getLookUpKey().getLookUpValue()));
 	}
 
 	public boolean supports(Class<?> arg0) {
