@@ -443,11 +443,22 @@ public class CareController {
 
 	@RequestMapping(value = "/diagtestcompany/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveDiagTestCompanyMap(@RequestBody List<DiagTestCompanyMapBean> diagTestCompanyMapBean) {
-		List<DiagTestCompanyMap> entity = new ArrayList<DiagTestCompanyMap>();
-		BeanUtils.copyProperties(diagTestCompanyMapBean, entity);
+		List<DiagTestCompanyMap> entityList = new ArrayList<DiagTestCompanyMap>();
+		//BeanUtils.copyProperties(diagTestCompanyMapBean, entity);
 		ResponseMessage message;
+		
+				
+		for (DiagTestCompanyMapBean diagTestCompanyMap : diagTestCompanyMapBean) {
+			DiagTestCompanyMap entity= new DiagTestCompanyMap();
+			BeanUtils.copyProperties(diagTestCompanyMap, entity);
+			entityList.add(entity);
+		}
+		
+		System.out.println("\n\nlength of diagtestcompanymapLIST \t\t"+entityList.size()+"\n\n");
+		
+		
 		try {
-			for (DiagTestCompanyMap diagTestCompanyMap : entity) {
+			for (DiagTestCompanyMap diagTestCompanyMap : entityList) {
 				diagTestCompanyMapManager.add(diagTestCompanyMap);
 			}
 			//diagTestCompanyMapManager.add(entity);
@@ -695,11 +706,11 @@ public class CareController {
 		List<ECompany> arrECompanys = null;
 		try {
 			arrECompanys = eCompanyManager.getAll();
-			logger.info("returning all promotions "+arrECompanys.size());
+			logger.info("returning all ecompany "+arrECompanys.size());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			logger.error("error in returning promotions "+e.getMessage());
+			logger.error("error in returning ecompany "+e.getMessage());
 		}
 
 		return arrECompanys;

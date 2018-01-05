@@ -68,9 +68,9 @@
 
 					</tr>
 					<tr ng-repeat="entity in arrEntity">
-						<td>{{entity.companyId}}</td>
+						<td>{{entity.company.companyId}}</td>
 
-						<td>{{entity.productCd}}</td>
+						<td>{{entity.productCd.lookUpKey.lookUpValue}}</td>
 						<td>{{entity.severityCd}}</td>
 						<td>{{entity.diagIissuesFlow.issueCd}}</td>
 						<td>{{entity.diagTest.testCd}}</td>
@@ -131,14 +131,14 @@
 											This field is required.</span> <br> <br>
 										 -->
 										 Company Name:<select 
-        								      	class="form-control" ng-model="choice.company"
+        								      	class="form-control" ng-model="ent.company"
               									name="company"
-              									ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+              									ng-options="x as x.companyName for x in arrEntityForCompany"
               									></select><br><br >
 										 Product Code:<select 
-        								      	class="form-control" ng-model="choice.productCd"
+        								      	class="form-control" ng-model="ent.productCd"
               									name="productCd"
-              									ng-options="x.productCd as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
               									></select><br><br >
 										 
 										 

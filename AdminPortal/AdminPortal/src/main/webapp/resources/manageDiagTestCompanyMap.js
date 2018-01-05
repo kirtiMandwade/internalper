@@ -5,12 +5,10 @@ app.controller('empCtrl', [
 		'$http',
 		function($scope, $http) {
 //			$scope.ent={};
-//			$scope.ent.companyId="";
+//			$scope.ent.company="";
 //			$scope.ent.productCd="";
-			
+//			
 			$scope.choices=[];
-//			$scope.choices.choice.companyId="";
-//			$scope.choices.choice.productCd="";
 			
 			$scope.entEdit={};
 			$scope.delent={};
@@ -98,7 +96,8 @@ app.controller('empCtrl', [
 				
 			
 				angular.forEach($scope.choices,function(item,index){
-					item.company=$scope.ent.companyId;
+					item.id=null;
+					item.company=$scope.ent.company;
 					item.productCd=$scope.ent.productCd;
 				});
 				
