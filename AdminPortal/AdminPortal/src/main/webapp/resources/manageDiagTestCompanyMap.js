@@ -4,10 +4,17 @@ app.controller('empCtrl', [
 		'$scope',
 		'$http',
 		function($scope, $http) {
+//			$scope.ent={};
+//			$scope.ent.companyId="";
+//			$scope.ent.productCd="";
+			
+			$scope.choices=[];
+//			$scope.choices.choice.companyId="";
+//			$scope.choices.choice.productCd="";
 			
 			$scope.entEdit={};
 			$scope.delent={};
-			$scope.choices=[];
+			
 			$scope.editForm = false;
 			$scope.myVar = false;
 
@@ -19,20 +26,12 @@ app.controller('empCtrl', [
 				$scope.delent = entity;
 
 			};
-
-			
-			
-			
 			
 			$scope.addNewChoice = function() {
-				
-				/*alert("in add new choices");*/
 				var newItemNo = $scope.choices.length + 1;
-
 				$scope.choices.push({
 						'id': 'choice' + newItemNo,
 				});
-
 				$('#addModal').show();
 			};
 			
@@ -44,7 +43,6 @@ app.controller('empCtrl', [
 			$scope.setDefaultValueForChoices = function() {
 			    $scope.choices.length = 1;
 			};
-			
 			
 			$scope.addNewChoiceForEdit = function(wsProfileId) {
 				var newItemNo = $scope.choicesEdit.length + 1;
@@ -66,12 +64,6 @@ app.controller('empCtrl', [
 			       $scope.choicesEdit.length = 0;
 			};
 			
-			
-			
-			
-			
-			
-			
 
 			$scope.edit = function(entity) {
 				console.log(entity);
@@ -82,19 +74,17 @@ app.controller('empCtrl', [
 					{
 						$scope.entEdit.diagIissuesFlow=$scope.arrdiagIissuesFlow[index];
 
-	}
-					});
+					}
+				});
 
 				angular.forEach($scope.arrDiagTest, function(item, index) {
 					if(item.testCd==$scope.entEdit.diagTest.testCd)
 					{
 						$scope.entEdit.diagTest=$scope.arrDiagTest[index];
 
-	}
-					});
-
+					}
+				});
 			};
-
 
 			$scope.close = function(entity) {
 				console.log(entity);
@@ -102,16 +92,32 @@ app.controller('empCtrl', [
 
 			};
 
-			$scope.save = function() {
 
+			
+			$scope.save = function() {
+				
+			
+				angular.forEach($scope.choices,function(item,index){
+					item.company=$scope.ent.companyId;
+					item.productCd=$scope.ent.productCd;
+				});
+				
+				$http.post("/adminportal/care/diagtestcompany/save",
+						$scope.choices).then(function(response) {
+					console.log(response);
+					$scope.refresh();
+				});
+
+				
+				/*
 				$http.post("/adminportal/care/diagtestcompany/save",
 						$scope.ent).then(function(response) {
 					console.log(response);
 					$scope.refresh();
-
 				});
-
+*/
 			};
+
 
 			$scope.update = function() {
 				$http.post("/adminportal/care/diagtestcompany/update",
@@ -121,8 +127,8 @@ app.controller('empCtrl', [
 					$scope.editForm =false;
 					$scope.entEdit=null;
 				});
-
 			};
+			
 			$scope.refresh = function() {
 				console.log("refresh called")
 				$http.get("/adminportal/care/diagtestcompany/getall").then(
@@ -130,10 +136,8 @@ app.controller('empCtrl', [
 							console.log(response);
 							$scope.arrEntity = response.data;
 						});
-
-			}
-
-
+			};
+			
 			$scope.delete = function() {
 				$http.post("/adminportal/care/diagtestcompany/remove",
 						$scope.delent).then(function(response) {
@@ -141,35 +145,35 @@ app.controller('empCtrl', [
 
 					$scope.refresh();
 				});
-
 			};
 			$http.get("/adminportal/care/diagtestcompany/getall").then(
 					function(response) {
 						console.log(response);
 						$scope.arrEntity = response.data;
-					});
+			});
 
 			$http.get("/adminportal/care/diagtest/getall").then(
 					function(response) {
 						console.log(response);
 						$scope.arrDiagTest = response.data;
-					});
+			});
 
 			$http.get("/adminportal/care/diagissue/getall").then(
 					function(response) {
 						console.log(response);
 						$scope.arrdiagIissuesFlow = response.data;
-					});
+			});
+
 			$http.get("/adminportal/care/company/getall").then(
 				     function(response) {
 				      console.log(response);
 				      $scope.arrEntityForCompany = response.data;
-				     });
+			});
 			
-			/*$http.get("/adminportal/care/company/getall").then(
+			$http.get("/adminportal/care/lookup/getall?lookUpType=PRODUCTCD").then(
 				     function(response) {
 				      console.log(response);
-				      $scope.arrEntityForCompany = response.data;
-				     });*/
+				      $scope.arrLookUp = response.data;
+		     });
 
-		} ]);
+} ]);

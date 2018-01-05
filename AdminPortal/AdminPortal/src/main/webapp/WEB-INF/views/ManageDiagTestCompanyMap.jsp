@@ -131,17 +131,25 @@
 											This field is required.</span> <br> <br>
 										 -->
 										 Company Name:<select 
-        								      	class="form-control" ng-model="ent.companyId"
-              									name="selct"
+        								      	class="form-control" ng-model="choice.company"
+              									name="company"
               									ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
               									></select><br><br >
-										 Product Code:<input
+										 Product Code:<select 
+        								      	class="form-control" ng-model="choice.productCd"
+              									name="productCd"
+              									ng-options="x.productCd as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									></select><br><br >
+										 
+										 
+										 
+										 <!-- <input
 												class="form-control" type="text" name="productCd"
 												ng-model="ent.productCd" required="required"> <span
 												style="color: Red"
 												ng-show="addform.productCd.$touched && addform.productCd.$invalid">
 												This field is required.</span> <br> <br>
-									
+									 -->
 									
 <div data-ng-repeat="choice in choices" style="position: relative;">
 <table>
@@ -172,11 +180,12 @@ Action Value <br>
 <button ng-click="addNewChoice()"  class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
 <button type="button" ng-click="deleteNewChoice()" class="btn btn-info"><span class="glyphicon glyphicon-minus"></span></button>
 </div>
+
 </div>							
 </tr>
 </table>
 </div>								
-			</div><br>
+		</div><br>
 										<!-- Serverity Code: <input
 											class="form-control" type="text" name="severityCd"
 											ng-model="ent.severityCd" required="required"> <span

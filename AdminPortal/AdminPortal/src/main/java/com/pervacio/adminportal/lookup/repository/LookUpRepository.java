@@ -8,8 +8,8 @@ import com.pervacio.adminportal.lookup.entities.LookUp;
 import com.pervacio.adminportal.lookup.entities.LookUpKey;
 
 
-public interface LookUpRepository extends JpaRepository<LookUp, Integer> {
+public interface LookUpRepository extends JpaRepository<LookUp, LookUpKey> {
 	
 	
-	public List<LookUp> findByLookUpKey(LookUpKey lookUpKey);
+	public List<LookUp> findAllByLookUpKeyLookUpType(String lookUpType);
 }
