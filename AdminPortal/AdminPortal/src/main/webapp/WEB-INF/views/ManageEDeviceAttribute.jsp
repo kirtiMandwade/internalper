@@ -13,8 +13,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="/adminportal/resources/manageEDevAttribute.js"></script>
-<link rel="stylesheet"
-	href="/adminportal/resources/css/style.css">
+<link rel="stylesheet" href="/adminportal/resources/css/style.css">
 
 </head>
 
@@ -46,26 +45,31 @@
 
 				<div>
 					<h1>DeviceAttributes</h1>
-		    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
-        <span class="glyphicon glyphicon-plus"></span>
-        </button>
+					<button class="btn btn-primary" data-toggle="modal"
+						data-target="#addModal" style="position: relative; left: 90%">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
 				</div>
 				<br>
 
-			<table id="listOfOverflows" class="table table-striped" border="1">
+				<table  class="table table-striped" border="1">
 					<tr>
+
+						<td>Device Model</td>
+						<td>Device Make</td>
+
 						<td>Attribute Name</td>
 						<td>Attribute Value</td>
-						<td>Device Model Id</td>
-
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
 
 					<tr ng-repeat="entity in arrEntity">
+						<td>{{entity.eMod.modelName}}</td>
+						<td>{{entity.eMod.modelName}}</td>
+
 						<td>{{entity.attributeName}}</td>
 						<td>{{entity.attributeValue}}</td>
-						<td>{{entity.eMod.deviceModelId}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#editmodal" ng-click="edit(entity)">edit</a></td>
@@ -109,27 +113,22 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Add </h4>
+										<h4 class="modal-title">Add</h4>
 									</div>
 									<div class="modal-body">
 
-									 Attribute Name:<input
-										class="form-control" type="text" name="attributeName"
-										ng-model="ent.attributeName" required="required"> <span
-										style="color: Red"
-										ng-show="addform.attributeName.$touched && addform.attributeName.$invalid">
-										This field is required.</span> <br> <br>
-									Attribute Value: <input
-										class="form-control" type="text" name="attributeValue"
-										ng-model="ent.attributeValue" required="required"> <span
-										style="color: Red"
-										ng-show="addform.attributeValue.$touched && addform.attributeValue.$invalid">
-										This field is required.</span> <br> <br>
-
-									Model Device Id:
-					 					<select class="form-control"
-										ng-model="ent.eMod"
-										ng-options="x.deviceModelId for x in arrModel"></select><br>
+										Attribute Name:<input class="form-control" type="text"
+											name="attributeName" ng-model="ent.attributeName"
+											required="required"> <span style="color: Red"
+											ng-show="addform.attributeName.$touched && addform.attributeName.$invalid">
+											This field is required.</span> <br> <br> Attribute Value:
+										<input class="form-control" type="text" name="attributeValue"
+											ng-model="ent.attributeValue" required="required"> <span
+											style="color: Red"
+											ng-show="addform.attributeValue.$touched && addform.attributeValue.$invalid">
+											This field is required.</span> <br> <br> Model Device Id:
+										<select class="form-control" ng-model="ent.eMod"
+											ng-options="x.deviceModelId for x in arrModel"></select><br>
 
 									</div>
 
@@ -148,53 +147,48 @@
 				</div>
 			</div>
 
-				<div class="input-group input-group-lg">
-					<form name="editform">
-						<div class="modal fade" id="editmodal" role="dialog">
-							<div class="modal-dialog">
+			<div class="input-group input-group-lg">
+				<form name="editform">
+					<div class="modal fade" id="editmodal" role="dialog">
+						<div class="modal-dialog">
 
-								<!-- Modal content-->
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">&times;</button>
-										<h4 class="modal-title">Edit </h4>
-									</div>
-									<div class="modal-body">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Edit</h4>
+								</div>
+								<div class="modal-body">
 
-									 Attribute Name:<input
-										class="form-control" type="text" name="attributeName"
-										ng-model="ent.attributeName" required="required"> <span
-										style="color: Red"
+									Attribute Name:<input class="form-control" type="text"
+										name="attributeName" ng-model="ent.attributeName"
+										required="required"> <span style="color: Red"
 										ng-show="editform.attributeName.$touched && editform.attributeName.$invalid">
-										This field is required.</span> <br> <br>
-									Attribute Value: <input
+										This field is required.</span> <br> <br> Attribute Value: <input
 										class="form-control" type="text" name="attributeValue"
 										ng-model="ent.attributeValue" required="required"> <span
 										style="color: Red"
 										ng-show="editform.attributeValue.$touched && editform.attributeValue.$invalid">
-										This field is required.</span> <br> <br>
-
-									Model Device Id:
-					 					<select class="form-control"
-										ng-model="ent.eMod"
+										This field is required.</span> <br> <br> Model Device Id: <select
+										class="form-control" ng-model="ent.eMod"
 										ng-options="x.deviceModelId for x in arrModel"></select><br>
 
-									</div>
+								</div>
 
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default"
-												ng-disabled="editform.$invalid" data-dismiss="modal"
-												ng-click="update()">update</button>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										ng-disabled="editform.$invalid" data-dismiss="modal"
+										ng-click="update()">update</button>
 
-											<button type="button" class="btn btn-default"
-												data-dismiss="modal">Close</button>
-										</div>
-									</div>
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
 								</div>
 							</div>
-						</form>
+						</div>
 					</div>
-				</div>
+				</form>
 			</div>
+		</div>
+	</div>
 </body>
 </html>

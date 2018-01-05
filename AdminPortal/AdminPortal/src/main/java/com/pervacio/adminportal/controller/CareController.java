@@ -3,6 +3,7 @@ package com.pervacio.adminportal.controller;
 import java.io.IOException;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.rowset.serial.SerialBlob;
@@ -142,6 +143,29 @@ public class CareController {
 
 	}
 
+	@RequestMapping(value = "/appConfig/saveAll", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage saveAllAppConfig(@RequestBody ArrayList<AppConfigBean> arrAppConfig) {
+		ArrayList<AppConfig> arrEntity = new ArrayList<AppConfig>();
+		for(AppConfigBean appConfig:arrAppConfig) {
+			AppConfig entity = new   AppConfig();
+			BeanUtils.copyProperties(appConfig, entity);
+		arrEntity.add(entity);
+		}
+		ResponseMessage message = null;
+
+		try {
+			appConfigManager.addAll(arrEntity);
+			message = new ResponseMessage("success", "200");
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+		// ResponseMessage message = new ResponseMessage("success", "200");
+		return message;
+
+	}
+
 	@RequestMapping(value = "/appConfig/remove", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage removeAppConfigs(@RequestBody AppConfigBean appConfig) {
 		ResponseMessage message = null;
@@ -163,11 +187,11 @@ public class CareController {
 	}
 
 	@RequestMapping(value = "/appConfig/search", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody List<AppConfig> searchAppConfigs(@RequestBody String configKey) {
+	public @ResponseBody List<AppConfig> searchAppConfigs(@RequestBody String companyName) {
 
 		List<AppConfig> arrDev = null;
 		try {
-			arrDev = appConfigManager.findByConfigKey(configKey);
+			arrDev = appConfigManager.findAllByCompanyCompanyName(companyName);
 			logger.info("search AppConfig  "+arrDev.size());
 
 		} catch (Exception e) {

@@ -12,5 +12,6 @@ import com.pervacio.adminportal.tradein.entities.Promotion;
 
 public interface AppConfigRepository extends JpaRepository<AppConfig, Integer>{
 	public List<AppConfig> findByConfigKey(String configKey);
+	public List<AppConfig> findAllByCompanyCompanyName(String  companyName);
 
 }
