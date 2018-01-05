@@ -1,59 +1,69 @@
 package com.pervacio.adminportal.lookup.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.care.entities.EUser;
 
 @Entity
 @Table(name="lookup")
 public class LookUp implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue
-	@Column(columnDefinition="BIGINT(20)")
-	private int lookUpId;
+	@EmbeddedId
+	@AttributeOverrides({ @AttributeOverride(name = "lookUpType", column = @Column(name = "lookUpType")),
+		@AttributeOverride(name = "lookUpValue", column = @Column(name = "lookUpValue")) })
+	private LookUpKey lookUpKey;
 	
-	private String lookUpType;
+	@Column(columnDefinition = "varchar(255)")
+	private String lookupDisplayName;
+	@Column(columnDefinition = "varchar(512)")
+	private String lookupDescription;
 	
-	private String lookUpValue;
+	@OneToMany(mappedBy = "lookUp",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<EUser> eUserDepartment = new ArrayList<EUser>();
+
+	@OneToMany(mappedBy = "lookUpUnit",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<EUser> eUserDepartmentUnit = new ArrayList<EUser>();
+
 	
-	private String lookUpName;
-
-	public int getLookUpId() {
-		return lookUpId;
+	
+	/*@OneToMany(mappedBy = "lookUpUnit",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<EUser> eUserUnit = new ArrayList<EUser>();
+*/
+	public LookUpKey getLookUpKey() {
+		return lookUpKey;
 	}
-
-	public void setLookUpId(int lookUpId) {
-		this.lookUpId = lookUpId;
+	public void setLookUpKey(LookUpKey lookUpKey) {
+		this.lookUpKey = lookUpKey;
 	}
-
-	public String getLookUpType() {
-		return lookUpType;
+	public String getLookupDisplayName() {
+		return lookupDisplayName;
 	}
-
-	public void setLookUpType(String lookUpType) {
-		this.lookUpType = lookUpType;
+	public void setLookupDisplayName(String lookupDisplayName) {
+		this.lookupDisplayName = lookupDisplayName;
 	}
-
-	public String getLookUpValue() {
-		return lookUpValue;
+	public String getLookupDescription() {
+		return lookupDescription;
 	}
-
-	public void setLookUpValue(String lookUpValue) {
-		this.lookUpValue = lookUpValue;
-	}
-
-	public String getLookUpName() {
-		return lookUpName;
-	}
-
-	public void setLookUpName(String lookUpName) {
-		this.lookUpName = lookUpName;
+	public void setLookupDescription(String lookupDescription) {
+		this.lookupDescription = lookupDescription;
 	}
 	
 	
