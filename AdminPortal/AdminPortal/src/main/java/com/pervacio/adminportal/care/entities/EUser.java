@@ -29,50 +29,51 @@ public class EUser implements UserDetails,Serializable {
 	@GeneratedValue
 	@Column(columnDefinition="BIGINT(20)")
 	private int userInternalId;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "companyId", referencedColumnName = "companyId")
 	private ECompany eCompany;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumns({@JoinColumn(name = "DepartmentType", referencedColumnName = "lookUpType"),
 		@JoinColumn(name = "Department", referencedColumnName = "lookUpValue")})
-	private LookUp lookUp;
-	
+	private LookUp department;
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumns({@JoinColumn(name = "UnitType", referencedColumnName = "lookUpType"),
 		@JoinColumn(name = "Unit", referencedColumnName = "lookUpValue")})
-	private LookUp lookUpUnit;
-	
+	private LookUp unit;
+
 /*	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Unit", referencedColumnName = "lookUpValue")
 	private LookUp lookUpUnit;*/
-	
-	public LookUp getLookUp() {
-		return lookUp;
-	}
-
-
-
-	public LookUp getLookUpUnit() {
-		return lookUpUnit;
-	}
-
-
-
-	public void setLookUpUnit(LookUp lookUpUnit) {
-		this.lookUpUnit = lookUpUnit;
-	}
-
-
-
-	public void setLookUp(LookUp lookUp) {
-		this.lookUp = lookUp;
-	}
 
 
 	@Column(columnDefinition="int(11)")
 	private int userSource;
+
+	public LookUp getDepartment() {
+		return department;
+	}
+
+
+
+	public void setDepartment(LookUp department) {
+		this.department = department;
+	}
+
+
+
+	public LookUp getUnit() {
+		return unit;
+	}
+
+
+
+	public void setUnit(LookUp unit) {
+		this.unit = unit;
+	}
+
 
 	private Date lastConnectedDate;
 	private Date createDate;
@@ -151,7 +152,7 @@ public class EUser implements UserDetails,Serializable {
 	}
 
 
-	
+
 
 	public ECompany geteCompany() {
 		return eCompany;
