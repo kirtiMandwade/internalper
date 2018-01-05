@@ -39,6 +39,7 @@
 					<li><a href="../care/manufacturer">Manufacturer</a></li>
 					<li><a href="../care/deviceattribute">DeviceAttribute</a></li>
 					<li class="active"><a href="../care/devicebaseprice">DeviceTradeInBasePrice</a></li>
+					<li><a href="../care/eUser">User</a></li>
 					<li><a href="../logout"> Logout</a></li>
 				</ul>
 				<br>

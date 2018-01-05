@@ -30,6 +30,7 @@ import com.pervacio.adminportal.care.entities.EDeviceAttribute;
 import com.pervacio.adminportal.care.entities.EDeviceTradeInBasePrice;
 import com.pervacio.adminportal.care.entities.EManufacturer;
 import com.pervacio.adminportal.care.entities.EModel;
+import com.pervacio.adminportal.care.entities.EUser;
 import com.pervacio.adminportal.care.model.AppConfigBean;
 import com.pervacio.adminportal.care.model.DiagIssuesFlowBean;
 import com.pervacio.adminportal.care.model.DiagTestBean;
@@ -39,6 +40,7 @@ import com.pervacio.adminportal.care.model.EDeviceAttributeBean;
 import com.pervacio.adminportal.care.model.EDeviceTradeInBasePriceBean;
 import com.pervacio.adminportal.care.model.EManufacturerBean;
 import com.pervacio.adminportal.care.model.EModelBean;
+import com.pervacio.adminportal.care.model.EUserBean;
 import com.pervacio.adminportal.care.service.AppConfigManager;
 import com.pervacio.adminportal.care.service.DiagIssueFlowManager;
 import com.pervacio.adminportal.care.service.DiagTestCompanyMapManager;
@@ -48,6 +50,7 @@ import com.pervacio.adminportal.care.service.EDeviceAttributeManager;
 import com.pervacio.adminportal.care.service.EDeviceTradeInBasePriceManager;
 import com.pervacio.adminportal.care.service.EManufacturerManager;
 import com.pervacio.adminportal.care.service.EModelManager;
+import com.pervacio.adminportal.care.service.EUserManager;
 import com.pervacio.adminportal.constants.DeductionType;
 import com.pervacio.adminportal.constants.ValueType;
 import com.pervacio.adminportal.lookup.entities.LookUp;
@@ -78,12 +81,16 @@ public class CareController {
 	@Autowired
 	private EDeviceTradeInBasePriceManager eDeviceTradeInBasePriceManager;
 	@Autowired
+	private EUserManager eUserManager;
+
+	@Autowired
 	LookUpManager lookUpManager;
 	
 	
 	@RequestMapping(value="/lookup/getall",method=RequestMethod.GET)
 	public @ResponseBody List<LookUp> getAllLookUp(@RequestParam String lookUpType)
 	{
+		System.out.println("Method is called---------------------------------------------------------------------------------------------");
 		//String lookUpType="PRODUCTCD";
 		
 	//	System.out.println("\n\nlookUpType is : \t\t"+lookUpType+"\n\n");
@@ -92,11 +99,12 @@ public class CareController {
 		
 		try {
 			arrLookUp=lookUpManager.findAllByLookUpKeyLookUpType(lookUpType);
+			System.out.println("ALLLLLLLLLLLLLLLLlllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+" " +arrLookUp.size());
 			logger.debug("get all LookUp by Lookuptype");
 			
 		} catch (Exception e) {
 			logger.debug("error while getting all LookUp by Lookuptype "+e.getMessage());
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
 		
 		return arrLookUp;
@@ -173,6 +181,29 @@ public class CareController {
 
 	}
 
+	@RequestMapping(value = "/appConfig/saveAll", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage saveAllAppConfig(@RequestBody ArrayList<AppConfigBean> arrAppConfig) {
+		ArrayList<AppConfig> arrEntity = new ArrayList<AppConfig>();
+		for(AppConfigBean appConfig:arrAppConfig) {
+			AppConfig entity = new   AppConfig();
+			BeanUtils.copyProperties(appConfig, entity);
+		arrEntity.add(entity);
+		}
+		ResponseMessage message = null;
+
+		try {
+			appConfigManager.addAll(arrEntity);
+			message = new ResponseMessage("success", "200");
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+		// ResponseMessage message = new ResponseMessage("success", "200");
+		return message;
+
+	}
+
 	@RequestMapping(value = "/appConfig/remove", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage removeAppConfigs(@RequestBody AppConfigBean appConfig) {
 		ResponseMessage message = null;
@@ -194,11 +225,11 @@ public class CareController {
 	}
 
 	@RequestMapping(value = "/appConfig/search", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody List<AppConfig> searchAppConfigs(@RequestBody String configKey) {
+	public @ResponseBody List<AppConfig> searchAppConfigs(@RequestBody String companyName) {
 
 		List<AppConfig> arrDev = null;
 		try {
-			arrDev = appConfigManager.findByConfigKey(configKey);
+			arrDev = appConfigManager.findAllByCompanyCompanyName(companyName);
 			logger.info("search AppConfig  "+arrDev.size());
 
 		} catch (Exception e) {
@@ -947,7 +978,117 @@ public class CareController {
 		return message;
 
 	}
+/*new*/
+	
+	@RequestMapping(value = "/eUser/getall", method = RequestMethod.GET)
+	public @ResponseBody List<EUser> getAllEUsers() {
+		//fetching app config details
+		List<EUser> arrEUsers = null;
+		try {
+			arrEUsers = eUserManager.getAll();
+			logger.info("get all EUsers called---- returning list "+arrEUsers.size());
 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error in returning all EUsers "+e.getMessage());
+		}
+
+		return arrEUsers;
+
+	}
+
+
+
+	@RequestMapping(value = "/eUser", method = RequestMethod.GET)
+	public String eUser() {
+
+		logger.info("redirecting to manageAppConfig jsp");
+
+		return "ManageEUser";
+	}
+
+	@RequestMapping(value = "/eUser/update", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage updateAppConfig(@RequestBody EUserBean eUserBean) {
+		ResponseMessage message = null;
+		EUser entity = new EUser();
+		BeanUtils.copyProperties(eUserBean, entity);
+		try {
+
+			eUserManager.update(entity);
+			logger.info("EUser updated");
+
+			message = new ResponseMessage("success", "200");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			// e.printStackTrace();
+			logger.error("error while updatingEUser "+e.getMessage());
+
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+
+		return message;
+
+	}
+
+	@RequestMapping(value = "/eUser/save", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage saveEUser(@RequestBody EUserBean eUser) {
+		EUser entity = new EUser();
+		BeanUtils.copyProperties(eUser, entity);
+		ResponseMessage message = null;
+
+		try {
+			eUserManager.add(entity);
+			message = new ResponseMessage("success", "200");
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+		// ResponseMessage message = new ResponseMessage("success", "200");
+		return message;
+
+	}
+
+	@RequestMapping(value = "/eUser/remove", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage removeEUsers(@RequestBody EUserBean eUser) {
+		ResponseMessage message = null;
+		EUser entity = new EUser();
+		BeanUtils.copyProperties(eUser, entity);
+
+		try {
+			eUserManager.remove(entity);
+			logger.info("AppConfig removed");
+
+			message = new ResponseMessage("success", "200");
+
+		} catch (Exception e) {
+			logger.error("error while removing AppConfig "+e.getMessage());
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+		return message;
+
+	}
+
+/*	@RequestMapping(value = "/appConfig/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<AppConfig> searchAppConfigs(@RequestBody String configKey) {
+
+		List<AppConfig> arrDev = null;
+		try {
+			arrDev = appConfigManager.findByConfigKey(configKey);
+			logger.info("search AppConfig  "+arrDev.size());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error while searching AppConfig "+e.getMessage());
+
+		}
+
+		return arrDev;
+
+	}
+*/
+	
+	/*end*/
 
 
 }

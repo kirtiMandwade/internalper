@@ -11,7 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.pervacio.adminportal.tradein.entities.Device;
 
 @Entity
 @Table(name = "app_config")
@@ -22,13 +25,15 @@ public class AppConfig extends AuditBase implements Serializable {
 	@GeneratedValue
 	private int configId;
 
-	 @ManyToMany(cascade = { CascadeType.REMOVE },fetch=FetchType.EAGER)
+/*	 @ManyToMany(cascade = { CascadeType.REMOVE },fetch=FetchType.EAGER)
 	    @JoinTable(
 	        name = "ecompanyConfig",
 	        joinColumns = { @JoinColumn(name = "companyId") },
 	        inverseJoinColumns = { @JoinColumn(name = "configId") }
-	    )
-	private List<ECompany> arrEcompany;
+	    )*/
+	 @JoinColumn(name = "companyId", referencedColumnName = "companyId")
+		@ManyToOne(fetch = FetchType.EAGER)
+	private ECompany company;
 
 	private String configKey;
 	private String configValue;
@@ -42,12 +47,13 @@ public class AppConfig extends AuditBase implements Serializable {
 	}
 
 
-	public List<ECompany> getArrEcompany() {
-		return arrEcompany;
+
+	public ECompany getCompany() {
+		return company;
 	}
 
-	public void setArrEcompany(List<ECompany> arrEcompany) {
-		this.arrEcompany = arrEcompany;
+	public void setCompany(ECompany company) {
+		this.company = company;
 	}
 
 	public String getConfigKey() {

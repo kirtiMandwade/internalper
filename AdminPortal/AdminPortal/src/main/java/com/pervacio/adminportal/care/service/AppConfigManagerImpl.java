@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.care.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +10,13 @@ import org.springframework.stereotype.Service;
 import com.pervacio.adminportal.care.dao.AppConfigDao;
 import com.pervacio.adminportal.care.entities.AppConfig;
 
-
 @Service
 public class AppConfigManagerImpl implements AppConfigManager {
 
 	@Autowired
 	AppConfigDao dao;
 
-		public List<AppConfig> getAll()  {
+	public List<AppConfig> getAll() {
 		// TODO Auto-generated method stub
 		return dao.getAll();
 	}
@@ -26,7 +26,7 @@ public class AppConfigManagerImpl implements AppConfigManager {
 		dao.add(AppConfig);
 	}
 
-	public void remove(AppConfig wsProfile) throws Exception{
+	public void remove(AppConfig wsProfile) throws Exception {
 		// TODO Auto-generated method stub
 		dao.remove(wsProfile);
 	}
@@ -37,8 +37,19 @@ public class AppConfigManagerImpl implements AppConfigManager {
 	};
 
 	public List<AppConfig> findByConfigKey(String configKey) throws Exception {
-		return	dao.findByConfigKey(configKey);
+		return dao.findByConfigKey(configKey);
 
+	}
 
+	@Override
+	public void addAll(ArrayList<AppConfig> arrappConfig) throws Exception {
+		dao.addAll(arrappConfig);
+
+	}
+
+	@Override
+	public List<AppConfig> findAllByCompanyCompanyName(String companyName) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.findAllByCompanyCompanyName(companyName);
 	}
 }

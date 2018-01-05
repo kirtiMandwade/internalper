@@ -13,4 +13,6 @@ public interface AppConfigManager
 	public  void remove(AppConfig appConfig) throws Exception;
 	public void update(AppConfig appConfig) throws Exception ;
 	public List<AppConfig> findByConfigKey(String configKey) throws Exception;
+	public void addAll(ArrayList<AppConfig> arrappConfig) throws Exception;
+	public List<AppConfig> findAllByCompanyCompanyName(String companyName) throws Exception;
 }

@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.care.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.PersistenceContext;
@@ -28,6 +29,11 @@ public class AppConfigDao {
 
 	}
 
+	public void addAll(ArrayList<AppConfig> arrappConfig) throws Exception {
+		appRepo.save(arrappConfig);
+
+	}
+
 	public void remove(AppConfig appConfig) throws Exception {
 		appRepo.delete(appConfig);
 
@@ -38,9 +44,11 @@ public class AppConfigDao {
 
 	}
 
-
 	public List<AppConfig> findByConfigKey(String configKey) throws Exception {
-	return	appRepo.findByConfigKey(configKey);
+		return appRepo.findByConfigKey(configKey);
+	}
 
+	public List<AppConfig> findAllByCompanyCompanyName(String companyName) {
+		return appRepo.findAllByCompanyCompanyName(companyName);
 	}
 }
