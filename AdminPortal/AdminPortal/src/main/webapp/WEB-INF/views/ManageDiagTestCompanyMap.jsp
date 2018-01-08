@@ -60,15 +60,15 @@
         </button>
          -->
 
-        	<input type="text" class="form-control" placeholder="Company Name" id="txtSearch" ng-model="company" style="height:27px;width:50%"/>
+        	<input type="text" class="form-control" placeholder="Company Name" id="txtSearch" ng-model="company" style="height:27px;width:70%"/>
    <div class="input-group-btn" >
-        <button class="btn btn-primary" ng-click="search()" style="position: relative; left:-530px">
+        <button class="btn btn-primary" ng-click="search()" style="position: relative; left:-105px">
         <span class="glyphicon glyphicon-search" ></span>
         </button>
-             <button class="btn btn-primary"  data-toggle="modal" data-target="#duplicateModal" style="position: relative; left:-520px">
+             <button class="btn btn-primary"  data-toggle="modal" data-target="#duplicateModal" style="position: relative; left:-100px;height:30px">
         <span >Duplicate</span>
 </button>
-    <button style="position: relative; left:-500px" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%" ng-click="addNewChoice();setDefaultValueForChoices()">
+    <button  class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left:-95px" ng-click="addNewChoice();setDefaultValueForChoices()">
         <span class="glyphicon glyphicon-plus"></span>
         </button>
 
@@ -103,7 +103,7 @@
 						<td>{{entity.company.companyName}}</td>
 
 						<td>{{entity.productCd.lookUpKey.lookUpValue}}</td>
-						<td>{{entity.severityCd}}</td>
+						<td>{{entity.severityCd.lookUpKey.lookUpValue}}</td>
 						<td>{{entity.diagIissuesFlow.issueCd}}</td>
 						<td>{{entity.diagTest.testCd}}</td>
 
@@ -143,6 +143,45 @@
 
 						</div>
 					</div>
+						<form name="duplicateform">
+					<div class="modal fade" id="duplicateModal" role="dialog">
+							<div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Add </h4>
+									</div>
+									<div class="modal-body">
+
+									<!-- Company Id:<input class="form-control" type="number"
+											ng-model="ent.companyId" name="companyId" required  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+											<span style="color: Red" ng-show="addform.companyId.$dirty&&addform.companyId.$error.pattern">
+											Company ID can not have alphabets</span>
+             								<span style="color: Red" ng-show="addform.companyId.$touched && addform.companyId.$invalid">
+											Company ID Code length exceeded</span>
+											<br> <br>
+									 -->
+									Copy From Company Name:<select
+              							class="form-control" ng-model="fromCompany" name="selct" ng-options="x as x.companyName for x in arrEntityForCompany"></select><br><br >
+
+									Copy To Company Name:<select
+              							class="form-control" ng-model="toCompany" name="selct" ng-options="x as x.companyName for x in arrEntityForCompany"></select><br><br >
+
+									 										<div class="modal-footer">
+											<button type="button"
+												class="btn btn-default" data-dismiss="modal" data-target="#editmodal"
+												ng-click="duplicate()">copy</button>
+
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div></form>
+
 					<form name="addform">
 						<div class="modal fade" id="addModal" role="dialog">
 							<div class="modal-dialog">
@@ -190,8 +229,11 @@
 <div class="row">
 
 <div class="col-sm-4" style="background-color:lavender;">
-Serverity Code:<input class="form-control" type="text" name="severityCd" ng-model="choice.severityCd" required="required"
-				ng-change="getValue('add',choice,choice.id)" id="{{choice.id}}">
+	 Severity Code:<select
+        								      	class="form-control" ng-model="ent.severityCd"
+              									name="severityCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									></select>
 			<span style="color: Red" ng-show="addform.severityCd.$touched && addform.severityCd.$invalid"> This field is required.</span>
 
 </div>
@@ -293,13 +335,11 @@ Action Value <br>
 											ng-show="editform.productCd.$touched && editform.productCd.$invalid">
 											This field is required.</span> <br> <br>
 									 -->
-										Severity Cd: <input
-											class="form-control" type="text" name="severityCd"
-											ng-model="entEdit.severityCd" required="required"> <span
-											style="color: Red"
-											ng-show="editform.severityCd.$touched && editform.severityCd.$invalid">
-											This field is required.</span> <br>
-											<br> <br>
+									 Severity Code:<select
+        								      	class="form-control" ng-model="entEdit.severityCd"
+              									name="severityCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									></select><br><br >
 										diagIissuesFlow: <select
 											class="form-control" ng-model="entEdit.diagIissuesFlow"
 											ng-options="x.issueCd for x in arrdiagIissuesFlow"></select><br>
@@ -321,6 +361,101 @@ Action Value <br>
 							</div>
 						</div>
 					</form>
+
+										<form name="dupeditform">
+						<div class="modal fade" id="dupeditform" role="dialog">
+							<div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Add </h4>
+									</div>
+									<div class="modal-body">
+
+
+
+										 Company Name:<select
+        								      	class="form-control" ng-model="dupent.company"
+              									name="company"
+              									ng-options="x as x.companyName for x in arrEntityForCompany"
+              									></select><br><br >
+										 Product Code:<select
+        								      	class="form-control" ng-model="dupent.productCd"
+              									name="productCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									></select><br><br >
+
+
+
+<div data-ng-repeat="choice in choices" style="position: relative;">
+<table>
+<tr>
+
+<div class="row">
+
+<div class="col-sm-4" style="background-color:lavender;">
+	 Severity Code:<select
+        								      	class="form-control" ng-model="choice.severityCd"
+              									name="severityCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									></select>
+			<span style="color: Red" ng-show="addform.severityCd.$touched && addform.severityCd.$invalid"> This field is required.</span>
+
+</div>
+
+<div class="col-sm-4" style="background-color:lavenderblush;">
+Diag Issues Flow:<select id="{{choice.id}}" class="form-control" ng-model="choice.diagIissuesFlow"
+					ng-options="x.issueCd for x in arrdiagIissuesFlow"></select>
+
+</div>
+
+<div  class="col-sm-4" style="background-color:lavender;">
+Diag Test:<select id="{{choice.id}}"  class="form-control" ng-model="choice.diagTest" ng-options="x.testCd for x in arrDiagTest"></select>
+
+</div>
+
+<div class="col-sm-4" style="background-color:lavenderblush;">
+Action Value <br>
+<button ng-click="addNewChoice()"  class="btn btn-info"><span class="glyphicon glyphicon-plus"></span></button>
+<button type="button" ng-click="deleteNewChoice()" class="btn btn-info"><span class="glyphicon glyphicon-minus"></span></button>
+</div>
+
+</div>
+</tr>
+</table>
+</div>
+		</div><br>
+										<!-- Serverity Code: <input
+											class="form-control" type="text" name="severityCd"
+											ng-model="ent.severityCd" required="required"> <span
+											style="color: Red"
+											ng-show="addform.severityCd.$touched && addform.severityCd.$invalid">
+											This field is required.</span> <br> <br>
+
+										Diag Issues Flow: <select
+											class="form-control" ng-model="ent.diagIissuesFlow"
+											ng-options="x.issueCd for x in arrdiagIissuesFlow"></select><br>
+
+										Diag Test: <select class="form-control" ng-model="ent.diagTest"
+											ng-options="x.testCd for x in arrDiagTest"></select>
+											<br><br>	-->
+
+
+										<div class="modal-footer">
+											<button type="button" ng-disabled="addform.$invalid"
+												class="btn btn-default" data-dismiss="modal"
+												ng-click="saveDuplicate()">save</button>
+
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							</form>
+
 				</div>
 			</div>
 		</div>

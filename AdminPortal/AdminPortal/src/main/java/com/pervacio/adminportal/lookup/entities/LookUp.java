@@ -31,11 +31,15 @@ public class LookUp implements Serializable{
 	private String lookupDisplayName;
 	@Column(columnDefinition = "varchar(512)")
 	private String lookupDescription;
-	
+
 	@OneToMany(mappedBy = "productCd",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-	
+
+
+	@OneToMany(mappedBy = "severityCd",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<DiagTestCompanyMap> diagTestCompanyMap = new ArrayList<DiagTestCompanyMap>();
 
 
 	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
