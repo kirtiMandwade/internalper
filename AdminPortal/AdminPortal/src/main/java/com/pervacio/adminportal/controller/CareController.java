@@ -410,7 +410,28 @@ public class CareController {
 	}
 
 	
-	//   /diagtestcompany/search
+	
+	
+	@RequestMapping(value = "/diagtestcompany/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<DiagTestCompanyMap> searchDiagTestCompany(@RequestBody String companyName) {
+
+	//	System.out.println("\n\nIn diagTestCompany\n\n");
+		
+		List<DiagTestCompanyMap> arrDiagtestcomp = null;
+		try {
+			arrDiagtestcomp = diagTestCompanyMapManager.findByCompanyName(companyName);
+			logger.info("search AppConfig  "+arrDiagtestcomp.size());
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.error("error while searching AppConfig "+e.getMessage());
+
+		}
+
+		return arrDiagtestcomp;
+
+	}
+
 	
 	
 	

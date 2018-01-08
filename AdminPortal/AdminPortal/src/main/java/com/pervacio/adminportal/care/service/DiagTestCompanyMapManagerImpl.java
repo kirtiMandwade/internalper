@@ -34,6 +34,12 @@ public class DiagTestCompanyMapManagerImpl implements DiagTestCompanyMapManager 
 	public void update(DiagTestCompanyMap DiagTestCompanyMap) throws Exception {
 		// TODO Auto-generated method stub
 		dao.update(DiagTestCompanyMap);
+	}
+
+	@Override
+	public List<DiagTestCompanyMap> findByCompanyName(String companyName) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.findByCompanyName(companyName);
 	};
 
 }
