@@ -67,9 +67,9 @@
 						<td>{{entity.testCd}}</td>
 						<td>{{entity.androidSupported}}</td>
 						<td>{{entity.iosSupported}}</td>
-						<td>{{entity.testType}}</td>
-						<td>{{entity.orderNum}}</td>
-						<td>{{entity.categoryCd}}</td>
+						<td>{{entity.testType.lookUpKey.lookUpValue}}</td>
+						<td>{{entity.orderNum.lookUpKey.lookUpValue}}</td>
+						<td>{{entity.categoryCd.lookUpKey.lookUpValue}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#editmodal" ng-click="edit(entity)">edit</a></td>
@@ -127,19 +127,25 @@
 									IOS Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="iossupported"
 										ng-model="ent.iosSupported"  ng-checked = "true">
 										<br> <br>
-									Test Type:<input	class="form-control" type="text" name="testType" ng-model="ent.testType" required="required">
-										<span style="color: Red" ng-show="addform.testType.$touched && addform.testType.$invalid">
-										This field is required.</span>
-										<br> <br>
-									Order Number: <input class="form-control" type="number" name="orderNum" ng-model="ent.orderNum" required="required">
-										<span style="color: Red" ng-show="addform.orderNum.$touched && addform.orderNum.$invalid">
-										This field is required.</span>
-										<br> <br>
-									Category Code: <input class="form-control" type="text" name="categoryCd" ng-model="ent.categoryCd" required="required">
-										<span style="color: Red" ng-show="addform.categoryCd.$touched && addform.categoryCd.$invalid">
-										This field is required.</span>
-										<br> <br>
-
+								
+									Test Type:<select 
+        								      	class="form-control" ng-model="ent.testType"
+              									name="testType"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpTT"
+              									></select><br><br >
+									
+									 Order Number: <select 
+        								      	class="form-control" ng-model="ent.orderNum"
+              									name="orderNum"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpOrNm"
+              									></select><br><br >
+					
+									 Category Code:<select 
+        								      	class="form-control" ng-model="ent.categoryCd"
+              									name="categoryCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpCatCd"
+              									></select><br><br >
+					
 									</div>
 
 									<div class="modal-footer">
@@ -178,7 +184,34 @@
 										<br> <br>
 									IOS Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="iossupported"
 										ng-model="entEdit.iosSupported"  ng-checked = "true">
-										<br> <br>
+							
+							
+									Test Type:<select 
+        								      	class="form-control" ng-model="entEdit.testType"
+              									name="testType"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpTT"
+              									></select><br><br >
+									
+									 Order Number: <select 
+        								      	class="form-control" ng-model="entEdit.orderNum"
+              									name="orderNum"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpOrNm"
+              									></select><br><br >
+					
+									 Category Code:<select 
+        								      	class="form-control" ng-model="entEdit.categoryCd"
+              									name="categoryCd"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpCatCd"
+              									></select><br><br >
+					
+							
+							
+							
+							
+							
+							
+							
+								<!-- 		<br> <br>
 									Test Type:<input class="form-control" type="text" name="testType" ng-model="entEdit.testType" required="required">
 										<span style="color: Red" ng-show="editform.testType.$touched && editform.testType.$invalid">
 										This field is required.</span>
@@ -190,7 +223,7 @@
 									Category Code: <input class="form-control" type="text" name="categoryCd" ng-model="entEdit.categoryCd" required="required">
 										<span style="color: Red" ng-show="editform.categoryCd.$touched && editform.categoryCd.$invalid">
 										This field is required.</span>
-										<br> <br>
+										<br> <br> -->
 
 										</div>
 

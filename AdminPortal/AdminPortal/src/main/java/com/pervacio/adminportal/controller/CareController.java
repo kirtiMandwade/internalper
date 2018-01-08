@@ -91,9 +91,6 @@ public class CareController {
 	{
 		System.out.println("Method is called---------------------------------------------------------------------------------------------");
 		//String lookUpType="PRODUCTCD";
-
-	//	System.out.println("\n\nlookUpType is : \t\t"+lookUpType+"\n\n");
-
 		List<LookUp> arrLookUp=null;
 
 		try {
