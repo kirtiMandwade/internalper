@@ -49,8 +49,8 @@
 				<div>
 					<h1>DiagTestCompanyMap</h1>
   	    <div class="input-group" style="position:relation;left:50%">
-
-				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="company.companyName" style="height:27px"/>
+<!--
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="company" style="height:27px"/>
   		 <div class="input-group-btn">
   		      <button class="btn btn-primary" ng-click="search()" >
    		     <span class="glyphicon glyphicon-search" ></span>
@@ -58,6 +58,20 @@
         <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" >
      	   <span class="glyphicon glyphicon-plus"></span>
         </button>
+         -->
+
+        	<input type="text" class="form-control" placeholder="Company Name" id="txtSearch" ng-model="company" style="height:27px;width:50%"/>
+   <div class="input-group-btn" >
+        <button class="btn btn-primary" ng-click="search()" style="position: relative; left:-530px">
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+             <button class="btn btn-primary"  data-toggle="modal" data-target="#duplicateModal" style="position: relative; left:-520px">
+        <span >Duplicate</span>
+</button>
+    <button style="position: relative; left:-500px" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%" ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
 
 </div>
 </div>
@@ -148,19 +162,19 @@
 											ng-show="addform.companyId.$touched && addform.companyId.$invalid">
 											This field is required.</span> <br> <br>
 										 -->
-										 Company Name:<select 
+										 Company Name:<select
         								      	class="form-control" ng-model="ent.company"
               									name="company"
               									ng-options="x as x.companyName for x in arrEntityForCompany"
               									></select><br><br >
-										 Product Code:<select 
+										 Product Code:<select
         								      	class="form-control" ng-model="ent.productCd"
               									name="productCd"
               									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
               									></select><br><br >
-										 
-										 
-										 
+
+
+
 										 <!-- <input
 												class="form-control" type="text" name="productCd"
 												ng-model="ent.productCd" required="required"> <span
@@ -168,7 +182,7 @@
 												ng-show="addform.productCd.$touched && addform.productCd.$invalid">
 												This field is required.</span> <br> <br>
 									 -->
-									
+
 <div data-ng-repeat="choice in choices" style="position: relative;">
 <table>
 <tr>
@@ -185,7 +199,7 @@ Serverity Code:<input class="form-control" type="text" name="severityCd" ng-mode
 <div class="col-sm-4" style="background-color:lavenderblush;">
 Diag Issues Flow:<select id="{{choice.id}}" class="form-control" ng-model="choice.diagIissuesFlow"
 					ng-options="x.issueCd for x in arrdiagIissuesFlow"></select>
-					
+
 </div>
 
 <div  class="col-sm-4" style="background-color:lavender;">
@@ -199,17 +213,17 @@ Action Value <br>
 <button type="button" ng-click="deleteNewChoice()" class="btn btn-info"><span class="glyphicon glyphicon-minus"></span></button>
 </div>
 
-</div>							
+</div>
 </tr>
 </table>
-</div>								
+</div>
 		</div><br>
 										<!-- Serverity Code: <input
 											class="form-control" type="text" name="severityCd"
 											ng-model="ent.severityCd" required="required"> <span
 											style="color: Red"
 											ng-show="addform.severityCd.$touched && addform.severityCd.$invalid">
-											This field is required.</span> <br> <br> 
+											This field is required.</span> <br> <br>
 
 										Diag Issues Flow: <select
 											class="form-control" ng-model="ent.diagIissuesFlow"
@@ -218,8 +232,8 @@ Action Value <br>
 										Diag Test: <select class="form-control" ng-model="ent.diagTest"
 											ng-options="x.testCd for x in arrDiagTest"></select>
 											<br><br>	-->
-											
-									
+
+
 										<div class="modal-footer">
 											<button type="button" ng-disabled="addform.$invalid"
 												class="btn btn-default" data-dismiss="modal"
@@ -233,7 +247,7 @@ Action Value <br>
 							</div>
 							</form>
 						</div>
-					
+
 				</div>
 				<div class="input-group input-group-lg">
 					<form name="editform">
@@ -252,26 +266,26 @@ Action Value <br>
 											<span style="color: Red"
 											ng-show="editform.companyId.$touched && editform.companyId.$invalid">
 											This field is required.</span> <br> <br> -->
-							Company Name:<select 
+							Company Name:<select
         								      	class="form-control" ng-model="entEdit.company"
               									name="company"
               									ng-options="x as x.companyName for x in arrEntityForCompany"
               									></select><br><br >
-							
-							
-							<!-- <select 
+
+
+							<!-- <select
             							  class="form-control" ng-model="entEdit.company"
      							         name="company"
      							         ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
     							          ></select><br><br> -->
-								
-								Product Cd:<select 
+
+								Product Cd:<select
         								      	class="form-control" ng-model="entEdit.productCd"
               									name="productCd"
               									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
               									></select><br><br >
-								
-							<!-- 	
+
+							<!--
 								<input
 											class="form-control" type="text" name="productCd"
 											ng-model="entEdit.productCd" required="required"> <span

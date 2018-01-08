@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.pervacio.adminportal.care.entities.AppConfig;
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
 import com.pervacio.adminportal.care.entities.DiagTest;
@@ -85,33 +84,33 @@ public class CareController {
 
 	@Autowired
 	LookUpManager lookUpManager;
-	
-	
+
+
 	@RequestMapping(value="/lookup/getall",method=RequestMethod.GET)
 	public @ResponseBody List<LookUp> getAllLookUp(@RequestParam String lookUpType)
 	{
 		System.out.println("Method is called---------------------------------------------------------------------------------------------");
 		//String lookUpType="PRODUCTCD";
-		
+
 	//	System.out.println("\n\nlookUpType is : \t\t"+lookUpType+"\n\n");
-		
+
 		List<LookUp> arrLookUp=null;
-		
+
 		try {
 			arrLookUp=lookUpManager.findAllByLookUpKeyLookUpType(lookUpType);
 			System.out.println("ALLLLLLLLLLLLLLLLlllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+" " +arrLookUp.size());
 			logger.debug("get all LookUp by Lookuptype");
-			
+
 		} catch (Exception e) {
 			logger.debug("error while getting all LookUp by Lookuptype "+e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		return arrLookUp;
-		
+
 	}
-	
-	
+
+
 	@RequestMapping(value = "/appConfig/getall", method = RequestMethod.GET)
 	public @ResponseBody List<AppConfig> getAllAppConfigs() {
 		//fetching app config details
@@ -409,11 +408,11 @@ public class CareController {
 
 	}
 
-	
+
 	//   /diagtestcompany/search
-	
-	
-	
+
+
+
 	@RequestMapping(value = "/diagtestcompany/getall", method = RequestMethod.GET)
 	public @ResponseBody List<DiagTestCompanyMap> getAllDiagTestCompanyMap() {
 		List<DiagTestCompanyMap> arrdiagcomp = null;
@@ -456,8 +455,8 @@ public class CareController {
 		return message;
 
 	}
-	
-	
+
+
 	/*@RequestMapping(value = "/diagtestcompany/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveDiagTestCompanyMap(@RequestBody DiagTestCompanyMapBean diagTestCompanyMapBean) {
 		DiagTestCompanyMap entity = new DiagTestCompanyMap();
@@ -465,7 +464,7 @@ public class CareController {
 		ResponseMessage message;
 		try {
 			diagTestCompanyMapManager.add(entity);
-			
+
 			message = new ResponseMessage("success: ", "200");
 			logger.info("diagtestcompany added");
 
@@ -482,23 +481,23 @@ public class CareController {
 		List<DiagTestCompanyMap> entityList = new ArrayList<DiagTestCompanyMap>();
 		//BeanUtils.copyProperties(diagTestCompanyMapBean, entity);
 		ResponseMessage message;
-		
-				
+
+
 		for (DiagTestCompanyMapBean diagTestCompanyMap : diagTestCompanyMapBean) {
 			DiagTestCompanyMap entity= new DiagTestCompanyMap();
 			BeanUtils.copyProperties(diagTestCompanyMap, entity);
 			entityList.add(entity);
 		}
-		
+
 		System.out.println("\n\nlength of diagtestcompanymapLIST \t\t"+entityList.size()+"\n\n");
-		
-		
+
+
 		try {
 			for (DiagTestCompanyMap diagTestCompanyMap : entityList) {
 				diagTestCompanyMapManager.add(diagTestCompanyMap);
 			}
 			//diagTestCompanyMapManager.add(entity);
-			
+
 			message = new ResponseMessage("success: ", "200");
 			logger.info("diagtestcompany added");
 
@@ -979,7 +978,7 @@ public class CareController {
 
 	}
 /*new*/
-	
+
 	@RequestMapping(value = "/eUser/getall", method = RequestMethod.GET)
 	public @ResponseBody List<EUser> getAllEUsers() {
 		//fetching app config details
@@ -1087,7 +1086,7 @@ public class CareController {
 
 	}
 */
-	
+
 	/*end*/
 
 
