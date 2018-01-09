@@ -184,7 +184,8 @@
 										<br> <br>
 									IOS Supported:<input type="checkbox" ng-true-value="1" ng-false-value="0" name="iossupported"
 										ng-model="entEdit.iosSupported"  ng-checked = "true">
-							
+							<br>
+							<br>
 							
 									Test Type:<select 
         								      	class="form-control" ng-model="entEdit.testType"

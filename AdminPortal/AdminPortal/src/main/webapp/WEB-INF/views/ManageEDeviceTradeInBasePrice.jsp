@@ -67,7 +67,7 @@
 
 					<tr ng-repeat="entity in arrEntity">
 						<td>{{entity.basePrice}}</td>
-						<td>{{entity.companyName}}</td>
+						<td>{{entity.company.companyName}}</td>
 						<td>{{entity.eModel.deviceModelId}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
@@ -129,13 +129,13 @@
 											This field is required.</span> <br> <br>
 										 -->
 										  Company Name:<select 
-              class="form-control" ng-model="ent.companyId"
-              name="selct"
-              ng-options="x.companyName as x.companyName for x in arrEntityForCompany"
-              ></select><br><br >
+           										class="form-control" ng-model="ent.company"
+      									        name="company"
+      									        ng-options="x as x.companyName for x in arrEntityForCompany"
+          									    ></select><br><br >
 										 Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
-											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
+											ng-options="x as x.deviceModelId for x in arrModel"></select><br><br>
 
 									</div>
 
@@ -179,13 +179,13 @@
 											ng-show="editform.companyName.$touched && editform.companyName.$invalid">
 											This field is required.</span> <br> <br> -->
 											Company Name:<select 
-              class="form-control" ng-model="ent.companyName"
-              name="selct"
-              ng-options="x.companyName as x.companyName for x in arrEntityForCompany"
-              ></select><br><br>
+           										   class="form-control" ng-model="ent.company"
+        									      name="company"
+      										        ng-options="x as x.companyName for x in arrEntityForCompany"
+    								          ></select><br><br>
 										Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
-											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
+											ng-options="x as x.deviceModelId for x in arrModel"></select><br><br>
 
 										</div>
 

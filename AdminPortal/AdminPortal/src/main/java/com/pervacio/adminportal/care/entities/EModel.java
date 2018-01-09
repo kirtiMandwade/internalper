@@ -1,6 +1,7 @@
 package com.pervacio.adminportal.care.entities;
 
 
+import java.io.Serializable;
 import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,7 +24,7 @@ import com.google.gson.annotations.Expose;
 
 @Entity
 @Table(name = "emodel")
-public class EModel  extends AuditBase  {
+public class EModel  extends AuditBase implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
@@ -71,6 +72,16 @@ public class EModel  extends AuditBase  {
 	@Transient
 	@OneToMany(mappedBy = "eMod",cascade=CascadeType.REMOVE,fetch=FetchType.LAZY)
 	private List<EDeviceAttribute> eDeviceAttributes = new ArrayList<EDeviceAttribute>();
+	
+	
+
+	public List<EDeviceAttribute> geteDeviceAttributes() {
+		return eDeviceAttributes;
+	}
+
+	public void seteDeviceAttributes(List<EDeviceAttribute> eDeviceAttributes) {
+		this.eDeviceAttributes = eDeviceAttributes;
+	}
 
 	public int getDeviceModelId() {
 		return deviceModelId;

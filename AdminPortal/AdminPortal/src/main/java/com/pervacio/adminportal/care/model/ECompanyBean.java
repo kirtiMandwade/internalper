@@ -2,7 +2,9 @@ package com.pervacio.adminportal.care.model;
 
 import java.io.Serializable;
 
-public class ECompanyBean implements Serializable {
+import com.pervacio.adminportal.care.entities.AuditBase;
+
+public class ECompanyBean extends AuditBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int companyId;

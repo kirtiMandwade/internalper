@@ -15,11 +15,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.care.entities.AuditBase;
 import com.pervacio.adminportal.care.entities.EDeviceAttribute;
 import com.pervacio.adminportal.care.entities.EDeviceTradeInBasePrice;
 import com.pervacio.adminportal.tradein.entities.DevicePrice;
 
-public class EModelBean implements Serializable {
+public class EModelBean extends AuditBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int deviceModelId;
