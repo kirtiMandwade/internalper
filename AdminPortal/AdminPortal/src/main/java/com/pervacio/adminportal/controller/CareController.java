@@ -957,6 +957,24 @@ public class CareController {
 		return message;
 
 	}
+	
+	@RequestMapping(value = "/devicebaseprice/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody List<EDeviceTradeInBasePrice> searchEDeviceTradeInBasePrice(@RequestBody String companyName) {
+		
+		System.out.println("\n\ncompany name "+companyName+"\\n\\n");
+		
+		List<EDeviceTradeInBasePrice> arrEDevBsPrices = null;
+		try {
+			arrEDevBsPrices = eDeviceTradeInBasePriceManager.getEDeviceTradeInBasePriceByCompanyName(companyName);
+			logger.info("search EDeviceTradeInBasePrice  "+arrEDevBsPrices.size());
+
+		} catch (Exception e) {
+			logger.error("error while searching EDeviceTradeInBasePrice "+e.getMessage());
+		}
+		return arrEDevBsPrices;
+
+	}
+
 
 	@RequestMapping(value = "/devicebaseprice/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveeDeviceTradeInBasePrice(@RequestBody EDeviceTradeInBasePriceBean eDeviceTradeInBasePrice) {

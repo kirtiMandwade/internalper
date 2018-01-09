@@ -44,7 +44,41 @@
 				</ul>
 				<br>
 			</div>
+			
+			
+			<div class="col-xs-6 col-md-4">
+				<div>
+					<h1>DeviceTradeInBasePrice</h1>
+  	    <div class="input-group" style="position:relation;left:50%">
 
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="company.companyName" style="height:27px"/>
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" >
+     	   <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        
+
+        	<!-- <input type="text" class="form-control" placeholder="Company Name" id="txtSearch" ng-model="company" style="height:27px;width:70%"/>
+   <div class="input-group-btn" >
+        <button class="btn btn-primary" ng-click="search()" style="position: relative; left:-105px">
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+             <button class="btn btn-primary"  data-toggle="modal" data-target="#duplicateModal" style="position: relative; left:-100px;height:30px">
+        <span >Duplicate</span>
+</button>
+    <button  class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left:-95px" ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+ -->
+
+</div>
+</div>
+</div>
+<br>
+<!-- 
 			<div class="col-sm-9">
 
 				<div>
@@ -53,7 +87,7 @@
         <span class="glyphicon glyphicon-plus"></span>
         </button>
 				</div>
-				<br>
+				<br> -->
 
 				<table class="table table-striped" border="1">
 					<tr>

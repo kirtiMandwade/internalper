@@ -113,4 +113,14 @@ app.controller('empCtrl', [
 				      console.log(response);
 				      $scope.arrEntityForCompany = response.data;
 				     });
+			
+			$scope.search = function() {
+				console.log("searcg called")
+				$http.post("/adminportal/care/devicebaseprice/search",$scope.company.companyName).then(
+						function(response) {
+							console.log(response);
+							$scope.arrEntity = response.data;
+						});
+			};
+			
 		} ]);
