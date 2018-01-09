@@ -32,7 +32,8 @@ public class LookUp implements Serializable{
 	private String lookupDisplayName;
 	@Column(columnDefinition = "varchar(512)")
 	private String lookupDescription;
-	
+
+
 	@OneToMany(mappedBy = "department",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUserDepartment = new ArrayList<EUser>();
@@ -40,23 +41,31 @@ public class LookUp implements Serializable{
 	@OneToMany(mappedBy = "unit",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUserDepartmentUnit = new ArrayList<EUser>();
-	
+
+
 	@OneToMany(mappedBy = "productCd",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-	
+
+
+	@OneToMany(mappedBy = "severityCd",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<DiagTestCompanyMap> diagTestCompanyMap = new ArrayList<DiagTestCompanyMap>();
+
+
+
 	@OneToMany(mappedBy = "testType",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTest> diagTestTestTypes = new ArrayList<DiagTest>();
-	
+
 	@OneToMany(mappedBy = "orderNum",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTest> diagTestOrderNums = new ArrayList<DiagTest>();
-	
+
 	@OneToMany(mappedBy = "categoryCd",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTest> diagTestCategoryCds = new ArrayList<DiagTest>();
-	
+
 
 	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
 		return diagTestCompanyMaps;
