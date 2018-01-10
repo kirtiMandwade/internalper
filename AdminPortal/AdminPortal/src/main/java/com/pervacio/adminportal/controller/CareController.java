@@ -1,6 +1,7 @@
 package com.pervacio.adminportal.controller;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Blob;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -1031,11 +1032,12 @@ public class CareController {
 	}
 
 	@RequestMapping(value = "/eUser/save", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody ResponseMessage saveEUser(@RequestBody EUserBean eUser) {
+	public @ResponseBody ResponseMessage saveEUser(@RequestBody EUserBean eUser) throws NoSuchAlgorithmException {
 		EUser entity = new EUser();
 		BeanUtils.copyProperties(eUser, entity);
 		ResponseMessage message = null;
-
+		
+		/*System.out.println("SHA Algoooo"+" "+SHA256.GenerateHash("input"));*/
 		try {
 			eUserManager.add(entity);
 			message = new ResponseMessage("success", "200");
@@ -1051,6 +1053,7 @@ public class CareController {
 
 	@RequestMapping(value = "/eUser/remove", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage removeEUsers(@RequestBody EUserBean eUser) {
+		System.out.println("**********Remove is called");
 		ResponseMessage message = null;
 		EUser entity = new EUser();
 		BeanUtils.copyProperties(eUser, entity);
@@ -1069,24 +1072,24 @@ public class CareController {
 
 	}
 
-/*	@RequestMapping(value = "/appConfig/search", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody List<AppConfig> searchAppConfigs(@RequestBody String configKey) {
+	@RequestMapping(value = "/eUser/search", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ArrayList<EUser> searchEUser(@RequestBody String companyName) {
 
-		List<AppConfig> arrDev = null;
+		ArrayList<EUser> arrDev = null;
 		try {
-			arrDev = appConfigManager.findByConfigKey(configKey);
+			arrDev = eUserManager.findUserByCompanyName(companyName);
 			logger.info("search AppConfig  "+arrDev.size());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			logger.error("error while searching AppConfig "+e.getMessage());
+			logger.error("error while searching EUser "+e.getMessage());
 
 		}
 
 		return arrDev;
 
 	}
-*/
+
 	
 	/*end*/
 

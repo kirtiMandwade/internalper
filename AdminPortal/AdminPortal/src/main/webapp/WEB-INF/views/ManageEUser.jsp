@@ -48,9 +48,21 @@
 
 				<div>
 					<h1>User</h1>
-    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+					<div class="input-group" style="position:relation;left:0%">
+
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px" />
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        	
+    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 30%">
         <span class="glyphicon glyphicon-plus"></span>
         </button>
+
+</div>
+</div>
+				
 				</div>
 				<br>
 
@@ -59,7 +71,7 @@
 
 						<td>Company Name</td>
 						<td>UserId</td>
-						<td>password</td>
+						<!-- <td>password</td> -->
 						<td>FirstName</td>
 						<td>Email</td>
 						<td>Department</td>
@@ -73,7 +85,7 @@
 					
 						<td>{{entity.eCompany.companyName}}</td>
 						<td>{{entity.userId}}</td>
-						<td>{{entity.password}}</td>
+						<!-- <td>{{entity.password}}</td> -->
 						<td>{{entity.firstName}}</td>
 						<td>{{entity.email}}</td>
 						<td>{{entity.department.lookUpKey.lookUpValue}}</td>
@@ -200,19 +212,43 @@
 											Company ID Code length exceeded</span>
 											<br> <br> -->
 											 Company Name:<select
-              class="form-control" ng-model="ent.companyId"
+              class="form-control" ng-model="ent.eCompany"
               name="selct"
-              ng-options="x.companyId as x.companyName for x in arrEntityForCompany"
+              ng-options="x as x.companyName for x in arrEntityForCompany"
               ></select><br><br >
-									Config Key:<input class="form-control" type="text" name="configKey" ng-model="ent.configKey" required="required">
-											<span style="color: Red" ng-show="editform.configKey.$touched && editform.configKey.$invalid">
+									
+									UserId: <input class="form-control" type="text" name="configValue" ng-model="ent.userId" required="required">
+											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-									Config Value: <input class="form-control" type="text" name="configValue" ng-model="ent.configValue" required="required">
-											<span style="color: Red" ng-show="editform.configValue.$touched && editform.configValue.$invalid">
+											
+											<!-- password: <input class="form-control" type="text" name="configValue" ng-model="ent.password" required="required">
+											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-									</div>
+											 -->
+											FirstName: <input class="form-control" type="text" name="configValue" ng-model="ent.firstName" required="required">
+											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
+											This field is required.</span>
+											<br> <br>
+											
+											Email: <input class="form-control" type="text" name="configValue" ng-model="ent.email" required="required">
+											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
+											This field is required.</span>
+											<br> <br>
+											
+											Department: <select 
+              class="form-control" ng-model="ent.department"
+              name="selct"
+              ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForDepartment"
+              ></select><br><br>
+											
+											Unit: <select 
+              class="form-control" ng-model="ent.unit"
+              name="selct"
+              ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForUnit"
+              ></select><br><br>
+							
 
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"

@@ -63,8 +63,16 @@ public class EUserDao
 
 
 
+	/*public EUser getUserByUsername(String userId) throws Exception {
+		// TODO Auto-generated method stub
+		return eUserRepository.findByUserId(userId);
+	}*/
 	public EUser getUserByUsername(String userId) throws Exception {
 		// TODO Auto-generated method stub
 		return eUserRepository.findByUserId(userId);
+	}
+	public ArrayList<EUser> findUserByCompanyName(String companyName)
+	{
+		return eUserRepository.findAllByECompanyCompanyName(companyName);
 	}
 }

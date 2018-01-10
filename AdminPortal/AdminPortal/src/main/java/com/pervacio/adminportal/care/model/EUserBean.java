@@ -16,7 +16,7 @@ import com.pervacio.adminportal.lookup.entities.LookUp;
 
 public class EUserBean implements Serializable{
 	private static final long serialVersionUID = 1L;
-
+	private int userInternalId;
 	private ECompany eCompany;
 	private LookUp department;
 	private LookUp unit;
@@ -170,6 +170,12 @@ public class EUserBean implements Serializable{
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public int getUserInternalId() {
+		return userInternalId;
+	}
+	public void setUserInternalId(int userInternalId) {
+		this.userInternalId = userInternalId;
 	}
 
 
