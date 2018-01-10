@@ -9,7 +9,6 @@ app.controller('empCtrl', [
 			$scope.arrEntityForUnit= {};
 			arrEntityForDepartment={};
 			$scope.ent={};
-			$scope.company={};
 			$scope.delent={};
 			$scope.editForm = false;
 			$scope.myVar = false;
@@ -22,56 +21,14 @@ app.controller('empCtrl', [
 
 			};
 
-/*			$scope.edit = function(entity) {
+			$scope.edit = function(entity) {
 				console.log(entity);
 				$scope.editForm = true;
 				$scope.ent = entity;
 					
 
 			};
-			
-			*/
-			
-			/*new*/ 
-			$scope.edit = function(entity) {
-				console.log(entity);
-				$scope.company={};
-				$scope.editForm = true;
-				$scope.ent = entity;
-				angular.forEach($scope.arrEntityForCompany, function(item, index) {
-					if(item.companyName==$scope.ent.eCompany.companyName)
-					{
-						$scope.ent.eCompany=item	;
 
-
-	}
-					});
-				
-				
-				angular.forEach($scope.arrEntityForDepartment, function(item, index) {
-					if(item.lookUpKey.lookUpValue==$scope.ent.department.lookUpKey.lookUpValue)
-					{
-						$scope.ent.department=item;
-
-
-	}
-					});
-				
-				
-				angular.forEach($scope.arrEntityForUnit, function(item, index) {
-					if(item.lookUpKey.lookUpValue==$scope.ent.unit.lookUpKey.lookUpValue)
-					{
-						$scope.ent.unit=item;
-
-
-	}
-					});
-
-			};
-			
-			
-/*end*/
-			
 			$scope.add = function(entity) {
 
 				$scope.ent = null;
@@ -118,7 +75,7 @@ app.controller('empCtrl', [
 
 
 			$scope.delete = function() {
-				$http.post("/adminportal/care/eUser/remove",
+				$http.post("/adminportal/care/appConfig/remove",
 						$scope.delent).then(function(response) {
 					console.log(response);
 
@@ -148,19 +105,6 @@ app.controller('empCtrl', [
 				      console.log(response);
 				      $scope.arrEntityForUnit = response.data;
 				     });
-			
-			/*NEW*/
-			$scope.search = function() {
-				console.log("searcg called")
-				$http.post("/adminportal/care/eUser/search",$scope.companyName).then(
-						function(response) {
-							console.log(response);
-							$scope.arrEntity = response.data;
-						});
-
-			};			
-
-			/*end*/
 
 
 					

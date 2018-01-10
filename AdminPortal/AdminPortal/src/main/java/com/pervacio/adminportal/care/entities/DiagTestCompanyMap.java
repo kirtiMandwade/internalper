@@ -33,23 +33,18 @@ public class DiagTestCompanyMap  extends AuditBase implements Serializable {
 	@Id
 	@GeneratedValue
 	private int id;
-
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="companyId",referencedColumnName="companyId")
 	private ECompany company;
-
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumns({
 		@JoinColumn(name = "productCdType", referencedColumnName = "lookUpType"),
 		@JoinColumn(name = "productCd", referencedColumnName = "lookUpValue")})
 	private LookUp productCd;
-
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumns({
-		@JoinColumn(name = "severityCdType", referencedColumnName = "lookUpType"),
-		@JoinColumn(name = "severityCd", referencedColumnName = "lookUpValue")})
-	private LookUp severityCd;
+		
+	private String severityCd;
 
 	@ManyToOne
 	@JoinColumn(name = "issueCd", referencedColumnName = "issueCd")
@@ -67,7 +62,7 @@ public class DiagTestCompanyMap  extends AuditBase implements Serializable {
 		this.id = id;
 	}
 
-
+	
 	public ECompany getCompany() {
 		return company;
 	}
@@ -76,8 +71,10 @@ public class DiagTestCompanyMap  extends AuditBase implements Serializable {
 		this.company = company;
 	}
 
-
-
+	public String getSeverityCd() {
+		return severityCd;
+	}
+	
 	public LookUp getProductCd() {
 		return productCd;
 	}
@@ -86,13 +83,7 @@ public class DiagTestCompanyMap  extends AuditBase implements Serializable {
 		this.productCd = productCd;
 	}
 
-
-
-	public LookUp getSeverityCd() {
-		return severityCd;
-	}
-
-	public void setSeverityCd(LookUp severityCd) {
+	public void setSeverityCd(String severityCd) {
 		this.severityCd = severityCd;
 	}
 

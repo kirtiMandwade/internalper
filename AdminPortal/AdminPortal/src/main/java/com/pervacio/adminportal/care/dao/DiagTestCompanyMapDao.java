@@ -37,10 +37,8 @@ public class DiagTestCompanyMapDao
 		diagTestCompanyMapRepo.saveAndFlush(diagTestCompanyMap);
 
 	}
-	
-	public List<DiagTestCompanyMap>findByCompanyName(String companyName)throws Exception{
-	//	System.out.println("\n\nin dao of diagtestcompanymap\n\n");
-		return diagTestCompanyMapRepo.findAllByCompanyCompanyName(companyName);
-	}
+
+
+
 
 }

@@ -11,12 +11,9 @@ import com.pervacio.adminportal.care.entities.AppConfig;
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
 import com.pervacio.adminportal.care.entities.DiagTest;
 import com.pervacio.adminportal.care.entities.DiagTestCompanyMap;
-import com.pervacio.adminportal.care.entities.ECompany;
 import com.pervacio.adminportal.tradein.entities.Device;
 import com.pervacio.adminportal.tradein.entities.Promotion;
 
 public interface DiagTestCompanyMapRepository extends JpaRepository<DiagTestCompanyMap, Integer>{
-	
-	public List<DiagTestCompanyMap>findAllByCompanyCompanyName(String companyName)throws Exception;
 
 }

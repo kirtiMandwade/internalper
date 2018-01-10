@@ -14,4 +14,5 @@ public interface EUserManager
 	public void update(EUser euser) throws Exception ;
 	public Boolean getUserByUsernameAndPassword(String userid,String password) throws Exception;
 	public EUser getUserByUsername(String userid) throws Exception;
+	public ArrayList<EUser> findUserByCompanyName(String companyName);
 }

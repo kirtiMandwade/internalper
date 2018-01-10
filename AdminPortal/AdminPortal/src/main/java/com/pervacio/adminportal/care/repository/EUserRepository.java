@@ -13,6 +13,7 @@ public interface EUserRepository extends JpaRepository<EUser, Integer> {
 	@Query(nativeQuery=true,value="Select * from euser where userid=:userId and password=SHA2(:password,256)")
 	public ArrayList<EUser> findUserByUserIdAndPassword(@Param("userId") String userId, @Param("password") String password);
 	public EUser findByUserId(String userId);
+	public ArrayList<EUser> findAllByECompanyCompanyName(String companyName);
 
 
 }

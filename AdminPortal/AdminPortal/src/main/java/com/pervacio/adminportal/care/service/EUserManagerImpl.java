@@ -45,4 +45,8 @@ public class EUserManagerImpl implements EUserManager {
 
 		return dao.getUserByUsername(userid);
 	}
+	public ArrayList<EUser> findUserByCompanyName(String companyName)
+	{
+		return dao.findUserByCompanyName(companyName);
+	}
 }
