@@ -44,7 +44,41 @@
 				</ul>
 				<br>
 			</div>
+			
+			
+			<div class="col-xs-6 col-md-4">
+				<div>
+					<h1>DeviceTradeInBasePrice</h1>
+  	    <div class="input-group" style="position:relation;left:50%">
 
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px"/>
+  		 <div class="input-group-btn">
+  		      <button class="btn btn-primary" ng-click="search()" >
+   		     <span class="glyphicon glyphicon-search" ></span>
+    	    </button>
+        <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" >
+     	   <span class="glyphicon glyphicon-plus"></span>
+        </button>
+        
+
+        	<!-- <input type="text" class="form-control" placeholder="Company Name" id="txtSearch" ng-model="company" style="height:27px;width:70%"/>
+   <div class="input-group-btn" >
+        <button class="btn btn-primary" ng-click="search()" style="position: relative; left:-105px">
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+             <button class="btn btn-primary"  data-toggle="modal" data-target="#duplicateModal" style="position: relative; left:-100px;height:30px">
+        <span >Duplicate</span>
+</button>
+    <button  class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left:-95px" ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+ -->
+
+</div>
+</div>
+</div>
+<br>
+<!-- 
 			<div class="col-sm-9">
 
 				<div>
@@ -53,7 +87,7 @@
         <span class="glyphicon glyphicon-plus"></span>
         </button>
 				</div>
-				<br>
+				<br> -->
 
 				<table class="table table-striped" border="1">
 					<tr>
@@ -67,7 +101,7 @@
 
 					<tr ng-repeat="entity in arrEntity">
 						<td>{{entity.basePrice}}</td>
-						<td>{{entity.companyName}}</td>
+						<td>{{entity.company.companyName}}</td>
 						<td>{{entity.eModel.deviceModelId}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
@@ -129,13 +163,13 @@
 											This field is required.</span> <br> <br>
 										 -->
 										  Company Name:<select 
-              class="form-control" ng-model="ent.companyId"
-              name="selct"
-              ng-options="x.companyName as x.companyName for x in arrEntityForCompany"
-              ></select><br><br >
+           										class="form-control" ng-model="ent.company"
+      									        name="company"
+      									        ng-options="x as x.companyName for x in arrEntityForCompany"
+          									    ></select><br><br >
 										 Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
-											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
+											ng-options="x as x.deviceModelId for x in arrModel"></select><br><br>
 
 									</div>
 
@@ -179,13 +213,13 @@
 											ng-show="editform.companyName.$touched && editform.companyName.$invalid">
 											This field is required.</span> <br> <br> -->
 											Company Name:<select 
-              class="form-control" ng-model="ent.companyName"
-              name="selct"
-              ng-options="x.companyName as x.companyName for x in arrEntityForCompany"
-              ></select><br><br>
+           										   class="form-control" ng-model="ent.company"
+        									      name="company"
+      										        ng-options="x as x.companyName for x in arrEntityForCompany"
+    								          ></select><br><br>
 										Model Device Id:
 											<select class="form-control" ng-model="ent.eModel"
-											ng-options="x.deviceModelId for x in arrModel"></select><br><br>
+											ng-options="x as x.deviceModelId for x in arrModel"></select><br><br>
 
 										</div>
 

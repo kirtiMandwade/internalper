@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -25,12 +26,18 @@ public class EDeviceTradeInBasePrice  extends AuditBase implements Serializable 
 	private int priceId;
 
 	private String basePrice;
-	private String companyName;
+	//private String companyName;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="companyId",referencedColumnName="companyId")
+	private ECompany company;
 
 	@ManyToOne
 	@JoinColumn(name = "DeviceModelId", referencedColumnName = "DeviceModelId")
 	private EModel eModel;
-
+	
+	
+	
 	public int getPriceId() {
 		return priceId;
 	}
@@ -46,13 +53,13 @@ public class EDeviceTradeInBasePrice  extends AuditBase implements Serializable 
 	public void setBasePrice(String basePrice) {
 		this.basePrice = basePrice;
 	}
-
-	public String getCompanyName() {
-		return companyName;
+	
+	public ECompany getCompany() {
+		return company;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCompany(ECompany company) {
+		this.company = company;
 	}
 
 	public EModel geteModel() {

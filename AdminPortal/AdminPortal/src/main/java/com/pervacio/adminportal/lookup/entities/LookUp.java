@@ -36,8 +36,17 @@ public class LookUp implements Serializable{
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
 	
-
-
+	@OneToMany(mappedBy = "severityCd",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<DiagTestCompanyMap> diagTestCompanyMaps1 = new ArrayList<DiagTestCompanyMap>();
+	
+	
+	public List<DiagTestCompanyMap> getDiagTestCompanyMaps1() {
+		return diagTestCompanyMaps1;
+	}
+	public void setDiagTestCompanyMaps1(List<DiagTestCompanyMap> diagTestCompanyMaps1) {
+		this.diagTestCompanyMaps1 = diagTestCompanyMaps1;
+	}
 	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
 		return diagTestCompanyMaps;
 	}

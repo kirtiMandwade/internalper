@@ -411,7 +411,7 @@ public class CareController {
 	@RequestMapping(value = "/diagtestcompany/search", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody List<DiagTestCompanyMap> searchDiagTestCompany(@RequestBody String companyName) {
 
-	//	System.out.println("\n\nIn diagTestCompany\n\n");
+	System.out.println("\n\nIn diagTestCompany\n\n"+companyName);
 
 		List<DiagTestCompanyMap> arrDiagtestcomp = null;
 		try {

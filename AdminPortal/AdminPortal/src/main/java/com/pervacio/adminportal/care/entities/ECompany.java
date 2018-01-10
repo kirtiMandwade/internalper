@@ -8,15 +8,15 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.pervacio.adminportal.warehouse.entities.WSProfile;
-import com.pervacio.adminportal.warehouse.entities.WorkStation;
 
 @Entity
 @Table(name = "ecompany")
@@ -39,24 +39,16 @@ public class ECompany extends AuditBase implements Serializable {
 	private String companyImageFilename;
 	private String loginId;
 	private String password;
-
+	
+	@Transient
+	@JsonIgnore
+	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
+	private List<EDeviceTradeInBasePrice> deviceTradeInBasePrices = new ArrayList<EDeviceTradeInBasePrice>();
+	
 	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-
-/*
-	@OneToMany(mappedBy = "ecompany", cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<WSProfile> arrWsProfile = new ArrayList<WSProfile>();
-*/
-	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
-		return diagTestCompanyMaps;
-	}
-
-	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
-		this.diagTestCompanyMaps = diagTestCompanyMaps;
-	}
-
+	
 	@OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<AppConfig> arrAppConfig = new ArrayList<>();
@@ -64,6 +56,23 @@ public class ECompany extends AuditBase implements Serializable {
 	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUser = new ArrayList<EUser>();
+	
+	
+	public List<EDeviceTradeInBasePrice> getDeviceTradeInBasePrices() {
+		return deviceTradeInBasePrices;
+	}
+
+	public void setDeviceTradeInBasePrices(List<EDeviceTradeInBasePrice> deviceTradeInBasePrices) {
+		this.deviceTradeInBasePrices = deviceTradeInBasePrices;
+	}
+
+	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
+		return diagTestCompanyMaps;
+	}
+
+	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
+		this.diagTestCompanyMaps = diagTestCompanyMaps;
+	}
 
 	public int getCompanyId() {
 		return companyId;
@@ -176,7 +185,5 @@ public class ECompany extends AuditBase implements Serializable {
 	public void seteUser(List<EUser> eUser) {
 		this.eUser = eUser;
 	}
-
-
 
 }

@@ -60,7 +60,7 @@
          -->
 
 						<input type="text" class="form-control" placeholder="Company Name"
-							id="txtSearch" ng-model="company"
+							id="txtSearch" ng-model="companyName"
 							style="height: 27px; width: 70%" />
 						<div class="input-group-btn">
 							<button class="btn btn-primary" ng-click="search()"
@@ -236,8 +236,8 @@
 													<div class="row">
 
 														<div class="col-sm-4" style="background-color: lavender;">
-															Severity Code:<select class="form-control"
-																ng-model="ent.severityCd" name="severityCd"
+															Severity Code:<select class="form-control" id="{{choice.id}}"
+																ng-model="choice.severityCd" name="severityCd"
 																ng-options="x as x.lookUpKey.lookUpValue for x in arrSev"></select>
 															<span style="color: Red"
 																ng-show="addform.severityCd.$touched && addform.severityCd.$invalid">

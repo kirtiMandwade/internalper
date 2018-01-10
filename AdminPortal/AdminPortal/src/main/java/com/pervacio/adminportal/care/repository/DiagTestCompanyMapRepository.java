@@ -15,5 +15,7 @@ import com.pervacio.adminportal.tradein.entities.Device;
 import com.pervacio.adminportal.tradein.entities.Promotion;
 
 public interface DiagTestCompanyMapRepository extends JpaRepository<DiagTestCompanyMap, Integer>{
+	
 public ArrayList<DiagTestCompanyMap> findAllByCompanyCompanyName(String companyName);
+
 }

@@ -12,6 +12,7 @@ public interface EDeviceTradeInBasePriceManager
 	public void add(EDeviceTradeInBasePrice eDeviceTradeInBasePrice) throws Exception;
 	public  void remove(EDeviceTradeInBasePrice eDeviceTradeInBasePrice) throws Exception;
 	public void update(EDeviceTradeInBasePrice EDevieDeviceTradeInBasePriceceTradeInBasePrice) throws Exception ;
+	
 	public ArrayList<EDeviceTradeInBasePrice> getEDeviceTradeInBasePriceByCompanyName(String companyName) throws Exception;
 
 }
