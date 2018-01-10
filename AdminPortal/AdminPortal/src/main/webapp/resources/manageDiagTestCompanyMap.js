@@ -4,9 +4,9 @@ app.controller('empCtrl', [
 		'$scope',
 		'$http',
 		function($scope, $http) {
-//			$scope.ent={};
-//			$scope.ent.company="";
-//			$scope.ent.productCd="";
+// $scope.ent={};
+// $scope.ent.company="";
+// $scope.ent.productCd="";
 //
 			$scope.choices=[];
 
@@ -115,7 +115,7 @@ app.controller('empCtrl', [
 									{
 										$scope.dupent={};
 										Object.assign($scope.dupent, item);
-										$scope.dupent.id=null;
+										$scope.dupent.configId=null;
 										$scope.dupent.company=$scope.toCompany;
 
 
@@ -182,7 +182,6 @@ app.controller('empCtrl', [
 							};
 
 
-
 			$scope.save = function() {
 
 
@@ -200,12 +199,10 @@ app.controller('empCtrl', [
 
 
 				/*
-				$http.post("/adminportal/care/diagtestcompany/save",
-						$scope.ent).then(function(response) {
-					console.log(response);
-					$scope.refresh();
-				});
-*/
+				 * $http.post("/adminportal/care/diagtestcompany/save",
+				 * $scope.ent).then(function(response) { console.log(response);
+				 * $scope.refresh(); });
+				 */
 			};
 
 
@@ -264,6 +261,12 @@ app.controller('empCtrl', [
 				     function(response) {
 				      console.log(response);
 				      $scope.arrLookUp = response.data;
+		     });
+
+			$http.get("/adminportal/care/lookup/getall?lookUpType=SEVERITYCD").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrSev = response.data;
 		     });
 
 			$scope.search = function() {

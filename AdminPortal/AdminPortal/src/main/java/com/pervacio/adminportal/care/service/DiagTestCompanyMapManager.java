@@ -12,5 +12,6 @@ public interface DiagTestCompanyMapManager
 	public void add(DiagTestCompanyMap diagTestCompanyMap) throws Exception;
 	public  void remove(DiagTestCompanyMap diagTestCompanyMap) throws Exception;
 	public void update(DiagTestCompanyMap diagTestCompanyMap) throws Exception ;
+	public ArrayList<DiagTestCompanyMap> findAllByEcompanyCompanyName(String companyName) ;
 
 }

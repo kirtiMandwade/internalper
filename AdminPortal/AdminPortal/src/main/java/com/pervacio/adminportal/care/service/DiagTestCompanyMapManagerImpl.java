@@ -35,5 +35,7 @@ public class DiagTestCompanyMapManagerImpl implements DiagTestCompanyMapManager 
 		// TODO Auto-generated method stub
 		dao.update(DiagTestCompanyMap);
 	};
-
+	public ArrayList<DiagTestCompanyMap> findAllByEcompanyCompanyName(String companyName){
+		return dao.findAllByEcompanyCompanyName(companyName);
+	}
 }

@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.care.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,8 @@ public class DiagTestCompanyMapDao
 	}
 
 
-
+	public ArrayList<DiagTestCompanyMap> findAllByEcompanyCompanyName(String companyName){
+		return diagTestCompanyMapRepo.findAllByCompanyCompanyName(companyName);
+	}
 
 }
