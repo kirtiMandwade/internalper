@@ -111,7 +111,7 @@ app.controller('empCtrl', [
 			};
 			$scope.duplicate = function() {
 
-$scope.choices=[];
+				$scope.choices=[];
 
 				angular.forEach($scope.arrEntity, function(item, index) {
 					if(item.company.companyName==$scope.fromCompany.companyName)

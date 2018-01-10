@@ -20,6 +20,66 @@ $scope.wsProfileId;
 				$scope.myVar = !$scope.myVar;
 			};
 
+			$scope.duplicate = function() {
+
+				$scope.choices=[];
+
+								angular.forEach($scope.arrWSProfiles, function(item, index) {
+									if(item.company.companyName==$scope.fromCompany.companyName)
+									{
+										$scope.dupent={};
+										Object.assign($scope.dupent, item);
+										$scope.dupent.id=null;
+										$scope.dupent.company=$scope.toCompany;
+
+
+										angular.forEach($scope.arrLookUp, function(item, index) {
+											if(item.lookUpKey.lookUpValue==$scope.dupent.productCd.lookUpKey.lookUpValue)
+											{
+												$scope.dupent.productCd=item;
+
+
+							}
+											});
+
+										angular.forEach($scope.arrSev, function(item, index) {
+											if(item.lookUpKey.lookUpValue==$scope.dupent.severityCd.lookUpKey.lookUpValue)
+											{
+												$scope.dupent.severityCd=item;
+											}
+											});
+
+										angular.forEach($scope.arrdiagIissuesFlow, function(item, index) {
+											if(item.issueCd==$scope.dupent.diagIissuesFlow.issueCd)
+											{
+												$scope.dupent.diagIissuesFlow=item;
+											}
+											});
+
+										angular.forEach($scope.arrDiagTest, function(item, index) {
+											if(item.testCd==$scope.dupent.diagTest.testCd)
+											{
+												$scope.dupent.diagTest=item;
+											}
+											});
+
+
+										angular.forEach($scope.arrEntityForCompany, function(item, index) {
+											if(item.companyName==$scope.fromCompany.companyName)
+											{
+												$scope.dupent.company=$scope.toCompany;
+
+
+							}
+											});
+										$scope.choices.push($scope.dupent);
+					}
+									});
+
+																$("#dupeditform").modal('show');
+
+
+							};
 
 $scope.buttondis=true;
 			$scope.addNewChoice = function() {
@@ -294,9 +354,9 @@ el.show();
 						});
 
 			};
-			
-			
-			
+
+
+
 			$scope.search = function() {
 				console.log("searcg called")
 				$http.post("/adminportal/warehouse/profile/search",$scope.profileCd).then(
@@ -305,8 +365,8 @@ el.show();
 							$scope.arrWSProfiles = response.data;
 						});
 
-			};	
-			
+			};
+
 			$scope.getBasePrice = function(device) {
 				$http.post("/adminportal/warehouse/GetBasePrice",device).then(
 						function(response) {

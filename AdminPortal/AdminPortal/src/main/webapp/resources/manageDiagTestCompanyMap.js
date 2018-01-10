@@ -115,7 +115,7 @@ app.controller('empCtrl', [
 									{
 										$scope.dupent={};
 										Object.assign($scope.dupent, item);
-										$scope.dupent.configId=null;
+										$scope.dupent.id=null;
 										$scope.dupent.company=$scope.toCompany;
 
 
@@ -132,6 +132,20 @@ app.controller('empCtrl', [
 											if(item.lookUpKey.lookUpValue==$scope.dupent.severityCd.lookUpKey.lookUpValue)
 											{
 												$scope.dupent.severityCd=item;
+											}
+											});
+
+										angular.forEach($scope.arrdiagIissuesFlow, function(item, index) {
+											if(item.issueCd==$scope.dupent.diagIissuesFlow.issueCd)
+											{
+												$scope.dupent.diagIissuesFlow=item;
+											}
+											});
+
+										angular.forEach($scope.arrDiagTest, function(item, index) {
+											if(item.testCd==$scope.dupent.diagTest.testCd)
+											{
+												$scope.dupent.diagTest=item;
 											}
 											});
 
@@ -153,6 +167,19 @@ app.controller('empCtrl', [
 
 							};
 
+
+							$scope.saveDuplicate= function() {
+								/*
+								 * $scope.ent.arrEcompany=[];
+								 * $scope.ent.arrEcompany.push($scope.company);
+								 */$http.post("/adminportal/care/diagtestcompany/save",
+										$scope.choices).then(function(response) {
+									console.log(response);
+									$scope.refresh();
+
+								});
+
+							};
 
 
 			$scope.save = function() {

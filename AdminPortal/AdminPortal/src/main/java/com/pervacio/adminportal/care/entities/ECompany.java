@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.warehouse.entities.WSProfile;
+import com.pervacio.adminportal.warehouse.entities.WorkStation;
 
 @Entity
 @Table(name = "ecompany")
@@ -37,11 +39,16 @@ public class ECompany extends AuditBase implements Serializable {
 	private String companyImageFilename;
 	private String loginId;
 	private String password;
-	
+
 	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-	
+
+/*
+	@OneToMany(mappedBy = "ecompany", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<WSProfile> arrWsProfile = new ArrayList<WSProfile>();
+*/
 	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
 		return diagTestCompanyMaps;
 	}
@@ -169,5 +176,7 @@ public class ECompany extends AuditBase implements Serializable {
 	public void seteUser(List<EUser> eUser) {
 		this.eUser = eUser;
 	}
+
+
 
 }

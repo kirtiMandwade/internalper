@@ -232,7 +232,7 @@
 	 Severity Code:<select
         								      	class="form-control" ng-model="ent.severityCd"
               									name="severityCd"
-              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrSev"
               									></select>
 			<span style="color: Red" ng-show="addform.severityCd.$touched && addform.severityCd.$invalid"> This field is required.</span>
 
@@ -338,7 +338,7 @@ Action Value <br>
 									 Severity Code:<select
         								      	class="form-control" ng-model="entEdit.severityCd"
               									name="severityCd"
-              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrSev"
               									></select><br><br >
 										diagIissuesFlow: <select
 											class="form-control" ng-model="entEdit.diagIissuesFlow"
@@ -389,30 +389,29 @@ Action Value <br>
 
 
 
-<div data-ng-repeat="choice in choices" style="position: relative;">
+<div data-ng-repeat="dupent in choices" style="position: relative;">
 <table>
 <tr>
 
 <div class="row">
-
 <div class="col-sm-4" style="background-color:lavender;">
 	 Severity Code:<select
-        								      	class="form-control" ng-model="choice.severityCd"
+        								      	class="form-control" ng-model="dupent.severityCd"
               									name="severityCd"
-              									ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUp"
+              									ng-options="x as x.lookUpKey.lookUpValue for x in arrSev" ng-selected="dupent.severityCd"
               									></select>
 			<span style="color: Red" ng-show="addform.severityCd.$touched && addform.severityCd.$invalid"> This field is required.</span>
 
 </div>
 
 <div class="col-sm-4" style="background-color:lavenderblush;">
-Diag Issues Flow:<select id="{{choice.id}}" class="form-control" ng-model="choice.diagIissuesFlow"
-					ng-options="x.issueCd for x in arrdiagIissuesFlow"></select>
+Diag Issues Flow:<select id="{{choice.id}}" class="form-control" ng-model="dupent.diagIissuesFlow"
+					ng-options="x.issueCd for x in arrdiagIissuesFlow" ng-selected="dupent.diagIissuesFlow"></select>
 
 </div>
 
 <div  class="col-sm-4" style="background-color:lavender;">
-Diag Test:<select id="{{choice.id}}"  class="form-control" ng-model="choice.diagTest" ng-options="x.testCd for x in arrDiagTest"></select>
+Diag Test:<select id="{{choice.id}}"  class="form-control" ng-model="dupent.diagTest" ng-options="x.testCd for x in arrDiagTest"></select>
 
 </div>
 

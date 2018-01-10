@@ -59,21 +59,21 @@
 
 						<td>Company Name</td>
 						<td>UserId</td>
-						<td>password</td>
-						<td>FirstName</td>
+<!-- 						<td>password</td>
+ -->						<td>FirstName</td>
 						<td>Email</td>
 						<td>Department</td>
 						<td>Unit</td>
-						
+
 
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
 					<tbody ng-repeat="entity in arrEntity">
-					
+
 						<td>{{entity.eCompany.companyName}}</td>
 						<td>{{entity.userId}}</td>
-						<td>{{entity.password}}</td>
+					<!-- 	<td>{{entity.password}}</td> -->
 						<td>{{entity.firstName}}</td>
 						<td>{{entity.email}}</td>
 						<td>{{entity.department.lookUpKey.lookUpValue}}</td>
@@ -126,44 +126,44 @@
 									</div>
 									<div class="modal-body">
 
-			 Company Name:<select 
+			 Company Name:<select
               class="form-control" ng-model="ent.eCompany"
               name="selct"
               ng-options="x as x.companyName for x in arrEntityForCompany"
               ></select><br><br>
-							
+
 									UserId: <input class="form-control" type="text" name="configValue" ng-model="ent.userId" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											password: <input class="form-control" type="text" name="configValue" ng-model="ent.password" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											FirstName: <input class="form-control" type="text" name="configValue" ng-model="ent.firstName" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											Email: <input class="form-control" type="text" name="configValue" ng-model="ent.email" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
-											Department: <select 
+
+											Department: <select
               class="form-control" ng-model="ent.department"
               name="selct"
               ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForDepartment"
               ></select><br><br>
-											
-											Unit: <select 
+
+											Unit: <select
               class="form-control" ng-model="ent.unit"
               name="selct"
               ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForUnit"
               ></select><br><br>
-							
+
 
 										<div class="modal-footer">
 											<button type="button" ng-disabled="addform.$invalid"

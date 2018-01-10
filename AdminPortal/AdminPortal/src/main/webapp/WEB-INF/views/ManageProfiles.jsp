@@ -19,9 +19,6 @@
 	rel="stylesheet" type="text/css" />
 <script src="/adminportal/resources/js/angular-datepicker.js"></script>
 
-<style>.columnSizefornew{width:200px;}
-.columnSizefornewcss{width:50px;}
-</style>
 </head>
 
 <body ng-app="AdminPortal" ng-controller="empCtrl">
@@ -61,7 +58,7 @@
 				<div>
 					<h1>Profile</h1>
   	    <div class="input-group" style="position:relation;left:50%">
-
+<!--
 				<input type="text" class="form-control" placeholder="ProfileCd" id="txtSearch" ng-model="profileCd" style="height:27px"/>
   		 <div class="input-group-btn">
   		      <button class="btn btn-primary" ng-click="search()" >
@@ -70,13 +67,27 @@
         <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()">
      	   <span class="glyphicon glyphicon-plus"></span>
         </button>
+         -->
+
+        	<input type="text" class="form-control" placeholder="ProfileCd" id="txtSearch" ng-model="profileCd" style="height:27px;width:70%"/>
+   <div class="input-group-btn" >
+        <button class="btn btn-primary" ng-click="search()" style="position: relative; left:-106px">
+        <span class="glyphicon glyphicon-search" ></span>
+        </button>
+             <button class="btn btn-primary"  data-toggle="modal" data-target="#duplicateModal" style="position: relative; left:-100px;height:30px">
+        <span >Duplicate</span>
+</button>
+    <button style="position: relative; left:-95px" class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" style="position: relative; left: 90%" ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus"></span>
+        </button>
+
 
 </div>
 </div>
 </div>
 <br>
-			
-			
+
+
 
 
 
@@ -138,6 +149,48 @@
 
 						</div>
 					</div>
+
+
+						<form name="duplicateform">
+					<div class="modal fade" id="duplicateModal" role="dialog">
+							<div class="modal-dialog">
+
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Add </h4>
+									</div>
+									<div class="modal-body">
+
+									<!-- Company Id:<input class="form-control" type="number"
+											ng-model="ent.companyId" name="companyId" required  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/">
+											<span style="color: Red" ng-show="addform.companyId.$dirty&&addform.companyId.$error.pattern">
+											Company ID can not have alphabets</span>
+             								<span style="color: Red" ng-show="addform.companyId.$touched && addform.companyId.$invalid">
+											Company ID Code length exceeded</span>
+											<br> <br>
+									 -->
+									Copy From Company Name:<select
+              							class="form-control" ng-model="fromCompany" name="selct" ng-options="x as x.companyName for x in arrEntityForCompany"></select><br><br >
+
+									Copy To Company Name:<select
+              							class="form-control" ng-model="toCompany" name="selct" ng-options="x as x.companyName for x in arrEntityForCompany"></select><br><br >
+
+									 										<div class="modal-footer">
+											<button type="button"
+												class="btn btn-default" data-dismiss="modal" data-target="#editmodal"
+												ng-click="duplicate()">copy</button>
+
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div></form>
+
+
 
 					<form name="addform">
 

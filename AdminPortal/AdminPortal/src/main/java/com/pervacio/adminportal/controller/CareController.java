@@ -526,6 +526,8 @@ public class CareController {
 
 	}
 
+
+
 	@RequestMapping(value = "/diagtestcompany/remove", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage removeDiagTestCompanyMap(@RequestBody DiagTestCompanyMapBean diagTestCompanyMap) {
 		ResponseMessage message;
