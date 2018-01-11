@@ -217,7 +217,7 @@ $scope.buttondis=true;
 				el[0].type="date";
 //				el[0].className="form-control";
 				el[0].disabled=false;
-
+				el.show();
 				}
 				else if(valueType=='CHOICE'){
 					entity.choiceValues="";
