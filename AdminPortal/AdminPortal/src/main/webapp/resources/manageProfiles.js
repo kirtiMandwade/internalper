@@ -25,54 +25,29 @@ $scope.wsProfileId;
 				$scope.choices=[];
 
 								angular.forEach($scope.arrWSProfiles, function(item, index) {
-									if(item.company.companyName==$scope.fromCompany.companyName)
+									if(item.wsProfileId.companyName==$scope.fromCompany.companyName)
 									{
 										$scope.dupent={};
 										Object.assign($scope.dupent, item);
-										$scope.dupent.id=null;
-										$scope.dupent.company=$scope.toCompany;
+
+										$scope.dupent.creationDttm=null;
+										$scope.dupent.lastUpdatedDttm=null;
+
+										$scope.dupent.wsProfileId.companyName=$scope.toCompany.companyName;
 
 
-										angular.forEach($scope.arrLookUp, function(item, index) {
-											if(item.lookUpKey.lookUpValue==$scope.dupent.productCd.lookUpKey.lookUpValue)
+
+										angular.forEach($scope.dupent.profileFeatures, function(i, index) {
+
+										angular.forEach($scope.arrFeatures, function(j, index) {
+											if(j.featureCd==i.feature.featureCd)
 											{
-												$scope.dupent.productCd=item;
-
-
-							}
-											});
-
-										angular.forEach($scope.arrSev, function(item, index) {
-											if(item.lookUpKey.lookUpValue==$scope.dupent.severityCd.lookUpKey.lookUpValue)
-											{
-												$scope.dupent.severityCd=item;
+												i.feature=j;
 											}
 											});
+										});
 
-										angular.forEach($scope.arrdiagIissuesFlow, function(item, index) {
-											if(item.issueCd==$scope.dupent.diagIissuesFlow.issueCd)
-											{
-												$scope.dupent.diagIissuesFlow=item;
-											}
-											});
-
-										angular.forEach($scope.arrDiagTest, function(item, index) {
-											if(item.testCd==$scope.dupent.diagTest.testCd)
-											{
-												$scope.dupent.diagTest=item;
-											}
-											});
-
-
-										angular.forEach($scope.arrEntityForCompany, function(item, index) {
-											if(item.companyName==$scope.fromCompany.companyName)
-											{
-												$scope.dupent.company=$scope.toCompany;
-
-
-							}
-											});
-										$scope.choices.push($scope.dupent);
+																				$scope.choices.push($scope.dupent);
 					}
 									});
 
@@ -142,6 +117,19 @@ $scope.buttondis=true;
 			    $scope.choices.length = 1;
 
 			   };
+
+
+				$scope.saveDuplicate= function() {
+					 $scope.dupent.profileFeatures=$scope.dupent.profileFeatures.concat($scope.choicesEdit);
+
+					$http.post("/adminportal/warehouse/profile/save",
+							$scope.dupent).then(function(response) {
+						console.log(response);
+						$scope.refresh();
+
+					});
+
+				};
 
 
 			$scope.getValue = function(calltype,entity,choiceid) {
@@ -396,6 +384,12 @@ el.show();
 						console.log(response);
 						$scope.arrFeatures = response.data;
 			});
+
+			$http.get("/adminportal/care/company/getall").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrEntityForCompany = response.data;
+				     });
 
 
 		} ]);

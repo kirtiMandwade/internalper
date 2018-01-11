@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.pervacio.adminportal.care.entities.ECompany;
 import com.pervacio.adminportal.warehouse.entities.ProfileFeature;
 import com.pervacio.adminportal.warehouse.entities.WSProfileId;
 
@@ -14,7 +15,7 @@ public class WSProfileBean implements Serializable {
 	/*private String profileCd;
 
 	private String companyName;*/
-
+	private ECompany ecompany;
 	private String profileDesc;
 
 	private Timestamp creationDttm;
@@ -62,6 +63,14 @@ public class WSProfileBean implements Serializable {
 
 	public void setProfileFeatures(List<ProfileFeature> profileFeatures) {
 		this.profileFeatures = profileFeatures;
+	}
+
+	public ECompany getEcompany() {
+		return ecompany;
+	}
+
+	public void setEcompany(ECompany ecompany) {
+		this.ecompany = ecompany;
 	}
 
 

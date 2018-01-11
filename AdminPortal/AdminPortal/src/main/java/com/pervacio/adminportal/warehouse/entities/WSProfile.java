@@ -42,11 +42,11 @@ public class WSProfile implements Serializable {
 	private WSProfileId wsProfileId;
 
 
-	 /*@JsonBackReference
+	 @JsonBackReference
 	 @JoinColumn(name = "companyName", referencedColumnName = "companyName",insertable=false,updatable=false)
 	 @ManyToOne(fetch = FetchType.LAZY)
 	 private ECompany ecompany;
-*/
+
 
 	@Column(length = 255)
 	private String profileDesc;

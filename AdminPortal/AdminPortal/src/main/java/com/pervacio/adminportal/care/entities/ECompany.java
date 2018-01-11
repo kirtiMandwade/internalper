@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.warehouse.entities.WSProfile;
 
 @Entity
 @Table(name = "ecompany")
@@ -39,16 +40,20 @@ public class ECompany extends AuditBase implements Serializable {
 	private String companyImageFilename;
 	private String loginId;
 	private String password;
-	
+
 	@Transient
 	@JsonIgnore
 	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
 	private List<EDeviceTradeInBasePrice> deviceTradeInBasePrices = new ArrayList<EDeviceTradeInBasePrice>();
-	
+
 	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-	
+
+	@OneToMany(mappedBy = "ecompany",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<WSProfile> arrWsprofiles = new ArrayList<WSProfile>();
+
 	@OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<AppConfig> arrAppConfig = new ArrayList<>();
@@ -56,8 +61,8 @@ public class ECompany extends AuditBase implements Serializable {
 	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUser = new ArrayList<EUser>();
-	
-	
+
+
 	public List<EDeviceTradeInBasePrice> getDeviceTradeInBasePrices() {
 		return deviceTradeInBasePrices;
 	}
@@ -184,6 +189,14 @@ public class ECompany extends AuditBase implements Serializable {
 
 	public void seteUser(List<EUser> eUser) {
 		this.eUser = eUser;
+	}
+
+	public List<WSProfile> getArrWsprofiles() {
+		return arrWsprofiles;
+	}
+
+	public void setArrWsprofiles(List<WSProfile> arrWsprofiles) {
+		this.arrWsprofiles = arrWsprofiles;
 	}
 
 }
