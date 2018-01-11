@@ -51,7 +51,7 @@
 					<h1>DeviceTradeInBasePrice</h1>
   	    <div class="input-group" style="position:relation;left:50%">
 
-				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="company.companyName" style="height:27px"/>
+				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px"/>
   		 <div class="input-group-btn">
   		      <button class="btn btn-primary" ng-click="search()" >
    		     <span class="glyphicon glyphicon-search" ></span>

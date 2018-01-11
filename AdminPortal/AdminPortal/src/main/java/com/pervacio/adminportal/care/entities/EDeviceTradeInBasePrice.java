@@ -18,12 +18,15 @@ import com.pervacio.adminportal.tradein.entities.Device;
 public class EDeviceTradeInBasePrice  extends AuditBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+
+
 	@Id
 	@GeneratedValue
 	@Column
 	private int priceId;
 
 	private String basePrice;
+	//private String companyName;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="companyId",referencedColumnName="companyId")

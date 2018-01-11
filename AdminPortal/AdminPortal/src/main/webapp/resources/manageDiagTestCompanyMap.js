@@ -74,6 +74,13 @@ app.controller('empCtrl', [
 						$scope.entEdit.company=$scope.arrEntityForCompany[index];
 					}
 				});
+				
+				angular.forEach($scope.arrSev, function(item, index) {
+					if(item.lookUpKey.lookUpValue==$scope.entEdit.severityCd.lookUpKey.lookUpValue)
+					{
+						$scope.entEdit.severityCd=$scope.arrSev[index];
+					}
+					});
 
 				angular.forEach($scope.arrLookUp,function(item,index){
 					if(item.lookUpKey.lookUpValue==$scope.entEdit.productCd.lookUpKey.lookUpValue)
@@ -135,6 +142,20 @@ app.controller('empCtrl', [
 											}
 											});
 
+										angular.forEach($scope.arrdiagIissuesFlow, function(item, index) {
+											if(item.issueCd==$scope.dupent.diagIissuesFlow.issueCd)
+											{
+												$scope.dupent.diagIissuesFlow=item;
+											}
+											});
+
+										angular.forEach($scope.arrDiagTest, function(item, index) {
+											if(item.testCd==$scope.dupent.diagTest.testCd)
+											{
+												$scope.dupent.diagTest=item;
+											}
+											});
+
 
 										angular.forEach($scope.arrEntityForCompany, function(item, index) {
 											if(item.companyName==$scope.fromCompany.companyName)
@@ -154,12 +175,26 @@ app.controller('empCtrl', [
 							};
 
 
+							$scope.saveDuplicate= function() {
+								/*
+								 * $scope.ent.arrEcompany=[];
+								 * $scope.ent.arrEcompany.push($scope.company);
+								 */$http.post("/adminportal/care/diagtestcompany/save",
+										$scope.choices).then(function(response) {
+									console.log(response);
+									$scope.refresh();
+
+								});
+
+							};
+
 
 			$scope.save = function() {
 
 
 				angular.forEach($scope.choices,function(item,index){
 					item.id=null;
+					/*item.severityCd=$scope.ent.severityCd;*/
 					item.company=$scope.ent.company;
 					item.productCd=$scope.ent.productCd;
 				});
@@ -244,7 +279,7 @@ app.controller('empCtrl', [
 
 			$scope.search = function() {
 				console.log("searcg called")
-				$http.post("/adminportal/care/diagtestcompany/search",$scope.company.companyName).then(
+				$http.post("/adminportal/care/diagtestcompany/search",$scope.companyName).then(
 						function(response) {
 							console.log(response);
 							$scope.arrEntity = response.data;

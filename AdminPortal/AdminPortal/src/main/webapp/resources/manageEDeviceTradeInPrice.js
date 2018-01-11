@@ -116,7 +116,7 @@ app.controller('empCtrl', [
 			
 			$scope.search = function() {
 				console.log("searcg called")
-				$http.post("/adminportal/care/devicebaseprice/search",$scope.company.companyName).then(
+				$http.post("/adminportal/care/devicebaseprice/search",$scope.companyName).then(
 						function(response) {
 							console.log(response);
 							$scope.arrEntity = response.data;

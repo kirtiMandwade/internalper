@@ -1,5 +1,6 @@
 package com.pervacio.adminportal.care.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,9 @@ public class DiagTestCompanyMapDao
 		diagTestCompanyMapRepo.saveAndFlush(diagTestCompanyMap);
 
 	}
-	
-	public List<DiagTestCompanyMap>findByCompanyName(String companyName)throws Exception{
-	//	System.out.println("\n\nin dao of diagtestcompanymap\n\n");
+
+
+	public ArrayList<DiagTestCompanyMap> findAllByEcompanyCompanyName(String companyName){
 		return diagTestCompanyMapRepo.findAllByCompanyCompanyName(companyName);
 	}
 

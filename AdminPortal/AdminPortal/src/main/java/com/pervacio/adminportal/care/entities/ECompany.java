@@ -19,6 +19,7 @@ import javax.persistence.Transient;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pervacio.adminportal.tradein.entities.DevicePrice;
 import com.pervacio.adminportal.tradein.entities.Promotion;
+import com.pervacio.adminportal.warehouse.entities.WSProfile;
 
 @Entity
 @Table(name = "ecompany")
@@ -41,16 +42,20 @@ public class ECompany extends AuditBase implements Serializable {
 	private String companyImageFilename;
 	private String loginId;
 	private String password;
-	
+
 	@Transient
 	@JsonIgnore
-	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE,fetch=FetchType.EAGER)
 	private List<EDeviceTradeInBasePrice> deviceTradeInBasePrices = new ArrayList<EDeviceTradeInBasePrice>();
-	
+
 	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-	
+
+	@OneToMany(mappedBy = "ecompany",cascade=CascadeType.REMOVE)
+	@JsonIgnore
+	private List<WSProfile> arrWsprofiles = new ArrayList<WSProfile>();
+
 	@OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<AppConfig> arrAppConfig = new ArrayList<>();
@@ -58,6 +63,7 @@ public class ECompany extends AuditBase implements Serializable {
 	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUser = new ArrayList<EUser>();
+
 	
 	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
 	@JsonIgnore
@@ -68,6 +74,7 @@ public class ECompany extends AuditBase implements Serializable {
 	@JsonIgnore
 	private List<Promotion> promotion = new ArrayList<Promotion>();
 	
+
 	public List<EDeviceTradeInBasePrice> getDeviceTradeInBasePrices() {
 		return deviceTradeInBasePrices;
 	}
@@ -194,6 +201,30 @@ public class ECompany extends AuditBase implements Serializable {
 
 	public void seteUser(List<EUser> eUser) {
 		this.eUser = eUser;
+	}
+
+	public List<WSProfile> getArrWsprofiles() {
+		return arrWsprofiles;
+	}
+
+	public void setArrWsprofiles(List<WSProfile> arrWsprofiles) {
+		this.arrWsprofiles = arrWsprofiles;
+	}
+
+	public List<DevicePrice> getDevicePrice() {
+		return devicePrice;
+	}
+
+	public void setDevicePrice(List<DevicePrice> devicePrice) {
+		this.devicePrice = devicePrice;
+	}
+
+	public List<Promotion> getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(List<Promotion> promotion) {
+		this.promotion = promotion;
 	}
 
 }
