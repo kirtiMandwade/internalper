@@ -8,13 +8,17 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.pervacio.adminportal.tradein.entities.DevicePrice;
+import com.pervacio.adminportal.tradein.entities.Promotion;
 
 @Entity
 @Table(name = "ecompany")
@@ -38,18 +42,15 @@ public class ECompany extends AuditBase implements Serializable {
 	private String loginId;
 	private String password;
 	
+	@Transient
+	@JsonIgnore
+	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
+	private List<EDeviceTradeInBasePrice> deviceTradeInBasePrices = new ArrayList<EDeviceTradeInBasePrice>();
+	
 	@OneToMany(mappedBy = "company",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
 	
-	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
-		return diagTestCompanyMaps;
-	}
-
-	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
-		this.diagTestCompanyMaps = diagTestCompanyMaps;
-	}
-
 	@OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<AppConfig> arrAppConfig = new ArrayList<>();
@@ -57,6 +58,31 @@ public class ECompany extends AuditBase implements Serializable {
 	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
 	@JsonIgnore
 	private List<EUser> eUser = new ArrayList<EUser>();
+	
+	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
+	@JsonIgnore
+	private List<DevicePrice> devicePrice = new ArrayList<DevicePrice>();
+	
+	
+	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
+	@JsonIgnore
+	private List<Promotion> promotion = new ArrayList<Promotion>();
+	
+	public List<EDeviceTradeInBasePrice> getDeviceTradeInBasePrices() {
+		return deviceTradeInBasePrices;
+	}
+
+	public void setDeviceTradeInBasePrices(List<EDeviceTradeInBasePrice> deviceTradeInBasePrices) {
+		this.deviceTradeInBasePrices = deviceTradeInBasePrices;
+	}
+
+	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
+		return diagTestCompanyMaps;
+	}
+
+	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
+		this.diagTestCompanyMaps = diagTestCompanyMaps;
+	}
 
 	public int getCompanyId() {
 		return companyId;

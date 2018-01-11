@@ -14,7 +14,10 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -22,6 +25,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pervacio.adminportal.care.entities.AuditBase;
+import com.pervacio.adminportal.care.entities.ECompany;
 import com.pervacio.adminportal.constants.DeductionType;
 
 @Entity
@@ -56,6 +60,11 @@ public class Promotion  extends AuditBase implements Serializable {
 	private List<DevicePromotion> devicePromotion = new ArrayList<DevicePromotion>();
 
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "companyName", referencedColumnName = "companyName", insertable = false, updatable = false)
+	private ECompany eCompany;
+
+	
 	public String getPromoDesc() {
 		return promoDesc;
 	}

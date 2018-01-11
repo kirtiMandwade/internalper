@@ -132,55 +132,55 @@
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 
 									Primary Contact Id:<input class="form-control" type="number" name="primaryContactId"
-											ng-model="ent.primaryContactId" required="required">
-											<span style="color: Red" ng-show="addform.primaryContactId.$touched && addform.primaryContactId.$invalid">
-											This field is required.</span>
+											ng-model="ent.primaryContactId" >
+											<!-- <span style="color: Red" ng-show="addform.primaryContactId.$touched && addform.primaryContactId.$invalid">
+											This field is required.</span> -->
 											<br> <br>
-									Company Name: <input class="form-control" type="text" name="companyName" ng-model="ent.companyName" required="required">
+									Company Name*: <input class="form-control" type="text" name="companyName" ng-model="ent.companyName" required="required">
 											<span style="color: Red" ng-show="addform.companyName.$touched && addform.companyName.$invalid">
 											This field is required.</span>
 											<br> <br>
-									Company Address: <input class="form-control" type="text" name="companyAddress" ng-model="ent.companyAddress" required="required">
-											<span style="color: Red" ng-show="addform.companyAddress.$touched && addform.companyAddress.$invalid">
-											This field is required.</span>
+									Company Address: <input class="form-control" type="text" name="companyAddress" ng-model="ent.companyAddress" >
+											<!-- <span style="color: Red" ng-show="addform.companyAddress.$touched && addform.companyAddress.$invalid">
+											This field is required.</span> -->
 											<br> <br>
-									Company City: <input class="form-control" type="text" name="companyCity" ng-model="ent.companyCity" required="required">
-											<span style="color: Red" ng-show="addform.companyCity.$touched && addform.companyCity.$invalid">
-											This field is required.</span>
+									Company City: <input class="form-control" type="text" name="companyCity" ng-model="ent.companyCity" >
+											<!-- <span style="color: Red" ng-show="addform.companyCity.$touched && addform.companyCity.$invalid">
+											This field is required.</span> -->
 											<br> <br>
-									Login ID: <input class="form-control" type="text" name="loginId" ng-model="ent.loginId" required="required">
+									Login ID*: <input class="form-control" type="text" name="loginId" ng-model="ent.loginId" required="required">
 											<span style="color: Red" ng-show="addform.loginId.$touched && addform.loginId.$invalid">
 											This field is required.</span>
 											<br> <br>
 
-Password:<input	class="form-control" type="text" name="password"
+Password*:<input	class="form-control" type="text" name="password"
 ng-model="ent.password" required="required">
 <span style="color: Red" ng-show="addform.password.$touched && addform.password.$invalid">This field is required.</span>
 <br> <br>
 
 Company State:<input	class="form-control" type="text" name="companyState"
-ng-model="ent.companyState" required="required">
-<span style="color: Red" ng-show="addform.companyState.$touched && addform.companyState.$invalid">This field is required.</span>
+ng-model="ent.companyState">
+<!-- <span style="color: Red" ng-show="addform.companyState.$touched && addform.companyState.$invalid">This field is required.</span> -->
 <br> <br>
 
 Company Zip:<input	class="form-control" type="text" name="companyZip"
-ng-model="ent.companyZip" required="required">
-<span style="color: Red" ng-show="addform.companyZip.$touched && addform.companyZip.$invalid">This field is required.</span>
+ng-model="ent.companyZip" >
+<!-- <span style="color: Red" ng-show="addform.companyZip.$touched && addform.companyZip.$invalid">This field is required.</span> -->
 <br> <br>
 
 Company Country:<input	class="form-control" type="text" name="companyCountry"
-ng-model="ent.companyCountry" required="required">
-<span style="color: Red" ng-show="addform.companyCountry.$touched && addform.companyCountry.$invalid">This field is required.</span>
+ng-model="ent.companyCountry" >
+<!-- <span style="color: Red" ng-show="addform.companyCountry.$touched && addform.companyCountry.$invalid">This field is required.</span> -->
 <br> <br>
 
-Company Title:<input	class="form-control" type="text" name="companyTitle"
+Company Title*:<input	class="form-control" type="text" name="companyTitle"
 ng-model="ent.companyTitle" required="required">
 <span style="color: Red" ng-show="addform.companyTitle.$touched && addform.companyTitle.$invalid">This field is required.</span>
 <br> <br>
 
 Company Image Filename:<input	class="form-control" type="text" name="companyImageFilename"
-ng-model="ent.companyImageFilename" required="required">
-<span style="color: Red" ng-show="addform.companyImageFilename.$touched && addform.companyImageFilename.$invalid">This field is required.</span>
+ng-model="ent.companyImageFilename" >
+<!-- <span style="color: Red" ng-show="addform.companyImageFilename.$touched && addform.companyImageFilename.$invalid">This field is required.</span> -->
 <br> <br>
 
 										</div>
@@ -213,55 +213,55 @@ ng-model="ent.companyImageFilename" required="required">
 									<div class="modal-body" style="overflow-y: scroll; max-height:55%;  margin-top: 50px; margin-bottom:50px;">
 
 									Primary Contact Id:<input class="form-control" type="number" name="primaryContactId"
-											ng-model="ent.primaryContactId" required="required">
-											<span style="color: Red" ng-show="editform.primaryContactId.$touched && editform.primaryContactId.$invalid">
-											This field is required.</span>
+											ng-model="ent.primaryContactId">
+											<!-- <span style="color: Red" ng-show="editform.primaryContactId.$touched && editform.primaryContactId.$invalid">
+											This field is required.</span> -->
 											<br> <br>
-									Company Name: <input class="form-control" type="text" name="companyName" ng-model="ent.companyName" required="required">
+									Company Name*: <input class="form-control" type="text" name="companyName" ng-model="ent.companyName" required="required">
 											<span style="color: Red" ng-show="editform.companyName.$touched && editform.companyName.$invalid">
 											This field is required.</span>
 											<br> <br>
-									Company Address: <input class="form-control" type="text" name="companyAddress" ng-model="ent.companyAddress" required="required">
-											<span style="color: Red" ng-show="editform.companyAddress.$touched && editform.companyAddress.$invalid">
-											This field is required.</span>
+									Company Address: <input class="form-control" type="text" name="companyAddress" ng-model="ent.companyAddress">
+											<!-- <span style="color: Red" ng-show="editform.companyAddress.$touched && editform.companyAddress.$invalid">
+											This field is required.</span> -->
 											<br> <br>
-									Company City: <input class="form-control" type="text" name="companyCity" ng-model="ent.companyCity" required="required">
-											<span style="color: Red" ng-show="editform.companyCity.$touched && editform.companyCity.$invalid">
-											This field is required.</span>
+									Company City: <input class="form-control" type="text" name="companyCity" ng-model="ent.companyCity" >
+											<!-- <span style="color: Red" ng-show="editform.companyCity.$touched && editform.companyCity.$invalid">
+											This field is required.</span> -->
 											<br> <br>
-									Login ID: <input class="form-control" type="text" name="loginId" ng-model="ent.loginId" required="required">
+									Login ID*: <input class="form-control" type="text" name="loginId" ng-model="ent.loginId" required="required">
 											<span style="color: Red" ng-show="editform.loginId.$touched && editform.loginId.$invalid">
 											This field is required.</span>
 											<br> <br>
 
-Password:<input	class="form-control" type="text" name="password"
+Password*:<input	class="form-control" type="text" name="password"
 ng-model="ent.password" required="required">
 <span style="color: Red" ng-show="editform.password.$touched && editform.password.$invalid">This field is required.</span>
 <br> <br>
 
 Company State:<input	class="form-control" type="text" name="companyState"
-ng-model="ent.companyState" required="required">
-<span style="color: Red" ng-show="editform.companyState.$touched && editform.companyState.$invalid">This field is required.</span>
+ng-model="ent.companyState">
+<!-- <span style="color: Red" ng-show="editform.companyState.$touched && editform.companyState.$invalid">This field is required.</span> -->
 <br> <br>
 
 Company Zip:<input	class="form-control" type="text" name="companyZip"
-ng-model="ent.companyZip" required="required">
-<span style="color: Red" ng-show="editform.companyZip.$touched && editform.companyZip.$invalid">This field is required.</span>
+ng-model="ent.companyZip" >
+<!-- <span style="color: Red" ng-show="editform.companyZip.$touched && editform.companyZip.$invalid">This field is required.</span> -->
 <br> <br>
 
 Company Country:<input	class="form-control" type="text" name="companyCountry"
-ng-model="ent.companyCountry" required="required">
-<span style="color: Red" ng-show="editform.companyCountry.$touched && editform.companyCountry.$invalid">This field is required.</span>
+ng-model="ent.companyCountry">
+<!-- <span style="color: Red" ng-show="editform.companyCountry.$touched && editform.companyCountry.$invalid">This field is required.</span> -->
 <br> <br>
 
-Company Title:<input	class="form-control" type="text" name="companyTitle"
+Company Title*:<input	class="form-control" type="text" name="companyTitle"
 ng-model="ent.companyTitle" required="required">
 <span style="color: Red" ng-show="editform.companyTitle.$touched && editform.companyTitle.$invalid">This field is required.</span>
 <br> <br>
 
 Company Image Filename:<input	class="form-control" type="text" name="companyImageFilename"
-ng-model="ent.companyImageFilename" required="required">
-<span style="color: Red" ng-show="editform.companyImageFilename.$touched && editform.companyImageFilename.$invalid">This field is required.</span>
+ng-model="ent.companyImageFilename">
+<!-- <span style="color: Red" ng-show="editform.companyImageFilename.$touched && editform.companyImageFilename.$invalid">This field is required.</span> -->
 <br> <br>
 
 										</div>

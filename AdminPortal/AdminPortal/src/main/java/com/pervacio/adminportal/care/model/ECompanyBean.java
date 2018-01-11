@@ -1,8 +1,14 @@
 package com.pervacio.adminportal.care.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ECompanyBean implements Serializable {
+import com.pervacio.adminportal.care.entities.AuditBase;
+import com.pervacio.adminportal.tradein.entities.DevicePrice;
+import com.pervacio.adminportal.tradein.entities.Promotion;
+
+public class ECompanyBean extends AuditBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int companyId;
@@ -18,6 +24,23 @@ public class ECompanyBean implements Serializable {
 	private String companyImageFilename;
 	private String loginId;
 	private String password;
+	private List<DevicePrice> devicePrice;
+	private List<Promotion> promotion;
+	public List<DevicePrice> getDevicePrice() {
+		return devicePrice;
+	}
+
+	public void setDevicePrice(List<DevicePrice> devicePrice) {
+		this.devicePrice = devicePrice;
+	}
+
+	public List<Promotion> getPromotion() {
+		return promotion;
+	}
+
+	public void setPromotion(List<Promotion> promotion) {
+		this.promotion = promotion;
+	}
 
 	public int getCompanyId() {
 		return companyId;

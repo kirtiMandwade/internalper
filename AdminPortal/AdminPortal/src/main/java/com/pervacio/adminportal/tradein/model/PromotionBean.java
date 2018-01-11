@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.pervacio.adminportal.care.entities.ECompany;
 import com.pervacio.adminportal.constants.DeductionType;
 import com.pervacio.adminportal.tradein.entities.DevicePrice;
 import com.pervacio.adminportal.tradein.entities.DevicePromotion;
@@ -19,7 +20,13 @@ public class PromotionBean implements Serializable {
 private String companyName;*/
 //	private DevicePrice devicePriceEntity;
 	private List<DevicePromotion> devicePromotion = new ArrayList<DevicePromotion>();
-
+	private ECompany eCompany;
+	public ECompany geteCompany() {
+		return eCompany;
+	}
+	public void seteCompany(ECompany eCompany) {
+		this.eCompany = eCompany;
+	}
 	private String promoDesc;
 	private int promoPriority;
 	private String deviceSpecific;

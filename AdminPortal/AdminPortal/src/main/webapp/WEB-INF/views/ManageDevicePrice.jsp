@@ -182,17 +182,16 @@ href="/adminportal/resources/css/style.css">
 										<h4 class="modal-title">Add </h4>
 									</div>
 									<div class="modal-body">
-
-
-
-										Company Name: <input class="form-control" type="text"
-											ng-model="dev.devPriceKey.companyName" name="companyName"
-											ng-pattern="/^[A-z]+$/" required> <span
-											style="color: Red"
-											ng-show="addform.companyName.$touched && addform.companyName.$invalid">
-											This field is required.</span> <span style="color: Red"
-											ng-show="addform.firstname.$dirty&&addform.firstname.$error.pattern">companyName
-											cannot have alphanumeric characters</span> <br> <br>
+											 Company Name:<select 
+              class="form-control" ng-model="dev.eCompany"
+              name="selct"
+              ng-options="x as x.companyName for x in arrEntityForCompany"
+              ></select><br><br>
+               Device: <select class="form-control"
+											ng-model="dev.deviceEntity"
+											ng-options="x.model+'-'+x.make for x in arrDevices"></select><br>
+              
+											
 										basePrice: <input class="form-control" type="text"
 											name="basePrice" ng-model="dev.basePrice"
 											ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required="required">
@@ -206,10 +205,7 @@ href="/adminportal/resources/css/style.css">
 										<span style="color: Red"
 											ng-show="addform.currency.$touched && addform.currency.$invalid">
 											This field is required and cannot have more then 3chars</span> <br>
-										<br> Device: <select class="form-control"
-											ng-model="dev.deviceEntity"
-											ng-options="x.model+'-'+x.make for x in arrDevices"></select><br>
-
+										<br>
 
 
 
@@ -244,13 +240,13 @@ href="/adminportal/resources/css/style.css">
 										<h4 class="modal-title">Edit </h4>
 									</div>
 									<div class="modal-body">
-										companyName: <input class="form-control" type="text"
-											ng-model="devEdit.devPriceKey.companyName" name="companyName"
-											required> <span style="currency: Red"
-											ng-show="editform.companyName.$touched && editform.companyName.$invalid">
-											This field is required.</span> <span style="color: Red"
-											ng-show="editform.firstname.$dirty&&editform.firstname.$error.pattern">companyName
-											cannot have alphanumeric characters</span> <br> <br>
+						
+						 	Company Name:<input class="form-control" type="text" name="basePrice" 
+						 	ng-model="devEdit.devPriceKey.companyName" disabled="disabled"/><br><br>
+						 	 Device : <select class="form-control"
+											ng-model="devEdit.deviceEntity"
+											ng-options="x.model +'-'+x.make for x in arrDevices"
+											disabled="isDisabled"></select><br> <br> <br>
 										basePrice: <input class="form-control" type="text"
 											name="basePrice" ng-model="devEdit.basePrice"
 											ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" required="required">
@@ -264,10 +260,7 @@ href="/adminportal/resources/css/style.css">
 											required="required"> <span style="color: Red"
 											ng-show="editform.currency.$touched && editform.currency.$invalid">
 											This field is required and cannot have more then 3chars</span> <br>
-										<br> Device : <select class="form-control"
-											ng-model="devEdit.deviceEntity"
-											ng-options="x.model +'-'+x.make for x in arrDevices"
-											disabled="isDisabled"></select><br> <br> <br>
+										<br>
 
 									</div>
 									<div class="modal-footer">

@@ -49,7 +49,8 @@ public class DevicePriceDao  {
 	
 	public List<DevicePrice> findByCompanyName(String companyName)
 	{
-		return devicePriceRepository.findAllByDevPriceKeyCompanyName(companyName);
+		/*return devicePriceRepository.findAllByDevPriceKeyCompanyName(companyName);*/
+		return null;
 	}
 	
 }

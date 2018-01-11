@@ -31,12 +31,12 @@ public class DiagTestCompanyMapBean implements Serializable {
 
 
 	private int id;
-	
+
 	private ECompany company;
-	
+
 	private LookUp productCd;
-	private String severityCd;
-	
+	private LookUp severityCd;
+
 	private DiagIssuesFlow diagIissuesFlow;
 
 	private DiagTest diagTest;
@@ -48,7 +48,7 @@ public class DiagTestCompanyMapBean implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
+
 	public ECompany getCompany() {
 		return company;
 	}
@@ -65,11 +65,11 @@ public class DiagTestCompanyMapBean implements Serializable {
 		this.productCd = productCd;
 	}
 
-	public String getSeverityCd() {
+	public LookUp getSeverityCd() {
 		return severityCd;
 	}
 
-	public void setSeverityCd(String severityCd) {
+	public void setSeverityCd(LookUp severityCd) {
 		this.severityCd = severityCd;
 	}
 

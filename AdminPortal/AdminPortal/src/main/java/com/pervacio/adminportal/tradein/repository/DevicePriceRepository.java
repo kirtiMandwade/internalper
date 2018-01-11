@@ -14,5 +14,5 @@ public interface DevicePriceRepository extends JpaRepository<DevicePrice, DevPri
 
 	public ArrayList<DevicePrice> findByDeviceEntity(Device deviceEntity);
 	
-	public List<DevicePrice> findAllByDevPriceKeyCompanyName(String companyName);
+	/*public List<DevicePrice> findAllByDevPriceKeyCompanyName(String companyName);*/
 }

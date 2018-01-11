@@ -11,9 +11,11 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 import com.pervacio.adminportal.care.entities.AuditBase;
+import com.pervacio.adminportal.care.entities.ECompany;
 
 @Entity
 @Table(name = "DevicePrice")
@@ -40,7 +42,13 @@ public class DevicePrice extends AuditBase implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "TradeinDeviceId", referencedColumnName = "TradeinDeviceId", insertable = false, updatable = false)
 	private Device deviceEntity;
+	
+	@MapsId("devPriceKey")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "companyName", referencedColumnName = "companyName", insertable = false, updatable = false)
+	private ECompany eCompany;
 
+	
 	@Column(columnDefinition = "DECIMAL(8,2)")
 	private Float basePrice;
 	@Column(name = "Currency", length = 3, columnDefinition = "CHAR(3)")

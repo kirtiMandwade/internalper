@@ -47,8 +47,8 @@ public class EDeviceTradeInBasePriceDao
 
 
 	public ArrayList<EDeviceTradeInBasePrice> getEDeviceTradeInBasePriceByCompanyName(String companyName) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+
+		return eDeviceTradeInBasePriceRepository.findAllByCompanyCompanyName(companyName);
 	}
 
 

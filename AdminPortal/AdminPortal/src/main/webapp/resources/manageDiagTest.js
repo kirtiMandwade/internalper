@@ -29,6 +29,34 @@ app.controller('empCtrl', [
 				console.log(entity);
 				$scope.editForm = true;
 				$scope.entEdit = entity;
+				
+				
+				angular.forEach($scope.arrLookUpCatCd,function(item,index){
+					if(item.lookUpKey.lookUpValue==$scope.entEdit.categoryCd.lookUpKey.lookUpValue)
+					{
+						$scope.entEdit.categoryCd=$scope.arrLookUpCatCd[index];
+					}
+				});
+				
+				angular.forEach($scope.arrLookUpOrNm,function(item,index){
+					if(item.lookUpKey.lookUpValue==$scope.entEdit.orderNum.lookUpKey.lookUpValue)
+					{
+						$scope.entEdit.orderNum=$scope.arrLookUpOrNm[index];
+					}
+				});
+				
+				angular.forEach($scope.arrLookUpTT,function(item,index){
+					if(item.lookUpKey.lookUpValue==$scope.entEdit.testType.lookUpKey.lookUpValue)
+					{
+						$scope.entEdit.testType=$scope.arrLookUpTT[index];
+					}
+				});
+				
+				
+				
+				
+				
+				
 			};
 
 			$scope.close = function(entity) {
@@ -76,5 +104,23 @@ app.controller('empCtrl', [
 						console.log(response);
 						$scope.arrEntity = response.data;
 			});
+			
+			$http.get("/adminportal/care/lookup/getall?lookUpType=CATEGORYCD").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrLookUpCatCd = response.data;
+		     });
+			
+			$http.get("/adminportal/care/lookup/getall?lookUpType=ORDERNUM").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrLookUpOrNm = response.data;
+		     });
+			
+			$http.get("/adminportal/care/lookup/getall?lookUpType=TESTTYPE").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrLookUpTT = response.data;
+		     });
 
 } ]);

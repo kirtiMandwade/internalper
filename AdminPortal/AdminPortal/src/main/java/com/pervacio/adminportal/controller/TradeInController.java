@@ -336,6 +336,7 @@ public class TradeInController {
 	public @ResponseBody ResponseMessage saveDevPrice(@RequestBody DevicePriceBean devicePrice) {
 		DevicePrice entity = new DevicePrice();
 		BeanUtils.copyProperties(devicePrice, entity);
+		//System.out.println(entity.getDevPriceKey().getCompanyName());
 		ResponseMessage message = null;
 
 		try {

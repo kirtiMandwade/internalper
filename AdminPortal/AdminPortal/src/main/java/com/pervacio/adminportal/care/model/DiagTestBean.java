@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.pervacio.adminportal.care.entities.DiagTestCompanyMap;
+import com.pervacio.adminportal.lookup.entities.LookUp;
 
 public class DiagTestBean implements Serializable {
 
@@ -13,9 +14,9 @@ public class DiagTestBean implements Serializable {
 	private String testCd;
 	private int androidSupported;
 	private int iosSupported;
-	private String testType;
-	private int orderNum;
-	private String categoryCd;
+	private LookUp testType;
+	private LookUp orderNum;
+	private LookUp categoryCd;
 
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
 
@@ -52,28 +53,30 @@ public class DiagTestBean implements Serializable {
 		this.diagTestCompanyMaps = diagTestCompanyMaps;
 	}
 
-	public String getTestType() {
+	public LookUp getTestType() {
 		return testType;
 	}
 
-	public void setTestType(String testType) {
+	public void setTestType(LookUp testType) {
 		this.testType = testType;
 	}
 
-	public int getOrderNum() {
+	public LookUp getOrderNum() {
 		return orderNum;
 	}
 
-	public void setOrderNum(int orderNum) {
+	public void setOrderNum(LookUp orderNum) {
 		this.orderNum = orderNum;
 	}
 
-	public String getCategoryCd() {
+	public LookUp getCategoryCd() {
 		return categoryCd;
 	}
 
-	public void setCategoryCd(String categoryCd) {
+	public void setCategoryCd(LookUp categoryCd) {
 		this.categoryCd = categoryCd;
 	}
+
+	
 
 }

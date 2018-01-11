@@ -5,13 +5,21 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.pervacio.adminportal.care.entities.ECompany;
 import com.pervacio.adminportal.tradein.entities.DevPriceKey;
 import com.pervacio.adminportal.tradein.entities.Device;
 import com.pervacio.adminportal.tradein.entities.Promotion;
 
 public class DevicePriceBean implements Serializable {
-	public DevPriceKey productPK;
-	private String companyName;
+	private ECompany eCompany;
+	public ECompany geteCompany() {
+		return eCompany;
+	}
+	public void seteCompany(ECompany eCompany) {
+		this.eCompany = eCompany;
+	}
+	public DevPriceKey devPriceKey;
+	
 	private Device deviceEntity;
 
 	private Timestamp creationDttm;
@@ -19,12 +27,8 @@ public class DevicePriceBean implements Serializable {
 
 	private Float basePrice;
 	private String currency;
-	public String getCompanyName() {
-		return companyName;
-	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
-	}
+	
+	
 	public Device getDeviceEntity() {
 		return deviceEntity;
 	}
@@ -55,12 +59,12 @@ public class DevicePriceBean implements Serializable {
 	public void setCurrency(String currency) {
 		this.currency = currency;
 	}
-	public DevPriceKey getProductPK() {
-		return productPK;
+	public DevPriceKey getDevPriceKey() {
+		return devPriceKey;
 	}
-	public void setProductPK(DevPriceKey productPK) {
-		this.productPK = productPK;
+	public void setDevPriceKey(DevPriceKey devPriceKey) {
+		this.devPriceKey = devPriceKey;
 	}
-
+	
 
 }

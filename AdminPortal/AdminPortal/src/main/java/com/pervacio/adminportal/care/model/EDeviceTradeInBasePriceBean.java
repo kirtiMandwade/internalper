@@ -2,6 +2,7 @@ package com.pervacio.adminportal.care.model;
 
 import java.io.Serializable;
 
+import com.pervacio.adminportal.care.entities.ECompany;
 import com.pervacio.adminportal.care.entities.EModel;
 
 public class EDeviceTradeInBasePriceBean implements Serializable {
@@ -10,7 +11,8 @@ public class EDeviceTradeInBasePriceBean implements Serializable {
 	private int priceId;
 
 	private String basePrice;
-	private String companyName;
+	private ECompany company;
+	
 
 	private EModel eModel;
 
@@ -29,13 +31,15 @@ public class EDeviceTradeInBasePriceBean implements Serializable {
 	public void setBasePrice(String basePrice) {
 		this.basePrice = basePrice;
 	}
+	
+	
 
-	public String getCompanyName() {
-		return companyName;
+	public ECompany getCompany() {
+		return company;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCompany(ECompany company) {
+		this.company = company;
 	}
 
 	public EModel geteModel() {
