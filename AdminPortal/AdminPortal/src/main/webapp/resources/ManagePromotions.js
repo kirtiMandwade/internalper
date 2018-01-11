@@ -14,7 +14,8 @@ app.controller('empCtrl', [
 			$scope.dev.endDateTime=new Date();
 			$scope.devEdit.startDateTime=new Date();
 			$scope.deductionType=[];
-
+			$scope.devEdit.eCompany={};
+			$scope.devEdit.promotionKey={};
 			$scope.arrDevicePrices=[];
 			$scope.myVar = false;
 			$scope.delpromo={};
@@ -68,7 +69,7 @@ app.controller('empCtrl', [
 			console.log(new Date($scope.dev.startDateTime));
 			$scope.dev.startDateTime=	new Date($scope.dev.startDateTime);
 			$scope.devEdit.endDateTime=new Date($scope.dev.endDateTime);
-
+			$scope.dev.promotionKey.companyName=$scope.dev.eCompany.companyName; 
 			$scope.dev.endDateTime=	new Date($scope.dev.endDateTime);
 				$http.post("/adminportal/tradein/promotion/save",
 						$scope.dev).then(function(response) {
@@ -135,5 +136,12 @@ app.controller('empCtrl', [
 						});
 
 			}
+			
+			$http.get("/adminportal/care/company/getall").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrEntityForCompany = response.data;
+				     });
+			
 
 		} ]);

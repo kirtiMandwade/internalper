@@ -189,11 +189,19 @@
 										<select class="form-control" ng-model="dev.deductionType"
 											ng-options="x for x in deductionType"></select><br> <br>
 
-										Company Name: <input class="form-control" type="text"
+										<!-- Company Name: <input class="form-control" type="text"
 											ng-model="dev.promotionKey.companyName" name="companyName" required>
 										<span style="color: Red"
 											ng-show="addform.companyName.$touched && addform.companyName.$invalid">
-											This field is required.</span> <br> Start Date:</br>
+											This field is required.</span> <br>
+										 -->
+										 Company Name:<select 
+              class="form-control" ng-model="dev.eCompany"
+              name="selct"
+              ng-options="x as x.companyName for x in arrEntityForCompany"
+              ></select><br><br>	
+											
+											 Start Date:</br>
 										<datepicker style="width: 228px;"> <input
 											ng-model="dev.startDateTime" format="DD-MM-YYYY" type="text" />
 										</datepicker>
