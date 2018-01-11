@@ -13,11 +13,15 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.pervacio.adminportal.care.entities.ECompany;
 
 @Entity
 @Table(name = "WSProfile")
@@ -36,6 +40,13 @@ public class WSProfile implements Serializable {
 	@AttributeOverrides({ @AttributeOverride(name = "companyName", column = @Column(name = "companyName")),
 		@AttributeOverride(name = "profileCd", column = @Column(name = "profileCd")) })
 	private WSProfileId wsProfileId;
+
+
+	 @JsonBackReference
+	 @JoinColumn(name = "companyName", referencedColumnName = "companyName",insertable=false,updatable=false)
+	 @ManyToOne(fetch = FetchType.LAZY)
+	 private ECompany ecompany;
+
 
 	@Column(length = 255)
 	private String profileDesc;

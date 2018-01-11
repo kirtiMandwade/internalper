@@ -57,10 +57,10 @@ public class WSProfileManagerImpl implements WSProfileManager {
 		return dao.getWSProfileByprofile(profile);
 	}
 
-	
+
 	@Override
 	public ArrayList<WSProfile> getWSProfileByProfileCd(String profileCd) throws Exception {
-		
+
 		return dao.getWSProfileByProfileCd(profileCd);
 	}
 }
