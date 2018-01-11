@@ -154,6 +154,7 @@
 									</div>
 									<div class="modal-body">
 
+										
 										promo Code: <input class="form-control" type="text"
 											ng-model="dev.promotionKey.promoCode" name="promoCode" ng-maxlength="30"
 											required> <span style="color: Red"

@@ -126,6 +126,7 @@ app.controller('empCtrl', [
 						$scope.dev.deductionType = $scope.deductionType[0];
 
 					});
+			
 
 			$scope.search = function() {
 				console.log("searcg called")

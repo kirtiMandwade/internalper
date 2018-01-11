@@ -34,6 +34,7 @@ public class ECompanyBean extends AuditBase implements Serializable {
 		this.devicePrice = devicePrice;
 	}
 
+	
 	public List<Promotion> getPromotion() {
 		return promotion;
 	}

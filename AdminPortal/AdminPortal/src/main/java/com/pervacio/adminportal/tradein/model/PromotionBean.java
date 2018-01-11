@@ -24,6 +24,7 @@ private String companyName;*/
 	public ECompany geteCompany() {
 		return eCompany;
 	}
+	
 	public void seteCompany(ECompany eCompany) {
 		this.eCompany = eCompany;
 	}
