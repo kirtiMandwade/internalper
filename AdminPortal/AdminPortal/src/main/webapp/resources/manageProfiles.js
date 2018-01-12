@@ -20,6 +20,41 @@ $scope.wsProfileId;
 				$scope.myVar = !$scope.myVar;
 			};
 
+			$scope.duplicate = function() {
+
+				$scope.choices=[];
+
+								angular.forEach($scope.arrWSProfiles, function(item, index) {
+									if(item.wsProfileId.companyName==$scope.fromCompany.companyName)
+									{
+										$scope.dupent={};
+										Object.assign($scope.dupent, item);
+
+										$scope.dupent.creationDttm=null;
+										$scope.dupent.lastUpdatedDttm=null;
+
+										$scope.dupent.wsProfileId.companyName=$scope.toCompany.companyName;
+
+
+
+										angular.forEach($scope.dupent.profileFeatures, function(i, index) {
+
+										angular.forEach($scope.arrFeatures, function(j, index) {
+											if(j.featureCd==i.feature.featureCd)
+											{
+												i.feature=j;
+											}
+											});
+										});
+
+																				$scope.choices.push($scope.dupent);
+					}
+									});
+
+																$("#dupeditform").modal('show');
+
+
+							};
 
 $scope.buttondis=true;
 			$scope.addNewChoice = function() {
@@ -82,6 +117,19 @@ $scope.buttondis=true;
 			    $scope.choices.length = 1;
 
 			   };
+
+
+				$scope.saveDuplicate= function() {
+					 $scope.dupent.profileFeatures=$scope.dupent.profileFeatures.concat($scope.choicesEdit);
+
+					$http.post("/adminportal/warehouse/profile/save",
+							$scope.dupent).then(function(response) {
+						console.log(response);
+						$scope.refresh();
+
+					});
+
+				};
 
 
 			$scope.getValue = function(calltype,entity,choiceid) {
@@ -169,7 +217,7 @@ $scope.buttondis=true;
 				el[0].type="date";
 //				el[0].className="form-control";
 				el[0].disabled=false;
-
+				el.show();
 				}
 				else if(valueType=='CHOICE'){
 					entity.choiceValues="";
@@ -294,9 +342,9 @@ el.show();
 						});
 
 			};
-			
-			
-			
+
+
+
 			$scope.search = function() {
 				console.log("searcg called")
 				$http.post("/adminportal/warehouse/profile/search",$scope.profileCd).then(
@@ -305,8 +353,8 @@ el.show();
 							$scope.arrWSProfiles = response.data;
 						});
 
-			};	
-			
+			};
+
 			$scope.getBasePrice = function(device) {
 				$http.post("/adminportal/warehouse/GetBasePrice",device).then(
 						function(response) {
@@ -336,6 +384,12 @@ el.show();
 						console.log(response);
 						$scope.arrFeatures = response.data;
 			});
+
+			$http.get("/adminportal/care/company/getall").then(
+				     function(response) {
+				      console.log(response);
+				      $scope.arrEntityForCompany = response.data;
+				     });
 
 
 		} ]);

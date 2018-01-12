@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.pervacio.adminportal.tradein.entities.DevicePrice;
-import com.pervacio.adminportal.tradein.entities.Promotion;
 import com.pervacio.adminportal.warehouse.entities.WSProfile;
 
 @Entity
@@ -64,16 +62,6 @@ public class ECompany extends AuditBase implements Serializable {
 	@JsonIgnore
 	private List<EUser> eUser = new ArrayList<EUser>();
 
-	
-	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
-	@JsonIgnore
-	private List<DevicePrice> devicePrice = new ArrayList<DevicePrice>();
-	
-	
-	@OneToMany(mappedBy = "eCompany", cascade = CascadeType.REMOVE)
-	@JsonIgnore
-	private List<Promotion> promotion = new ArrayList<Promotion>();
-	
 
 	public List<EDeviceTradeInBasePrice> getDeviceTradeInBasePrices() {
 		return deviceTradeInBasePrices;
@@ -209,22 +197,6 @@ public class ECompany extends AuditBase implements Serializable {
 
 	public void setArrWsprofiles(List<WSProfile> arrWsprofiles) {
 		this.arrWsprofiles = arrWsprofiles;
-	}
-
-	public List<DevicePrice> getDevicePrice() {
-		return devicePrice;
-	}
-
-	public void setDevicePrice(List<DevicePrice> devicePrice) {
-		this.devicePrice = devicePrice;
-	}
-
-	public List<Promotion> getPromotion() {
-		return promotion;
-	}
-
-	public void setPromotion(List<Promotion> promotion) {
-		this.promotion = promotion;
 	}
 
 }
