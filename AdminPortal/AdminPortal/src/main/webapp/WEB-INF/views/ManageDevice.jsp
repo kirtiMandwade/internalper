@@ -159,7 +159,7 @@
           </tr>
 
           <tr ng-repeat=" base in basePrice">
-           <td>{{base.productPK.companyName}}</td>
+           <td>{{base.devPriceKey.companyName}}</td>
            <td>{{base.basePrice}}</td>
            <td>{{base.currency}}</td>
           </tr>
