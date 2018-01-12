@@ -595,7 +595,7 @@ public class CareController {
 	@RequestMapping(value = "/model/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveeModel(@RequestBody EModelBean emodel)	//,@RequestParam("deviceImage") MultipartFile deviceImage
 	{
-//		byte[] decodedByte = Base64.decode("");
+/*//		byte[] decodedByte = Base64.decode("");
 		 byte[] buf = new byte[] { 0x12, 0x23 };
 		 Blob b = null;
 		    try {
@@ -613,10 +613,10 @@ public class CareController {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		EModel entity = new EModel();
 		BeanUtils.copyProperties(emodel, entity);
-		entity.setDeviceImage(b);
+//		entity.setDeviceImage(b);
 
 
 

@@ -1,4 +1,4 @@
-var app = angular.module('AdminPortal', ['720kb.datepicker','naif.base64']); 
+var app = angular.module('AdminPortal', ['720kb.datepicker','naif.base64']);
 var input;
 var openFile = function(event) {
      input = event.target;
@@ -8,7 +8,7 @@ var reader = new FileReader();
 reader.onload = function () {
   /*$scope.fileContent = reader.result;
   $scope.$apply();
-  
+
   alert("file content"+$scope.fileContent);
 }*/
 
@@ -33,19 +33,19 @@ app.controller('empCtrl', [
 		'$scope',
 		'$http',
 		function($scope, $http) {
-			
+
 			$scope.ent={};
 			$scope.ent.isAutoCreated="1";
 			$scope.ent.isValid="1";
-						
+
 			$scope.entEdit={};
 			$scope.entEdit.isAutoCreated="1";
 			$scope.entEdit.isValid="1";
-			
+
 			$scope.delent={};
 			$scope.editForm = false;
 			$scope.myVar = false;
-			
+
 			$scope.toggle = function() {
 				$scope.myVar = !$scope.myVar;
 			};
@@ -64,12 +64,12 @@ app.controller('empCtrl', [
 				console.log(entity);
 				$scope.editForm =false;
 			};
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 			$scope.resizeImage = function ( file, base64_object ) {
 			    // file is an instance of File constructor.
 			    // base64_object is an object that contains compiled base64 image data from file.
@@ -96,31 +96,31 @@ app.controller('empCtrl', [
 			    });
 			    return deferred.promise;
 			  };
-			
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
+
 
 			$scope.save = function() {
-				
-				console.log(input.files[0]);
-				
+
+//				console.log(input.files[0]);
+
 				   $scope.ent.releaseDate= new Date($scope.ent.releaseDate);
 				   $scope.ent.createdAt=new Date($scope.ent.createdAt);
 				   $scope.ent.updatedAt=new Date($scope.ent.updatedAt);
-				   
-				   
-				   
-				   $scope.ent.deviceImage=$scope.ent.deviceImage.base64;		//$base64.encode(input.files[0]);	
-			     
+
+
+
+//				   $scope.ent.deviceImage=$scope.ent.deviceImage.base64;		//$base64.encode(input.files[0]);
+
 				   //alert("device image"+$scope.ent.deviceImage);
-				   
+
 				$http.post("/adminportal/care/model/save",
 						$scope.ent).then(function(response) {
-						
+
 					console.log(response);
 					$scope.refresh();
 

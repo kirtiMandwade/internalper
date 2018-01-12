@@ -40,7 +40,7 @@ app.controller('empCtrl', [
 			};
 
 			$scope.save = function() {
-				$scope.ent.eMod.createdAt=new Date($scope.ent.eMod.createdAt);
+				$scope.ent.eMod.releaseDate=new Date($scope.ent.eMod.releaseDate);
 				$http.post("/adminportal/care/deviceattribute/save",
 						$scope.ent).then(function(response) {
 					console.log(response);
