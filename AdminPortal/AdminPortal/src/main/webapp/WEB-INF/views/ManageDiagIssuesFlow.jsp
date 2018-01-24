@@ -68,7 +68,14 @@
 						<td>{{entity.issueCd}}</td>
 
 						<td>{{entity.orderNum}}</td>
-						<td>{{entity.status}}</td>
+						
+						<!-- new -->
+						  <td ng-if="entity.status == '1' ">Enabled</td>
+						  <td ng-if="entity.status == '0' ">Disabled</td>
+						
+						<!-- end -->
+						
+						
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#editmodal" ng-click="edit(entity)">edit</a></td>

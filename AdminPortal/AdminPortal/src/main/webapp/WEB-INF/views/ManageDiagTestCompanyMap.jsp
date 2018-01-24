@@ -16,6 +16,8 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="/adminportal/resources/manageDiagTestCompanyMap.js"></script>
 <link rel="stylesheet" href="/adminportal/resources/css/style.css">
+<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
 
 </head>
 
@@ -47,8 +49,8 @@
 			<div class="col-xs-6 col-md-4">
 				<div>
 					<h1>DiagTestCompanyMap</h1>
-					<div class="input-group" style="position: relation; left: 50%">
-						<!--
+<!-- 					<div class="input-group" style="position: relation; left: 50%">
+						
 				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="company" style="height:27px"/>
   		 <div class="input-group-btn">
   		      <button class="btn btn-primary" ng-click="search()" >
@@ -57,7 +59,7 @@
         <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" >
      	   <span class="glyphicon glyphicon-plus"></span>
         </button>
-         -->
+        
 
 						<input type="text" class="form-control" placeholder="Company Name"
 							id="txtSearch" ng-model="companyName"
@@ -80,7 +82,27 @@
 
 
 						</div>
-					</div>
+					</div> -->
+					<div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="Company Name" id="txtSearch" ng-model="companyName" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal"  ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+        <button  data-toggle="modal" data-target="#duplicateModal" >
+        <span >Duplicate</span>
+</button>
+		
+		
+		
+	
+</div>
 				</div>
 				<br>
 

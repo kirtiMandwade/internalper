@@ -17,6 +17,10 @@
 
 <link rel="stylesheet"
 	href="/adminportal/resources/css/style.css">
+	
+	<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
+	
 
 </head>
 
@@ -48,21 +52,42 @@
 
 				<div>
 					<h1>User</h1>
-					<div class="input-group" style="position:relation;left:0%">
+					<!-- <div class="input-group" style="position:relation;left:0%">
 
 				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px" />
   		 <div class="input-group-btn">
   		      <button class="btn btn-primary" ng-click="search()" >
    		     <span class="glyphicon glyphicon-search" ></span>
     	    </button>
-        	
+
     <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 30%">
         <span class="glyphicon glyphicon-plus"></span>
         </button>
 
 </div>
 </div>
-				
+ -->
+<div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="CompanyName" id="txtSearch" ng-model="companyName" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal" >
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+         <!-- <button  data-toggle="modal" data-target="#duplicateModal" >
+        <span >Duplicate</span>
+</button> -->
+		
+		
+		
+	
+</div> 
+ 
 				</div>
 				<br>
 
@@ -71,21 +96,22 @@
 
 						<td>Company Name</td>
 						<td>UserId</td>
+
 						<!-- <td>password</td> -->
 						<td>FirstName</td>
 						<td>Email</td>
 						<td>Department</td>
 						<td>Unit</td>
-						
+
 
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
 					<tbody ng-repeat="entity in arrEntity">
-					
+
 						<td>{{entity.eCompany.companyName}}</td>
 						<td>{{entity.userId}}</td>
-						<!-- <td>{{entity.password}}</td> -->
+
 						<td>{{entity.firstName}}</td>
 						<td>{{entity.email}}</td>
 						<td>{{entity.department.lookUpKey.lookUpValue}}</td>
@@ -138,44 +164,44 @@
 									</div>
 									<div class="modal-body">
 
-			 Company Name:<select 
+			 Company Name:<select
               class="form-control" ng-model="ent.eCompany"
               name="selct"
               ng-options="x as x.companyName for x in arrEntityForCompany"
               ></select><br><br>
-							
+
 									UserId: <input class="form-control" type="text" name="configValue" ng-model="ent.userId" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											password: <input class="form-control" type="text" name="configValue" ng-model="ent.password" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											FirstName: <input class="form-control" type="text" name="configValue" ng-model="ent.firstName" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											Email: <input class="form-control" type="text" name="configValue" ng-model="ent.email" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
-											Department: <select 
+
+											Department: <select
               class="form-control" ng-model="ent.department"
               name="selct"
               ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForDepartment"
               ></select><br><br>
-											
-											Unit: <select 
+
+											Unit: <select
               class="form-control" ng-model="ent.unit"
               name="selct"
               ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForUnit"
               ></select><br><br>
-							
+
 
 										<div class="modal-footer">
 											<button type="button" ng-disabled="addform.$invalid"
@@ -216,12 +242,12 @@
               name="selct"
               ng-options="x as x.companyName for x in arrEntityForCompany"
               ></select><br><br >
-									
+
 									UserId: <input class="form-control" type="text" name="configValue" ng-model="ent.userId" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											<!-- password: <input class="form-control" type="text" name="configValue" ng-model="ent.password" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
@@ -231,24 +257,24 @@
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
+
 											Email: <input class="form-control" type="text" name="configValue" ng-model="ent.email" required="required">
 											<span style="color: Red" ng-show="addform.configValue.$touched && addform.configValue.$invalid">
 											This field is required.</span>
 											<br> <br>
-											
-											Department: <select 
+
+											Department: <select
               class="form-control" ng-model="ent.department"
               name="selct"
               ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForDepartment"
               ></select><br><br>
-											
-											Unit: <select 
+
+											Unit: <select
               class="form-control" ng-model="ent.unit"
               name="selct"
               ng-options="x as x.lookUpKey.lookUpValue for x in arrEntityForUnit"
               ></select><br><br>
-							
+
 
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"

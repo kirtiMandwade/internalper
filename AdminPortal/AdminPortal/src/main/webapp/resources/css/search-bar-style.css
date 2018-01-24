@@ -1,0 +1,34 @@
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.topnav {
+float:right;
+  overflow: hidden;
+ 
+}
+
+ .topnav button {
+  
+  margin-top: 16px;
+  margin-bottom: 16px;
+ 
+  color: black;
+  
+  }  
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  
+  .topnav input[type=text] {
+    border: 10px solid #ccc;  
+  }

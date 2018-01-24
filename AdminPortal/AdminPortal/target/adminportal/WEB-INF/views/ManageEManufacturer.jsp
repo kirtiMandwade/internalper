@@ -89,17 +89,8 @@
 						<td>{{entity.contactName}}</td>
 						<td>{{entity.contactTitle}}</td>
 
-						<!-- <td>{{entity.isSupported}}</td>-->
-						<!-- new -->
-						  <td ng-if="entity.isSupported == '1' ">Supported</td>
-						  <td ng-if="entity.status == '0' ">Not Supported</td>			
-						<!-- end -->
-						<!-- <td>{{entity.isAutoCreated}}</td> -->
-						<!-- new -->
-						  <td ng-if="entity.isAutoCreated == '1' ">AutoCreated</td>
-						  <td ng-if="entity.isAutoCreated == '0' ">Not AutoCreated</td>
-						
-						<!-- end --> 
+						<td>{{entity.isSupported}}</td>
+						<td>{{entity.isAutoCreated}}</td>
 						<td>{{entity.createdAt|date : "MM-dd-yyyy HH:mm:ss"}}</td>
 						<td>{{entity.address1}}</td>
 						<td>{{entity.address2}}</td>
