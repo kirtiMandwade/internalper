@@ -5,14 +5,24 @@
 <title>AdminPortal</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
 <script src="/adminportal/resources/manageDiagTest.js"></script>
+
+
 <link rel="stylesheet"
 	href="/adminportal/resources/css/style.css">
 
@@ -47,11 +57,20 @@
 					<h1>DiagTest</h1>
     <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
         <span class="glyphicon glyphicon-plus"></span>
-        </button>				</div>
+        </button>
+        
+        <button type="button" class="btn btn-primary" style="position: relative; left: 70%"
+												ng-disabled="editform.$invalid" data-dismiss="modal"
+												ng-click="updateDragAndDrop()">update</button>
+        <div class="modal-footer">
+															
+        </div>
 				<br>
 
-				<table id="listOfNormal" class="table table-striped" border="1">
+				<table id="listOfNormal" class="table table-striped" border="1" >
+				<thead>
 					<tr>
+					  	<!-- <th>Index</th> -->
 						<td>Test Code</td>
 						<td>Android Supported</td>
 						<td>IOS Supported</td>
@@ -62,13 +81,16 @@
 						<td>Edit</td>
 						<td>Delete</td>
 					</tr>
-
-					<tr ng-repeat="entity in arrEntity">
+				</thead>
+				<tbody ui:sortable ng:model="arrEntity">
+					<tr ng-repeat="entity in arrEntity" class="entity" style="cursor: move;">
+						<!-- <td>{{$index}}</td> -->
 						<td>{{entity.testCd}}</td>
 						<td>{{entity.androidSupported}}</td>
 						<td>{{entity.iosSupported}}</td>
 						<td>{{entity.testType.lookUpKey.lookUpValue}}</td>
-						<td>{{entity.orderNum.lookUpKey.lookUpValue}}</td>
+						<td>{{entity.orderNum = $index}}</td>
+						<!-- <td>{{$index}} -->
 						<td>{{entity.categoryCd.lookUpKey.lookUpValue}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
@@ -76,9 +98,10 @@
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#delModal" ng-click="delDevice(entity)">delete</a></td>
 					</tr>
+				</tbody>
 				</table>
 				<br>
-
+  				
 				<div class="input-group input-group-lg">
 					<div class="modal fade" id="delModal" role="dialog">
 						<div class="modal-dialog">

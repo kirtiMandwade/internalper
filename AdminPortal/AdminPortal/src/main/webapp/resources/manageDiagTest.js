@@ -1,5 +1,11 @@
-var app = angular.module('AdminPortal', []);
+	
 
+
+
+
+
+var app = angular.module('AdminPortal', ['ui']);
+/*angular.bootstrap(document, ['AdminPortal']);*/
 app.controller('empCtrl', [
 		'$scope',
 		'$http',
@@ -72,6 +78,16 @@ app.controller('empCtrl', [
 					$scope.refresh();
 				});
 			};
+			
+			$scope.updateDragAndDrop = function() {
+
+				$http.post("/adminportal/care/diagtest/saveList",
+						$scope.arrEntity).then(function(response) {
+					console.log(response);
+					$scope.refresh();
+				});
+			};
+
 
 			$scope.update = function() {
 				$http.post("/adminportal/care/diagtest/update",
@@ -124,3 +140,5 @@ app.controller('empCtrl', [
 		     });
 
 } ]);
+
+

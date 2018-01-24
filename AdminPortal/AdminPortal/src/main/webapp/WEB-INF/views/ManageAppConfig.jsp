@@ -4,6 +4,45 @@
 
 <head>
 <title>AdminPortal</title>
+
+<!-- <style>
+* {box-sizing: border-box;}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.topnav {
+float:right;
+  overflow: hidden;
+ 
+}
+
+ .topnav button {
+  
+  margin-top: 16px;
+  margin-bottom: 16px;
+ 
+  color: black;
+  
+  }  
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  
+  .topnav input[type=text] {
+    border: 10px solid #ccc;  
+  }
+}
+</style> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -17,6 +56,8 @@
 
 <link rel="stylesheet"
 	href="/adminportal/resources/css/style.css">
+	<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
 
 </head>
 
@@ -55,8 +96,29 @@
         <span class="glyphicon glyphicon-plus"></span>
         </button> -->
 
+<div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="Company Name" id="txtSearch" ng-model="company" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal"  ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+        <button  data-toggle="modal" data-target="#duplicateModal" >
+        <span >Duplicate</span>
+</button>
+		
+		
+		
+	
+</div>
+<!--   <div class="input-group" style="position:relation;left:40%;margin-left: auto; margin-right: auto;">
 
-  <div class="input-group" style="position:relation;left:40%">
+
 
 				<input type="text" class="form-control" placeholder="Company Name" id="txtSearch" ng-model="company" style="height:27px;width:50%"/>
    <div class="input-group-btn" >
@@ -71,7 +133,7 @@
         </button>
 
 
-   </div></div>
+   </div></div> -->
 				</div>
 				<br>
 

@@ -119,20 +119,10 @@
 						<td>{{entity.shipmentId}}</td>
 						<td>{{entity.modelCondition}}</td>
 						<td>{{entity.releaseDate|date : "MM-dd-yyyy HH:mm:ss"}}</td>
-						<!-- <td>{{entity.isAutoCreated}}</td> -->
-						<!-- new -->
-						  <td ng-if="entity.isAutoCreated == '1' ">AutoCreated</td>
-						  <td ng-if="entity.isAutoCreated == '0' ">Not AutoCreated</td>
-						
-						<!-- end -->
+						<td>{{entity.isAutoCreated}}</td>
 						<td>{{entity.createdAt|date : "MM-dd-yyyy HH:mm:ss"}}</td>
 						<td>{{entity.updatedAt|date : "MM-dd-yyyy HH:mm:ss"}}</td>
-						<!-- <td>{{entity.isValid}}</td> -->
-						<!-- new -->
-						  <td ng-if="entity.isValid == '1' ">Valid</td>
-						  <td ng-if="entity.isValid == '0' ">Not Valid</td>
-						
-						<!-- end -->
+						<td>{{entity.isValid}}</td>
 						<td>{{entity.initialFirmwareId}}</td>
 						<td>{{entity.availability}}</td>
 						<td>{{entity.batteryStatus}}</td>
