@@ -13,5 +13,6 @@ public interface DiagTestManager
 	public  void remove(DiagTest diagTest) throws Exception;
 	public void update(DiagTest diagTest) throws Exception ;
 	public ArrayList<DiagTest> findByTestCd(String testCd) throws Exception;
+	public void saveDiaTestList(ArrayList<DiagTest> list);
 
 }

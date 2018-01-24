@@ -1,6 +1,8 @@
 package com.pervacio.adminportal.care.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
 import com.pervacio.adminportal.care.entities.DiagTest;
@@ -29,7 +31,8 @@ public class DiagTestCompanyMapBean implements Serializable {
 
 	private DiagIssuesFlow diagIissuesFlow;
 
-	private DiagTest diagTest;
+	/*private DiagTest diagTest;*/
+	private Set<DiagTest> diagTests = new HashSet<>();
 
 	public int getId() {
 		return id;
@@ -63,12 +66,12 @@ public class DiagTestCompanyMapBean implements Serializable {
 		this.diagIissuesFlow = diagIissuesFlow;
 	}
 
-	public DiagTest getDiagTest() {
-		return diagTest;
+	public Set<DiagTest> getDiagTests() {
+		return diagTests;
 	}
 
-	public void setDiagTest(DiagTest diagTest) {
-		this.diagTest = diagTest;
+	public void setDiagTests(Set<DiagTest> diagTests) {
+		this.diagTests = diagTests;
 	}
 
 }

@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,12 +16,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.pervacio.adminportal.lookup.entities.LookUp;
 import com.pervacio.adminportal.tradein.entities.DevicePrice;
@@ -41,23 +45,21 @@ public class DiagTest  extends AuditBase implements Serializable {
 		@JoinColumn(name = "testType", referencedColumnName = "lookUpValue")})
 	private LookUp testType;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumns({
-		@JoinColumn(name = "orderNumType", referencedColumnName = "lookUpType"),
-		@JoinColumn(name = "orderNum", referencedColumnName = "lookUpValue")})
-	private LookUp orderNum;
-	
+	private int orderNum;	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumns({
 		@JoinColumn(name = "categoryCdType", referencedColumnName = "lookUpType"),
 		@JoinColumn(name = "categoryCd", referencedColumnName = "lookUpValue")})
 	private LookUp categoryCd;
 
-
+/*
 	@OneToMany(mappedBy = "diagTest",cascade=CascadeType.REMOVE)
 	@JsonIgnore
 	private List<DiagTestCompanyMap> diagTestCompanyMaps = new ArrayList<DiagTestCompanyMap>();
-
+*/
+	
+	 @ManyToMany(mappedBy = "diagTests")
+	    private Set<DiagTestCompanyMap> diagTestCompanyMaps = new HashSet<>();
 
 	public String getTestCd() {
 		return testCd;
@@ -91,11 +93,12 @@ public class DiagTest  extends AuditBase implements Serializable {
 		this.testType = testType;
 	}
 
-	public LookUp getOrderNum() {
+	
+	public int getOrderNum() {
 		return orderNum;
 	}
 
-	public void setOrderNum(LookUp orderNum) {
+	public void setOrderNum(int orderNum) {
 		this.orderNum = orderNum;
 	}
 
@@ -107,13 +110,21 @@ public class DiagTest  extends AuditBase implements Serializable {
 		this.categoryCd = categoryCd;
 	}
 
-	public List<DiagTestCompanyMap> getDiagTestCompanyMaps() {
+	public Set<DiagTestCompanyMap> getDiagTestCompanyMap() {
 		return diagTestCompanyMaps;
 	}
 
-	public void setDiagTestCompanyMaps(List<DiagTestCompanyMap> diagTestCompanyMaps) {
+	public void setDiagTestCompanyMap(Set<DiagTestCompanyMap> diagTestCompanyMaps) {
 		this.diagTestCompanyMaps = diagTestCompanyMaps;
 	}
+
+	@Override
+	public String toString() {
+		return "DiagTest [testCd=" + testCd + ", androidSupported=" + androidSupported + ", iosSupported="
+				+ iosSupported + ", testType=" + testType + ", orderNum=" + orderNum + ", categoryCd=" + categoryCd
+				+ ", diagTestCompanyMaps=" + diagTestCompanyMaps + "]";
+	}
+
 	
 
 }

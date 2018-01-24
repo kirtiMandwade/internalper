@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.google.gson.Gson;
 import com.pervacio.adminportal.care.entities.AppConfig;
 import com.pervacio.adminportal.care.entities.DiagIssuesFlow;
@@ -260,6 +261,35 @@ public class CareController {
 		logger.info("redirecting to manage diagissue jsp");
 		return "ManageDiagIssuesFlow";
 	}
+	
+
+
+	@RequestMapping(value = "/diagissue/updateAll", method = RequestMethod.POST, consumes = "application/json")
+	public @ResponseBody ResponseMessage updateAllDiagIssuesFlow(@RequestBody List<DiagIssuesFlow> entity) {
+		ResponseMessage message = null;
+
+		try {
+			/*for (DiagIssuesFlow diagIssuesFlow : entity) {
+				System.out.println(diagIssuesFlow.getOrderNum());
+				diagIssueFlowManager.update(diagIssuesFlow);
+			}*/
+			
+			diagIssueFlowManager.updateAll(entity);
+			
+			//diagIssueFlowManager.update(entity);
+			logger.info("updated all diagissue");
+
+			message = new ResponseMessage("success: ", "200");
+
+		} catch (Exception e) {
+			logger.error("error in updating all diagissue "+e.getMessage());
+			message = new ResponseMessage("error: " + e.getMessage(), "400");
+		}
+
+		return message;
+
+	}
+
 
 	@RequestMapping(value = "/diagissue/update", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage updateDiagIssuesFlow(@RequestBody DiagIssuesFlow entity) {
@@ -878,12 +908,21 @@ public class CareController {
 	}
 
 	@RequestMapping(value = "/deviceattribute/save", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody ResponseMessage saveeDeviceAttribute(@RequestBody EDeviceAttributeBean eDeviceAttribute) {
-		EDeviceAttribute entity = new EDeviceAttribute();
-		BeanUtils.copyProperties(eDeviceAttribute, entity);
+	public @ResponseBody ResponseMessage saveeDeviceAttribute(@RequestBody List<EDeviceAttributeBean> eDeviceAttributeBean) {
+		
+		List<EDeviceAttribute> entityList = new ArrayList<EDeviceAttribute>();
 		ResponseMessage message;
+		
+		for (EDeviceAttributeBean eDeviceAttribute : eDeviceAttributeBean) {
+			EDeviceAttribute entity= new EDeviceAttribute();
+			BeanUtils.copyProperties(eDeviceAttribute, entity);
+			entityList.add(entity);
+		}
+			
 		try {
-			eDeviceAttributeManager.add(entity);
+			for (EDeviceAttribute eDeviceAttribute : entityList) {
+				eDeviceAttributeManager.add(eDeviceAttribute);
+			}
 			message = new ResponseMessage("success: ", "200");
 			logger.info("deviceattribute added");
 

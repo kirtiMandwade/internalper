@@ -24,7 +24,7 @@ public class DiagTestDao
 	private DiagTestRepository diagTestRepository;
 	public List<DiagTest> getAll() {
 
-		return diagTestRepository.findAll();
+		return diagTestRepository.findAllByOrderByOrderNumAsc();
 
 	}
 
@@ -48,5 +48,10 @@ public class DiagTestDao
 	return	diagTestRepository.findByTestCd(testCd);
 
 	}
+	public void saveDiaTestList(ArrayList<DiagTest> list)
+	{
+		diagTestRepository.save(list);
+	}
 
+	
 }

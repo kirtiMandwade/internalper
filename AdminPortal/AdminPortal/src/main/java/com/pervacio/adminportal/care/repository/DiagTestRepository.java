@@ -10,5 +10,6 @@ import com.pervacio.adminportal.care.entities.DiagTest;
 public interface DiagTestRepository extends JpaRepository<DiagTest, String>{
 
 	public ArrayList<DiagTest> findByTestCd( String testCd);
+	public ArrayList<DiagTest> findAllByOrderByOrderNumAsc(); 
 
 }

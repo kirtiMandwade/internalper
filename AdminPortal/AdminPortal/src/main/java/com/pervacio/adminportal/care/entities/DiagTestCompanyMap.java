@@ -1,16 +1,22 @@
 package com.pervacio.adminportal.care.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.pervacio.adminportal.lookup.entities.LookUp;
 
 @Entity
@@ -51,10 +57,23 @@ public class DiagTestCompanyMap extends AuditBase implements Serializable {
 	@JoinColumn(name = "issueCd", referencedColumnName = "issueCd")
 	private DiagIssuesFlow diagIissuesFlow;
 
+	
+	
+    @ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "diag_test_diag_test_company_map_rel", 
+        joinColumns = { @JoinColumn(name = "id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "testCd") }
+    )
+    private Set<DiagTest> diagTests = new HashSet<>();
+	
+    
+	
+	/*
 	@ManyToOne
 	@JoinColumn(name = "testCd", referencedColumnName = "testCd")
 	private DiagTest diagTest;
-
+*/
 	public int getId() {
 		return id;
 	}
@@ -87,12 +106,13 @@ public class DiagTestCompanyMap extends AuditBase implements Serializable {
 		this.diagIissuesFlow = diagIissuesFlow;
 	}
 
-	public DiagTest getDiagTest() {
-		return diagTest;
+	public Set<DiagTest> getDiagTests() {
+		return diagTests;
 	}
 
-	public void setDiagTest(DiagTest diagTest) {
-		this.diagTest = diagTest;
+	public void setDiagTests(Set<DiagTest> diagTests) {
+		this.diagTests = diagTests;
 	}
+
 
 }

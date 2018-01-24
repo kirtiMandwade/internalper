@@ -43,5 +43,9 @@ public class DiagTestManagerImpl implements DiagTestManager  {
 	return	dao.findByTestCd(issueCd);
 
 	}
+	public void saveDiaTestList(ArrayList<DiagTest> list)
+	{
+		dao.saveDiaTestList(list);
+	}
 
 		}

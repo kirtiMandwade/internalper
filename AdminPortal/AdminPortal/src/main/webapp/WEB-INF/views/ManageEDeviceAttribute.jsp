@@ -46,8 +46,9 @@
 
 				<div>
 					<h1>DeviceAttributes</h1>
-					<button  data-toggle="modal"
-						data-target="#addModal" style="position: relative; left: 90%">
+
+					<button class="btn btn-primary" data-toggle="modal"
+						data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()" style="position: relative; left: 90%">
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>
 				</div>
@@ -69,7 +70,7 @@
 						<td>{{entity.eMod.modelName}}</td>
 						<td>{{entity.eMod.modelName}}</td>
 
-						<td>{{entity.attributeName}}</td>
+						<td>{{entity.attributeName.lookUpKey.lookUpValue}}</td>
 						<td>{{entity.attributeValue}}</td>
 
 						<td><a style="cursor: pointer;" data-toggle="modal"
@@ -117,21 +118,42 @@
 										<h4 class="modal-title">Add</h4>
 									</div>
 									<div class="modal-body">
-
-										Attribute Name:<input class="form-control" type="text"
-											name="attributeName" ng-model="ent.attributeName"
-											required="required"> <span style="color: Red"
-											ng-show="addform.attributeName.$touched && addform.attributeName.$invalid">
-											This field is required.</span> <br> <br> Attribute Value:
-										<input class="form-control" type="text" name="attributeValue"
-											ng-model="ent.attributeValue" required="required"> <span
-											style="color: Red"
-											ng-show="addform.attributeValue.$touched && addform.attributeValue.$invalid">
-											This field is required.</span> <br> <br> Model Device Id:
+									
+									Model Device Id:
 										<select class="form-control" ng-model="ent.eMod"
 											ng-options="x.deviceModelId for x in arrModel"></select><br>
+									
+									
+				<div data-ng-repeat="choice in choices" style="position: relative;">
 
-									</div>
+				<div class="row">
+				<div class="col-sm-4" style="background-color:lavender;">
+					Attribute Name:<select class="form-control" id="{{choice.id}}" 
+							ng-model="choice.attributeName" name="attributeName"
+							ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpAtrNam | filter:setNewArrLookUpAtrNam"></select>
+							<span style="color: Red" ng-show="addform.attributeName.$touched && addform.attributeName.$invalid">
+							This field is required.</span>
+					
+				</div>
+				<div class="col-sm-4" style="background-color:lavenderblush;">
+									
+					Attribute Value:
+						<input class="form-control" type="text" id="{{choice.id}}" name="attributeValue"
+						ng-model="choice.attributeValue" required="required"><!--  <span
+						style="color: Red"
+						ng-show="addform.attributeValue.$touched && addform.attributeValue.$invalid">
+						This field is required.</span> -->
+				</div>
+				<div class="col-sm-4" style="background-color:lavender;">Action Value <br>
+
+											<button ng-click="addNewChoice();setNewArrLookUpAtrNam(choice.id)"  class="btn btn-info"
+											><span class="glyphicon glyphicon-plus"></span></button>
+
+										<button type="button" ng-click="deleteNewChoice()" class="btn btn-info"
+												 ><span class="glyphicon glyphicon-minus"></span></button>
+				</div>
+				</div>
+				</div>
 
 									<div class="modal-footer">
 										<button type="button" ng-disabled="addform.$invalid"
@@ -161,11 +183,17 @@
 								</div>
 								<div class="modal-body">
 
-									Attribute Name:<input class="form-control" type="text"
+									Attribute Name:<select class="form-control"	ng-model="ent.attributeName" name="attributeName"
+																ng-options="x as x.lookUpKey.lookUpValue for x in arrLookUpAtrNam"></select>
+								<span style="color: Red" ng-show="addform.attributeName.$touched && addform.attributeName.$invalid">
+								This field is required.</span>
+									
+									
+									<!-- <input class="form-control" type="text"
 										name="attributeName" ng-model="ent.attributeName"
 										required="required"> <span style="color: Red"
 										ng-show="editform.attributeName.$touched && editform.attributeName.$invalid">
-										This field is required.</span> <br> <br> Attribute Value: <input
+										This field is required.</span> --> <br> <br> Attribute Value: <input
 										class="form-control" type="text" name="attributeValue"
 										ng-model="ent.attributeValue" required="required"> <span
 										style="color: Red"
