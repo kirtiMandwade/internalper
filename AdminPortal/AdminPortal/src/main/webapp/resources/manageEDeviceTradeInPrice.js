@@ -21,8 +21,8 @@ app.controller('empCtrl', [
 				console.log(entity);
 				$scope.editForm = true;
 				$scope.ent = entity;
-				
-				
+
+
 				angular.forEach($scope.arrEntityForCompany,function(item,index){
 					if(item.companyName==$scope.ent.company.companyName)
 					{
@@ -48,10 +48,10 @@ app.controller('empCtrl', [
 			};
 
 			$scope.save = function() {
-					$scope.ent.eModel.createdAt=new Date($scope.ent.eModel.createdAt);
+					$scope.ent.eModel.releaseDate=new Date($scope.ent.eModel.releaseDate);
 					/*$scope.ent.eModel.updatedAt=new Date($scope.ent.eModel.updatedAt);
-					$scope.ent.eModel.releaseDate=new Date($scope.ent.eModel.releaseDate);*/					
-					
+					$scope.ent.eModel.releaseDate=new Date($scope.ent.eModel.releaseDate);*/
+
 				$http.post("/adminportal/care/devicebaseprice/save",
 						$scope.ent).then(function(response) {
 					console.log(response);
@@ -62,11 +62,11 @@ app.controller('empCtrl', [
 			};
 
 			$scope.update = function() {
-				
+
 				$scope.ent.eModel.createdAt=new Date($scope.ent.eModel.createdAt);
 				/*$scope.ent.eModel.updatedAt=new Date($scope.ent.eModel.updatedAt);
 				$scope.ent.eModel.releaseDate=new Date($scope.ent.eModel.releaseDate);*/
-				
+
 				$http.post("/adminportal/care/devicebaseprice/update",
 						$scope.ent).then(function(response) {
 					console.log(response);
@@ -113,7 +113,7 @@ app.controller('empCtrl', [
 				      console.log(response);
 				      $scope.arrEntityForCompany = response.data;
 				     });
-			
+
 			$scope.search = function() {
 				console.log("searcg called")
 				$http.post("/adminportal/care/devicebaseprice/search",$scope.companyName).then(
@@ -122,5 +122,5 @@ app.controller('empCtrl', [
 							$scope.arrEntity = response.data;
 						});
 			};
-			
+
 		} ]);

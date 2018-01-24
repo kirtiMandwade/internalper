@@ -136,7 +136,7 @@ $scope.buttondis=true;
 
 				var valueType;
 				var featureDesc;
-// choiceid=choiceid+1;
+				// choiceid=choiceid+1;
 			/*	var cvalue;
 				var slct;
 				$scope.cvalue=document.getElementsByName("choicevalue");

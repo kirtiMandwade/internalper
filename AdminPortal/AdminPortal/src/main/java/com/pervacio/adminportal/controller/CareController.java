@@ -96,7 +96,6 @@ public class CareController {
 
 		try {
 			arrLookUp=lookUpManager.findAllByLookUpKeyLookUpType(lookUpType);
-			System.out.println("ALLLLLLLLLLLLLLLLlllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll"+" " +arrLookUp.size());
 			logger.debug("get all LookUp by Lookuptype");
 
 		} catch (Exception e) {
@@ -415,7 +414,7 @@ public class CareController {
 
 		List<DiagTestCompanyMap> arrDiagtestcomp = null;
 		try {
-			arrDiagtestcomp = diagTestCompanyMapManager.findByCompanyName(companyName);
+			arrDiagtestcomp = diagTestCompanyMapManager.findAllByEcompanyCompanyName(companyName);
 			logger.info("search AppConfig  "+arrDiagtestcomp.size());
 
 		} catch (Exception e) {
@@ -596,7 +595,7 @@ public class CareController {
 	@RequestMapping(value = "/model/save", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody ResponseMessage saveeModel(@RequestBody EModelBean emodel)	//,@RequestParam("deviceImage") MultipartFile deviceImage
 	{
-//		byte[] decodedByte = Base64.decode("");
+/*//		byte[] decodedByte = Base64.decode("");
 		 byte[] buf = new byte[] { 0x12, 0x23 };
 		 Blob b = null;
 		    try {
@@ -614,10 +613,10 @@ public class CareController {
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
 		EModel entity = new EModel();
 		BeanUtils.copyProperties(emodel, entity);
-		entity.setDeviceImage(b);
+//		entity.setDeviceImage(b);
 
 
 
@@ -958,12 +957,12 @@ public class CareController {
 		return message;
 
 	}
-	
+
 	@RequestMapping(value = "/devicebaseprice/search", method = RequestMethod.POST, consumes = "application/json")
 	public @ResponseBody List<EDeviceTradeInBasePrice> searchEDeviceTradeInBasePrice(@RequestBody String companyName) {
-		
+
 		System.out.println("\n\ncompany name "+companyName+"\\n\\n");
-		
+
 		List<EDeviceTradeInBasePrice> arrEDevBsPrices = null;
 		try {
 			arrEDevBsPrices = eDeviceTradeInBasePriceManager.getEDeviceTradeInBasePriceByCompanyName(companyName);
@@ -1070,7 +1069,7 @@ public class CareController {
 		EUser entity = new EUser();
 		BeanUtils.copyProperties(eUser, entity);
 		ResponseMessage message = null;
-		
+
 		/*System.out.println("SHA Algoooo"+" "+SHA256.GenerateHash("input"));*/
 		try {
 			eUserManager.add(entity);
