@@ -25,6 +25,9 @@
 
 <link rel="stylesheet"
 	href="/adminportal/resources/css/style.css">
+	
+	<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
 
 </head>
 
@@ -55,13 +58,15 @@
 
 				<div>
 					<h1>DiagTest</h1>
-    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+					<div class="topnav">
+    <button   data-toggle="modal" data-target="#addModal" >
         <span class="glyphicon glyphicon-plus"></span>
         </button>
         
-        <button type="button" class="btn btn-primary" style="position: relative; left: 70%"
+        <button type="button"  
 												ng-disabled="editform.$invalid" data-dismiss="modal"
 												ng-click="updateDragAndDrop()">update</button>
+		</div>
         <div class="modal-footer">
 															
         </div>

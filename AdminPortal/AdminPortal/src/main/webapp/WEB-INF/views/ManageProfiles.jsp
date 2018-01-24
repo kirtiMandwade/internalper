@@ -18,6 +18,8 @@
 <link href="/adminportal/resources/css/angular-datepicker.css"
 	rel="stylesheet" type="text/css" />
 <script src="/adminportal/resources/js/angular-datepicker.js"></script>
+<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
 
 </head>
 
@@ -57,8 +59,8 @@
 
 				<div>
 					<h1>Profile</h1>
-					<div class="input-group" style="position: relation; left: 50%">
-						<!--
+				<!-- 	<div class="input-group" style="position: relation; left: 50%">
+						
 				<input type="text" class="form-control" placeholder="ProfileCd" id="txtSearch" ng-model="profileCd" style="height:27px"/>
   		 <div class="input-group-btn">
   		      <button class="btn btn-primary" ng-click="search()" >
@@ -67,7 +69,7 @@
         <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()">
      	   <span class="glyphicon glyphicon-plus"></span>
         </button>
-         -->
+        
 
 						<input type="text" class="form-control" placeholder="ProfileCd"
 							id="txtSearch" ng-model="profileCd"
@@ -93,7 +95,29 @@
 
 
 						</div>
-					</div>
+					</div> -->
+					<div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="ProfileCd" id="txtSearch" ng-model="profileCd" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal"
+								data-target="#addModal"
+								ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+        <button  data-toggle="modal" data-target="#duplicateModal" >
+        <span >Duplicate</span>
+</button>
+		
+		
+		
+	
+</div>
 				</div>
 				<br>
 

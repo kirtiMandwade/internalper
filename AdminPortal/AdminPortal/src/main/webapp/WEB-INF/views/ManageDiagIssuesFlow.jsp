@@ -48,7 +48,7 @@
 				<div>
 					<h1>DiagIssues</h1>
 
-    <button class="btn btn-primary"  data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
+    <button   data-toggle="modal" data-target="#addModal" style="position: relative; left: 90%">
         <span class="glyphicon glyphicon-plus"></span>
         </button>
 				</div>

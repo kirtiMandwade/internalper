@@ -22,6 +22,8 @@
 <link href="/adminportal/resources/css/angular-datepicker.css"
 	rel="stylesheet" type="text/css" />
 <script src="/adminportal/resources/js/angular-datepicker.js"></script>
+	<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
 
 
 </head>
@@ -52,7 +54,7 @@
 
 				<div>
 					<h1>Promotions</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
-      <div class="input-group" style="position:relation;left:50%">
+     <!--  <div class="input-group" style="position:relation;left:50%">
 
 				<input type="text" class="form-control" placeholder="PromoCode" id="txtSearch" ng-model="PromoCode" style="height:27px"/>
    <div class="input-group-btn">
@@ -64,7 +66,25 @@
         </button>
 
 
-   </div></div>
+   </div></div> -->
+   <div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="PromoCode" id="txtSearch" ng-model="PromoCode" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+      
+		
+		
+		
+	
+</div>
 				</div>
 				<br>
 
@@ -91,8 +111,18 @@
 						<td>{{promo.promotionKey.promoCode}}</td>
 						<td>{{promo.promoDesc}}</td>
 						<td>{{promo.promoPriority}}</td>
-						<td>{{promo.deviceSpecific}}</td>
-						<td>{{promo.gradeSpecific}}</td>
+						<!-- <td>{{promo.deviceSpecific}}</td> -->
+						<!-- new -->
+						  <td ng-if="promo.deviceSpecific == 'Y' ">Yes</td>
+						  <td ng-if="promo.deviceSpecific == 'N' ">No</td>
+						
+						<!-- end -->
+						<!-- <td>{{promo.gradeSpecific}}</td> -->
+						<!-- new -->
+						  <td ng-if="promo.gradeSpecific == 'Y' ">Yes</td>
+						  <td ng-if="promo.gradeSpecific == 'N' ">No</td>
+						
+						<!-- end -->
 						<td>{{promo.deductionType}}</td>
 						<td>{{promo.value}}</td>
 						<td>{{promo.promotionKey.companyName}}</td>

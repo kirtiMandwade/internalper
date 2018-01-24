@@ -18,6 +18,8 @@
 <script src="/adminportal/resources/manageDevice.js"></script>
 <script src="/adminportal/resources/css/style.css"></script>
 
+<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
 
 </head>
 
@@ -50,7 +52,7 @@
 
 				<div>
 					<h1>Devices</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
-      <div class="input-group" style="position:relation;left:50%">
+<!--       <div class="input-group" style="position:relation;left:50%">
 
 				<input type="text" class="form-control" placeholder="Model" id="txtSearch" ng-model="model" style="height:27px"/>
    <div class="input-group-btn">
@@ -62,7 +64,26 @@
         </button>
 
 
-   </div></div>
+   </div></div> -->
+   
+   <div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="Model" id="txtSearch" ng-model="model" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+      
+		
+		
+	
+</div>
+   
 				</div></br>
 
 				<!--   <div>
@@ -110,7 +131,13 @@
 						<td>{{device.model}}</td>
 						<td>{{device.color}}</td>
 						<td>{{device.storage}}</td>
-						<td>{{device.charger}}</td>
+						<!-- <td>{{device.charger}}</td> -->
+						<!-- new -->
+						  <td ng-if="device.charger == 'Y' ">Yes</td>
+						  <td ng-if="device.charger == 'N' ">No</td>
+						
+						<!-- end -->
+						
 						<td><a style="cursor: pointer;" data-toggle="modal"
 							data-target="#basePriceModal" ng-click="getBasePrice(device)">Show
 								Base Price</a></td>

@@ -17,6 +17,9 @@
 <link rel="stylesheet"
 href="/adminportal/resources/css/style.css">
 
+<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
+
 
 </head>
 
@@ -46,7 +49,7 @@ href="/adminportal/resources/css/style.css">
 
 				<div>
 					<h1>Device Price</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
-      <div class="input-group" style="position:relation;left:50%">
+<!--       <div class="input-group" style="position:relation;left:50%">
 
 				<input type="text" class="form-control" placeholder="CompanyName" id="txtSearch" ng-model="companyName" style="height:27px"/>
    <div class="input-group-btn">
@@ -58,7 +61,24 @@ href="/adminportal/resources/css/style.css">
         </button>
 
 
-   </div></div>
+   </div></div> -->
+   <div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="CompanyName" id="txtSearch" ng-model="companyName">
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal" ng-click="add()">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+      
+		
+		
+	
+</div>
 				</div>
 			<!-- <div class="col-sm-9">
 				<div>

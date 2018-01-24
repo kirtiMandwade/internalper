@@ -16,6 +16,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 <script src="/adminportal/resources/manageGrade.js"></script>
 <script src="/adminportal/resources/css/style.css"></script>
+<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
+
 
 </head>
 
@@ -44,7 +47,7 @@
 
 				<div>
 					<h1>Grades</h1>	<!-- <button class="btn btn-info" data-toggle="modal" data-target="#addModal" style="position:relative;left:90%">Add</button> -->
-      <div class="input-group" style="position:relation;left:50%">
+<!--       <div class="input-group" style="position:relation;left:50%">
 
 				<input type="text" class="form-control" placeholder="GradeCode" id="txtSearch" ng-model="gradeCode" style="height:27px"/>
    <div class="input-group-btn">
@@ -56,7 +59,25 @@
         </button>
 
 
-   </div></div>
+   </div></div> -->
+   <div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="GradeCode" id="txtSearch" ng-model="gradeCode" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal" ng-click="add()">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+        
+		
+		
+		
+	
+</div>
 				</div><br>
 
 				<!--   <div>
@@ -82,7 +103,12 @@
 						<td>{{grade.gradeDisplayName}}</td>
 						<td>{{grade.deductionValue}}</td>
 						<td>{{grade.deductionType}}</td>
-						<td>{{grade.active}}</td>
+						<!-- <td>{{grade.active}}</td> -->
+						<!-- new -->
+						  <td ng-if="grade.active == 'Y' ">Yes</td>
+						  <td ng-if="grade.active == 'N' ">No</td>
+						
+						<!-- end -->
 
 						<!-- <td ng-click="edit(grade)">edit</td>
 			<td ng-click="delete(grade)">delete</td> -->

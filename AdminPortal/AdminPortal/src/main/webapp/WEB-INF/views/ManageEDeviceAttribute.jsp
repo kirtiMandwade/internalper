@@ -46,7 +46,7 @@
 
 				<div>
 					<h1>DeviceAttributes</h1>
-					<button class="btn btn-primary" data-toggle="modal"
+					<button  data-toggle="modal"
 						data-target="#addModal" style="position: relative; left: 90%">
 						<span class="glyphicon glyphicon-plus"></span>
 					</button>

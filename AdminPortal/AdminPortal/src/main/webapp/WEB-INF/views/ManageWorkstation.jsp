@@ -19,6 +19,9 @@
 
 <link rel="stylesheet"
 	href="/adminportal/resources/css/style.css">
+	<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
+	
 <!-- <script src="/adminportal/resources/css/style.css"></script> -->
 
 <link href="/adminportal/resources/css/angular-datepicker.css"
@@ -65,7 +68,7 @@
 				<div class="col-xs-6 col-md-4">
 				<div>
 					<h1>Workstation</h1>
-  	    <div class="input-group" style="position:relation;left:50%">
+<!--   	    <div class="input-group" style="position:relation;left:50%">
 
 				<input type="text" class="form-control" placeholder="WorkStationName" id="txtSearch" ng-model="workStationName" style="height:27px"/>
   		 <div class="input-group-btn">
@@ -77,6 +80,24 @@
         </button>
 
 </div>
+</div> -->
+<div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="WorkStationName" id="txtSearch" ng-model="workStationName" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal" ng-click="addNewChoice();setDefaultValueForChoices()">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+        
+		
+		
+		
+	
 </div>
 </div>
 <br>
@@ -106,7 +127,12 @@
 						<td>{{entity.workStationName}}</td>
 						<td>{{entity.provisionedDate|date : "MM-dd-yyyy HH:mm:ss"}}</td>
 						<td>{{entity.endDate|date : "MM-dd-yyyy HH:mm:ss"}}</td>
-						<td>{{entity.active}}</td>
+						<!-- <td>{{entity.active}}</td> -->
+						<!-- new -->
+						  <td ng-if="entity.active == 'Y' ">Active</td>
+						  <td ng-if="entity.active == 'N' ">Inactive</td>
+						
+						<!-- end -->
 <!-- 						<td>{{entity.wsProfile.wsProfileId.profileCd}}</td>
  -->
 

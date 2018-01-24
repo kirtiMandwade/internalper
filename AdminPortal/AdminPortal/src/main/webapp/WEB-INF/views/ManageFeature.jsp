@@ -17,6 +17,9 @@
 <script src="/adminportal/resources/manageFeature.js"></script>
 <script src="/adminportal/resources/css/style.css"></script>
 
+<link rel="stylesheet"
+	href="/adminportal/resources/css/search-bar-style.css">
+
 </head>
 
 <body ng-app="AdminPortal" ng-controller="empCtrl">
@@ -51,7 +54,7 @@
 				<div class="col-xs-6 col-md-4">
 				<div>
 					<h1>Features</h1>
-  	    <div class="input-group" style="position:relation;left:50%">
+  	  <!--   <div class="input-group" style="position:relation;left:50%">
 
 				<input type="text" class="form-control" placeholder="FeatureCd" id="txtSearch" ng-model="featureCd" style="height:27px"/>
   		 <div class="input-group-btn">
@@ -63,6 +66,23 @@
         </button>
 
 </div>
+</div> -->
+<div class="topnav">
+	
+         
+	
+		<input type="text" placeholder="FeatureCd" id="txtSearch" ng-model="featureCd" >
+		<button ng-click="search()"><span class="glyphicon glyphicon-search" ></span></button>
+		
+	
+	   
+    <button data-toggle="modal" data-target="#addModal">
+        <span class="glyphicon glyphicon-plus" ></span>
+        </button>
+      
+		
+		
+	
 </div>
 </div>
 <br>
